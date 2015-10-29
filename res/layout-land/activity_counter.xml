@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    
+    <View
+        android:id="@+id/invisible"
+        android:layout_width="1dp"
+   		android:layout_height="1dp"
+   		android:background="@color/transparent"
+   		android:layout_centerInParent="true"
+        />
+    
+    <TextView 
+        android:id="@+id/display"
+        android:layout_width="match_parent"
+   		android:layout_height="60dp"
+   		android:layout_alignParentLeft="true"
+   		android:layout_alignRight="@id/invisible"
+   		android:layout_alignParentTop="true"
+   		android:layout_margin="20dp"
+   		android:paddingTop="15dp"
+   		android:paddingRight="5dp"
+   		android:textSize="20sp"
+   		android:background="@color/grey"
+   		android:text="@string/initial_seekbar_value"
+   		android:gravity="right"
+        />
+    
+    <SeekBar
+        android:id="@+id/seekbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/display"
+        android:layout_alignRight="@id/display"
+        android:layout_below="@id/display"
+        android:progress="0"
+        android:max="100"   />
+
+    <Button
+        android:id="@+id/increment"
+        android:layout_width="150dp"
+   		android:layout_height="60dp"
+   		android:layout_marginTop="10dp"
+   		android:layout_marginRight="20dp"
+   		android:layout_alignParentRight="true"
+   		android:layout_alignParentTop="true"
+   		android:text="@string/increment"     
+        />
+    
+
+    <Button
+        android:id="@+id/decrement"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_alignLeft="@id/increment"
+        android:layout_below="@id/increment"
+        android:text="@string/decrement"    />
+    
+
+    
+    <TextView 
+        android:id="@+id/seekbardisplay"
+        android:layout_width="150dp"
+   		android:layout_height="wrap_content"
+   		android:layout_marginTop="20dp"
+   		android:textSize="15sp"
+   		android:layout_alignLeft="@id/decrement"
+   		android:layout_below="@id/decrement"
+   		android:background="@color/grey"
+		android:text="@string/initial_seekbar_value"
+   		android:gravity="right"
+        />
+    
+</RelativeLayout>
