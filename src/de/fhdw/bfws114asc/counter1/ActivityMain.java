@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 public class ActivityMain extends Activity implements OnClickListener, OnSeekBarChangeListener {
 
-	//Test
 	private Button mIncrementButton, mDecrementButton;
 	private TextView mDisplayTextView, mDisplaySeekBar;
 	private SeekBar mSeekBar;
