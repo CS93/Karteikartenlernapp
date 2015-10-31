@@ -10,7 +10,7 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import de.fhdw.bfws114asc.counter1.R;
 import android.widget.TextView;
 
-public class ActivityMain extends Activity implements OnClickListener, OnSeekBarChangeListener {
+public class Init extends Activity implements OnClickListener, OnSeekBarChangeListener {
 
 	private Button mIncrementButton, mDecrementButton;
 	private TextView mDisplayTextView, mDisplaySeekBar;
