@@ -1,4 +1,4 @@
-package de.fhdw.bfws114asc.counter1;
+package de.fhdw.bfws114a.login;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
+import de.fhdw.bfws114asc.counter1.R;
 import android.widget.TextView;
 
 public class ActivityMain extends Activity implements OnClickListener, OnSeekBarChangeListener {
@@ -20,7 +21,7 @@ public class ActivityMain extends Activity implements OnClickListener, OnSeekBar
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_counter);
+		setContentView(R.layout.login);
 		mIncrementButton = (Button) findViewById(R.id.increment);
 		mDecrementButton = (Button) findViewById(R.id.decrement);
 		mSeekBar = (SeekBar) findViewById(R.id.seekbar);		
