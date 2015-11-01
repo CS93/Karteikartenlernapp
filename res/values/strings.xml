@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Counter 1</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="app_name">AppName</string>
     <string name="action_settings">Settings</string>
-    <string name="initial_seekbar_value">0</string>
-    <string name="increment">Inkrementiere</string>
-    <string name="decrement">Dekrementiere</string>
-
+    <string name="config">Konfiguration</string>
+    <string name="config_text1">Wie sollen die Fragen sortiert werden?</string>
+    <string name="config_text2">User wechseln oder löschen</string>
+    <string name="sorttyp">Sortierreihenfolge</string>
+    <string name="learntyp">Lernmodus</string>
+    <string name="send">Abschicken</string>
+    <string name="start_selection">Kartei auswählen</string>
+    <string name="start_config">Einstellungen</string>
+    <string name="logout">Logout</string>
+    <string name="statistics">Statistik</string>
+    <string name="amount_cardfile">Anzahl Karteien</string>
+    <string name="quest_all">Vorhandene Fragen</string>
+    <string name="quest_mc">Multiple Choice</string>
+    <string name="quest_ft">Freitext</string>
+    <string name="quest_g">Gedanklich</string>
+    <string name="quest_answered">Beantwortete Fragen</string>
+    <string name="quest_right">Richtig</string>
+    <string name="quest_wrong">Falsch</string>
+    <string name="hello">Hallo</string>
+    <string name="text_textview_cardfile_selection">Wähle eine Kartei aus</string>
+    <string name="cardfile1">Allgemeinwissen</string>
+    <string name="cardfile2">Fitness</string>
+    <string name="cardfile3">Musik</string>
+    <string name="cardfile4">Architektur</string>
+    <string name="cardfile5">Filme</string>
+    <string name="cardfile6">Kunst</string>
+    <string name="cardfile7">Geschichte</string>
+    <string name="cardfile8">Fotografie</string>
+    <string name="changeUser">User wechseln</string>
+    <string name="deleateUser">User löschen</string>
+    <string name="info">Über diese App</string>
+    <string name="login">Login</string>
+    <string name="new_user">Neuen Benutzer anlegen</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_saxparser">SAXParserActivity</string>
+    <string name="button">Parse XML using SAX</string>
+    <string name="button_login">Einloggen</string>
+    <string name="title_activity_statistics">StatisticsActivity</string>
+    <string name="logo">logo</string>
 </resources>
