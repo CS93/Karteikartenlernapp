@@ -42,4 +42,5 @@
     <string name="title_activity_statistics">StatisticsActivity</string>
     <string name="logo">logo</string>
     <string name="hello_world">Hello World!</string>
+    <string name="profile_management">Profilverwaltung</string>
 </resources>
