@@ -2,64 +2,38 @@ package de.fhdw.bfws114a.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.SeekBar;
-import android.widget.SeekBar.OnSeekBarChangeListener;
+import android.widget.ListView;
 import de.fhdw.bfws114asc.counter1.R;
-import android.widget.TextView;
 
-public class Init extends Activity implements OnClickListener, OnSeekBarChangeListener {
+public class Init extends Activity implements OnClickListener {
 
-	private Button mIncrementButton, mDecrementButton;
-	private TextView mDisplayTextView, mDisplaySeekBar;
-	private SeekBar mSeekBar;
-	private int mSeekbBarProgress;
-	private int mCounter;
+	private Button mLoginButton, mProfileManagementButton;
+	private ListView mChoiceList;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.login);
-		mIncrementButton = (Button) findViewById(R.id.increment);
-		mDecrementButton = (Button) findViewById(R.id.decrement);
-		mSeekBar = (SeekBar) findViewById(R.id.seekbar);		
-		mDisplayTextView = (TextView) findViewById(R.id.display);
-		mDisplaySeekBar = (TextView) findViewById(R.id.displaySeekBar);
-		mIncrementButton.setOnClickListener(this);
-		mDecrementButton.setOnClickListener(this);
-		mSeekBar.setOnSeekBarChangeListener(this);
-		mSeekbBarProgress = 0;
-		mCounter = 0;
+		mLoginButton = (Button) findViewById(R.id.increment);
+		mProfileManagementButton = (Button) findViewById(R.id.decrement);		
+		mChoiceList = (ListView) findViewById(R.id.choice);
+		mLoginButton.setOnClickListener(this);
+		mProfileManagementButton.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-		if(v == mIncrementButton){
-			mCounter += mSeekbBarProgress;
+		if(v == mLoginButton){
+			//Weiterleitung zur Karteiauswahl (UserMenu) + Übergabe des ausgewählten Benutzers --> mChoiceList
 		} else {
-			mCounter-= mSeekbBarProgress;
-		}
-		
-		mDisplayTextView.setText(String.valueOf(mCounter));
+			//Weiterleitung zum ProfileManagement
+		}		
+		Log.d("", "Folgender Button wurde geklickt:" + v);
 	}
-
-	@Override
-	public void onProgressChanged(SeekBar seekBar, int progress,
-			boolean fromUser) {
-		mSeekbBarProgress = progress;
-		mDisplaySeekBar.setText(String.valueOf(progress));
-	}
-
-	@Override
-	public void onStartTrackingTouch(SeekBar seekBar) {
-		
-	}
-
-	@Override
-	public void onStopTrackingTouch(SeekBar seekBar) {
-		
-	}
+	
 
 }
