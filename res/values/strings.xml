@@ -44,4 +44,7 @@
     <string name="hello_world">Hello World!</string>
     <string name="profile_management">Profilverwaltung</string>
     <string name="profile_choose_login">Profil auswählen:</string>
+    <string name="category_choose">Bitte Kategorie auswählen:</string>
+    <string name="settings_class_change">Lernklassen verwalten</string>
+    <string name="category_chosen">Kategorie wählen</string>
 </resources>
