@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">AppName</string>
+    <string name="app_name">FHDW-KarteiKartenApp</string>
     <string name="action_settings">Settings</string>
     <string name="config">Konfiguration</string>
     <string name="config_text1">Wie sollen die Fragen sortiert werden?</string>
@@ -43,4 +43,5 @@
     <string name="logo">logo</string>
     <string name="hello_world">Hello World!</string>
     <string name="profile_management">Profilverwaltung</string>
+    <string name="profile_choose_login">Profil auswählen:</string>
 </resources>
