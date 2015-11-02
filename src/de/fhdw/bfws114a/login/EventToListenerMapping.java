@@ -2,7 +2,7 @@ package de.fhdw.bfws114a.login;
 
 import android.view.View;
 import android.view.View.OnClickListener;
-import de.fhdw.bfws114a.he.R;
+import de.fhdw.bfws114asc.counter1.R;
 
 public class EventToListenerMapping implements OnClickListener {
 
@@ -10,18 +10,18 @@ public class EventToListenerMapping implements OnClickListener {
 
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
-		gui.getIncrementButton().setOnClickListener(this);
-		gui.getStartEditActivityButton().setOnClickListener(this);
+		gui.getLoginButton().setOnClickListener(this);
+		gui.getProfileManagementButton().setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch ( v.getId()){
-		case R.id.increment:
-			mApplicationLogic.onIncrementButtonClicked();
+		case R.id.login:
+			mApplicationLogic.onLoginButtonClicked();
 			break;
-		case R.id.start_edit_activity:
-			mApplicationLogic.onStartEditActivityButtonClicked();
+		case R.id.profile_management_start:
+			mApplicationLogic.onProfileManagementButtonClicked();
 			break;
 		}
 		

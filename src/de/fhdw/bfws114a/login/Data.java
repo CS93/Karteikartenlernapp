@@ -1,23 +1,27 @@
 package de.fhdw.bfws114a.login;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import de.fhdw.bfws114a.he.data.Constants;
+import android.widget.ArrayAdapter;
+import de.fhdw.bfws114a.data.Constants;
 
 public class Data {
 	
-	private int mCounterValue;
+	private ArrayList<String> mUserList; //Eventuell eine Liste verwenden
 	private Activity mActivity;
 	
 	public Data(Bundle b, Activity activity){
-		Intent intent;
-		
+		Intent intent;		
 		mActivity = activity;
 		if ( b == null ){
-			mCounterValue=0;
-			intent = activity.getIntent();
-			intent.getIntExtra(Constants.KEY_PAR_COUNTER_VALUE, mCounterValue);
+			//Erstes Aufrufen dieser Activity
+			ladeUser();
+//			Dieser Teil scheint die Counter-Value an die Activity zu binden
+//			intent = activity.getIntent();
+//			intent.getIntExtra(Constants.KEY_PAR_COUNTER_VALUE, mCounterValue);
 		}
 		else {
 			restoreDataFromBundle(b);
@@ -28,25 +32,20 @@ public class Data {
 		return mActivity;
 	}
 
+	private void ladeUser(){
+		//User aus xml laden und in user (String Array) hineinschreiben
+	}
+	
+	public ArrayList<String> getUser(){
+		return mUserList;
+	}
 	private void restoreDataFromBundle(Bundle b) {
-		mCounterValue = b.getInt(Constants.KEY_COUNTER_VALUE);
+		mUserList = b.getStringArrayList(Constants.KEY_USER_VALUE);
 		
 	}
 	
 	public void saveDataInBundle(Bundle b){
-		b.putInt(Constants.KEY_COUNTER_VALUE, mCounterValue);
-	}
-
-	public void incrementCounterValue () {
-		mCounterValue++;
-	}
-	
-	public int getCounterValue(){
-		return mCounterValue;
-	}
-	
-	public void setCounterValue(int counterValue){
-		mCounterValue = counterValue;
+		b.putStringArrayList(Constants.KEY_USER_VALUE, mUserList);
 	}
 	
 }
