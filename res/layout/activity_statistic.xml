@@ -15,13 +15,36 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/t_amount_category_statistic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/t_headline_statistic"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
+        android:text="@string/amount_category"
+        android:textColor="@color/orange"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/t_number_amount_category_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_amount_category_statistic"
+        android:layout_alignBottom="@+id/t_amount_category_statistic"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/t_amount_category_statistic"
+        android:text="@string/initial_category_amount"
+        android:textColor="@color/orange"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_number_amount_category_statistic"
+        android:layout_below="@+id/t_number_amount_category_statistic"
+        android:layout_marginTop="50dp"
         android:text="TextView" />
     
     </RelativeLayout>
