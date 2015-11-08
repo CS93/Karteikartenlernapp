@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/ocker" >
+
+    <TextView
+        android:id="@+id/t_category_choose_category_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/choose_category_category"
+        android:textColor="@color/orange"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/b_cardfile1_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_category_choose_category_menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile1" />
+
+    <Button
+        android:id="@+id/b_cardfile2_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile1_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile2" />
+    
+     <Button
+        android:id="@+id/b_cardfile3_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile2_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile3" />
+     
+     <Button
+        android:id="@+id/b_cardfile4_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile3_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile4" />
+     
+     <Button
+        android:id="@+id/b_cardfile5_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile4_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile5" />
+     
+     <Button
+        android:id="@+id/b_cardfile6_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile5_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile6" />
+     
+     <Button
+        android:id="@+id/b_cardfile7_category"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/b_cardfile6_category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/orange"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="@string/cardfile7" />
+    
+    </RelativeLayout>
