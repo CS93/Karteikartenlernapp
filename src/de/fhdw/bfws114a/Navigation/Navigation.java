@@ -2,6 +2,7 @@ package de.fhdw.bfws114a.Navigation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 
 public class Navigation {
@@ -52,10 +53,14 @@ public class Navigation {
 			String key, String value){
 		Intent intent;		
 		intent = new Intent();
-		intent.setClass(callingActivity, classOfActivityToStart);
-		intent.putExtra(key, value);		
-		callingActivity.startActivity(intent);		
+		intent.putExtra(key, value);	
+		intent.setClass(callingActivity, classOfActivityToStart);		
+		callingActivity.startActivity(intent);
 	}
+	
+	
+	
+	
 	
 //	private static void startActivityForResult(Activity callingActivity,
 //			Class <?> classOfActivityToStart,

@@ -1,6 +1,5 @@
-package de.fhdw.bfws114a.login;
+package de.fhdw.bfws114a.userMenu;
 
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {
@@ -14,15 +13,11 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		mGui.setChoiceList(mData.getUser());		
+//		mGui.setChoiceList(mData.getUser());		
 		
 	}
 	
-	public void onLoginButtonClicked(){
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
-		Navigation.startActivityUserMenu(mData.getActivity(), mGui.getChoiceList().getSelectedItem().toString());
-		
-	}
+
 		
 	
 	public void onProfileManagementButtonClicked(){

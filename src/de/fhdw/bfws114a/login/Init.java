@@ -1,14 +1,13 @@
 package de.fhdw.bfws114a.login;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 
 public class Init extends Activity {
 
 	private Data mData;
 	private Gui mGui;
-	private ApplicationLogic mApplicationLogic; 
+	private ApplicationLogic mApplicationLogic;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +17,7 @@ public class Init extends Activity {
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
+
 		
 	}
 	
