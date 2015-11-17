@@ -13,8 +13,7 @@ public class Init extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_user_menu);		
+		super.onCreate(savedInstanceState);	
 
 		//Der zweite Parameter den aktuellen User als String
 		initData(getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));

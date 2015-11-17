@@ -18,10 +18,10 @@ public class EventToListenerMapping implements OnClickListener {
 	public void onClick(View v) {
 		switch ( v.getId()){
 		case R.id.login:
-			mApplicationLogic.onLoginButtonClicked();
+//			mApplicationLogic.onLoginButtonClicked();
 			break;
 		case R.id.profile_management_start:
-			mApplicationLogic.onProfileManagementButtonClicked();
+//			mApplicationLogic.onProfileManagementButtonClicked();
 			break;
 		}
 		

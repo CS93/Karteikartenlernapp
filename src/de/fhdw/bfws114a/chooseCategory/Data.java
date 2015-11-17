@@ -9,9 +9,10 @@ import de.fhdw.bfws114a.data.Constants;
 
 public class Data {
 	
-	private String mUser; //Eventuell eine Liste verwenden
+	private String mUser;
 	private Activity mActivity;
 	private ArrayList<String> mKarteien;
+	//Hinweis: Man braucht auch die dazugehörige Statistik
 	
 	public Data(Bundle b, Activity activity, String user){
 		Intent intent;		
@@ -37,11 +38,15 @@ public class Data {
 
 	private void ladeKarteien(){
 		//Karteien aus xml in mKarteien laden
+		//Außerdem braucht man auch die dazugehörige Statistik
 		
 		//Test
 		mKarteien = new ArrayList<String>();
 		mKarteien.add("Biologie");
-		
+		mKarteien.add("Chemie");
+		mKarteien.add("Physik");
+		mKarteien.add("Informatik");
+		mKarteien.add("Sport");
 	}
 
 	

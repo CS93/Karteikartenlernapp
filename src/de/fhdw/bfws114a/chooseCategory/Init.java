@@ -10,37 +10,22 @@ public class Init extends Activity {
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
-	public static String mUser;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_user_menu);		
+		super.onCreate(savedInstanceState);		
 
 		//Der zweite Parameter den aktuellen User als String
 		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
 		initGui();
 		initApplicationLogic();
-		initEventToListenerMapping();		
+		initEventToListenerMapping();
 		
-			
+					
 	}
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-		mData.saveDataInBundle(outState);
-		super.onSaveInstanceState(outState);
-	}
-		
-
-//	@Override
-//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		mApplicationLogic.processActivityReturnValues(requestCode, resultCode, data);
-//		// super.onActivityResult(requestCode, resultCode, data);
-//	}
 
 	private void initData(Bundle savedInstanceState, String user) {
-		mData = new Data(savedInstanceState, this, user);
+		mData = new Data(savedInstanceState, this,  user);
 		
 	}
 	
