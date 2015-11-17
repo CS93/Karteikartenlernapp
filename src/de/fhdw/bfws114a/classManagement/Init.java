@@ -1,4 +1,4 @@
-package de.fhdw.bfws114a.userMenu;
+package de.fhdw.bfws114a.classManagement;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ public class Init extends Activity {
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
+	public static String mUser;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -17,16 +18,29 @@ public class Init extends Activity {
 		setContentView(R.layout.activity_user_menu);		
 
 		//Der zweite Parameter den aktuellen User als String
-		initData(getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
+		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
 		initGui();
 		initApplicationLogic();
-		initEventToListenerMapping();
+		initEventToListenerMapping();		
 		
-					
+			
 	}
 
-	private void initData(String user) {
-		mData = new Data(this,  user);
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		mData.saveDataInBundle(outState);
+		super.onSaveInstanceState(outState);
+	}
+		
+
+//	@Override
+//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//		mApplicationLogic.processActivityReturnValues(requestCode, resultCode, data);
+//		// super.onActivityResult(requestCode, resultCode, data);
+//	}
+
+	private void initData(Bundle savedInstanceState, String user) {
+		mData = new Data(savedInstanceState, this, user);
 		
 	}
 	

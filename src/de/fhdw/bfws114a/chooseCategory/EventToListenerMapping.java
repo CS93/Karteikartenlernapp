@@ -1,4 +1,4 @@
-package de.fhdw.bfws114a.userMenu;
+package de.fhdw.bfws114a.chooseCategory;
 
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,18 +10,18 @@ public class EventToListenerMapping implements OnClickListener {
 
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
-		gui.getChooseCategoryButton().setOnClickListener(this);
-		gui.getClassManagementButton().setOnClickListener(this);
+//		gui.getLoginButton().setOnClickListener(this);
+//		gui.getProfileManagementButton().setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch ( v.getId()){
-		case R.id.b_category_user_menu:
-			mApplicationLogic.onChooseCategoryButtonClicked();
+		case R.id.login:
+			mApplicationLogic.onLoginButtonClicked();
 			break;
-		case R.id.b_class_management_user_menu:
-			mApplicationLogic.onClassManagementButtonClicked();
+		case R.id.profile_management_start:
+			mApplicationLogic.onProfileManagementButtonClicked();
 			break;
 		}
 		

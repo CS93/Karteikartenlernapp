@@ -8,15 +8,31 @@ import de.fhdw.bfws114asc.counter1.R;
 public class Gui {
 	
 	private TextView mWelcomeUser;
+	private Button mChooseCategoryButton, mClassManagementButton;
 
 
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_login);
 		mWelcomeUser = (TextView) act.findViewById(R.id.t_hello_string_user_menu);		
-		mWelcomeUser.setText("Willkommen" + Init.mUser);
+		mChooseCategoryButton = (Button) act.findViewById(R.id.b_category_user_menu);
+		mClassManagementButton = (Button) act.findViewById(R.id.b_class_management_user_menu);
 	}
 
 	public TextView getWelcomeUserView() {
 		return mWelcomeUser;
 	}
+	
+	public void setWelcomeUserView(String user) {
+		mWelcomeUser.setText("Willkommen" + user);
+	}
+
+	public Button getChooseCategoryButton() {
+		return mChooseCategoryButton;
+	}
+
+	public Button getClassManagementButton() {
+		return mClassManagementButton;
+	}
+	
+	
 }

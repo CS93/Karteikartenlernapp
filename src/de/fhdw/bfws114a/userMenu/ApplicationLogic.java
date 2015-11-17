@@ -13,28 +13,18 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-//		mGui.setChoiceList(mData.getUser());		
-		
+		//Willkommensnachricht auf den aktuellen User anpassen
+		mGui.setWelcomeUserView(mData.getUser());		
 	}
-	
 
-		
-	
-	public void onProfileManagementButtonClicked(){
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 	
-		Navigation.startActivityProfileManagement(mData.getActivity());
+	public void onChooseCategoryButtonClicked() {
+		//Weiterleitung zur Kategorie bzw Karteiauswahl mit entsprechendem User 
+		Navigation.startActivityChooseCategory(mData.getActivity(), mData.getUser());
 	}
-	
-//	public void processActivityReturnValues(int requestCode, int resultCode, Intent intent) {
-//		if(resultCode==Activity.RESULT_OK) {
-//			if(requestCode==Constants.REQUESTCODE_ACTIVITY_EDIT) {
-//				int value;
-//				value = intent.getIntExtra(Constants.KEY_RETURN_COUNTER_VALUE, mData.getCounterValue());
-//				mData.setCounterValue(value);
-//				mGui.setCounterValue(value);
-//			}
-//		}
-//	}
 
+	public void onClassManagementButtonClicked() {
+		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
+		Navigation.startActivityClassManagement(mData.getActivity(), mData.getUser());
+	}
 }
 
