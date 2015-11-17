@@ -3,5 +3,236 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ocker" >
+
+    <TextView
+        android:id="@+id/t_class_headline_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="@string/class_management_headline"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/t_class_one_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_number_class_management"
+        android:layout_below="@+id/t_class_number_class_management"
+        android:layout_marginTop="60dp"
+        android:text="1"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_class_two_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_one_class_management"
+        android:layout_below="@+id/t_class_one_class_management"
+        android:layout_marginTop="60dp"
+        android:text="2"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_class_three_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_two_class_management"
+        android:layout_below="@+id/t_class_two_class_management"
+        android:layout_marginTop="60dp"
+        android:text="3"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_class_four_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_three_class_management"
+        android:layout_below="@+id/t_class_three_class_management"
+        android:layout_marginTop="60dp"
+        android:text="4"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_class_five_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_four_class_management"
+        android:layout_below="@+id/t_class_four_class_management"
+        android:layout_marginTop="60dp"
+        android:text="5"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_class_six_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/t_class_five_class_management"
+        android:layout_below="@+id/t_class_five_class_management"
+        android:layout_marginTop="60dp"
+        android:text="6"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_class_time_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/t_class_one_class_management"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="70dp"
+        android:text="@string/class_time_headline"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_class_number_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/t_class_headline_class_management"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/class_number_headline"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/et_class_one_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_one_class_management"
+        android:layout_alignRight="@+id/t_class_headline_class_management"
+        android:layout_marginRight="50dp"
+        android:ems="5"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/et_class_two_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_two_class_management"
+        android:layout_alignLeft="@+id/et_class_one_class_management"
+        android:ems="5"
+        android:inputType="number" />
+    
+    <EditText
+        android:id="@+id/et_class_three_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_three_class_management"
+        android:layout_alignLeft="@+id/et_class_two_class_management"
+        android:ems="5"
+        android:inputType="number"
+        android:textCursorDrawable="@null"  />
+    
+    <EditText
+        android:id="@+id/et_class_four_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_four_class_management"
+        android:layout_alignLeft="@+id/et_class_three_class_management"
+        android:ems="5"
+        android:inputType="number" />
+    
+    <EditText
+        android:id="@+id/et_class_five_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_five_class_management"
+        android:layout_alignLeft="@+id/et_class_four_class_management"
+        android:ems="5"
+        android:inputType="number" />
+    
+    <EditText
+        android:id="@+id/et_class_six_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/t_class_six_class_management"
+        android:layout_alignLeft="@+id/et_class_five_class_management"
+        android:ems="5"
+        android:inputType="number" 
+        android:text="6"
+        android:gravity="right"/>
+
+    <Spinner
+        android:id="@+id/s_class_one_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_one_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+    
+    <Spinner
+        android:id="@+id/s_class_two_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_two_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+    
+    <Spinner
+        android:id="@+id/s_class_three_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_three_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+    
+    <Spinner
+        android:id="@+id/s_class_four_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_four_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+    
+    <Spinner
+        android:id="@+id/s_class_five_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_five_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+    
+    <Spinner
+        android:id="@+id/s_class_six_class_management"
+        android:layout_width="80dp"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/et_class_six_class_management"
+        android:layout_alignRight="@+id/t_class_time_class_management" />
+
+    <Button
+        android:id="@+id/b_default_class_management"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignLeft="@+id/t_class_six_class_management"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Default"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+    
+    <Button
+        android:id="@+id/b_save_class_management"
+        android:layout_width="200dp"
+        android:layout_height="80dp"
+        android:layout_alignRight="@+id/s_class_six_class_management"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="37dp"
+        android:background="@drawable/roundedbutton"
+        android:text="Speichern"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
     
     </RelativeLayout>

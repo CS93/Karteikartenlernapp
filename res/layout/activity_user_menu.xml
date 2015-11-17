@@ -28,11 +28,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t_appname"
-        android:layout_marginTop="21dp"
         android:layout_marginLeft="21dp"
+        android:layout_marginTop="21dp"
         android:text="@string/hallo"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/t_username_user_menu"
@@ -44,26 +44,12 @@
         android:paddingLeft="5dp"
         android:text="@string/user"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
-
-    <Button
-        android:id="@+id/b_statistic_user_menu"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/b_category_user_menu"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:background="@drawable/roundedbutton"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:text="@string/statistic_user_menu"
-        android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/b_category_user_menu"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_below="@+id/t_username_user_menu"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
@@ -72,20 +58,20 @@
         android:paddingRight="10dp"
         android:text="@string/category_choose_user_menu"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/b_class_management_user_menu"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/b_statistic_user_menu"
-        android:layout_below="@+id/b_statistic_user_menu"
-        android:layout_marginTop="70dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/b_category_user_menu"
+        android:layout_below="@+id/b_category_user_menu"
+        android:layout_marginTop="100dp"
         android:background="@drawable/roundedbutton"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/class_management"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
 </RelativeLayout>

@@ -55,4 +55,7 @@
     <string name="initial_category_amount">7</string>
     <string name="addprofile_button">Profil anlegen</string>
     <string name="delprofile_button">Profil löschen</string>
+    <string name="class_number_headline">Klasse</string>
+    <string name="class_management_headline">Klassenmanagement</string>
+    <string name="class_time_headline">Zeitspanne</string>
 </resources>

@@ -4,4 +4,55 @@
     android:layout_height="match_parent"
     android:background="@color/ocker" >
     
+    <TextView
+        android:id="@+id/t_description_challenge_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Bitte die richtige Antwort eingeben:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_question_challenge_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Frage..." 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <EditText
+        android:id="@+id/et_answer_challenge_text"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_alignLeft="@+id/t_description_challenge_text"
+        android:layout_below="@+id/t_question_challenge_text"
+        android:layout_marginTop="100dp"
+        android:ems="22"
+        android:text="Antwort..."
+        android:inputType="text"
+        android:gravity="top" >
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/b_continue_challenge_text"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+		android:layout_centerHorizontal="true"
+        android:text="Weiter"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    
     </RelativeLayout>

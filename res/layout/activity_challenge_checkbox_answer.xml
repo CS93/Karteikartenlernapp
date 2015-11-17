@@ -3,5 +3,162 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/ocker" >
+
+    <TextView
+        android:id="@+id/t_question_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Frage..." 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <CheckBox
+        android:id="@+id/c_question_one_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/t_question_challenge_checkbox"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="60dp" />
+
+    <CheckBox
+        android:id="@+id/c_question_two_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_question_one_challenge_checkbox"
+        android:layout_below="@+id/c_question_one_challenge_checkbox"
+        android:layout_marginTop="50dp" />
+    
+    <CheckBox
+        android:id="@+id/c_question_three_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_question_two_challenge_checkbox"
+        android:layout_below="@+id/c_question_two_challenge_checkbox"
+        android:layout_marginTop="50dp" />
+    
+    <CheckBox
+        android:id="@+id/c_question_four_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_question_three_challenge_checkbox"
+        android:layout_below="@+id/c_question_three_challenge_checkbox"
+        android:layout_marginTop="50dp" />
+    
+    <CheckBox
+        android:id="@+id/c_question_five_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_question_four_challenge_checkbox"
+        android:layout_below="@+id/c_question_four_challenge_checkbox"
+        android:layout_marginTop="50dp" />
+    
+    <CheckBox
+        android:id="@+id/c_question_six_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/c_question_five_challenge_checkbox"
+        android:layout_below="@+id/c_question_five_challenge_checkbox"
+        android:layout_marginTop="50dp" />
+
+    <TextView
+        android:id="@+id/t_answer_one_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_one_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_one_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_one_challenge_checkbox"
+        android:text="Antwort 1" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_answer_two_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_two_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_two_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_two_challenge_checkbox"
+        android:text="Antwort 2" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_answer_three_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_three_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_three_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_three_challenge_checkbox"
+        android:text="Antwort 3" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_answer_four_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_four_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_four_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_four_challenge_checkbox"
+        android:text="Antwort 4" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_answer_five_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_five_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_five_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_five_challenge_checkbox"
+        android:text="Antwort 5" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_answer_six_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/c_question_six_challenge_checkbox"
+        android:layout_alignBottom="@+id/c_question_six_challenge_checkbox"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@+id/c_question_six_challenge_checkbox"
+        android:text="Antwort 6" 
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/b_continue_challenge_checkbox"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+		android:layout_centerHorizontal="true"
+        android:text="Weiter"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:id="@+id/t_description_challenge_checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Bitte die richtige/n Antwort/en ankreuzen:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
     
     </RelativeLayout>
