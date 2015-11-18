@@ -37,7 +37,7 @@ public class Data {
 	}
 
 	private void ladeKarteien(){
-		//Karteien aus xml in mKarteien laden
+		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
 		//Außerdem braucht man auch die dazugehörige Statistik
 		
 		//Test
@@ -47,6 +47,9 @@ public class Data {
 		mKarteien.add("Physik");
 		mKarteien.add("Informatik");
 		mKarteien.add("Sport");
+		mKarteien.add("Technik");
+		mKarteien.add("Geschichte");
+		mKarteien.add("Erdkunde");
 	}
 
 	

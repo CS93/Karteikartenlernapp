@@ -13,7 +13,7 @@ public class Gui {
 
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_user_menu);
-		mWelcomeUser = (TextView) act.findViewById(R.id.t_hello_string_user_menu);		
+		mWelcomeUser = (TextView) act.findViewById(R.id.t_username_user_menu);		
 		mChooseCategoryButton = (Button) act.findViewById(R.id.b_category_user_menu);
 		mClassManagementButton = (Button) act.findViewById(R.id.b_class_management_user_menu);
 	}
@@ -23,7 +23,7 @@ public class Gui {
 	}
 	
 	public void setWelcomeUserView(String user) {
-		mWelcomeUser.setText("Willkommen" + user);
+		mWelcomeUser.setText(user);
 	}
 
 	public Button getChooseCategoryButton() {

@@ -6,7 +6,7 @@ import de.fhdw.bfws114asc.counter1.R;
 
 public class Gui {
 	
-	private TextView[] categories = new TextView[5];
+	private TextView[] categories = new TextView[8];
 
 
 	public Gui(Activity act) {
@@ -16,6 +16,9 @@ public class Gui {
 		categories[2] = (TextView) act.findViewById(R.id.b_cardfile3_category);
 		categories[3] = (TextView) act.findViewById(R.id.b_cardfile4_category);
 		categories[4] = (TextView) act.findViewById(R.id.b_cardfile5_category);
+		categories[5] = (TextView) act.findViewById(R.id.b_cardfile6_category);
+		categories[6] = (TextView) act.findViewById(R.id.b_cardfile7_category);
+		categories[7] = (TextView) act.findViewById(R.id.b_cardfile8_category);
 	}
 
 	public TextView[] getCategories() {

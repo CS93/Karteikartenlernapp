@@ -13,7 +13,10 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-//		mGui.setChoiceList(mData.getUser());		
+		for(int i = 0; i < mGui.getCategories().length; i++){			
+			mGui.getCategory(i).setText(mData.getKarteien().get(i));
+		}
+
 		
 	}
 	
