@@ -21,22 +21,25 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:text="Frage..." 
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Frage...effsfsfsfsfsefsefsfsfsefsfsfsefesfsefsfsfsefsefsefsefse" 
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <EditText
         android:id="@+id/et_answer_challenge_text"
-        android:layout_width="wrap_content"
+        android:layout_width="550dp"
         android:layout_height="200dp"
-        android:layout_alignLeft="@+id/t_description_challenge_text"
-        android:layout_below="@+id/t_question_challenge_text"
-        android:layout_marginTop="100dp"
+        android:layout_below="@+id/t_description_challenge_text"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
         android:ems="22"
         android:text="Antwort..."
         android:inputType="text"
-        android:gravity="top" >
+        android:gravity="top"
+        android:textSize="30sp" >
         <requestFocus />
     </EditText>
     

@@ -21,9 +21,11 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
         android:text="Frage..." 
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <Button
         android:id="@+id/b_continue_challenge_without_option"
