@@ -157,7 +157,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Bitte die richtige/n Antwort/en ankreuzen:"
+        android:text="Ihr Ergebnis:"
         android:textColor="@color/orange"
         android:textSize="30sp" />
     

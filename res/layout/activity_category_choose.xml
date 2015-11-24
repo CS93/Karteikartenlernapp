@@ -8,7 +8,7 @@
         android:id="@+id/t_category_choose_category_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:text="@string/choose_category_category"
         android:textColor="@color/orange"
         android:layout_centerHorizontal="true"
@@ -20,7 +20,7 @@
         android:layout_height="50dp"
         android:layout_below="@+id/t_category_choose_category_menu"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -32,9 +32,9 @@
         android:id="@+id/b_cardfile2_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile1_category"
+        android:layout_below="@+id/t_cardfile1_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -46,9 +46,9 @@
         android:id="@+id/b_cardfile3_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile2_category"
+        android:layout_below="@+id/t_cardfile2_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -60,9 +60,9 @@
         android:id="@+id/b_cardfile4_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile3_category"
+        android:layout_below="@+id/t_cardfile3_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -74,9 +74,9 @@
         android:id="@+id/b_cardfile5_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile4_category"
+        android:layout_below="@+id/t_cardfile4_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -88,9 +88,9 @@
         android:id="@+id/b_cardfile6_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile5_category"
+        android:layout_below="@+id/t_cardfile5_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -102,9 +102,9 @@
         android:id="@+id/b_cardfile7_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile6_category"
+        android:layout_below="@+id/t_cardfile6_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
@@ -116,14 +116,384 @@
         android:id="@+id/b_cardfile8_category"
         android:layout_width="350dp"
         android:layout_height="50dp"
-        android:layout_below="@+id/b_cardfile7_category"
+        android:layout_below="@+id/t_cardfile7_statistic_category"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:textColor="@color/orange"
         android:background="@drawable/roundedbutton"
         android:paddingRight="10dp"
         android:paddingLeft="10dp" 
         android:text="@string/category8"
         android:textSize="30sp" />
-    
+
+     <TextView
+         android:id="@+id/t_cardfile1_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile1_category"
+         android:layout_below="@+id/b_cardfile1_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile2_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile2_category"
+         android:layout_below="@+id/b_cardfile2_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile3_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile3_category"
+         android:layout_below="@+id/b_cardfile3_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile4_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile4_category"
+         android:layout_below="@+id/b_cardfile4_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile5_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile5_category"
+         android:layout_below="@+id/b_cardfile5_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile6_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile6_category"
+         android:layout_below="@+id/b_cardfile6_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile7_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile7_category"
+         android:layout_below="@+id/b_cardfile7_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile8_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignLeft="@+id/b_cardfile8_category"
+         android:layout_below="@+id/b_cardfile8_category"
+         android:layout_marginTop="10dp"
+         android:text="Gesamt:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+
+     <TextView
+         android:id="@+id/t_cardfile1_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile1_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile1_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile1_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile2_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile2_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile2_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile2_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile3_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile3_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile3_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile3_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile4_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile4_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile4_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile4_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile5_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile5_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile5_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile5_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile6_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile6_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile6_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile6_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile7_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile7_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile7_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile7_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile8_overall_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile8_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile8_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:layout_toRightOf="@+id/t_cardfile8_statistic_category"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+
+     <TextView
+         android:id="@+id/t_cardfile1_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile2_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile2_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile3_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile3_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile4_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile4_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile5_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile5_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile6_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile6_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile7_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile7_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/b_cardfile8_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile8_due_description_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBottom="@+id/t_cardfile8_statistic_category"
+         android:layout_alignRight="@+id/t_category_choose_category_menu"
+         android:layout_marginRight="42dp"
+         android:text="Fällig:"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+
+     <TextView
+         android:id="@+id/t_cardfile1_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile1_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile1_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile1_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile2_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile2_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile2_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile2_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+     <TextView
+         android:id="@+id/t_cardfile3_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile3_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile3_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile3_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+     
+      <TextView
+         android:id="@+id/t_cardfile4_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile4_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile4_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile4_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+          
+      <TextView
+         android:id="@+id/t_cardfile5_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile5_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile5_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile5_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+      
+      <TextView
+         android:id="@+id/t_cardfile6_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile6_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile6_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile6_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+      
+      <TextView
+         android:id="@+id/t_cardfile7_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile7_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile7_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile7_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+      
+      <TextView
+         android:id="@+id/t_cardfile8_due_statistic_category"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignBaseline="@+id/t_cardfile8_due_description_statistic_category"
+         android:layout_alignBottom="@+id/t_cardfile8_due_description_statistic_category"
+         android:layout_toRightOf="@+id/t_cardfile8_due_description_statistic_category"
+         android:layout_marginLeft="19dp"
+         android:text="0"
+         android:textColor="@color/orange"
+         android:textSize="20sp" />
+          
+          
+     
     </RelativeLayout>

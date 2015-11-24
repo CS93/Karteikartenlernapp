@@ -33,7 +33,7 @@
         android:layout_marginRight="20dp"
         android:background="@color/white"
         android:textColor="@color/orange"
-        android:textSize="60sp" />
+        android:textSize="100sp" />
 
     <Button
         android:id="@+id/profile_management_start"

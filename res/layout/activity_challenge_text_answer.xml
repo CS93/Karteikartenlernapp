@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Bitte die richtige Antwort eingeben:"
+        android:text="Ihr Ergebnis:"
         android:textColor="@color/orange"
         android:textSize="30sp" />
     
@@ -42,12 +42,47 @@
         android:paddingRight="10dp" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/t_user_answer_description_text_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/t_description_challenge_text_answer"
         android:layout_below="@+id/t_question_challenge_text_answer"
         android:layout_marginTop="61dp"
-        android:text="TextView" />
+        android:layout_centerHorizontal="true"     
+        android:text="Ihre Antwort:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_user_answer_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_user_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Antwort..."
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_correct_answer_description_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_user_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:text="Richtige Antwort:"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_correct_answer_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_correct_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Antwort..."
+        android:textColor="@color/green"
+        android:textSize="30sp" />
     
     </RelativeLayout>
