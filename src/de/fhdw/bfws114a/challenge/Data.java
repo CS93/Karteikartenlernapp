@@ -49,8 +49,11 @@ public class Data {
 	
 	public String getUser() {
 		return mUser;
+	}	
+	
+	public ArrayList<Challenge> getFaelligeChallenges() {
+		return mFaelligeChallenges;
 	}
-
 
 	private void restoreDataFromBundle(Bundle b) {
 		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
