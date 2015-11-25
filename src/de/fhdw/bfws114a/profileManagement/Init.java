@@ -9,6 +9,7 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		
 		//nur zum Testen
 		setContentView(R.layout.activity_profile_management);
 

@@ -1,6 +1,5 @@
 package de.fhdw.bfws114a.login;
 
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {

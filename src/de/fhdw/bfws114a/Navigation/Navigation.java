@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.Navigation;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 
 public class Navigation {

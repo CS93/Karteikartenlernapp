@@ -14,12 +14,12 @@ public class Gui {
 	private Button mLoginButton, mProfileManagementButton;
 	private Spinner mChoiceList;
 	//Beim initialisieren mancher Objekte ist der Context notwendig. 
-	//Um auf diesen jederzeit zugreifen zu können wird er hier als static definiert	
-	private Context context;
+	//Um auf diesen in der Methode setChoiceList zugreifen zu können wird er hier als Membervariable definiert	
+	private Context mContext;
 
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_login);
-		context = act;
+		mContext = act;
 		mLoginButton = (Button) act.findViewById(R.id.login);
 		mProfileManagementButton = (Button) act.findViewById(R.id.profile_management_start);		
 		mChoiceList = (Spinner) act.findViewById(R.id.choose_profile);
@@ -38,7 +38,7 @@ public class Gui {
 	}
 	
 	public void setChoiceList(ArrayList<String> choiceList) {		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, choiceList);
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, choiceList);
 		mChoiceList.setAdapter(spinnerAdapter);
 		
 	}	

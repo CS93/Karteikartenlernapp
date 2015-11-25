@@ -5,9 +5,8 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class Data {
 	
@@ -35,13 +34,8 @@ public class Data {
 
 	private void ladeUser(){
 		//User aus xml laden und in user (String Array) hineinschreiben
+		mUserList = DataInterface.loadUser();	
 		
-		//Test
-		mUserList = new ArrayList<String>();
-		mUserList.add("Samira");
-		mUserList.add("Frank");
-		mUserList.add("Ricardo");
-		mUserList.add("Carsten");
 	}
 	
 	public ArrayList<String> getUser(){

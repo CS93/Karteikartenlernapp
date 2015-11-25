@@ -18,9 +18,11 @@ public class EventToListenerMapping implements OnClickListener {
 	public void onClick(View v) {
 		switch ( v.getId()){
 		case R.id.b_category_user_menu:
+
 			mApplicationLogic.onChooseCategoryButtonClicked();
 			break;
 		case R.id.b_class_management_user_menu:
+
 			mApplicationLogic.onClassManagementButtonClicked();
 			break;
 		}

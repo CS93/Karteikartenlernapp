@@ -3,29 +3,27 @@ package de.fhdw.bfws114a.chooseCategory;
 import java.util.ArrayList;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.dataInterface.DataInterface;
+import de.fhdw.bfws114a.dataInterface.StatisticsObject;
 
 public class Data {
 	
 	private String mUser;
 	private Activity mActivity;
 	private ArrayList<String> mKarteien;
+	private ArrayList<StatisticsObject> mStatistik;
 	//Hinweis: Man braucht auch die dazugehörige Statistik
 	
-	public Data(Bundle b, Activity activity, String user){
-		Intent intent;		
+	public Data(Bundle b, Activity activity, String user){	
 		mActivity = activity;
 		mUser = user;
 		
 		if (b == null ){
-			//Erstes Aufrufen dieser Activity
-			
+			//Erstes Aufrufen dieser Activity			
 			ladeKarteien();
-//			Dieser Teil scheint die Counter-Value an die Activity zu binden
-//			intent = activity.getIntent();
-//			intent.getIntExtra(Constants.KEY_PAR_COUNTER_VALUE, mCounterValue);
+			ladeStatistiken();
 		}
 		else {
 			restoreDataFromBundle(b);
@@ -38,20 +36,15 @@ public class Data {
 
 	private void ladeKarteien(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		//Außerdem braucht man auch die dazugehörige Statistik
+		mKarteien = DataInterface.loadCategories();	
 		
-		//Test
-		mKarteien = new ArrayList<String>();
-		mKarteien.add("Biologie");
-		mKarteien.add("Chemie");
-		mKarteien.add("Physik");
-		mKarteien.add("Informatik");
-		mKarteien.add("Sport");
-		mKarteien.add("Technik");
-		mKarteien.add("Geschichte");
-		mKarteien.add("Erdkunde");
 	}
 
+	private void ladeStatistiken(){
+		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
+		mStatistik = DataInterface.loadStatistics(mKarteien);	
+		
+	}
 	
 	public String getUser() {
 		return mUser;
@@ -59,6 +52,11 @@ public class Data {
 
 	public ArrayList<String> getKarteien() {
 		return mKarteien;
+	}
+
+		
+	public ArrayList<StatisticsObject> getStatistik() {
+		return mStatistik;
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
