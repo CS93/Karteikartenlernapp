@@ -16,15 +16,11 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen und an Data weitergegeben
 		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		
-		
-		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen
-		Log.d("", getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE) + getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));
-
 		
 	}
 	
@@ -46,9 +42,9 @@ public class Init extends Activity {
 	}
 	
 	private void initGui() {
-		mGui1 = new Gui1(this);
-		mGui2 = new Gui2(this);
-		mGui3 = new Gui3(this);
+		mGui1 = new Gui1(this); //Fragetyp1 = Checkboxes (Auswahl)
+		mGui2 = new Gui2(this); //Fragetyp2 = Text-Antwort
+		mGui3 = new Gui3(this); //Fragetyp3 = Eigenkontrolle
 		
 	}
 
