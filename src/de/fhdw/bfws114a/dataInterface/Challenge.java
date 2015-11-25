@@ -10,6 +10,8 @@ public class Challenge {
 	private int mFrageTyp; //1 = Checkbox; 2 = Text; 3 = Eigenkontrolle
 	private String[] mAntworten; //Fragetyp 1 = 6 Anworten; 2 = nur die korrekte Antwort; 3 = nur die Korrekte Antwort
 	private int[] mKorrekteAnwortenFuerCheckbox; //Fragetyp 1 = indizes der korrekten Antworten; sonst = leer
+	
+	
 	public Challenge(String kartei, int aktuelleKlasse, Date zeitstempel, String frage, int frageTyp,
 			String[] antworten, int[] korrekteAnwortenFuerCheckbox) {
 		super();
@@ -55,6 +57,9 @@ public class Challenge {
 	}
 	public String[] getAntworten() {
 		return mAntworten;
+	}
+	public String getAntwort(int index) {
+		return mAntworten[index];
 	}
 	public void setAntworten(String[] mAntworten) {
 		this.mAntworten = mAntworten;

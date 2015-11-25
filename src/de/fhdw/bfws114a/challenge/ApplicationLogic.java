@@ -22,31 +22,35 @@ public class ApplicationLogic {
 		Challenge currentChallenge = mData.getFaelligeChallenges().get(indexOfCurrentChallenge);
 		currentQuestionType = currentChallenge.getFrageTyp();
 		if(currentQuestionType == 1){
-			applyDataToGui1();
+			applyDataToGui1(currentChallenge);
 		}
 		
 		if(currentQuestionType == 2){
-			applyDataToGui2();
+			applyDataToGui2(currentChallenge);
 		}
 		
 		if(currentQuestionType == 3){
-			applyDataToGui3();
+			applyDataToGui3(currentChallenge);
 		}
 	}
 	
 	//Wenn es FrageTyp 1 ist diese Methode ausführen
-	private void applyDataToGui1() {
-		
+	private void applyDataToGui1(Challenge currentChallenge) {
+		mGui1.getQuestion().setText(currentChallenge.getFrage());
+		for(int i = 0; i < 6; i++){
+			mGui1.getOption(i).setText(currentChallenge.getAntwort(i));
+		}
+		mGui1.showThisGui();
 	}
 	
 	//Wenn es FrageTyp 2 ist diese Methode ausführen
-	private void applyDataToGui2() {
-			
+	private void applyDataToGui2(Challenge currentChallenge) {
+		mGui2.getQuestion().setText(currentChallenge.getFrage());
 	}
 		
 	//Wenn es FrageTyp 3 ist diese Methode ausführen
-	private void applyDataToGui3() {
-			
+	private void applyDataToGui3(Challenge currentChallenge) {
+		mGui3.getQuestion().setText(currentChallenge.getFrage());	
 	}
 		
 	
