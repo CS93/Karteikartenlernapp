@@ -1,6 +1,7 @@
 package de.fhdw.bfws114a.dataInterface;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class DataInterface {
 	public static ArrayList<String> loadUser(){
@@ -53,5 +54,51 @@ public class DataInterface {
 		statistik.add(Objekt8);
 		return statistik;
 		
+	}
+
+	public static ArrayList<Challenge> loadChallenges(String category, String user) {
+		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
+		String[] antworten = new String[6]; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+		int[] korrekteAntworten = new int[6];
+		Date zeitstempel = new Date();
+		Challenge challenge;
+		//laden der Challenges in Abhängigikeit der Kartei (category) und des users aus der xml
+		
+		
+		//Test mit 3 Challenges der verschiedenen Typen			
+			//1. Kartei (typ 1 --> Checkbox)
+			antworten[0] = "10 Jahre";
+			antworten[1] = "30 Jahre";
+			antworten[2] = "50 Jahre";
+			antworten[3] = "70 Jahre";
+			antworten[4] = "90 Jahre";
+			antworten[5] = "110 Jahre";
+			korrekteAntworten[0] = 4;
+			zeitstempel.setTime(0);
+			challenge = new Challenge(category, 1, zeitstempel, "Wie hoch ist die maximale Lebenserwartung von Blauwalen", 1, antworten, korrekteAntworten);
+			alleChallenges.add(challenge);
+			//2. Kartei (typ 2 --> text-eingabe)
+			antworten[0] = "33";
+			korrekteAntworten = null;
+			zeitstempel.setTime(0);
+			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 1, antworten, korrekteAntworten);
+			alleChallenges.add(challenge);
+			
+			//2. Kartei (typ 2 --> text-eingabe)
+			antworten[0] = "33";
+			korrekteAntworten = null;
+			zeitstempel.setTime(0);
+			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 1, antworten, korrekteAntworten);
+			alleChallenges.add(challenge);
+			
+			//3. Kartei (typ 3 --> Selbstkontrolle)
+			antworten[0] = "200";
+			korrekteAntworten = null;
+			zeitstempel.setTime(0);
+			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Tonnen wiegt ein Blauwal maximal", 1, antworten, korrekteAntworten);
+			alleChallenges.add(challenge);
+			
+			
+		return alleChallenges;
 	}
 }
