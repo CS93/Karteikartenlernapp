@@ -1,12 +1,13 @@
 package de.fhdw.bfws114a.chooseCategory;
 
 import android.app.Activity;
+import android.widget.Button;
 import android.widget.TextView;
 import de.fhdw.bfws114asc.counter1.R;
 
 public class Gui {
 	
-	private TextView[] mCategories = new TextView[8];
+	private Button[] mCategories = new Button[8];
 	private TextView[] mOverallChallengesPerCategory = new TextView[8];
 	private TextView[] mDueChallengesPerCategory = new TextView[8];
 
@@ -14,14 +15,14 @@ public class Gui {
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_category_choose);
 		
-		mCategories[0] = (TextView) act.findViewById(R.id.b_cardfile1_category);
-		mCategories[1] = (TextView) act.findViewById(R.id.b_cardfile2_category);
-		mCategories[2] = (TextView) act.findViewById(R.id.b_cardfile3_category);
-		mCategories[3] = (TextView) act.findViewById(R.id.b_cardfile4_category);
-		mCategories[4] = (TextView) act.findViewById(R.id.b_cardfile5_category);
-		mCategories[5] = (TextView) act.findViewById(R.id.b_cardfile6_category);
-		mCategories[6] = (TextView) act.findViewById(R.id.b_cardfile7_category);
-		mCategories[7] = (TextView) act.findViewById(R.id.b_cardfile8_category);
+		mCategories[0] = (Button) act.findViewById(R.id.b_cardfile1_category);
+		mCategories[1] = (Button) act.findViewById(R.id.b_cardfile2_category);
+		mCategories[2] = (Button) act.findViewById(R.id.b_cardfile3_category);
+		mCategories[3] = (Button) act.findViewById(R.id.b_cardfile4_category);
+		mCategories[4] = (Button) act.findViewById(R.id.b_cardfile5_category);
+		mCategories[5] = (Button) act.findViewById(R.id.b_cardfile6_category);
+		mCategories[6] = (Button) act.findViewById(R.id.b_cardfile7_category);
+		mCategories[7] = (Button) act.findViewById(R.id.b_cardfile8_category);
 		
 		mOverallChallengesPerCategory[0] = (TextView) act.findViewById(R.id.t_cardfile1_overall_statistic_category);
 		mOverallChallengesPerCategory[1] = (TextView) act.findViewById(R.id.t_cardfile2_overall_statistic_category);
@@ -42,15 +43,15 @@ public class Gui {
 		mDueChallengesPerCategory[7] = (TextView) act.findViewById(R.id.t_cardfile8_due_statistic_category);
 	}
 
-	public TextView[] getCategories() {
+	public Button[] getCategories() {
 		return mCategories;
 	}
 
-	public TextView getCategory(int index) {
+	public Button getCategory(int index) {
 		return mCategories[index];
 	}	
 	
-	public void setCategories(TextView[] categories) {
+	public void setCategories(Button[] categories) {
 		this.mCategories = categories;
 	}
 

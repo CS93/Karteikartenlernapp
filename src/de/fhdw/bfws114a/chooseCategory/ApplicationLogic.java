@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.chooseCategory;
 
+import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {
@@ -23,21 +24,9 @@ public class ApplicationLogic {
 
 		
 	
-	public void onProfileManagementButtonClicked(){
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 	
-		Navigation.startActivityProfileManagement(mData.getActivity());
+	public void onCategoryClicked(String category){
+		//Weiterleitung zur Challenge (in den Lernmodus) mit entsprechender Kartei (category) und User 	
+		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 	}
-	
-//	public void processActivityReturnValues(int requestCode, int resultCode, Intent intent) {
-//		if(resultCode==Activity.RESULT_OK) {
-//			if(requestCode==Constants.REQUESTCODE_ACTIVITY_EDIT) {
-//				int value;
-//				value = intent.getIntExtra(Constants.KEY_RETURN_COUNTER_VALUE, mData.getCounterValue());
-//				mData.setCounterValue(value);
-//				mGui.setCounterValue(value);
-//			}
-//		}
-//	}
-
 }
 

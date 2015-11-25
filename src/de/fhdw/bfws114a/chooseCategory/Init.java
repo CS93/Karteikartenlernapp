@@ -15,7 +15,7 @@ public class Init extends Activity {
 		super.onCreate(savedInstanceState);		
 
 		//Der zweite Parameter den aktuellen User als String
-		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
+		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));		
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();

@@ -14,7 +14,8 @@ public class Navigation {
 									ACTIVITY_USER_MENU_CLASS = de.fhdw.bfws114a.userMenu.Init.class,
 									ACTIVITY_PROFILE_MANAGEMENT_CLASS = de.fhdw.bfws114a.profileManagement.Init.class,
 									ACTIVITY_CHOOSE_CATEGORY_CLASS = de.fhdw.bfws114a.chooseCategory.Init.class,
-									ACTIVITY_CLASS_MANAGEMENT_CLASS = de.fhdw.bfws114a.classManagement.Init.class;	
+									ACTIVITY_CLASS_MANAGEMENT_CLASS = de.fhdw.bfws114a.classManagement.Init.class,
+									ACTIVITY_CHALLENGE_CLASS = de.fhdw.bfws114a.challenge.Init.class;	
 	/*
 	public static void startActivityLogin(Activity callingActivity, int counterValue) {
 		startActivity(callingActivity, ACTIVITY_Class_CLASS,
@@ -43,7 +44,11 @@ public class Navigation {
 		startActivityWithParam(callingActivity, ACTIVITY_CLASS_MANAGEMENT_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user);		
 	}	
 	
+	public static void startActivityChallenge(Activity callingActivity, String user, String category) {
+		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
+	}
 	
+
 	private static void startActivity(Activity callingActivity,
 			Class <?> classOfActivityToStart){
 		Intent intent;
@@ -63,6 +68,17 @@ public class Navigation {
 		intent.setClass(callingActivity, classOfActivityToStart);		
 		callingActivity.startActivity(intent);
 	}
+	
+	private static void startActivityWithParams(Activity callingActivity, Class<?> classOfActivityToStart,
+			String key1, String value1, String key2, String value2) {
+		Intent intent;		
+		intent = new Intent();
+		intent.putExtra(key1, value1);
+		intent.putExtra(key2, value2);
+		intent.setClass(callingActivity, classOfActivityToStart);		
+		callingActivity.startActivity(intent);
+	}
+	
 	
 	
 	

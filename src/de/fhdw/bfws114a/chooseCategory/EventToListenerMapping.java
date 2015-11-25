@@ -2,7 +2,7 @@ package de.fhdw.bfws114a.chooseCategory;
 
 import android.view.View;
 import android.view.View.OnClickListener;
-import de.fhdw.bfws114asc.counter1.R;
+import android.widget.Button;
 
 public class EventToListenerMapping implements OnClickListener {
 
@@ -10,21 +10,16 @@ public class EventToListenerMapping implements OnClickListener {
 
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
-//		gui.getLoginButton().setOnClickListener(this);
-//		gui.getProfileManagementButton().setOnClickListener(this);
+		for(int i=0; i < gui.getCategories().length; i++){
+			gui.getCategory(i).setOnClickListener(this);
+		}
 	}
 
 	@Override
 	public void onClick(View v) {
-		switch ( v.getId()){
-		case R.id.login:
-//			mApplicationLogic.onLoginButtonClicked();
-			break;
-		case R.id.profile_management_start:
-//			mApplicationLogic.onProfileManagementButtonClicked();
-			break;
-		}
-		
+		//Beim Klick wird v zunächst zum Button gecastet und daraufhin als String an die Methode onCategoryClicked() übergeben
+		Button b = (Button) v;
+		mApplicationLogic.onCategoryClicked(b.getText().toString());		
 	}
 	
 }
