@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
-import de.fhdw.bfws114asc.counter1.R;
 
 public class Init extends Activity {
 

@@ -3,7 +3,7 @@ package de.fhdw.bfws114a.userMenu;
 import android.app.Activity;
 import android.widget.Button;
 import android.widget.TextView;
-import de.fhdw.bfws114asc.counter1.R;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
 	

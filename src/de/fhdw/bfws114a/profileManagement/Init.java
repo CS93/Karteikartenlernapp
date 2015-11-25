@@ -2,7 +2,7 @@ package de.fhdw.bfws114a.profileManagement;
 
 import android.app.Activity;
 import android.os.Bundle;
-import de.fhdw.bfws114asc.counter1.R;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class Init extends Activity {
 

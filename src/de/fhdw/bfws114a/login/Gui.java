@@ -7,7 +7,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import de.fhdw.bfws114asc.counter1.R;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
 	
