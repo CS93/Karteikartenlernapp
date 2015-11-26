@@ -9,11 +9,11 @@ public class Challenge {
 	private String mFrage;
 	private int mFrageTyp; //1 = Checkbox; 2 = Text; 3 = Eigenkontrolle
 	private String[] mAntworten; //Fragetyp 1 = 6 Anworten; 2 = nur die korrekte Antwort; 3 = nur die Korrekte Antwort
-	private int[] mKorrekteAnwortenFuerCheckbox; //Fragetyp 1 = indizes der korrekten Antworten; sonst = leer
+	private boolean[] mKorrekteAnwortenFuerCheckbox; //Fragetyp 1 = zu den 6 mAntworten jeweils ein Indiz ob diese Antwort richtig (true) ist; sonst = leer
 	
 	
 	public Challenge(String kartei, int aktuelleKlasse, Date zeitstempel, String frage, int frageTyp,
-			String[] antworten, int[] korrekteAnwortenFuerCheckbox) {
+			String[] antworten, boolean[] korrekteAnwortenFuerCheckbox) {
 		super();
 		this.mKartei = kartei;
 		this.mAktuelleKlasse = aktuelleKlasse;
@@ -64,10 +64,10 @@ public class Challenge {
 	public void setAntworten(String[] mAntworten) {
 		this.mAntworten = mAntworten;
 	}
-	public int[] getKorrekteAnwortenFuerCheckbox() {
+	public boolean[] getKorrekteAnwortenFuerCheckbox() {
 		return mKorrekteAnwortenFuerCheckbox;
 	}
-	public void setKorrekteAnwortenFuerCheckbox(int[] mKorrekteAnwortenFuerCheckbox) {
+	public void setKorrekteAnwortenFuerCheckbox(boolean[] mKorrekteAnwortenFuerCheckbox) {
 		this.mKorrekteAnwortenFuerCheckbox = mKorrekteAnwortenFuerCheckbox;
 	}
 	
