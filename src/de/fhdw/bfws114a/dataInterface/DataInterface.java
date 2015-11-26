@@ -3,6 +3,8 @@ package de.fhdw.bfws114a.dataInterface;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.widget.EditText;
+
 public class DataInterface {
 	public static ArrayList<String> loadUser(){
 		//Test
@@ -13,6 +15,28 @@ public class DataInterface {
 		userList.add("Carsten");
 		return userList;
 	}
+	
+	public static ArrayList<String> delUser(ArrayList<String> user, String delUser){
+		//Test von http://www.sjmp.de/java/bestimmte-elemente-eines-arrays-loeschen/ angepasst
+		if (user != null) {
+			for (int i = 0; i < user.size(); i++) {
+				if (user.get(i).equals(delUser)) {
+					user.remove(i);
+				}
+			}
+			return user;
+		} else {
+			return user;
+		}
+		
+	}
+	
+	public static ArrayList<String> addUser(ArrayList<String> user, String newUser){
+		//Test newUser.getText().toString()
+		user.add(newUser);
+		return user;
+	}
+
 	
 	public static ArrayList<String> loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
