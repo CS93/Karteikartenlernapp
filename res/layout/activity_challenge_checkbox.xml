@@ -25,6 +25,7 @@
         android:layout_marginRight="30dp"
         android:layout_marginTop="100dp"
         android:text="Frage..."
+        android:gravity="center"
         android:textColor="@color/orange"
         android:textSize="30sp" />
 
@@ -36,7 +37,7 @@
         android:layout_below="@+id/t_description_challenge_checkbox"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="150dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 1"
         android:textColor="@color/orange" />
@@ -48,7 +49,7 @@
         android:layout_alignLeft="@+id/c_question_one_challenge_checkbox"
         android:layout_below="@+id/c_question_one_challenge_checkbox"
         android:layout_marginTop="50dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 2"
         android:textColor="@color/orange" />
@@ -60,7 +61,7 @@
         android:layout_alignLeft="@+id/c_question_two_challenge_checkbox"
         android:layout_below="@+id/c_question_two_challenge_checkbox"
         android:layout_marginTop="50dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 3"
         android:textColor="@color/orange" />
@@ -72,7 +73,7 @@
         android:layout_alignLeft="@+id/c_question_three_challenge_checkbox"
         android:layout_below="@+id/c_question_three_challenge_checkbox"
         android:layout_marginTop="50dp" 
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 4"
         android:textColor="@color/orange"/>
@@ -84,7 +85,7 @@
         android:layout_alignLeft="@+id/c_question_four_challenge_checkbox"
         android:layout_below="@+id/c_question_four_challenge_checkbox"
         android:layout_marginTop="50dp" 
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 5"
         android:textColor="@color/orange" />
@@ -96,7 +97,7 @@
         android:layout_alignLeft="@+id/c_question_five_challenge_checkbox"
         android:layout_below="@+id/c_question_five_challenge_checkbox"
         android:layout_marginTop="50dp"
-        android:paddingLeft="20dp"
+        android:paddingLeft="60dp"
         android:textSize="30sp"
         android:text="Antwort 6"
         android:textColor="@color/orange" />
