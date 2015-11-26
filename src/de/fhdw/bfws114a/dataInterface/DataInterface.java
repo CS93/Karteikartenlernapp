@@ -108,20 +108,15 @@ public class DataInterface {
 			alleChallenges.add(challenge);
 
 			//2. Kartei (typ 2 --> text-eingabe)
+			antworten = new String[6];
 			antworten[0] = "33";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
 			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 1, antworten, korrekteAntworten);
 			alleChallenges.add(challenge);
-			
-			//2. Kartei (typ 2 --> text-eingabe)
-			antworten[0] = "33";
-			korrekteAntworten = null;
-			zeitstempel.setTime(0);
-			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 1, antworten, korrekteAntworten);
-			alleChallenges.add(challenge);
-			
+
 			//3. Kartei (typ 3 --> Selbstkontrolle)
+			antworten = new String[6];
 			antworten[0] = "200";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);

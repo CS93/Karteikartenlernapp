@@ -18,7 +18,7 @@ public class Init extends Activity {
 		super.onCreate(savedInstanceState);
 		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen und an Data weitergegeben
 		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
-		initGui();
+//		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
 		
@@ -49,7 +49,7 @@ public class Init extends Activity {
 	}
 
 	private void initApplicationLogic() {
-		mApplicationLogic = new ApplicationLogic(mData, mGui1, mGui2, mGui3);
+		mApplicationLogic = new ApplicationLogic(mData, this);
 	}
 
 	private void initEventToListenerMapping() {

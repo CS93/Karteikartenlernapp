@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.challenge;
 
+import android.app.Activity;
 import android.util.Log;
 import de.fhdw.bfws114a.dataInterface.Challenge;
 
@@ -10,38 +11,46 @@ public class ApplicationLogic {
 	private Gui3 mGui3;
 	private int indexOfCurrentChallenge = 0;
 	private int currentQuestionType;
+	private Activity mActivity;
 	
-	ApplicationLogic(Data data, Gui1 gui1, Gui2 gui2, Gui3 gui3){
+	ApplicationLogic(Data data, Activity act){
 		mData=data;
-		mGui1=gui1;
-		mGui2=gui2;
-		mGui3=gui3;
+		mActivity = act;
+//		mGui1=gui1;
+//		mGui2=gui2;
+//		mGui3=gui3;
 		applyDataToGui();
 	}
 
 	private void applyDataToGui(){
+		//FälligeChallenges ist null	
 		Challenge currentChallenge = mData.getFaelligeChallenges().get(indexOfCurrentChallenge);
 		currentQuestionType = currentChallenge.getFrageTyp();
 		if(currentQuestionType == 1){
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
+			mGui1 = new Gui1(mActivity);
 			applyDataToGui1(currentChallenge);
 		}
 		
 		if(currentQuestionType == 2){
+			mGui2 = new Gui2(mActivity);
 			applyDataToGui2(currentChallenge);
 		}
 		
 		if(currentQuestionType == 3){
+			mGui3 = new Gui3(mActivity);
 			applyDataToGui3(currentChallenge);
 		}
 	}
 	
 	//Wenn es FrageTyp 1 ist diese Methode ausführen
 	private void applyDataToGui1(Challenge currentChallenge) {
+		
 		mGui1.getQuestion().setText(currentChallenge.getFrage());
-		for(int i = 0; i < 6; i++){
+		for(int i = 0; i < 6; i++){	
 			mGui1.getOption(i).setText(currentChallenge.getAntwort(i));
 		}
-		mGui1.showThisGui();
+		
 	}
 	
 	//Wenn es FrageTyp 2 ist diese Methode ausführen

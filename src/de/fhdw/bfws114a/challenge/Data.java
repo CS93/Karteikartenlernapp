@@ -12,7 +12,7 @@ public class Data {
 	private String mUser;
 	private String mCategory;
 	private Activity mActivity;
-	private ArrayList<Challenge> mFaelligeChallenges;
+	private ArrayList<Challenge> mFaelligeChallenges = new ArrayList<Challenge>();
 	
 	public Data(Bundle b, Activity activity, String user, String category){	
 		mActivity = activity;
@@ -32,16 +32,17 @@ public class Data {
 	}
 
 	private void ladeFaelligeChallenges(){
-		ArrayList<Challenge> mFaelligeChallenges = new ArrayList<Challenge>();
 		ArrayList<Challenge> alleChallenges = DataInterface.loadChallenges(mCategory, mUser);
 		java.util.Date now = new java.util.Date();
+		long difference;
 		for(int i = 0; i< alleChallenges.size(); i++){
 			//Berechnen der Differenz zwischen Zeitstempel der aktuellen Challenge und dem Systemdatum
-			long difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
+			
+			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
 			
 			//Anstelle von 1000 muss hier die Zeit entsprechend der Klassendefinition stehen:
 			//Am besten ein Aufruf wie: dataInterface.ClassDefinition.getTimePeriod(int Klasse)
-			if(difference < 1000){
+			if(difference > 1000){
 				mFaelligeChallenges.add(alleChallenges.get(i));
 			}
 		}		
