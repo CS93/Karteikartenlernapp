@@ -53,10 +53,32 @@ public class ApplicationLogic {
 		mGui3.getQuestion().setText(currentChallenge.getFrage());	
 	}
 		
-	
+	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
-		//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.
+
+		if(currentQuestionType == 1){
+			// Solution aufrufen mit 
+			boolean userAnswerCorrect = true;
+			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
+			for(int i = 0; i<6;i++){
+				//Prüfen ob die Checkbox nur dann angeklickt wurde, wenn die Antwort auch richtig ist
+				if(mGui1.getOption(i).isSelected() != mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]){
+					//CheckBox[i] wurde falsch angeklickt
+					userAnswerCorrect = false;
+				}
+			}
+			//Solution aufrufen mit Parameter true
+			
+		}
 		
+		if(currentQuestionType == 2){
+			
+		}
+		
+		if(currentQuestionType == 3){
+			
+		}
+
 		indexOfCurrentChallenge++;
 //		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 	}

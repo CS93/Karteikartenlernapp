@@ -83,7 +83,7 @@ public class DataInterface {
 	public static ArrayList<Challenge> loadChallenges(String category, String user) {
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
 		String[] antworten = new String[6]; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
-		int[] korrekteAntworten = new int[6];
+		boolean[] korrekteAntworten = new boolean[6];
 		Date zeitstempel = new Date();
 		Challenge challenge;
 		//laden der Challenges in Abhängigikeit der Kartei (category) und des users aus der xml
@@ -97,10 +97,16 @@ public class DataInterface {
 			antworten[3] = "70 Jahre";
 			antworten[4] = "90 Jahre";
 			antworten[5] = "110 Jahre";
-			korrekteAntworten[0] = 4;
+			korrekteAntworten[0] = false;
+			korrekteAntworten[1] = false;
+			korrekteAntworten[2] = false;
+			korrekteAntworten[3] = false;
+			korrekteAntworten[4] = true;
+			korrekteAntworten[5] = false;
 			zeitstempel.setTime(0);
 			challenge = new Challenge(category, 1, zeitstempel, "Wie hoch ist die maximale Lebenserwartung von Blauwalen", 1, antworten, korrekteAntworten);
 			alleChallenges.add(challenge);
+
 			//2. Kartei (typ 2 --> text-eingabe)
 			antworten[0] = "33";
 			korrekteAntworten = null;
