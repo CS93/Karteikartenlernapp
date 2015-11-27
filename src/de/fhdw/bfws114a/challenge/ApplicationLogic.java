@@ -1,6 +1,8 @@
 package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
+import android.util.Log;
+import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.dataInterface.Challenge;
 
 public class ApplicationLogic {
@@ -15,9 +17,6 @@ public class ApplicationLogic {
 	ApplicationLogic(Data data, Activity act){
 		mData=data;
 		mActivity = act;
-//		mGui1=gui1;
-//		mGui2=gui2;
-//		mGui3=gui3;
 		applyDataToGui();
 	}
 
@@ -70,10 +69,11 @@ public class ApplicationLogic {
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
+		Log.d("", "Button weiter wurde geklickt");
 		if(currentQuestionType == 1){
 			// Solution aufrufen mit angkreuzten Anworten (mGui1.getOptions), indexOfCurrentChallenge und Kartei bzw
 			// Korrekte Antworten auf entsprechende Frage: mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]
-			
+			Navigation.startActivitySolution(mActivity, mGui1.getOptions(), mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
 			
 			boolean userAnswerCorrect = true;
 			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
@@ -92,6 +92,9 @@ public class ApplicationLogic {
 			}
 				//Zeitstempel aktualisieren
 		}
+		
+		
+		
 		
 		if(currentQuestionType == 2){
 			// Solution aufrufen mit gegebener Anwort (mGui2.getUserAnswer().getText().toString()), indexOfCurrentChallenge und Kartei bzw.

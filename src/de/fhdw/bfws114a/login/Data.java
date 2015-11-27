@@ -15,17 +15,9 @@ public class Data {
 	
 	public Data(Bundle b, Activity activity){
 		Intent intent;		
-		mActivity = activity;
-		if (b == null ){
-			//Erstes Aufrufen dieser Activity			
-			ladeUser();
-//			Dieser Teil scheint die Counter-Value an die Activity zu binden
-//			intent = activity.getIntent();
-//			intent.getIntExtra(Constants.KEY_PAR_COUNTER_VALUE, mCounterValue);
-		}
-		else {
-			restoreDataFromBundle(b);
-		}
+		mActivity = activity;			
+		ladeUser(); //User müssen immer geladen werden (da dieser Konstruktor auch nach dem Aktualisieren der Profile im Profilemanagement aufgerufen wird 
+		
 	}
 	
 	public Activity getActivity() {

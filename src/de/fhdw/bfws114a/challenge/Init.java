@@ -18,7 +18,7 @@ public class Init extends Activity {
 		super.onCreate(savedInstanceState);
 		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen und an Data weitergegeben
 		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
-//		initGui();
+//		initGui(); //Guis werden von der Applicationlogi initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
 		initApplicationLogic();
 		initEventToListenerMapping();
 		
