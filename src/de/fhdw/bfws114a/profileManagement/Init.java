@@ -45,4 +45,3 @@ public class Init extends Activity {
 		
 	}
 }
-

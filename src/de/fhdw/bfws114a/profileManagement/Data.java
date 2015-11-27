@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.profileManagement;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
@@ -30,3 +29,4 @@ public class Data {
 	}
 	
 }
+
