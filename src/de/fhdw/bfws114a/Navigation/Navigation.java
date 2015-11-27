@@ -2,7 +2,9 @@ package de.fhdw.bfws114a.Navigation;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.widget.CheckBox;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.dataInterface.Challenge;
 
 public class Navigation {
 	
@@ -15,7 +17,8 @@ public class Navigation {
 									ACTIVITY_PROFILE_MANAGEMENT_CLASS = de.fhdw.bfws114a.profileManagement.Init.class,
 									ACTIVITY_CHOOSE_CATEGORY_CLASS = de.fhdw.bfws114a.chooseCategory.Init.class,
 									ACTIVITY_CLASS_MANAGEMENT_CLASS = de.fhdw.bfws114a.classManagement.Init.class,
-									ACTIVITY_CHALLENGE_CLASS = de.fhdw.bfws114a.challenge.Init.class;	
+									ACTIVITY_CHALLENGE_CLASS = de.fhdw.bfws114a.challenge.Init.class,
+									ACTIVITY_SOLUTION_CLASS = de.fhdw.bfws114a.solution.Init.class;	
 	/*
 	public static void startActivityLogin(Activity callingActivity, int counterValue) {
 		startActivity(callingActivity, ACTIVITY_Class_CLASS,
@@ -48,6 +51,9 @@ public class Navigation {
 		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
+	public static void startActivitySolution(Activity callingActivity, CheckBox[] userAnswers, Challenge currentChallenge) {
+		startActivityForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, currentChallenge);
+	}
 
 	private static void startActivity(Activity callingActivity,
 			Class <?> classOfActivityToStart){
@@ -84,16 +90,16 @@ public class Navigation {
 	
 	
 	
-//	private static void startActivityForResult(Activity callingActivity,
-//			Class <?> classOfActivityToStart,
-//			String key, int value){
-//		Intent intent;
-//		
-//		intent = new Intent();
-//		intent.setClass(callingActivity, classOfActivityToStart);
-//		intent.putExtra(key, value);
-//		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_EDIT);
-//	}
+	private static void startActivityForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, CheckBox[] userAnswers, String keyChallenge, Challenge currentChallenge){
+		Intent intent;
+		
+		intent = new Intent();
+		intent.setClass(callingActivity, classOfActivityToStart);
+		intent.putExtra(keyCheckBoxex, userAnswers);	
+		//in einen Intent kann man keine Challenge "putten", eine Möglichkeit wären mehrere Keys und damit die Frage und korrekten Antworten als Strings übergeben
+//		intent.putExtra(keyChallenge, currentChallenge);
+		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_SOLUTIONS);
+	}
 	
 //	public static void setActivityEditReturnValues(Activity returningActivity, int counterValue) {
 //		setActivityReturnValues(returningActivity, Constants.KEY_RETURN_COUNTER_VALUE, counterValue);
