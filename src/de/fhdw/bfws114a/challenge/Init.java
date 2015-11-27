@@ -27,6 +27,8 @@ public class Init extends Activity {
 	@Override
 	public void onBackPressed() {
 		//Sie muss hier überschrieben werden um nicht zur Karteiauswahl zurückzukehren sondern die Statistics.Init zu öffnen
+		//Außerdem müssen Anzahl richtiger und falscher Antworten dieses Lernmodi überschrieben werden
+		
 	}
 
 	@Override
@@ -41,12 +43,12 @@ public class Init extends Activity {
 		
 	}
 	
-	private void initGui() {
-		mGui1 = new Gui1(this); //Fragetyp1 = Checkboxes (Auswahl)
-		mGui2 = new Gui2(this); //Fragetyp2 = Text-Antwort
-		mGui3 = new Gui3(this); //Fragetyp3 = Eigenkontrolle
-		
-	}
+//	private void initGui() {
+//		mGui1 = new Gui1(this); //Fragetyp1 = Checkboxes (Auswahl)
+//		mGui2 = new Gui2(this); //Fragetyp2 = Text-Antwort
+//		mGui3 = new Gui3(this); //Fragetyp3 = Eigenkontrolle
+//		
+//	}
 
 	private void initApplicationLogic() {
 		mApplicationLogic = new ApplicationLogic(mData, this);

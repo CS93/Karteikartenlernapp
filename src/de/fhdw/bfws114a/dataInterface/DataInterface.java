@@ -82,21 +82,24 @@ public class DataInterface {
 
 	public static ArrayList<Challenge> loadChallenges(String category, String user) {
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
-		String[] antworten = new String[6]; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
-		boolean[] korrekteAntworten = new boolean[6];
+		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+		boolean[] korrekteAntworten;
 		Date zeitstempel = new Date();
 		Challenge challenge;
 		//laden der Challenges in Abhängigikeit der Kartei (category) und des users aus der xml
 		
 		
-		//Test mit 3 Challenges der verschiedenen Typen			
+		//Test mit 3 Challenges der verschiedenen Typen	
+		
 			//1. Kartei (typ 1 --> Checkbox)
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "10 Jahre";
 			antworten[1] = "30 Jahre";
 			antworten[2] = "50 Jahre";
 			antworten[3] = "70 Jahre";
 			antworten[4] = "90 Jahre";
 			antworten[5] = "110 Jahre";
+			korrekteAntworten = new boolean[6];
 			korrekteAntworten[0] = false;
 			korrekteAntworten[1] = false;
 			korrekteAntworten[2] = false;
@@ -108,21 +111,21 @@ public class DataInterface {
 			alleChallenges.add(challenge);
 
 			//2. Kartei (typ 2 --> text-eingabe)
-			antworten = new String[6];
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "33";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
-			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 1, antworten, korrekteAntworten);
+			challenge = new Challenge(category, 1, zeitstempel, "Wie viele Meter wird ein Blauwal maximal", 2, antworten, korrekteAntworten);
 			alleChallenges.add(challenge);
 
+			
 			//3. Kartei (typ 3 --> Selbstkontrolle)
-			antworten = new String[6];
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "200";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
-			challenge = new Challenge(category, 2, zeitstempel, "Wie viele Tonnen wiegt ein Blauwal maximal", 1, antworten, korrekteAntworten);
+			challenge = new Challenge(category, 1, zeitstempel, "Wie viele Tonnen wiegt ein Blauwal maximal", 3, antworten, korrekteAntworten);
 			alleChallenges.add(challenge);
-			
 			
 		return alleChallenges;
 	}

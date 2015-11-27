@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
-import android.util.Log;
 import de.fhdw.bfws114a.dataInterface.Challenge;
 
 public class ApplicationLogic {
@@ -22,8 +21,10 @@ public class ApplicationLogic {
 		applyDataToGui();
 	}
 
-	private void applyDataToGui(){
-		//FälligeChallenges ist null	
+	private void applyDataToGui(){		
+		if(mData.getFaelligeChallenges() == null){
+			//Gui3 mit: "Es gibt keine fälligen Challenges" (continue muss dann disabled sein)
+		}		
 		Challenge currentChallenge = mData.getFaelligeChallenges().get(indexOfCurrentChallenge);
 		currentQuestionType = currentChallenge.getFrageTyp();
 		if(currentQuestionType == 1){
@@ -33,11 +34,13 @@ public class ApplicationLogic {
 		}
 		
 		if(currentQuestionType == 2){
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
 			mGui2 = new Gui2(mActivity);
 			applyDataToGui2(currentChallenge);
 		}
 		
 		if(currentQuestionType == 3){
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
 			mGui3 = new Gui3(mActivity);
 			applyDataToGui3(currentChallenge);
 		}
@@ -49,13 +52,13 @@ public class ApplicationLogic {
 		mGui1.getQuestion().setText(currentChallenge.getFrage());
 		for(int i = 0; i < 6; i++){	
 			mGui1.getOption(i).setText(currentChallenge.getAntwort(i));
-		}
-		
+		}		
 	}
 	
 	//Wenn es FrageTyp 2 ist diese Methode ausführen
 	private void applyDataToGui2(Challenge currentChallenge) {
 		mGui2.getQuestion().setText(currentChallenge.getFrage());
+		mGui2.getUserAnswer().setText("");
 	}
 		
 	//Wenn es FrageTyp 3 ist diese Methode ausführen
@@ -63,9 +66,10 @@ public class ApplicationLogic {
 		mGui3.getQuestion().setText(currentChallenge.getFrage());	
 	}
 		
+	
+	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
-		Log.d("", "Es wurde auf weiter geklickt");
 		if(currentQuestionType == 1){
 			// Solution aufrufen mit angkreuzten Anworten (mGui1.getOptions), indexOfCurrentChallenge und Kartei bzw
 			// Korrekte Antworten auf entsprechende Frage: mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]

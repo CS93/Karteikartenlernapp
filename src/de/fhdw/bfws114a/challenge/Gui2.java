@@ -17,6 +17,7 @@ public class Gui2 {
 
 	public Gui2(Activity act) {
 		mActivity = act;
+		act.setContentView(R.layout.activity_challenge_text);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_text);
 		mUserAnswer = (EditText) act.findViewById(R.id.et_answer_challenge_text);
 		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text);
