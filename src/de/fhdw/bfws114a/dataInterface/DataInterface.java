@@ -2,17 +2,21 @@ package de.fhdw.bfws114a.dataInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
-
 import android.widget.EditText;
 
 public class DataInterface {
+	
+	//Test
+private static ArrayList<String> userList;
+
 	public static ArrayList<String> loadUser(){
 		//Test
-		ArrayList<String> userList = new ArrayList<String>();
+		if (userList == null) {
+		userList = new ArrayList<String>();
 		userList.add("Samira");
 		userList.add("Frank");
 		userList.add("Ricardo");
-		userList.add("Carsten");
+		userList.add("Carsten");}
 		return userList;
 	}
 	
@@ -24,6 +28,7 @@ public class DataInterface {
 					user.remove(i);
 				}
 			}
+			userList = user;
 			return user;
 		} else {
 			return user;
@@ -32,11 +37,50 @@ public class DataInterface {
 	}
 	
 	public static ArrayList<String> addUser(ArrayList<String> user, String newUser){
-		//Test newUser.getText().toString()
 		user.add(newUser);
+		userList.add(newUser);
 		return user;
 	}
 
+	//Test
+private static int[] timeToClasses;
+	
+	public static int[] loadTimeToClasses(String user){
+		timeToClasses = new int[6];
+		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
+		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
+		timeToClasses[0] = 1;
+		timeToClasses[1] = 5;
+		timeToClasses[2] = 10;
+		timeToClasses[3] = 30;
+		timeToClasses[4] = 60;
+		timeToClasses[5] = 1440;
+		return timeToClasses;
+	}
+	
+	public static int[] loadDefaultTimeToClasses(String user){
+		int[] timeToClasses = new int[6];
+		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
+		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
+		timeToClasses[0] = 5;		//5 Min
+		timeToClasses[1] = 60;		//1 Stunde
+		timeToClasses[2] = 1440;	//1 Tag
+		timeToClasses[3] = 10080;	//7 Tage
+		timeToClasses[4] = 43200;	//30 Tage
+		timeToClasses[5] = 259200; 	//180 Tage
+		return timeToClasses;
+	}
+	
+	public static void saveTimeToClasses(String user, int[] timeToClass){
+		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
+		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
+		timeToClasses[0] = 5;		//5 Min
+		timeToClasses[1] = 60;		//1 Stunde
+		timeToClasses[2] = 1440;	//1 Tag
+		timeToClasses[3] = 10080;	//7 Tage
+		timeToClasses[4] = 43200;	//30 Tage
+		timeToClasses[5] = 259200; 	//180 Tage
+	}
 	
 	public static ArrayList<String> loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
