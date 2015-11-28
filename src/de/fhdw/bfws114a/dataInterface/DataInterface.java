@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 public class DataInterface {
 	
-	//Test
+	//Test zu den Usern
 private static ArrayList<String> userList;
 
 	public static ArrayList<String> loadUser(){
@@ -42,19 +42,19 @@ private static ArrayList<String> userList;
 		return user;
 	}
 
-	//Test
+	//Test zu den Klassen
 private static int[] timeToClasses;
 	
 	public static int[] loadTimeToClasses(String user){
 		timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
-		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
-		timeToClasses[0] = 1;
-		timeToClasses[1] = 5;
-		timeToClasses[2] = 10;
-		timeToClasses[3] = 30;
-		timeToClasses[4] = 60;
-		timeToClasses[5] = 1440;
+		//Die Zeiten sind in Minuten angegeben und werden in der Activity in Stunden und Tage umgerechnet
+		timeToClasses[0] = 1;	//1 Minute
+		timeToClasses[1] = 5;		//5 Minuten
+		timeToClasses[2] = 10;		//10 Minuten
+		timeToClasses[3] = 30;		//30 Minuten
+		timeToClasses[4] = 60;		//1 Stunde
+		timeToClasses[5] = 1440;	//1 Tag
 		return timeToClasses;
 	}
 	
@@ -67,20 +67,28 @@ private static int[] timeToClasses;
 		timeToClasses[2] = 1440;	//1 Tag
 		timeToClasses[3] = 10080;	//7 Tage
 		timeToClasses[4] = 43200;	//30 Tage
-		timeToClasses[5] = 259200; 	//180 Tage
+		timeToClasses[5] = 259200; //180 Tage
 		return timeToClasses;
 	}
 	
 	public static void saveTimeToClasses(String user, int[] timeToClass){
-		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
-		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
-		timeToClasses[0] = 5;		//5 Min
-		timeToClasses[1] = 60;		//1 Stunde
-		timeToClasses[2] = 1440;	//1 Tag
-		timeToClasses[3] = 10080;	//7 Tage
-		timeToClasses[4] = 43200;	//30 Tage
-		timeToClasses[5] = 259200; 	//180 Tage
+		//Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in Millisec
+		timeToClasses[0] = timeToClass[0];
+		timeToClasses[1] = timeToClass[1];
+		timeToClasses[2] = timeToClass[2];
+		timeToClasses[3] = timeToClass[3];
+		timeToClasses[4] = timeToClass[4];
+		timeToClasses[5] = timeToClass[5]; 
 	}
+	
+	public static int getTimePeriod(int classNumber, String user){
+		if (timeToClasses == null){
+			loadTimeToClasses(user);
+		}
+		return timeToClasses[classNumber-1];
+	}
+	
+	// Beginn der Karteien
 	
 	public static ArrayList<String> loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
@@ -100,6 +108,8 @@ private static int[] timeToClasses;
 		return karteien;
 	}
 
+	//Beginn der Statistik
+	
 	public static ArrayList<StatisticsObject> loadStatistics(ArrayList<String> karteien) {
 		
 		//Test
@@ -124,6 +134,8 @@ private static int[] timeToClasses;
 		
 	}
 
+	//Beginn der Karteikarten
+	
 	public static ArrayList<Challenge> loadChallenges(String category, String user) {
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
 		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
