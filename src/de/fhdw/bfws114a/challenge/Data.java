@@ -41,8 +41,8 @@ public class Data {
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
 			
 			//Anstelle von 1000 muss hier die Zeit entsprechend der Klassendefinition stehen:
-			//Am besten ein Aufruf wie: dataInterface.ClassDefinition.getTimePeriod(int Klasse)
-			if(difference > 1000){
+			//Klasse der momentan bearbeiteten Challange und User mitgegeben, Rückgabe in Min, daher *60*100 -> Millisec
+			if(difference > (DataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
 				mFaelligeChallenges.add(alleChallenges.get(i));
 			}
 		}		
