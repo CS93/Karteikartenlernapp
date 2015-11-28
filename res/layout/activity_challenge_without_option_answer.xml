@@ -35,10 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/t_description_challenge_without_option"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="120dp"
         android:text="Frage..."
+        android:gravity="center"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
     
     <TextView
         android:id="@+id/t_correct_answer_description_without_option_answer"
@@ -57,9 +58,10 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/t_correct_answer_description_without_option_answer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="70dp"
         android:text="Antwort..."
+        android:gravity="center"
         android:textColor="@color/green"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
     
     </RelativeLayout>

@@ -23,8 +23,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
         android:text="Frage..." 
+        android:gravity="center"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     
     <Button
@@ -60,8 +61,9 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Antwort..."
+        android:gravity="center"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/t_correct_answer_description_text_answer"
@@ -82,7 +84,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Antwort..."
+        android:gravity="center"
         android:textColor="@color/green"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     </RelativeLayout>
