@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.dataInterface.Challenge;
+import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -71,8 +72,7 @@ public class ApplicationLogic {
 	public void onContinueClicked(){
 		Log.d("", "Button weiter wurde geklickt");
 		if(currentQuestionType == 1){
-			// Solution aufrufen mit angkreuzten Anworten (mGui1.getOptions), indexOfCurrentChallenge und Kartei bzw
-			// Korrekte Antworten auf entsprechende Frage: mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]
+			// Solution aufrufen mit angkreuzten Anworten (mGui1.getOptions), indexOfCurrentChallenge und Kartei 
 			Navigation.startActivitySolution(mActivity, mGui1.getOptions(), mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
 			
 			boolean userAnswerCorrect = true;
@@ -84,17 +84,7 @@ public class ApplicationLogic {
 					userAnswerCorrect = false;
 				}
 			}
-			
-			if(userAnswerCorrect){
-				//Klasse der Challenge erhöhen (Wenn nicht 6)
-			} else {
-				//Klasse verringern (wenn nicht 1)
-			}
-				//Zeitstempel aktualisieren
-		}
-		
-		
-		
+		}			
 		
 		if(currentQuestionType == 2){
 			// Solution aufrufen mit gegebener Anwort (mGui2.getUserAnswer().getText().toString()), indexOfCurrentChallenge und Kartei bzw.
@@ -111,9 +101,25 @@ public class ApplicationLogic {
 		if(currentQuestionType == 3){
 			//Solution aufrufen mit Kartei
 		}
+		
+	}
 
+	public void answerFromSolution(boolean userAnswerCorrect) {
+		//Klasse der Challenge erhöhen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
+		if(userAnswerCorrect && mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAktuelleKlasse() != 6){
+			
+			DataInterface.increaseClass(mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+		}
+		//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
+		if ((!userAnswerCorrect) && mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAktuelleKlasse() != 1) {
+			DataInterface.decreaseClass(mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+		}
+			
+		//Zeitstempel aktualisieren
+		DataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(indexOfCurrentChallenge), mData.getUser());
+		
+		//Aktuellen index erhöhen und neue Challenge laden
 		indexOfCurrentChallenge++;
-//		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 	}
 }
 

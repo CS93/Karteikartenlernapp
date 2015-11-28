@@ -1,6 +1,7 @@
 package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
@@ -21,6 +22,13 @@ public class Init extends Activity {
 //		initGui(); //Guis werden von der Applicationlogi initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
 		initApplicationLogic();
 		initEventToListenerMapping();
+		
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		//Aus dem Intent wird der boolean-wert hinsichtlich Korrektheit der Frage zurückgeliefert
+		mApplicationLogic.answerFromSolution(data.getBooleanExtra(Constants.KEY_RETURN_CHALLENGE_ANSWER_BOOL, false));
 		
 	}
 	

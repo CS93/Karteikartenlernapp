@@ -2,6 +2,8 @@ package de.fhdw.bfws114a.dataInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
+
+import android.util.Log;
 import android.widget.EditText;
 
 public class DataInterface {
@@ -86,6 +88,28 @@ private static int[] timeToClasses;
 			loadTimeToClasses(user);
 		}
 		return timeToClasses[classNumber-1];
+	}
+	
+	//Bei richtiger Antwort muss die Klasse der Challenge erhöht werden
+	public static void increaseClass(Challenge currentChallenge){
+		//Nur zum testen
+		int alteKlasse = currentChallenge.getAktuelleKlasse();
+		int neueKlasse = alteKlasse+1;
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
+	}
+	
+	//Bei fehlerhafter Antwort muss die Klasse der Challenge verringer werden
+	public static void decreaseClass(Challenge currentChallenge){
+		//Nur zum testen
+		int alteKlasse = currentChallenge.getAktuelleKlasse();
+		int neueKlasse = alteKlasse-1;
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
+	}
+	
+	//Zeitstempel der Challenge auf die aktuelle Zeit setzen
+	public static void setCurrentTimestamp(Challenge currentChallenge, String user){
+		Date timestamp = new Date();
+		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhöht werden");
 	}
 	
 	// Beginn der Karteien

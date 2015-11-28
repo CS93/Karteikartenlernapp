@@ -52,7 +52,7 @@ public class Navigation {
 	}
 	
 	public static void startActivitySolution(Activity callingActivity, CheckBox[] userAnswers, Challenge currentChallenge) {
-		startActivityForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, currentChallenge);
+		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, currentChallenge);
 	}
 
 	private static void startActivity(Activity callingActivity,
@@ -90,7 +90,7 @@ public class Navigation {
 	
 	
 	
-	private static void startActivityForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, CheckBox[] userAnswers, String keyChallenge, Challenge currentChallenge){
+	private static void startActivitySolutionForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, CheckBox[] userAnswers, String keyChallenge, Challenge currentChallenge){
 		Intent intent;
 		
 		intent = new Intent();
@@ -101,18 +101,16 @@ public class Navigation {
 		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_SOLUTIONS);
 	}
 	
-//	public static void setActivityEditReturnValues(Activity returningActivity, int counterValue) {
-//		setActivityReturnValues(returningActivity, Constants.KEY_RETURN_COUNTER_VALUE, counterValue);
-//	}
-//	
-//	private static void setActivityReturnValues(Activity returningActivity,
-//			String key, int value) {
-//		Intent intent;
-//		
-//		intent = new Intent();
-//		intent.putExtra(key, value);
-//		returningActivity.setResult(Activity.RESULT_OK, intent);
-//		
-//	}
+	public static void setActivitySolutionReturnValues(Activity returningActivity, boolean userAnswerCorrect) {
+		setActivityReturnValues(returningActivity, Constants.KEY_RETURN_CHALLENGE_ANSWER_BOOL, userAnswerCorrect);
+	}
+	
+	private static void setActivityReturnValues(Activity returningActivity,
+			String key, boolean value) {
+		Intent intent;		
+		intent = new Intent();
+		intent.putExtra(key, value);
+		returningActivity.setResult(Activity.RESULT_OK, intent);		
+	}
 	
 }
