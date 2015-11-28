@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Karteien>
+	<Kartei>
+		<name>Mathematik</name>
+		<karteiID>0000</karteiID>
+		<card>
+			<cardID>0000</cardID>
+			<challenge>FRAGE1 ?</challenge>
+			<solution>ANTWORT1</solution>
+		</card>
+		<card>
+			<cardID>0001</cardID>
+			<challenge>FRAGE2 ?</challenge>
+			<solution>ANTWORT2</solution>
+		</card>
+		<card>
+			<cardID>0002</cardID>
+			<challenge>FRAGE3 ?</challenge>
+			<solution>ANTWORT3</solution>
+		</card>
+		<card>
+			<cardID>0003</cardID>
+			<challenge>FRAGE4 ?</challenge>
+			<solution>ANTWORT4</solution>
+		</card>
+		<card>
+			<cardID>0004</cardID>
+			<challenge>FRAGE5 ?</challenge>
+			<solution>ANTWORT5</solution>
+		</card>
+	</Kartei>
+</Karteien>
