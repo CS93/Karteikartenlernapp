@@ -58,6 +58,8 @@
     <string name="class_number_headline">Klasse</string>
     <string name="class_management_headline">Klassenmanagement</string>
     <string name="class_time_headline">Zeitspanne</string>
+    <string name="class_time_millisecond">Millisekunde</string>
+    <string name="class_time_second">Sekunde</string>
     <string name="class_time_minute">Minute</string>
     <string name="class_time_hour">Stunde</string>
     <string name="class_time_day">Tag</string>
