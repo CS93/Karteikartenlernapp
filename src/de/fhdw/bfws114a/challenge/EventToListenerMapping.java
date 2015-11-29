@@ -10,9 +10,19 @@ public class EventToListenerMapping implements OnClickListener {
 
 	public EventToListenerMapping(Gui1 gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
-		
+		gui.getContinue().setOnClickListener(this);		
 	}
 
+	public EventToListenerMapping(Gui2 gui, ApplicationLogic applicationLogic){
+		mApplicationLogic = applicationLogic;
+		gui.getContinue().setOnClickListener(this);		
+	}
+	
+	public EventToListenerMapping(Gui3 gui, ApplicationLogic applicationLogic){
+		mApplicationLogic = applicationLogic;
+		gui.getContinue().setOnClickListener(this);		
+	}
+	
 	@Override
 	public void onClick(View v) {
 		mApplicationLogic.onContinueClicked();		

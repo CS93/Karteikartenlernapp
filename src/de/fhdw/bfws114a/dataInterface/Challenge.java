@@ -1,8 +1,10 @@
 package de.fhdw.bfws114a.dataInterface;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Challenge {
+@SuppressWarnings("serial")
+public class Challenge implements Serializable {
 	private String mKartei;
 	private int mAktuelleKlasse;
 	private Date mZeitstempel;

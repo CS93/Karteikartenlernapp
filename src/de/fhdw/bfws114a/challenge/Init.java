@@ -21,7 +21,7 @@ public class Init extends Activity {
 		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
 //		initGui(); //Guis werden von der Applicationlogi initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
 		initApplicationLogic();
-		initEventToListenerMapping();
+//		initEventToListenerMapping(); //Da die Gui erst während der ApplicationLogic angelegt wird, muss auch das EventToListenerMapping verspätet stattfinden
 		
 	}
 	

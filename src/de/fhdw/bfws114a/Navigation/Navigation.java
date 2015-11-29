@@ -1,8 +1,9 @@
 package de.fhdw.bfws114a.Navigation;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.widget.CheckBox;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.dataInterface.Challenge;
 
@@ -51,8 +52,8 @@ public class Navigation {
 		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
-	public static void startActivitySolution(Activity callingActivity, CheckBox[] userAnswers, Challenge currentChallenge) {
-		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, currentChallenge);
+	public static void startActivitySolution(Activity callingActivity, boolean[] userAnswers, Challenge currentChallenge) {
+		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_CURRENT_CHALLENGE_VALUE, currentChallenge);
 	}
 
 	private static void startActivity(Activity callingActivity,
@@ -90,14 +91,14 @@ public class Navigation {
 	
 	
 	
-	private static void startActivitySolutionForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, CheckBox[] userAnswers, String keyChallenge, Challenge currentChallenge){
+	private static void startActivitySolutionForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, boolean[] userAnswers, String keyChallenge, Challenge currentChallenge){
 		Intent intent;
 		
 		intent = new Intent();
 		intent.setClass(callingActivity, classOfActivityToStart);
 		intent.putExtra(keyCheckBoxex, userAnswers);	
 		//in einen Intent kann man keine Challenge "putten", eine Möglichkeit wären mehrere Keys und damit die Frage und korrekten Antworten als Strings übergeben
-//		intent.putExtra(keyChallenge, currentChallenge);
+		intent.putExtra(keyChallenge, currentChallenge);
 		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_SOLUTIONS);
 	}
 	

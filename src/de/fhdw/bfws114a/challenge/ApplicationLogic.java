@@ -31,18 +31,21 @@ public class ApplicationLogic {
 			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
 			mGui1 = new Gui1(mActivity);
 			applyDataToGui1(currentChallenge);
+			new EventToListenerMapping(mGui1, this);
 		}
 		
 		if(currentQuestionType == 2){
 			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
 			mGui2 = new Gui2(mActivity);
 			applyDataToGui2(currentChallenge);
+			new EventToListenerMapping(mGui2, this);
 		}
 		
 		if(currentQuestionType == 3){
 			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
 			mGui3 = new Gui3(mActivity);
 			applyDataToGui3(currentChallenge);
+			new EventToListenerMapping(mGui3, this);
 		}
 	}
 	
@@ -70,20 +73,25 @@ public class ApplicationLogic {
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
-		Log.d("", "Button weiter wurde geklickt");
+		//Anworten der CheckBoxes im boolean[] speichern
+		boolean[] checkboxAnswer = new boolean[6];
+		for(int i = 0; i < 6; i++){
+			checkboxAnswer[i] = mGui1.getOption(i).isSelected();
+		}
+		
 		if(currentQuestionType == 1){
-			// Solution aufrufen mit angkreuzten Anworten (mGui1.getOptions), indexOfCurrentChallenge und Kartei 
-			Navigation.startActivitySolution(mActivity, mGui1.getOptions(), mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+			// Solution aufrufen mit angkreuzten Anworten (checkboxAnswer) und Kartei 
+			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
 			
-			boolean userAnswerCorrect = true;
-			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
-			for(int i = 0; i<6;i++){
-				//Prüfen ob die Checkbox nur dann angeklickt wurde, wenn die Antwort auch richtig ist
-				if(mGui1.getOption(i).isSelected() != mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]){
-					//CheckBox[i] wurde falsch angeklickt
-					userAnswerCorrect = false;
-				}
-			}
+//			boolean userAnswerCorrect = true;
+//			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
+//			for(int i = 0; i<6;i++){
+//				//Prüfen ob die Checkbox nur dann angeklickt wurde, wenn die Antwort auch richtig ist
+//				if(mGui1.getOption(i).isSelected() != mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]){
+//					//CheckBox[i] wurde falsch angeklickt
+//					userAnswerCorrect = false;
+//				}
+//			}
 		}			
 		
 		if(currentQuestionType == 2){
