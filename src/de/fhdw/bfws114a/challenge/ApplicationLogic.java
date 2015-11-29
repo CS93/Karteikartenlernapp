@@ -3,7 +3,7 @@ package de.fhdw.bfws114a.challenge;
 import android.app.Activity;
 import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
-import de.fhdw.bfws114a.dataInterface.Challenge;
+import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class ApplicationLogic {
@@ -81,7 +81,7 @@ public class ApplicationLogic {
 		
 		if(currentQuestionType == 1){
 			// Solution aufrufen mit angkreuzten Anworten (checkboxAnswer) und Kartei 
-			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), null);
 			
 //			boolean userAnswerCorrect = true;
 //			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde

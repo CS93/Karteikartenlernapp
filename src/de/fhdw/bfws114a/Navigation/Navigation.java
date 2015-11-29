@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
-import de.fhdw.bfws114a.dataInterface.Challenge;
 
 public class Navigation {
 	
@@ -52,8 +52,8 @@ public class Navigation {
 		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
-	public static void startActivitySolution(Activity callingActivity, boolean[] userAnswers, Challenge currentChallenge) {
-		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userAnswers, Constants.KEY_CURRENT_CHALLENGE_VALUE, currentChallenge);
+	public static void startActivitySolution(Activity callingActivity, boolean[] userCheckboxAnswers, Challenge currentChallenge, String userTextAnswer) {
+		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userCheckboxAnswers, Constants.KEY_CURRENT_CHALLENGE_VALUE, currentChallenge, userTextAnswer);
 	}
 
 	private static void startActivity(Activity callingActivity,
@@ -91,14 +91,15 @@ public class Navigation {
 	
 	
 	
-	private static void startActivitySolutionForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, boolean[] userAnswers, String keyChallenge, Challenge currentChallenge){
+	private static void startActivitySolutionForResult(Activity callingActivity, Class<?> classOfActivityToStart, String keyCheckBoxex, boolean[] userCheckboxAnswers, String keyChallenge, Challenge currentChallenge, String userTextAnswer){
 		Intent intent;
 		
 		intent = new Intent();
 		intent.setClass(callingActivity, classOfActivityToStart);
-		intent.putExtra(keyCheckBoxex, userAnswers);	
-		//in einen Intent kann man keine Challenge "putten", eine Möglichkeit wären mehrere Keys und damit die Frage und korrekten Antworten als Strings übergeben
+		intent.putExtra(keyCheckBoxex, userCheckboxAnswers);	
+		//in einen Intent kann man keine Challenge "putten", daher musste ich currentChallenge das Interface Serializable hinzufügen
 		intent.putExtra(keyChallenge, currentChallenge);
+		intent.putExtra(Constants.KEY_USER_ANSWER_TEXT, userTextAnswer);
 		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_SOLUTIONS);
 	}
 	

@@ -1,4 +1,4 @@
-package de.fhdw.bfws114a.dataInterface;
+package de.fhdw.bfws114a.data;
 
 import java.io.Serializable;
 import java.util.Date;

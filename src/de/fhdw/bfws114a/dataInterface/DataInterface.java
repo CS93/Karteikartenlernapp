@@ -5,6 +5,8 @@ import java.util.Date;
 
 import android.util.Log;
 import android.widget.EditText;
+import de.fhdw.bfws114a.data.Challenge;
+import de.fhdw.bfws114a.data.StatisticsObject;
 
 public class DataInterface {
 	

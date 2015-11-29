@@ -9,7 +9,8 @@ public class Constants {
 	public static final String KEY_USER_ANSWERS_CHECKBOXES = "de.fhdw.bfws114a.data.K6";
 	public static final String KEY_CURRENT_CHALLENGE_VALUE = "de.fhdw.bfws114a.data.K7";
 	public static final String KEY_RETURN_CHALLENGE_ANSWER_BOOL = "de.fhdw.bfws114a.data.K8";
-	
+	public static final String KEY_USER_ANSWER_TEXT = "de.fhdw.bfws114a.data.K9";
 	
 	public static final int REQUESTCODE_ACTIVITY_SOLUTIONS = 1;
+	
 }

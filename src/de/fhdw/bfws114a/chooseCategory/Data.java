@@ -6,8 +6,8 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.data.StatisticsObject;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
-import de.fhdw.bfws114a.dataInterface.StatisticsObject;
 
 public class Data {
 	
