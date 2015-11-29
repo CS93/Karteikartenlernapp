@@ -76,8 +76,9 @@ public class ApplicationLogic {
 		//Anworten der CheckBoxes im boolean[] speichern
 		boolean[] checkboxAnswer = new boolean[6];
 		for(int i = 0; i < 6; i++){
-			checkboxAnswer[i] = mGui1.getOption(i).isSelected();
+			checkboxAnswer[i] = mGui1.getOption(i).isChecked();
 		}
+		
 		
 		if(currentQuestionType == 1){
 			// Solution aufrufen mit angkreuzten Anworten (checkboxAnswer) und Kartei 

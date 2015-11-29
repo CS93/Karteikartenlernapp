@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 
@@ -52,7 +53,7 @@ public class Navigation {
 		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
-	public static void startActivitySolution(Activity callingActivity, boolean[] userCheckboxAnswers, Challenge currentChallenge, String userTextAnswer) {
+	public static void startActivitySolution(Activity callingActivity, boolean[] userCheckboxAnswers, Challenge currentChallenge, String userTextAnswer) {		
 		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userCheckboxAnswers, Constants.KEY_CURRENT_CHALLENGE_VALUE, currentChallenge, userTextAnswer);
 	}
 

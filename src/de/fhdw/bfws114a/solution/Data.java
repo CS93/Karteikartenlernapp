@@ -31,8 +31,12 @@ public class Data {
 
 	public boolean[] getUserAnswerCheckbox() {
 		return mUserAnswerCheckbox;
-	}	
+	}		
 	
+	public Challenge getCurrentChallenge() {
+		return mCurrentChallenge;
+	}
+
 	private void restoreDataFromBundle(Bundle b) {
 		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
 //		mFaelligeChallenges = b.getStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE);
