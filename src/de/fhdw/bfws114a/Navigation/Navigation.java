@@ -20,7 +20,8 @@ public class Navigation {
 									ACTIVITY_CHOOSE_CATEGORY_CLASS = de.fhdw.bfws114a.chooseCategory.Init.class,
 									ACTIVITY_CLASS_MANAGEMENT_CLASS = de.fhdw.bfws114a.classManagement.Init.class,
 									ACTIVITY_CHALLENGE_CLASS = de.fhdw.bfws114a.challenge.Init.class,
-									ACTIVITY_SOLUTION_CLASS = de.fhdw.bfws114a.solution.Init.class;	
+									ACTIVITY_SOLUTION_CLASS = de.fhdw.bfws114a.solution.Init.class,
+									ACTIVITY_STATISTICS_CLASS = de.fhdw.bfws114a.statistics.Init.class;	
 	/*
 	public static void startActivityLogin(Activity callingActivity, int counterValue) {
 		startActivity(callingActivity, ACTIVITY_Class_CLASS,
@@ -50,12 +51,17 @@ public class Navigation {
 	}	
 	
 	public static void startActivityChallenge(Activity callingActivity, String user, String category) {
-		startActivityWithParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
+		startActivityWithTwoStringParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
 	public static void startActivitySolution(Activity callingActivity, boolean[] userCheckboxAnswers, Challenge currentChallenge, String userTextAnswer) {		
 		startActivitySolutionForResult(callingActivity, ACTIVITY_SOLUTION_CLASS, Constants.KEY_USER_ANSWERS_CHECKBOXES, userCheckboxAnswers, Constants.KEY_CURRENT_CHALLENGE_VALUE, currentChallenge, userTextAnswer);
 	}
+	
+	public static void startActivityStatistics(Activity callingActivity, int indexOfCurrentChallenge, int numberOfDueChallenges,
+			int numberOfCorrectAnswers, int numberOfWrongAnswers) {
+		startActivityWithFourIntParams(callingActivity, ACTIVITY_STATISTICS_CLASS, Constants.KEY_INDEX_CURRENT_CHALLENGE, indexOfCurrentChallenge, Constants.KEY_NUMBER_DUE_CHALLENGES, numberOfDueChallenges, Constants.KEY_NUMBER_CORRECT_ANSWERS, numberOfCorrectAnswers, Constants.KEY_NUMBER_WRONG_ANSWERS, numberOfWrongAnswers);
+	}	
 
 	private static void startActivity(Activity callingActivity,
 			Class <?> classOfActivityToStart){
@@ -77,7 +83,7 @@ public class Navigation {
 		callingActivity.startActivity(intent);
 	}
 	
-	private static void startActivityWithParams(Activity callingActivity, Class<?> classOfActivityToStart,
+	private static void startActivityWithTwoStringParams(Activity callingActivity, Class<?> classOfActivityToStart,
 			String key1, String value1, String key2, String value2) {
 		Intent intent;		
 		intent = new Intent();
@@ -88,7 +94,17 @@ public class Navigation {
 	}
 	
 	
-	
+	private static void startActivityWithFourIntParams(Activity callingActivity, Class<?> classOfActivityToStart,
+			String key1, int indexOfCurrentChallenge, String key2, int numberOfDueChallenges, String key3, int numberOfCorrectAnswers, String key4, int numberOfWrongAnswers) {
+		Intent intent;		
+		intent = new Intent();
+		intent.putExtra(key1, indexOfCurrentChallenge);
+		intent.putExtra(key2, numberOfDueChallenges);
+		intent.putExtra(key3, numberOfCorrectAnswers);
+		intent.putExtra(key4, numberOfWrongAnswers);
+		intent.setClass(callingActivity, classOfActivityToStart);		
+		callingActivity.startActivity(intent);
+	}
 	
 	
 	
@@ -115,5 +131,5 @@ public class Navigation {
 		intent.putExtra(key, value);
 		returningActivity.setResult(Activity.RESULT_OK, intent);		
 	}
-	
+
 }

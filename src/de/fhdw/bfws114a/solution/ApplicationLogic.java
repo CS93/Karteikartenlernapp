@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.lernKartei.R;
 
@@ -79,9 +80,10 @@ public class ApplicationLogic {
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(View callingObject){
+		boolean userAnswerCorrect = false;
 		if(currentQuestionType == 1){
 			
-			boolean userAnswerCorrect = true;
+			userAnswerCorrect = true;
 			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
 			for(int i = 0; i<6;i++){
 				//Prüfen ob die Checkbox nur dann angeklickt wurde, wenn die Antwort auch richtig ist
@@ -90,32 +92,30 @@ public class ApplicationLogic {
 					userAnswerCorrect = false;
 				}
 			}
-			Log.d("Zeile 94 Applogic", ""+userAnswerCorrect);
-			//Diese Activity beenden und userAnswer für challenge speichern
 		}			
 		
 		if(currentQuestionType == 2){
-			boolean userAnswerCorrect = false;
+			userAnswerCorrect = false;
 			//Überprüfung ob User-Antwort und koreekte Antwort gleich sind			
 			if(mGui2.getUserAnswer().getText().toString().toLowerCase().equals(mData.getCurrentChallenge().getAntwort(0).toLowerCase())){
 				userAnswerCorrect = true;
-			}
-			Log.d("Zeile 104 Applogic", ""+userAnswerCorrect);
-			//Diese Activity beenden und userAnswer für challenge speichern
+			}	
 			
 		}
 		
-		if(currentQuestionType == 3){
-			boolean userAnswerCorrect;
+		if(currentQuestionType == 3){			
 			if(((Button) callingObject).getText().equals("Ja")){
 				//Frage wurde korrekt beantwortet
 				userAnswerCorrect = true;
 			} else {
 				userAnswerCorrect = false;
 			}
-			Log.d("Zeile 111 Applogic", ""+userAnswerCorrect);
-			//Diese Activity beenden und userAnswer für challenge speichern
 		}
+
+		//speichern ob user-Antwort korrekt war, Statistics starten, activity beenden
+		Navigation.setActivitySolutionReturnValues(mData.getActivity(), userAnswerCorrect);
+//		Navigation.startActivityStatistics(mData.getActivity());
+		mData.getActivity().finish();
 		
 	}
 

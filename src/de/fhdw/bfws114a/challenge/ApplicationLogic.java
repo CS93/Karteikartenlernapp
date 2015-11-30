@@ -11,7 +11,6 @@ public class ApplicationLogic {
 	private Gui1 mGui1;
 	private Gui2 mGui2;
 	private Gui3 mGui3;
-	private int indexOfCurrentChallenge = 0;
 	private int currentQuestionType;
 	private Activity mActivity;
 	
@@ -25,7 +24,7 @@ public class ApplicationLogic {
 		if(mData.getFaelligeChallenges() == null){
 			//Gui3 mit: "Es gibt keine fälligen Challenges" (continue muss dann disabled sein)
 		}		
-		Challenge currentChallenge = mData.getFaelligeChallenges().get(indexOfCurrentChallenge);
+		Challenge currentChallenge = mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge());
 		currentQuestionType = currentChallenge.getFrageTyp();
 		if(currentQuestionType == 1){
 			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
@@ -83,48 +82,40 @@ public class ApplicationLogic {
 			}
 			
 			// Solution aufrufen mit angkreuzten Anworten (checkboxAnswer) und Kartei 
-			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), null);
-			
-//			boolean userAnswerCorrect = true;
-//			//Überprüfung für jede CheckBox ob sie richtig angeklickt wurde
-//			for(int i = 0; i<6;i++){
-//				//Prüfen ob die Checkbox nur dann angeklickt wurde, wenn die Antwort auch richtig ist
-//				if(mGui1.getOption(i).isSelected() != mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getKorrekteAnwortenFuerCheckbox()[i]){
-//					//CheckBox[i] wurde falsch angeklickt
-//					userAnswerCorrect = false;
-//				}
-//			}
+			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), null);
 		}			
 		
 		if(currentQuestionType == 2){
 			// Solution aufrufen mit gegebener Anwort (mGui2.getUserAnswer().getText().toString()) und Kartei
-			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), mGui2.getUserAnswer().getText().toString());
+			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mGui2.getUserAnswer().getText().toString());
 			
 		}
 		
 		if(currentQuestionType == 3){
 			//Solution aufrufen mit Kartei
-			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), null);
+			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), null);
 		}
 		
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
+		Log.d("Applogic 113", ""+userAnswerCorrect);
 		//Klasse der Challenge erhöhen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
-		if(userAnswerCorrect && mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAktuelleKlasse() != 6){
-			
-			DataInterface.increaseClass(mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+		if(userAnswerCorrect && mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 6){			
+			DataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
 		}
 		//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
-		if ((!userAnswerCorrect) && mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAktuelleKlasse() != 1) {
-			DataInterface.decreaseClass(mData.getFaelligeChallenges().get(indexOfCurrentChallenge));
+		if ((!userAnswerCorrect) && mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 1) {
+			DataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
 		}
 			
+		Navigation.startActivityStatistics(mData.getActivity(), mData.getIndexOfCurrentChallenge(), mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
+		
 		//Zeitstempel aktualisieren
-		DataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(indexOfCurrentChallenge), mData.getUser());
+		DataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
 		
 		//Aktuellen index erhöhen und neue Challenge laden
-		indexOfCurrentChallenge++;
+		mData.increaseIndexOfCurrentChallenge();
 	}
 }
 

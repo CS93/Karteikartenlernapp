@@ -26,7 +26,9 @@ public class Gui1 {
 		mOptions[3] = (CheckBox) act.findViewById(R.id.c_question_four_challenge_checkbox);
 		mOptions[4] = (CheckBox) act.findViewById(R.id.c_question_five_challenge_checkbox);
 		mOptions[5] = (CheckBox) act.findViewById(R.id.c_question_six_challenge_checkbox);
+		checkBoxesNotChangeable();
 		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_checkbox);
+		
 
 	}
 
@@ -34,6 +36,12 @@ public class Gui1 {
 		 mActivity.setContentView(R.layout.activity_challenge_checkbox_answer);
 	}
 
+	private void checkBoxesNotChangeable() {
+		for(int i = 0; i < 6 ; i++){
+			mOptions[i].setClickable(false);
+		}
+	}
+	
 	public TextView getQuestion() {
 		return mQuestion;
 	}

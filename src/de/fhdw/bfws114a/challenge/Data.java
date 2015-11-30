@@ -12,6 +12,9 @@ public class Data {
 	private String mUser;
 	private String mCategory;
 	private Activity mActivity;
+	private int mIndexOfCurrentChallenge = 0;
+	private int mNumberOfCorrectAnswers = 0;
+	private int mNumberOfWrongAnswers = 0;
 	private ArrayList<Challenge> mFaelligeChallenges = new ArrayList<Challenge>();
 	
 	public Data(Bundle b, Activity activity, String user, String category){	
@@ -54,6 +57,18 @@ public class Data {
 	
 	public ArrayList<Challenge> getFaelligeChallenges() {
 		return mFaelligeChallenges;
+	}	
+
+	public int getIndexOfCurrentChallenge() {
+		return mIndexOfCurrentChallenge;
+	}
+
+	public int getNumberOfCorrectAnswers() {
+		return mNumberOfCorrectAnswers;
+	}
+
+	public int getNumberOfWrongAnswers() {
+		return mNumberOfWrongAnswers;
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
@@ -65,6 +80,11 @@ public class Data {
 	public void saveDataInBundle(Bundle b){		
 		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
 //		b.putStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE, mFaelligeChallenges);		
+	}
+
+	public void increaseIndexOfCurrentChallenge() {
+		mIndexOfCurrentChallenge++;
+		
 	}
 	
 }
