@@ -2,6 +2,96 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ocker" >
+    android:background="@color/fhdwblue" >
+    
+    <TextView
+        android:id="@+id/t_description_challenge_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Ihr Ergebnis:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_question_challenge_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Frage..." 
+        android:gravity="center"
+        android:textColor="@color/orange"
+        android:textSize="35sp" />
+    
+    
+    <Button
+        android:id="@+id/b_continue_challenge_text_answer"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+		android:layout_centerHorizontal="true"
+        android:text="Weiter"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
+    <TextView
+        android:id="@+id/t_user_answer_description_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_question_challenge_text_answer"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"     
+        android:text="Ihre Antwort:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_user_answer_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_user_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Antwort..."
+        android:gravity="center"
+        android:textColor="@color/orange"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/t_correct_answer_description_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_user_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Richtige Antwort:"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_correct_answer_text_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_correct_answer_description_text_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:text="Antwort..."
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textSize="35sp" />
     
     </RelativeLayout>

@@ -2,6 +2,123 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ocker" >
+    android:background="@color/fhdwblue" >
     
+    <TextView
+        android:id="@+id/t_headline_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="@string/statistic_user_menu"
+        android:textColor="@color/orange"
+        android:textSize="35sp" />
+
+    <TextView
+        android:id="@+id/t_amount_answered_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/t_headline_statistic"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="90dp"
+        android:text="Beantwortet:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_number_amount_answered_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_amount_answered_statistic"
+        android:layout_alignBottom="@+id/t_amount_answered_statistic"
+        android:layout_marginLeft="50dp"
+        android:layout_toRightOf="@+id/t_amount_answered_statistic"
+        android:text="0"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_amount_correct_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/t_amount_percent_correct_statistic"
+        android:layout_alignBottom="@id/t_number_amount_correct_statistic"
+        android:text="Richtig:"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_number_amount_correct_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/t_headline_statistic"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="90dp"
+        android:text="0"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+    
+    <TextView
+        android:id="@+id/t_amount_percent_correct_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/t_number_amount_percent_correct_statistic"
+        android:layout_marginRight="50dp"
+        android:layout_alignBottom="@id/t_number_amount_percent_correct_statistic"
+        android:text="Richtig (%):"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_number_amount_percent_correct_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/t_number_amount_correct_statistic"
+        android:layout_below="@+id/t_number_amount_correct_statistic"
+        android:layout_marginRight="150dp"
+        android:layout_marginTop="90dp"
+        android:text="0"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_amount_due_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/t_amount_answered_statistic"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="90dp"
+        android:text="Noch fällig:"
+        android:textColor="@color/yellow"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_number_amount_due_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_amount_due_statistic"
+        android:layout_alignBottom="@+id/t_amount_due_statistic"
+        android:layout_alignLeft="@id/t_number_amount_answered_statistic"
+        android:layout_toRightOf="@+id/t_amount_due_statistic"
+        android:text="0"
+        android:textColor="@color/yellow"
+        android:textSize="30sp" />
+    
+    <Button
+        android:id="@+id/b_continue_challenge_without_option"
+        android:layout_width="500dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+		android:layout_centerHorizontal="true"
+        android:text="Weiter"
+        android:background="@drawable/roundedbutton"
+        android:textColor="@color/orange"
+        android:textSize="30sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp" />
+
     </RelativeLayout>
