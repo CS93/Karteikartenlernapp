@@ -2,6 +2,93 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ocker" >
+    android:background="@color/fhdwblue" >
+    
+    <TextView
+        android:id="@+id/t_description_challenge_without_option_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Das Ergebnis:"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_question_challenge_without_option_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:text="Frage..."
+        android:gravity="center"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+    
+    <TextView
+        android:id="@+id/t_correct_answer_description_without_option_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_description_challenge_without_option_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Richtige Antwort:"
+        android:textColor="@color/green"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_correct_answer_without_option_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_correct_answer_description_without_option_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:text="Antwort..."
+        android:gravity="center"
+        android:textColor="@color/green"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/t_correct_ans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/b_continue_challenge_correct_yes_without_option_answer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:gravity="center"
+        android:text="Wussten Sie das?"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/b_continue_challenge_correct_yes_without_option_answer"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="50dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Ja"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+    
+    <Button
+        android:id="@+id/b_continue_challenge_correct_no_without_option_answer"
+        android:layout_width="400dp"
+        android:layout_height="60dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="50dp"
+        android:layout_alignBottom="@id/b_continue_challenge_correct_yes_without_option_answer"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Nein"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
     
     </RelativeLayout>

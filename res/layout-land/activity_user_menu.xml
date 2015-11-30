@@ -2,6 +2,76 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/ocker" >
-    
-    </RelativeLayout>
+    android:background="@color/fhdwblue" >
+
+    <ImageView
+        android:id="@+id/i_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="76dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/t_appname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/i_logo"
+        android:layout_centerHorizontal="true"
+        android:text="@string/app_name"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_hello_string_user_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/t_appname"
+        android:layout_marginLeft="21dp"
+        android:layout_marginTop="21dp"
+        android:text="@string/hallo"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/t_username_user_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_hello_string_user_menu"
+        android:layout_alignBottom="@+id/t_hello_string_user_menu"
+        android:layout_toRightOf="@+id/t_hello_string_user_menu"
+        android:paddingLeft="5dp"
+        android:text="@string/user"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/b_category_user_menu"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/t_username_user_menu"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/category_choose_user_menu"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/b_class_management_user_menu"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
+        android:layout_alignLeft="@+id/b_category_user_menu"
+        android:layout_below="@+id/b_category_user_menu"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="@string/class_management"
+        android:textColor="@color/orange"
+        android:textSize="40sp" />
+
+</RelativeLayout>

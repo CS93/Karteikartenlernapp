@@ -21,7 +21,6 @@ public class ApplicationLogic {
 		
 		//Diese Textview sollte die noch fälligen Challenges dieser Lernsession darstellen --> gesamte Challenges dieser Session - die bisher Bearbeiteten
 		mGui.getNumberOfDueChallenges().setText(String.valueOf(mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)));
-		
 	}
 	
 	public void onContinueClicked(){
