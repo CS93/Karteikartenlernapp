@@ -13,7 +13,9 @@ public class DataInterface {
 private static ArrayList<String> userList;
 private DatabaseHandler db;
 
-
+	public DataInterface(){
+		db = new DatabaseHandler(null);
+	}
 
 	public static ArrayList<String> loadUser(){
 		//db.getDatabaseName();
