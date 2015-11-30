@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.util.Log;
-import android.widget.EditText;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.StatisticsObject;
 
@@ -12,15 +11,26 @@ public class DataInterface {
 	
 	//Test zu den Usern
 private static ArrayList<String> userList;
+private DatabaseHandler db;
+
+
 
 	public static ArrayList<String> loadUser(){
+		//db.getDatabaseName();
+		//List<User> users = db.getAllUsers();
+		 
+        //for (User u : users) {
+           //userList.add(u.getName());
 		//Test
+		//}
+
 		if (userList == null) {
-		userList = new ArrayList<String>();
-		userList.add("Samira");
-		userList.add("Frank");
-		userList.add("Ricardo");
-		userList.add("Carsten");}
+			userList = new ArrayList<String>();
+			userList.add("Samira");
+			userList.add("Frank");
+			userList.add("Carsten");
+			userList.add("Ricardo");
+		}
 		return userList;
 	}
 	
@@ -92,12 +102,12 @@ private static int[] timeToClasses;
 		return timeToClasses[classNumber-1];
 	}
 	
-	//Bei richtiger Antwort muss die Klasse der Challenge erhöht werden
+	//Bei richtiger Antwort muss die Klasse der Challenge erhï¿½ht werden
 	public static void increaseClass(Challenge currentChallenge){
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse+1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhï¿½ht werden");
 	}
 	
 	//Bei fehlerhafter Antwort muss die Klasse der Challenge verringer werden
@@ -105,20 +115,20 @@ private static int[] timeToClasses;
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse-1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhï¿½ht werden");
 	}
 	
 	//Zeitstempel der Challenge auf die aktuelle Zeit setzen
 	public static void setCurrentTimestamp(Challenge currentChallenge, String user){
 		Date timestamp = new Date();
-		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhöht werden");
+		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhï¿½ht werden");
 	}
 	
 	// Beginn der Karteien
 	
 	public static ArrayList<String> loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		//Außerdem braucht man auch die dazugehörige Statistik
+		//Auï¿½erdem braucht man auch die dazugehï¿½rige Statistik
 		
 		//Test
 		ArrayList<String> karteien = new ArrayList<String>();
@@ -164,17 +174,17 @@ private static int[] timeToClasses;
 	
 	public static ArrayList<Challenge> loadChallenges(String category, String user) {
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
-		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmï¿½glichkeiten geeinigt
 		boolean[] korrekteAntworten;
 		Date zeitstempel = new Date();
 		Challenge challenge;
-		//laden der Challenges in Abhängigikeit der Kartei (category) und des users aus der xml
+		//laden der Challenges in Abhï¿½ngigikeit der Kartei (category) und des users aus der xml
 		
 		
 		//Test mit 3 Challenges der verschiedenen Typen	
 		
 			//1. Kartei (typ 1 --> Checkbox)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmï¿½glichkeiten geeinigt
 			antworten[0] = "10 Jahre";
 			antworten[1] = "30 Jahre";
 			antworten[2] = "50 Jahre";
@@ -193,7 +203,7 @@ private static int[] timeToClasses;
 			alleChallenges.add(challenge);
 
 			//2. Kartei (typ 2 --> text-eingabe)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmï¿½glichkeiten geeinigt
 			antworten[0] = "33";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
@@ -202,7 +212,7 @@ private static int[] timeToClasses;
 
 			
 			//3. Kartei (typ 3 --> Selbstkontrolle)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmï¿½glichkeiten geeinigt
 			antworten[0] = "200";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
