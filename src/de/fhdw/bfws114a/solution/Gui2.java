@@ -22,7 +22,7 @@ public class Gui2 {
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_text_answer);
 		mUserAnswer = (TextView) act.findViewById(R.id.t_user_answer_text_answer);
 		mCorrectAnswer = (TextView) act.findViewById(R.id.t_correct_answer_text_answer);
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text);
+		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text_answer);
 	}
 
 	public void showThisGui(){

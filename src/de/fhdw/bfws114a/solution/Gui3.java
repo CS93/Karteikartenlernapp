@@ -11,7 +11,7 @@ public class Gui3 {
 	private TextView mQuestion;
 	private TextView mAnswer;
 	private Activity mActivity;
-	private Button mContinue;
+	private Button mContinueCorrect, mContinueIncorrect;
 
 
 	public Gui3(Activity act) {
@@ -19,7 +19,8 @@ public class Gui3 {
 		act.setContentView(R.layout.activity_challenge_without_option_answer);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_without_option_answer);
 		mAnswer = (TextView) act.findViewById(R.id.t_correct_answer_without_option_answer);
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_without_option_answer);
+		mContinueCorrect = (Button) act.findViewById(R.id.b_continue_challenge_correct_yes_without_option_answer);
+		mContinueIncorrect = (Button) act.findViewById(R.id.b_continue_challenge_correct_no_without_option_answer);
 	}
 
 	public void showThisGui(){
@@ -38,7 +39,12 @@ public class Gui3 {
 		return mActivity;
 	}
 
-	public Button getContinue() {
-		return mContinue;
+	public Button getContinueCorrect() {
+		return mContinueCorrect;
 	}
+	
+	public Button getContinueIncorrect() {
+		return mContinueIncorrect;
+	}
+	
 }

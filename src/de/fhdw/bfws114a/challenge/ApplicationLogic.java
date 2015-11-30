@@ -73,14 +73,15 @@ public class ApplicationLogic {
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
-		//Anworten der CheckBoxes im boolean[] speichern
-		boolean[] checkboxAnswer = new boolean[6];
-		for(int i = 0; i < 6; i++){
-			checkboxAnswer[i] = mGui1.getOption(i).isChecked();
-		}
 		
 		
 		if(currentQuestionType == 1){
+			//Anworten der CheckBoxes im boolean[] speichern
+			boolean[] checkboxAnswer = new boolean[6];
+			for(int i = 0; i < 6; i++){
+				checkboxAnswer[i] = mGui1.getOption(i).isChecked();
+			}
+			
 			// Solution aufrufen mit angkreuzten Anworten (checkboxAnswer) und Kartei 
 			Navigation.startActivitySolution(mActivity, checkboxAnswer, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), null);
 			
@@ -96,19 +97,14 @@ public class ApplicationLogic {
 		}			
 		
 		if(currentQuestionType == 2){
-			// Solution aufrufen mit gegebener Anwort (mGui2.getUserAnswer().getText().toString()), indexOfCurrentChallenge und Kartei bzw.
-			// Korrekter Antwort auf entsprechende Frage: mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAntwort(0)
-						
-			
-			//Überprüfung ob User-Antwort und koreekte Antwort gleich sind			
-			if(mGui2.getUserAnswer().getText().toString().equals(mData.getFaelligeChallenges().get(indexOfCurrentChallenge).getAntwort(0))){
-				boolean userAnswerCorrect = true;
-			}
+			// Solution aufrufen mit gegebener Anwort (mGui2.getUserAnswer().getText().toString()) und Kartei
+			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), mGui2.getUserAnswer().getText().toString());
 			
 		}
 		
 		if(currentQuestionType == 3){
 			//Solution aufrufen mit Kartei
+			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(indexOfCurrentChallenge), null);
 		}
 		
 	}

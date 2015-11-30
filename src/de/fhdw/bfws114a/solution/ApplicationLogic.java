@@ -2,10 +2,10 @@ package de.fhdw.bfws114a.solution;
 
 import android.app.Activity;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import de.fhdw.bfws114a.data.Challenge;
-import de.fhdw.bfws114a.dataInterface.DataInterface;
 import de.fhdw.bfws114a.lernKartei.R;
-import de.fhdw.bfws114a.lernKartei.R.color;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -56,7 +56,6 @@ public class ApplicationLogic {
 			if(userAnswer[i] == currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]){
 				//Die CheckBox wurde zu Recht angeklickt bzw. nicht angeklickt
 //				mGui1.getOption(i).setBackgroundColor(R.color.green);
-				Log.d("", ""+userAnswer[i] + " ist gleich " + currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]);
 			} else {
 				mGui1.getOption(i).setBackgroundColor(R.color.red);				
 			}
@@ -79,7 +78,7 @@ public class ApplicationLogic {
 	
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
-	public void onContinueClicked(){
+	public void onContinueClicked(View callingObject){
 		if(currentQuestionType == 1){
 			
 			boolean userAnswerCorrect = true;
@@ -107,7 +106,13 @@ public class ApplicationLogic {
 		}
 		
 		if(currentQuestionType == 3){
-			boolean userAnswerCorrect = false;
+			boolean userAnswerCorrect;
+			if(((Button) callingObject).getText().equals("Ja")){
+				//Frage wurde korrekt beantwortet
+				userAnswerCorrect = true;
+			} else {
+				userAnswerCorrect = false;
+			}
 			Log.d("Zeile 111 Applogic", ""+userAnswerCorrect);
 			//Diese Activity beenden und userAnswer für challenge speichern
 		}
