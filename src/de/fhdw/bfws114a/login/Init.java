@@ -2,12 +2,14 @@ package de.fhdw.bfws114a.login;
 
 import android.app.Activity;
 import android.os.Bundle;
+import de.fhdw.bfws114a.dataInterface.DatabaseHandler;
 
 public class Init extends Activity {
 
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
+	public static DatabaseHandler dbHand; //zum Testen
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +18,9 @@ public class Init extends Activity {
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-
+		
+		//@Ricardo: zum Testen des Db-Handlers
+		dbHand = new DatabaseHandler(this);
 		
 	}
 	
