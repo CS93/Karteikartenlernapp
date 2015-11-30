@@ -19,7 +19,7 @@ public class Gui {
 		mNumberOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_correct_statistic);
 		mPercentageOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_percent_correct_statistic);
 		mNumberOfDueChallenges = (TextView) act.findViewById(R.id.t_number_amount_due_statistic);
-		mContinueButton = (Button) act.findViewById(R.id.b_continue_challenge_without_option);
+		mContinueButton = (Button) act.findViewById(R.id.b_continue_statistic);
 	}
 
 	public Button getContinueButton() {

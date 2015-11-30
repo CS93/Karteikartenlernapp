@@ -17,7 +17,7 @@ public class Gui3 {
 		mActivity = act;
 		act.setContentView(R.layout.activity_challenge_without_option);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_without_option);
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_without_option);
+		mContinue = (Button) act.findViewById(R.id.b_continue_statistic);
 	}
 
 	public void showThisGui(){

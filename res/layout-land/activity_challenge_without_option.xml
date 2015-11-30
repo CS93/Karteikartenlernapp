@@ -29,7 +29,7 @@
         android:textSize="40sp" />
     
     <Button
-        android:id="@+id/b_continue_challenge_without_option"
+        android:id="@+id/b_continue_statistic"
         android:layout_width="500dp"
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
