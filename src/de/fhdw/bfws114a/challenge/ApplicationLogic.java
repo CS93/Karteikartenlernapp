@@ -101,12 +101,17 @@ public class ApplicationLogic {
 	public void answerFromSolution(boolean userAnswerCorrect) {
 		Log.d("Applogic 113", ""+userAnswerCorrect);
 		//Klasse der Challenge erhöhen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
-		if(userAnswerCorrect && mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 6){			
-			DataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
-		}
-		//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
-		if ((!userAnswerCorrect) && mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 1) {
-			DataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+		if(userAnswerCorrect){
+			mData.increaseNumberOfCorrectAnswers();
+			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 6){
+				DataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+			}
+		} else {
+			mData.decreaseNumberOfCorrectAnswers();
+			//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
+			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 1){
+				DataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+			}
 		}
 			
 		Navigation.startActivityStatistics(mData.getActivity(), mData.getIndexOfCurrentChallenge(), mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());

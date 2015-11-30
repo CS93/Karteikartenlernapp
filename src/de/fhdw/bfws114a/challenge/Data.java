@@ -86,5 +86,13 @@ public class Data {
 		mIndexOfCurrentChallenge++;
 		
 	}
+
+	public void increaseNumberOfCorrectAnswers() {
+		mNumberOfCorrectAnswers++;		
+	}
+
+	public void decreaseNumberOfCorrectAnswers() {
+		mNumberOfWrongAnswers++;		
+	}
 	
 }
