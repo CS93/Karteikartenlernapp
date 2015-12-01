@@ -79,17 +79,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		createUserScoresTable(db);
 		createFilesTable(db);
 	}
-	 private boolean isSDCardWriteable() {
-		    boolean rc = false;
-
-		    String state = Environment.getExternalStorageState();
-		    if (Environment.MEDIA_MOUNTED.equals(state)) {
-		      rc = true;
-		    }
-
-		    return rc;
-		  }
-	 
+	
+	private boolean isSDCardWriteable() {
+		boolean rc = false;
+		String state = Environment.getExternalStorageState();
+		if (Environment.MEDIA_MOUNTED.equals(state)) {
+			rc = true;
+		}
+	    return rc;
+	}
+	
 	private void createUsersTable(SQLiteDatabase db){
 		String create_users_table = "CREATE TABLE " + TABLE_USERS + "("
 				+ KEY_USERS_USERID + " INTEGER PRIMARY KEY," 
@@ -145,6 +144,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		// Drop older table if existed
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERSCORES);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_CARDS);
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_FILES);
 
 		// Create tables again
 		onCreate(db);
