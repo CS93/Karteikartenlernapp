@@ -101,7 +101,6 @@ public class ApplicationLogic {
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
-		Log.d("Applogic 113", ""+userAnswerCorrect);
 		//Klasse der Challenge erh�hen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
 		if(userAnswerCorrect){
 			mData.increaseNumberOfCorrectAnswers();
@@ -131,6 +130,15 @@ public class ApplicationLogic {
 			mData.getActivity().finish();
 		}
 		 
+	}
+
+	public void FinishLearnSession() {
+		//Wechseln in statistics und challenge activity beenden
+		
+		//Der Index muss verringert werden, da die aktuelle Challenge gar nicht bearbeitet wurde
+		int indexOfCurrentChallenge = mData.getIndexOfCurrentChallenge()-1;
+		Navigation.startActivityStatistics(mData.getActivity(), indexOfCurrentChallenge, mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
+		mData.getActivity().finish();
 	}
 }
 

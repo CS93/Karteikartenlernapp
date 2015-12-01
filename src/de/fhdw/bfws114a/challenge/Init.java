@@ -35,8 +35,7 @@ public class Init extends Activity {
 	@Override
 	public void onBackPressed() {
 		//Sie muss hier überschrieben werden um nicht zur Karteiauswahl zurückzukehren sondern die Statistics.Init zu öffnen
-		//Außerdem müssen Anzahl richtiger und falscher Antworten dieses Lernmodi überschrieben werden
-		
+		mApplicationLogic.FinishLearnSession();
 	}
 
 	@Override

@@ -14,11 +14,17 @@ public class Data {
 	private Activity mActivity;
 	private DataInterface mDataInterface;
 	
-	public Data(Bundle b, Activity activity){
-		Intent intent;		
+	public Data(Bundle b, Activity activity){	
 		mActivity = activity;	
 		mDataInterface = new DataInterface(activity);
-		ladeUser(); //User m�ssen immer geladen werden (da dieser Konstruktor auch nach dem Aktualisieren der Profile im Profilemanagement aufgerufen wird 
+		if(b == null){
+			//Activity wurde das erste Mal gestartet
+			ladeUser(); 
+		} else {
+			//Beispielsweise bei einem Wechsel zwischen Portrait- und Landscape-Modus
+			restoreDataFromBundle(b);
+		}
+		 
 		
 	}
 	
@@ -27,7 +33,7 @@ public class Data {
 	}
 
 	protected void ladeUser(){
-		//User aus xml laden und in user (String Array) hineinschreiben
+		//User aus Datenschnittstelle laden und in String ArrayList hineinspeichern
 		mUserList = mDataInterface.loadUser();	
 		
 	}
@@ -36,8 +42,7 @@ public class Data {
 		return mUserList;
 	}
 	private void restoreDataFromBundle(Bundle b) {
-		mUserList = b.getStringArrayList(Constants.KEY_USER_VALUE);
-		
+		mUserList = b.getStringArrayList(Constants.KEY_USER_VALUE);		
 	}
 	
 	public void saveDataInBundle(Bundle b){

@@ -1,11 +1,7 @@
 package de.fhdw.bfws114a.login;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import de.fhdw.bfws114a.dataInterface.DatabaseHandler;
 
 public class Init extends Activity {
 
@@ -22,7 +18,7 @@ public class Init extends Activity {
 		initEventToListenerMapping();
 	}
 	
-	//Sofern wieder auf diese Activity gewechselt wird (nachdem ProfileManagement geschlossen wurde)
+	//Sofern wieder auf diese Activity gewechselt wird (bspw. nachdem ProfileManagement geschlossen wurde), sollen User aktualisiert werden
 	@Override
 	protected void onRestart() {
 		super.onRestart();
@@ -34,13 +30,6 @@ public class Init extends Activity {
 		mData.saveDataInBundle(outState);
 		super.onSaveInstanceState(outState);
 	}
-		
-
-//	@Override
-//	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//		mApplicationLogic.processActivityReturnValues(requestCode, resultCode, data);
-//		// super.onActivityResult(requestCode, resultCode, data);
-//	}
 
 	private void initData(Bundle savedInstanceState) {
 		mData = new Data(savedInstanceState, this);
@@ -60,6 +49,4 @@ public class Init extends Activity {
 		new EventToListenerMapping(mGui, mApplicationLogic);
 		
 	}
-	
-
 }

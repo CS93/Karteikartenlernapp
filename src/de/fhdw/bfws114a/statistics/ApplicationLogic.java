@@ -17,9 +17,14 @@ public class ApplicationLogic {
 		
 		mGui.getNumberOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()));
 		
-		//Um den Prozentsatz korrekt beantworteter Challenges zu errechnen, wird die Anzahl korrekter Antwort + die Anzahl gegebener Antworten geteilt und
-		//mit hundert multilpliziert (weil Angabe in %)
-		mGui.getPercentageOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
+		//Der index kann -1 betragen, wenn gar keine Challenge bearbeitet wurde und dann direkt der Back-Button gedrückt wird. Diese Division durch 0 muss abgefangen werden
+		if(mData.getIndexOfCurrentChallenge()+1 == 0){
+			mGui.getPercentageOfCorrectAnsweredQuestion().setText("0");
+		} else {
+			//Um den Prozentsatz korrekt beantworteter Challenges zu errechnen, wird die Anzahl korrekter Antwort + die Anzahl gegebener Antworten geteilt und
+			//mit hundert multilpliziert (weil Angabe in %)			
+			mGui.getPercentageOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
+		}
 		
 		if((mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)) == 0){
 			mGui.getLearnSessionCompleted().setVisibility(1);

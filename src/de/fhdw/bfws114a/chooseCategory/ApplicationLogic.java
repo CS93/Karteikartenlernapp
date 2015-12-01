@@ -1,6 +1,5 @@
 package de.fhdw.bfws114a.chooseCategory;
 
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {
