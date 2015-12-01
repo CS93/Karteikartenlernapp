@@ -21,6 +21,7 @@ private int[] timeToClasses;
 		db = new DatabaseHandler(context);
 	}
 
+	//load all users
 	public ArrayList<String> loadUser(){
 		userList = new ArrayList<String>();
 		List<User> DBUsers = db.getAllUsers();
@@ -30,9 +31,10 @@ private int[] timeToClasses;
 		return userList;
 	}
 	
-	public  ArrayList<String> delUser(ArrayList<String> user, String delUser){
+	//delete one User
+	public void delUser(String delUser){
 		db.deleteUser(delUser);
-		return loadUser();
+//		return loadUser();
 //		//Test von http://www.sjmp.de/java/bestimmte-elemente-eines-arrays-loeschen/ angepasst
 //		if (user != null) {
 //			for (int i = 0; i < user.size(); i++) {
@@ -47,11 +49,12 @@ private int[] timeToClasses;
 //		}
 	}
 	
-	public  ArrayList<String> addUser(ArrayList<String> user, String newUser){
-		user.add(newUser);
+	//add one User 
+	public  void addUser(String newUser){
+//		user.add(newUser);
 		//Log.d("DEBUG",db.getDatabaseName());
 		db.addUser(newUser);
-		return user;
+//		return user;
 
 //		user.add(newUser);
 //		userList.add(newUser);
@@ -60,6 +63,7 @@ private int[] timeToClasses;
 
 	//Test zu den Klassen
 	
+	//load the Time of Classes dependent on one User
 	public int[] loadTimeToClasses(String user){
 		timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
@@ -73,7 +77,9 @@ private int[] timeToClasses;
 		return timeToClasses;
 	}
 	
-	public int[] loadDefaultTimeToClasses(String user){
+	
+	//load the default Time in minutes of Classes
+	public int[] loadDefaultTimeToClasses(){
 		int[] timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
 		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
@@ -86,6 +92,7 @@ private int[] timeToClasses;
 		return timeToClasses;
 	}
 	
+	//save Times of Classes in minutes dependent on one User
 	public void saveTimeToClasses(String user, int[] timeToClass){
 		//Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in Millisec
 		timeToClasses[0] = timeToClass[0];
