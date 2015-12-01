@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.classManagement;
 
 import android.widget.Toast;
-import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.classManagement.Data;
 import de.fhdw.bfws114a.classManagement.Gui;
 
@@ -73,7 +72,10 @@ public class ApplicationLogic {
 			minutes [2] < minutes [3] &&  minutes [3] < minutes [4] &&
 			minutes [4] < minutes [5]) {
 		//wenn die Zeiten aufsteigend sind kann gespeichert werden
-		mData.setTimeOfClasses(minutes);		
+		mData.setTimeOfClasses(minutes);
+		//die beiden nächsten Zeilen am falschen Ort, 
+		//besser wäre in applyGuiToData, jedoch darf nicht durchlaufen werden wenn Minuten falsch sind
+		//save the times (in minutes) of the classes in connection with the user
 		mData.getDataInterface().saveTimeToClasses(mData.getUser(), mData.getTimeOfClasses());
 		//Aktvity schließen
 		mData.getActivity().finish();

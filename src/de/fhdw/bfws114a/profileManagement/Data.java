@@ -25,7 +25,7 @@ public class Data {
 	}
 
 	private void ladeUser(){
-		//User aus xml laden und in user (String Array) hineinschreiben
+		//load all User from db and save it in user (String Array)
 		mUserList = mDataInterface.loadUser();	
 		
 	}

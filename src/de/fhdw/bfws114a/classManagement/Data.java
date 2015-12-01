@@ -66,11 +66,14 @@ public DataInterface getDataInterface() {
 	}
 	
 	private void loadTimeOfClasses(){
+		//load the times to the classes in connection to one User
 		mTimeOfClasses = mDataInterface.loadTimeToClasses(mUser);
 	}
 	
 	public void loadDefaultTimeToClasses(){
-		mTimeOfClasses = mDataInterface.loadDefaultTimeToClasses(mUser);
+		//load the default times to the classes, is not dependent on a User
+		//is used for the DefaultButton
+		mTimeOfClasses = mDataInterface.loadDefaultTimeToClasses();
 	}
 	
 	private void loadTimeList(){

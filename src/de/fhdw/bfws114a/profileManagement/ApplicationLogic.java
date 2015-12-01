@@ -22,15 +22,16 @@ public class ApplicationLogic {
 	
 	public void onAddUserClicked(){
 		Log.d("DEBUG", "Der AddUser Button wurde gedr√ºckt");
-		mData.getDataInterface().addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
+		//add one User to db
+		mData.getDataInterface().addUser(mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
 		//Aktvity schlieﬂen
 		mData.getActivity().finish();
 	}
 		
 	
 	public void onDelUserButtonClicked(){
-		mData.getDataInterface().delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
-//		kommt man an das AusgewÔøΩhlte Element: mGui.getChoiceList().getSelectedItem().toString()
+		//delete one User from db
+		mData.getDataInterface().delUser(mGui.getChoiceList().getSelectedItem().toString());
 		//Aktvity schlieﬂen
 		mData.getActivity().finish();
 	}
