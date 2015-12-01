@@ -42,29 +42,27 @@ public class Gui {
 	public Button getSaveClassButton() {
 		return mSaveClassButton;
 	}
-
-	public EditText getOneClass() {
-		return mOneClass;
+	
+	public int[] getClassEditText() {
+		int[] Classes = new int[5];
+		Classes[0] = Integer.parseInt(mOneClass.getText().toString());
+		Classes[1] = Integer.parseInt(mTwoClass.getText().toString());
+		Classes[2] = Integer.parseInt(mThreeClass.getText().toString());
+		Classes[3] = Integer.parseInt(mFourClass.getText().toString());
+		Classes[4] = Integer.parseInt(mFiveClass.getText().toString());
+		Classes[5] = Integer.parseInt(mSixClass.getText().toString());
+		return Classes;
 	}
 	
-	public EditText getTwoClass() {
-		return mTwoClass;
-	}
-	
-	public EditText getThreeClass() {
-		return mThreeClass;
-	}
-	
-	public EditText getFourClass() {
-		return mFourClass;
-	}
-	
-	public EditText getFiveClass() {
-		return mFiveClass;
-	}
-	
-	public EditText getSixClass() {
-		return mSixClass;
+	public int[] getClassSpinner() {
+		int[] ClassSpinner = new int[5];
+		ClassSpinner[0] = mOneClassSpinner.getSelectedItemPosition();
+		ClassSpinner[1] = mTwoClassSpinner.getSelectedItemPosition();
+		ClassSpinner[2] = mThreeClassSpinner.getSelectedItemPosition();
+		ClassSpinner[3] = mFourClassSpinner.getSelectedItemPosition();
+		ClassSpinner[4] = mFiveClassSpinner.getSelectedItemPosition();
+		ClassSpinner[5] = mSixClassSpinner.getSelectedItemPosition();
+		return ClassSpinner;
 	}
 	
 	public void setClass(int[] classes) {
@@ -75,31 +73,7 @@ public class Gui {
 		mFiveClass.setText(Integer.toString(classes[4]));
 		mSixClass.setText(Integer.toString(classes[5]));
 	}
-
-	public Spinner getOneClassSpinner() {
-		return mOneClassSpinner;
-	}
-	
-	public Spinner getTwoClassSpinner() {
-		return mTwoClassSpinner;
-	}
-	
-	public Spinner getThreeClassSpinner() {
-		return mThreeClassSpinner;
-	}
-	
-	public Spinner getFourClassSpinner() {
-		return mFourClassSpinner;
-	}
-	
-	public Spinner getFiveClassSpinner() {
-		return mFiveClassSpinner;
-	}
-	
-	public Spinner getSixClassSpinner() {
-		return mSixClassSpinner;
-	}	
-	
+		
 	public void setClassSpinner(ArrayList<String> classSpinner, int[] position) {		
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mData.getContext(), android.R.layout.simple_spinner_item, classSpinner);
 		setAdapter(spinnerAdapter);

@@ -26,8 +26,9 @@ public class Data {
 		
 		mActivity = activity;
 		mDataInterface = new DataInterface(activity);
-		mUser = user;	
-		loadTimeOfClasses();
+		mUser = user;
+		if (mTimeOfClasses == null) {
+		loadTimeOfClasses(); }
 		loadTimeList();
 		
 	}
@@ -60,8 +61,16 @@ public DataInterface getDataInterface() {
 		mTimeOfClasses[classNumber-1] = time;
 	}
 	
+	public void setTimeOfClasses(int[] timeOfClasses){
+		mTimeOfClasses = timeOfClasses;
+	}
+	
 	private void loadTimeOfClasses(){
 		mTimeOfClasses = mDataInterface.loadTimeToClasses(mUser);
+	}
+	
+	public void loadDefaultTimeToClasses(){
+		mTimeOfClasses = mDataInterface.loadDefaultTimeToClasses(mUser);
 	}
 	
 	private void loadTimeList(){
