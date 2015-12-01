@@ -1,5 +1,7 @@
 package de.fhdw.bfws114a.statistics;
 
+import de.fhdw.bfws114a.lernKartei.R.color;
+
 public class ApplicationLogic {
 	private Data mData;
 	private Gui mGui;
@@ -18,6 +20,10 @@ public class ApplicationLogic {
 		//Um den Prozentsatz korrekt beantworteter Challenges zu errechnen, wird die Anzahl korrekter Antwort + die Anzahl gegebener Antworten geteilt und
 		//mit hundert multilpliziert (weil Angabe in %)
 		mGui.getPercentageOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
+		
+		if((mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)) == 0){
+			mGui.getLearnSessionCompleted().setVisibility(1);
+		}
 		
 		//Diese Textview sollte die noch fälligen Challenges dieser Lernsession darstellen --> gesamte Challenges dieser Session - die bisher Bearbeiteten
 		mGui.getNumberOfDueChallenges().setText(String.valueOf(mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)));

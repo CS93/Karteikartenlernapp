@@ -12,6 +12,7 @@ public class Gui {
 	private TextView mPercentageOfCorrectAnsweredQuestion;
 	private TextView mNumberOfDueChallenges; 
 	private Button mContinueButton;
+	private TextView mLearnSessionCompleted;
 	
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_statistic);
@@ -20,6 +21,7 @@ public class Gui {
 		mPercentageOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_percent_correct_statistic);
 		mNumberOfDueChallenges = (TextView) act.findViewById(R.id.t_number_amount_due_statistic);
 		mContinueButton = (Button) act.findViewById(R.id.b_continue_statistic);
+		mLearnSessionCompleted = (TextView) act.findViewById(R.id.t_learn_session_completed_statistic);
 	}
 
 	public Button getContinueButton() {
@@ -42,5 +44,8 @@ public class Gui {
 		return mNumberOfDueChallenges;
 	}
 	
+	public TextView getLearnSessionCompleted() {
+		return mLearnSessionCompleted;
+	}
 	
 }

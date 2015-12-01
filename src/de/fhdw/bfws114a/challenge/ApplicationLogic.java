@@ -123,6 +123,14 @@ public class ApplicationLogic {
 		
 		//Aktuellen index erhï¿½hen und neue Challenge laden
 		mData.increaseIndexOfCurrentChallenge();
+		
+		if(mData.getIndexOfCurrentChallenge() < mData.getFaelligeChallenges().size()){
+			//Laden der nächsten Challenge
+			applyDataToGui();
+		} else {
+			mData.getActivity().finish();
+		}
+		 
 	}
 }
 

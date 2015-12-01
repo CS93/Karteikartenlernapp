@@ -109,7 +109,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String create_userscores_table = "CREATE TABLE " + TABLE_USERSCORES + "("
 				+ KEY_USERSCORES_USERID + " INTEGER PRIMARY KEY," 
 //				+ KEY_USERSCORES_FILEID + " INTEGER PRIMARY KEY," 
-				+ KEY_USERSCORES_CARDID + " INTEGER PRIMARY KEY," 
+				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anführungszeichen genommen:  PRIMARY KEY  
 				+ KEY_USERSCORES_ASSIGNEDCLASS + " INTEGER,"
 				+ KEY_USERSCORES_TIMESTAMP + " TEXT"
 				+ ")";
