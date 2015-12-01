@@ -104,89 +104,95 @@ private int[] timeToClasses;
 	}
 	
 	public int getTimePeriod(int classNumber, String user){
+	//Carsten: Hier benötige ich die Zeit in Minuten für die aktuelle Klasse (um Fälligkeit der entsprechenden Kartei festzustellen) 
 		if (timeToClasses == null){
 			loadTimeToClasses(user);
 		}
 		return timeToClasses[classNumber-1];
 	}
 	
-	//Bei richtiger Antwort muss die Klasse der Challenge erhÃ¶ht werden
 	public void increaseClass(Challenge currentChallenge){
+		//Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese Methode auf und möchte dass die Klasse in der sich die übergebene Challenge befindet um 1 erhöht
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse+1;
 		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhÃ¶ht werden");
 	}
 	
-	//Bei fehlerhafter Antwort muss die Klasse der Challenge verringer werden
 	public void decreaseClass(Challenge currentChallenge){
+		//Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese Methode auf und möchte dass die Klasse in der sich die übergebene Challenge befindet um 1 verringert wird
+		
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse-1;
 		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhÃ¶ht werden");
 	}
 	
-	//Zeitstempel der Challenge auf die aktuelle Zeit setzen
+
 	public void setCurrentTimestamp(Challenge currentChallenge, String user){
+		//Carsten: Hier muss der Zeitstempel der Challenge auf die aktuelle Zeit gesetzt werden
 		Date timestamp = new Date();
 		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhÃ¶ht werden");
 	}
 	
-	// Beginn der Karteien
+	
 	
 	public ArrayList<String> loadCategories(){
-		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		//AuÃŸerdem braucht man auch die dazugehÃ¶rige Statistik
+		//Carsten: Hier benötige ich die 8 Karteien (Kategorien) in denen sich der User "beweisen" kann. 
+		//WICHTIG: Es müssen genau 8 sein!! Zur Not mit leeren Strings auffüllen
 		
 		//Test
-		ArrayList<String> karteien = new ArrayList<String>();
-		karteien.add("Biologie");
-		karteien.add("Chemie");
-		karteien.add("Physik");
-		karteien.add("Informatik");
-		karteien.add("Sport");
-		karteien.add("Technik");
-		karteien.add("Geschichte");
-		karteien.add("Erdkunde");
+		ArrayList<String> categories = new ArrayList<String>();
+		categories.add("Biologie");
+		categories.add("Chemie");
+		categories.add("Physik");
+		categories.add("Informatik");
+		categories.add("Sport");
+		categories.add("Technik");
+		categories.add("Geschichte");
+		categories.add("Erdkunde");
 		
-		return karteien;
+		return categories;
 	}
 
 	//Beginn der Statistik
 	
-	public ArrayList<Statistics> loadStatistics(ArrayList<String> karteien) {
+	public ArrayList<Statistics> loadStatistics(ArrayList<String> categories) {
+		//Carsten: Hier brauche ich die dazugehoerige Statistik zu den einzelnen Karteien/Kategorien nach dem Muster: 
+		//"Karteiname - Fällige_Challenges - Gesamte_Challenges (in dieser Kartei)"  
+		//Könnte etwas schwierig werden (im Notfall müssen wir uns da nochmal kurzschließen)
 		
 		//Test
 		ArrayList<Statistics> statistik= new ArrayList<Statistics>(); 
-		Statistics Objekt1 = new Statistics(karteien.get(0), "10", "100");
+		Statistics Objekt1 = new Statistics(categories.get(0), "10", "100");
 		statistik.add(Objekt1);
-		Statistics Objekt2 = new Statistics(karteien.get(1), "9", "100");
+		Statistics Objekt2 = new Statistics(categories.get(1), "9", "100");
 		statistik.add(Objekt2);
-		Statistics Objekt3 = new Statistics(karteien.get(2), "2", "100");
+		Statistics Objekt3 = new Statistics(categories.get(2), "2", "100");
 		statistik.add(Objekt3);
-		Statistics Objekt4 = new Statistics(karteien.get(3), "12", "100");
+		Statistics Objekt4 = new Statistics(categories.get(3), "12", "100");
 		statistik.add(Objekt4);
-		Statistics Objekt5 = new Statistics(karteien.get(4), "4", "100");
+		Statistics Objekt5 = new Statistics(categories.get(4), "4", "100");
 		statistik.add(Objekt5);
-		Statistics Objekt6 = new Statistics(karteien.get(5), "14", "100");
+		Statistics Objekt6 = new Statistics(categories.get(5), "14", "100");
 		statistik.add(Objekt6);
-		Statistics Objekt7 = new Statistics(karteien.get(6), "5", "100");
+		Statistics Objekt7 = new Statistics(categories.get(6), "5", "100");
 		statistik.add(Objekt7);
-		Statistics Objekt8 = new Statistics(karteien.get(7), "9", "100");
+		Statistics Objekt8 = new Statistics(categories.get(7), "9", "100");
 		statistik.add(Objekt8);
 		return statistik;
 		
 	}
-
-	//Beginn der Karteikarten
 	
 	public ArrayList<Challenge> loadChallenges(String category, String user) {
+		//Carsten: Hier benötige ich alleChallenges in einer ArrayList vom Typ Challenge
+		//Sie sollen in Abhängigkeit von Kartei und User geladen werden
+				
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
 		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 AntwortmÃ¶glichkeiten geeinigt
-		boolean[] korrekteAntworten;
+		boolean[] korrekteAntworten; //nur bei Fragetyp 1 nötig
 		Date zeitstempel = new Date();
 		Challenge challenge;
-		//laden der Challenges in AbhÃ¤ngigikeit der Kartei (category) und des users aus der xml
 		
 		
 		//Test mit 3 Challenges der verschiedenen Typen	
