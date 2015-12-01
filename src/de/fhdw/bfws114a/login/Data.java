@@ -26,7 +26,7 @@ public class Data {
 		return mActivity;
 	}
 
-	private void ladeUser(){
+	protected void ladeUser(){
 		//User aus xml laden und in user (String Array) hineinschreiben
 		mUserList = mDataInterface.loadUser();	
 		

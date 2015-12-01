@@ -18,15 +18,24 @@ public class ApplicationLogic {
 	}
 	
 	public void onLoginButtonClicked(){
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
-		Navigation.startActivityUserMenu(mData.getActivity(), mGui.getChoiceList().getSelectedItem().toString());
-		
+		if(mData.getUser().size() == 0){
+			//Keine User im Spinner mit denen man sich einloggen kann
+			
+		} else {
+			//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
+			Navigation.startActivityUserMenu(mData.getActivity(), mGui.getChoiceList().getSelectedItem().toString());
+		}		
 	}
 		
 	
 	public void onProfileManagementButtonClicked(){
 		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 	
 		Navigation.startActivityProfileManagement(mData.getActivity());
+	}
+
+	public void onRestart() {
+		mData.ladeUser();
+		applyDataToGui();
 	}
 	
 //	public void processActivityReturnValues(int requestCode, int resultCode, Intent intent) {
