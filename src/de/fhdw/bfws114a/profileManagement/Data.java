@@ -16,6 +16,10 @@ public class Data {
 			ladeUser();
 	}
 	
+	public DataInterface getDataInterface() {
+		return mDataInterface;
+	}
+	
 	public Activity getActivity() {
 		return mActivity;
 	}
