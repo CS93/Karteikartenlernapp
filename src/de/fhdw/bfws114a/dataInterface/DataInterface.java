@@ -7,7 +7,7 @@ import java.util.List;
 import android.content.Context;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
-import de.fhdw.bfws114a.data.StatisticsObject;
+import de.fhdw.bfws114a.data.Statistics;
 
 public class DataInterface {
 	
@@ -147,25 +147,25 @@ private int[] timeToClasses;
 
 	//Beginn der Statistik
 	
-	public ArrayList<StatisticsObject> loadStatistics(ArrayList<String> karteien) {
+	public ArrayList<Statistics> loadStatistics(ArrayList<String> karteien) {
 		
 		//Test
-		ArrayList<StatisticsObject> statistik= new ArrayList<StatisticsObject>(); 
-		StatisticsObject Objekt1 = new StatisticsObject(karteien.get(0), "10", "100");
+		ArrayList<Statistics> statistik= new ArrayList<Statistics>(); 
+		Statistics Objekt1 = new Statistics(karteien.get(0), "10", "100");
 		statistik.add(Objekt1);
-		StatisticsObject Objekt2 = new StatisticsObject(karteien.get(1), "9", "100");
+		Statistics Objekt2 = new Statistics(karteien.get(1), "9", "100");
 		statistik.add(Objekt2);
-		StatisticsObject Objekt3 = new StatisticsObject(karteien.get(2), "2", "100");
+		Statistics Objekt3 = new Statistics(karteien.get(2), "2", "100");
 		statistik.add(Objekt3);
-		StatisticsObject Objekt4 = new StatisticsObject(karteien.get(3), "12", "100");
+		Statistics Objekt4 = new Statistics(karteien.get(3), "12", "100");
 		statistik.add(Objekt4);
-		StatisticsObject Objekt5 = new StatisticsObject(karteien.get(4), "4", "100");
+		Statistics Objekt5 = new Statistics(karteien.get(4), "4", "100");
 		statistik.add(Objekt5);
-		StatisticsObject Objekt6 = new StatisticsObject(karteien.get(5), "14", "100");
+		Statistics Objekt6 = new Statistics(karteien.get(5), "14", "100");
 		statistik.add(Objekt6);
-		StatisticsObject Objekt7 = new StatisticsObject(karteien.get(6), "5", "100");
+		Statistics Objekt7 = new Statistics(karteien.get(6), "5", "100");
 		statistik.add(Objekt7);
-		StatisticsObject Objekt8 = new StatisticsObject(karteien.get(7), "9", "100");
+		Statistics Objekt8 = new Statistics(karteien.get(7), "9", "100");
 		statistik.add(Objekt8);
 		return statistik;
 		

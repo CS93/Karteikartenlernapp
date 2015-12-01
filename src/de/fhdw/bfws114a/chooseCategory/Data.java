@@ -6,7 +6,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
-import de.fhdw.bfws114a.data.StatisticsObject;
+import de.fhdw.bfws114a.data.Statistics;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class Data {
@@ -15,7 +15,7 @@ public class Data {
 	private Activity mActivity;
 	private DataInterface mDataInterface;
 	private ArrayList<String> mKarteien;
-	private ArrayList<StatisticsObject> mStatistik;
+	private ArrayList<Statistics> mStatistik;
 	//Hinweis: Man braucht auch die dazugeh�rige Statistik
 	
 	public Data(Bundle b, Activity activity, String user){	
@@ -57,7 +57,7 @@ public class Data {
 	}
 
 		
-	public ArrayList<StatisticsObject> getStatistik() {
+	public ArrayList<Statistics> getStatistik() {
 		return mStatistik;
 	}
 

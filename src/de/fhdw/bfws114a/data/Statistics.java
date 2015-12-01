@@ -1,11 +1,11 @@
 package de.fhdw.bfws114a.data;
 
-public class StatisticsObject {
+public class Statistics {
 	private String mKartei;
 	private String mFaelligeChallenges;
 	private String mGesamteChallenges;
 	
-	public StatisticsObject(String kartei, String faelligeChallenges, String gesamteChallenges){
+	public Statistics(String kartei, String faelligeChallenges, String gesamteChallenges){
 		this.mKartei = kartei;
 		this.mFaelligeChallenges = faelligeChallenges;
 		this.mGesamteChallenges = gesamteChallenges;
