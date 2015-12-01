@@ -27,17 +27,16 @@ public class ApplicationLogic {
 	public void onAddUserClicked(){
 		Log.d("DEBUG", "Der AddUser Button wurde gedrÃ¼ckt");
 		mDataInterface.addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
-		//ZurÃ¼ck zum Login
-		Navigation.startActivityLogin(mData.getActivity());
-		
+		//Aktvity schließen
+		mData.getActivity().finish();
 	}
 		
 	
 	public void onDelUserButtonClicked(){
 		mDataInterface.delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
 //		kommt man an das Ausgewï¿½hlte Element: mGui.getChoiceList().getSelectedItem().toString()
-		//Zurï¿½ck zum Login
-		Navigation.startActivityLogin(mData.getActivity());
+		//Aktvity schließen
+		mData.getActivity().finish();
 	}
 	
 //	public void processActivityReturnValues(int requestCode, int resultCode, Intent intent) {
