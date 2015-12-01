@@ -1,21 +1,17 @@
 package de.fhdw.bfws114a.profileManagement;
 
 import android.util.Log;
-import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.profileManagement.Data;
 import de.fhdw.bfws114a.profileManagement.Gui;
-import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class ApplicationLogic {
 
 	private Data mData;
 	private Gui mGui;
-	private DataInterface mDataInterface;
 	
 	ApplicationLogic(Data data, Gui gui){
 		mData=data;
 		mGui=gui;
-		mDataInterface = new DataInterface(data.getActivity());
 		applyDataToGui();
 	}
 
@@ -26,14 +22,14 @@ public class ApplicationLogic {
 	
 	public void onAddUserClicked(){
 		Log.d("DEBUG", "Der AddUser Button wurde gedr√ºckt");
-		mDataInterface.addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
+		mData.getDataInterface().addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
 		//Aktvity schlieﬂen
 		mData.getActivity().finish();
 	}
 		
 	
 	public void onDelUserButtonClicked(){
-		mDataInterface.delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
+		mData.getDataInterface().delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
 //		kommt man an das AusgewÔøΩhlte Element: mGui.getChoiceList().getSelectedItem().toString()
 		//Aktvity schlieﬂen
 		mData.getActivity().finish();
