@@ -12,11 +12,13 @@ public class Data {
 	
 	private ArrayList<String> mUserList; //Eventuell eine Liste verwenden
 	private Activity mActivity;
+	private DataInterface mDataInterface;
 	
 	public Data(Bundle b, Activity activity){
 		Intent intent;		
-		mActivity = activity;			
-		ladeUser(); //User müssen immer geladen werden (da dieser Konstruktor auch nach dem Aktualisieren der Profile im Profilemanagement aufgerufen wird 
+		mActivity = activity;	
+		mDataInterface = new DataInterface(activity);
+		ladeUser(); //User mï¿½ssen immer geladen werden (da dieser Konstruktor auch nach dem Aktualisieren der Profile im Profilemanagement aufgerufen wird 
 		
 	}
 	
@@ -26,7 +28,7 @@ public class Data {
 
 	private void ladeUser(){
 		//User aus xml laden und in user (String Array) hineinschreiben
-		mUserList = DataInterface.loadUser();	
+		mUserList = mDataInterface.loadUser();	
 		
 	}
 	

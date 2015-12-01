@@ -76,11 +76,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	// Adding new user
 	void addUser(String username) {
+		Log.d("DEBUGLOG", "addUser wurde aufgerufen!");
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
 		values.put(KEY_USERNAME, username); // User Name
-		
 
 		// Inserting Row
 		db.insert(TABLE_USER, null, values);
@@ -148,11 +148,20 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return userList;
 	}
 
-	// Deleting single user
+	// Deleting single user by ID
 	public void deleteUser(int id) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(TABLE_USER, KEY_USERID + " = ?",
 				new String[] { String.valueOf(id) });
+		db.close();
+	}
+	
+	// Deleting user by name - ATTENTION: ALL USERS WITH THIS NAME WILL BE DELETED
+
+	public void deleteUser(String name) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.delete(TABLE_USER, KEY_USERNAME + " = ?",
+				new String[] { name });
 		db.close();
 	}
 

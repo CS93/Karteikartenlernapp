@@ -12,6 +12,7 @@ public class Data {
 	private String mUser;
 	private String mCategory;
 	private Activity mActivity;
+	private DataInterface mDataInterface;
 	private int mIndexOfCurrentChallenge = 0;
 	private int mNumberOfCorrectAnswers = 0;
 	private int mNumberOfWrongAnswers = 0;
@@ -21,6 +22,7 @@ public class Data {
 		mActivity = activity;
 		mUser = user;
 		mCategory = category;
+		mDataInterface = new DataInterface(activity);
 		if (b == null ){
 			//Erstes Aufrufen dieser Activity			
 			ladeFaelligeChallenges();
@@ -35,7 +37,7 @@ public class Data {
 	}
 
 	private void ladeFaelligeChallenges(){
-		ArrayList<Challenge> alleChallenges = DataInterface.loadChallenges(mCategory, mUser);
+		ArrayList<Challenge> alleChallenges = mDataInterface.loadChallenges(mCategory, mUser);
 		java.util.Date now = new java.util.Date();
 		long difference;
 		for(int i = 0; i< alleChallenges.size(); i++){
@@ -44,8 +46,8 @@ public class Data {
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
 			
 			//Anstelle von 1000 muss hier die Zeit entsprechend der Klassendefinition stehen:
-			//Klasse der momentan bearbeiteten Challange und User mitgegeben, Rückgabe in Min, daher *60*100 -> Millisec
-			if(difference > (DataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
+			//Klasse der momentan bearbeiteten Challange und User mitgegeben, Rï¿½ckgabe in Min, daher *60*100 -> Millisec
+			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
 				mFaelligeChallenges.add(alleChallenges.get(i));
 			}
 		}		
@@ -72,13 +74,13 @@ public class Data {
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
-		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
+		//Problem hinsichtlich des Typs Challenges muss noch gelï¿½st werden
 //		mFaelligeChallenges = b.getStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE);
 		
 	}
 	
 	public void saveDataInBundle(Bundle b){		
-		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
+		//Problem hinsichtlich des Typs Challenges muss noch gelï¿½st werden
 //		b.putStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE, mFaelligeChallenges);		
 	}
 

@@ -8,9 +8,11 @@ public class Data {
 
 	private ArrayList<String> mUserList; //Eventuell eine Liste verwenden
 	private Activity mActivity;
+	private DataInterface mDataInterface;
 	
 	public Data(Activity activity){	
-		mActivity = activity;			
+		mActivity = activity;
+		mDataInterface = new DataInterface(activity);
 			ladeUser();
 	}
 	
@@ -20,7 +22,7 @@ public class Data {
 
 	private void ladeUser(){
 		//User aus xml laden und in user (String Array) hineinschreiben
-		mUserList = DataInterface.loadUser();	
+		mUserList = mDataInterface.loadUser();	
 		
 	}
 	

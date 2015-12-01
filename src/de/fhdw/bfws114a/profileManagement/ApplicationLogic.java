@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.profileManagement;
 
+import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.profileManagement.Data;
 import de.fhdw.bfws114a.profileManagement.Gui;
@@ -9,10 +10,12 @@ public class ApplicationLogic {
 
 	private Data mData;
 	private Gui mGui;
+	private DataInterface mDataInterface;
 	
 	ApplicationLogic(Data data, Gui gui){
 		mData=data;
 		mGui=gui;
+		mDataInterface = new DataInterface(data.getActivity());
 		applyDataToGui();
 	}
 
@@ -22,17 +25,18 @@ public class ApplicationLogic {
 	}
 	
 	public void onAddUserClicked(){
-		DataInterface.addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
-		//Zurück zum Login
+		Log.d("DEBUG", "Der AddUser Button wurde gedrÃ¼ckt");
+		mDataInterface.addUser(mData.getUser(), mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
+		//ZurÃ¼ck zum Login
 		Navigation.startActivityLogin(mData.getActivity());
 		
 	}
 		
 	
 	public void onDelUserButtonClicked(){
-		DataInterface.delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
-//		kommt man an das Ausgewählte Element: mGui.getChoiceList().getSelectedItem().toString()
-		//Zurück zum Login
+		mDataInterface.delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
+//		kommt man an das Ausgewï¿½hlte Element: mGui.getChoiceList().getSelectedItem().toString()
+		//Zurï¿½ck zum Login
 		Navigation.startActivityLogin(mData.getActivity());
 	}
 	

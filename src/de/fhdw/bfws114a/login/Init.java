@@ -9,7 +9,6 @@ public class Init extends Activity {
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
-	public static DatabaseHandler dbHand; //zum Testen
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -18,10 +17,6 @@ public class Init extends Activity {
 		initGui();
 		initApplicationLogic();
 		initEventToListenerMapping();
-		
-		//@Ricardo: zum Testen des Db-Handlers
-		dbHand = new DatabaseHandler(this);
-		
 	}
 	
 	@Override

@@ -11,10 +11,12 @@ public class ApplicationLogic {
 	private Gui1 mGui1;
 	private Gui2 mGui2;
 	private Gui3 mGui3;
+	private DataInterface mDataInterface;
 	private int currentQuestionType;
 	private Activity mActivity;
 	
 	ApplicationLogic(Data data, Activity act){
+		mDataInterface = new DataInterface(act);
 		mData=data;
 		mActivity = act;
 		applyDataToGui();
@@ -22,33 +24,33 @@ public class ApplicationLogic {
 
 	private void applyDataToGui(){		
 		if(mData.getFaelligeChallenges() == null){
-			//Gui3 mit: "Es gibt keine fälligen Challenges" (continue muss dann disabled sein)
+			//Gui3 mit: "Es gibt keine fï¿½lligen Challenges" (continue muss dann disabled sein)
 		}		
 		Challenge currentChallenge = mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge());
 		currentQuestionType = currentChallenge.getFrageTyp();
 		if(currentQuestionType == 1){
-			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benï¿½tigt wird
 			mGui1 = new Gui1(mActivity);
 			applyDataToGui1(currentChallenge);
 			new EventToListenerMapping(mGui1, this);
 		}
 		
 		if(currentQuestionType == 2){
-			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benï¿½tigt wird
 			mGui2 = new Gui2(mActivity);
 			applyDataToGui2(currentChallenge);
 			new EventToListenerMapping(mGui2, this);
 		}
 		
 		if(currentQuestionType == 3){
-			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benötigt wird
+			//Das Anlegen der Gui geschieht erst an dieser Stelle, damit sie auch erst angezeigt wird, sobald sie benï¿½tigt wird
 			mGui3 = new Gui3(mActivity);
 			applyDataToGui3(currentChallenge);
 			new EventToListenerMapping(mGui3, this);
 		}
 	}
 	
-	//Wenn es FrageTyp 1 ist diese Methode ausführen
+	//Wenn es FrageTyp 1 ist diese Methode ausfï¿½hren
 	private void applyDataToGui1(Challenge currentChallenge) {
 		
 		mGui1.getQuestion().setText(currentChallenge.getFrage());
@@ -57,20 +59,20 @@ public class ApplicationLogic {
 		}		
 	}
 	
-	//Wenn es FrageTyp 2 ist diese Methode ausführen
+	//Wenn es FrageTyp 2 ist diese Methode ausfï¿½hren
 	private void applyDataToGui2(Challenge currentChallenge) {
 		mGui2.getQuestion().setText(currentChallenge.getFrage());
 		mGui2.getUserAnswer().setText("");
 	}
 		
-	//Wenn es FrageTyp 3 ist diese Methode ausführen
+	//Wenn es FrageTyp 3 ist diese Methode ausfï¿½hren
 	private void applyDataToGui3(Challenge currentChallenge) {
 		mGui3.getQuestion().setText(currentChallenge.getFrage());	
 	}
 		
 	
 	
-	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
+	//ï¿½berprï¿½fen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
 	public void onContinueClicked(){
 		
 		
@@ -100,26 +102,26 @@ public class ApplicationLogic {
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
 		Log.d("Applogic 113", ""+userAnswerCorrect);
-		//Klasse der Challenge erhöhen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
+		//Klasse der Challenge erhï¿½hen wenn Antwort korrekt war und die Challenge nicht bereits in Klasse 6 ist
 		if(userAnswerCorrect){
 			mData.increaseNumberOfCorrectAnswers();
 			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 6){
-				DataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+				mDataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
 			}
 		} else {
 			mData.decreaseNumberOfCorrectAnswers();
 			//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
 			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 1){
-				DataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+				mDataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
 			}
 		}
 			
 		Navigation.startActivityStatistics(mData.getActivity(), mData.getIndexOfCurrentChallenge(), mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
 		
 		//Zeitstempel aktualisieren
-		DataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
+		mDataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
 		
-		//Aktuellen index erhöhen und neue Challenge laden
+		//Aktuellen index erhï¿½hen und neue Challenge laden
 		mData.increaseIndexOfCurrentChallenge();
 	}
 }

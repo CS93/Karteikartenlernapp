@@ -2,7 +2,9 @@ package de.fhdw.bfws114a.dataInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
+import android.content.Context;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.StatisticsObject;
@@ -10,58 +12,55 @@ import de.fhdw.bfws114a.data.StatisticsObject;
 public class DataInterface {
 	
 	//Test zu den Usern
-private static ArrayList<String> userList;
+private ArrayList<String> userList;
 private DatabaseHandler db;
+private int[] timeToClasses;
 
-	public DataInterface(){
-		db = new DatabaseHandler(null);
+
+	public DataInterface(Context context){
+		db = new DatabaseHandler(context);
 	}
 
-	public static ArrayList<String> loadUser(){
-		//db.getDatabaseName();
-		//List<User> users = db.getAllUsers();
-		 
-        //for (User u : users) {
-           //userList.add(u.getName());
-		//Test
-		//}
-
-		if (userList == null) {
-			userList = new ArrayList<String>();
-			userList.add("Samira");
-			userList.add("Frank");
-			userList.add("Carsten");
-			userList.add("Ricardo");
+	public ArrayList<String> loadUser(){
+		userList = new ArrayList<String>();
+		List<User> DBUsers = db.getAllUsers();
+        for (User u : DBUsers) {
+        	userList.add(u.getName());
 		}
 		return userList;
 	}
 	
-	public static ArrayList<String> delUser(ArrayList<String> user, String delUser){
-		//Test von http://www.sjmp.de/java/bestimmte-elemente-eines-arrays-loeschen/ angepasst
-		if (user != null) {
-			for (int i = 0; i < user.size(); i++) {
-				if (user.get(i).equals(delUser)) {
-					user.remove(i);
-				}
-			}
-			userList = user;
-			return user;
-		} else {
-			return user;
-		}
-		
+	public  ArrayList<String> delUser(ArrayList<String> user, String delUser){
+		db.deleteUser(delUser);
+		return loadUser();
+//		//Test von http://www.sjmp.de/java/bestimmte-elemente-eines-arrays-loeschen/ angepasst
+//		if (user != null) {
+//			for (int i = 0; i < user.size(); i++) {
+//				if (user.get(i).equals(delUser)) {
+//					user.remove(i);
+//				}
+//			}
+//			userList = user;
+//			return user;
+//		} else {
+//			return user;
+//		}
 	}
 	
-	public static ArrayList<String> addUser(ArrayList<String> user, String newUser){
+	public  ArrayList<String> addUser(ArrayList<String> user, String newUser){
 		user.add(newUser);
-		userList.add(newUser);
+		//Log.d("DEBUG",db.getDatabaseName());
+		db.addUser(newUser);
 		return user;
+
+//		user.add(newUser);
+//		userList.add(newUser);
+//		return user;
 	}
 
 	//Test zu den Klassen
-private static int[] timeToClasses;
 	
-	public static int[] loadTimeToClasses(String user){
+	public int[] loadTimeToClasses(String user){
 		timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
 		//Die Zeiten sind in Minuten angegeben und werden in der Activity in Stunden und Tage umgerechnet
@@ -74,7 +73,7 @@ private static int[] timeToClasses;
 		return timeToClasses;
 	}
 	
-	public static int[] loadDefaultTimeToClasses(String user){
+	public int[] loadDefaultTimeToClasses(String user){
 		int[] timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
 		//Die Zeiten sind in Min angegeben und werden in der Activity in Stunden und Tage umgerechnet
@@ -87,7 +86,7 @@ private static int[] timeToClasses;
 		return timeToClasses;
 	}
 	
-	public static void saveTimeToClasses(String user, int[] timeToClass){
+	public void saveTimeToClasses(String user, int[] timeToClass){
 		//Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in Millisec
 		timeToClasses[0] = timeToClass[0];
 		timeToClasses[1] = timeToClass[1];
@@ -97,40 +96,40 @@ private static int[] timeToClasses;
 		timeToClasses[5] = timeToClass[5]; 
 	}
 	
-	public static int getTimePeriod(int classNumber, String user){
+	public int getTimePeriod(int classNumber, String user){
 		if (timeToClasses == null){
 			loadTimeToClasses(user);
 		}
 		return timeToClasses[classNumber-1];
 	}
 	
-	//Bei richtiger Antwort muss die Klasse der Challenge erh�ht werden
-	public static void increaseClass(Challenge currentChallenge){
+	//Bei richtiger Antwort muss die Klasse der Challenge erhöht werden
+	public void increaseClass(Challenge currentChallenge){
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse+1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erh�ht werden");
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
 	}
 	
 	//Bei fehlerhafter Antwort muss die Klasse der Challenge verringer werden
-	public static void decreaseClass(Challenge currentChallenge){
+	public void decreaseClass(Challenge currentChallenge){
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse-1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erh�ht werden");
+		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
 	}
 	
 	//Zeitstempel der Challenge auf die aktuelle Zeit setzen
-	public static void setCurrentTimestamp(Challenge currentChallenge, String user){
+	public void setCurrentTimestamp(Challenge currentChallenge, String user){
 		Date timestamp = new Date();
-		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erh�ht werden");
+		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhöht werden");
 	}
 	
 	// Beginn der Karteien
 	
-	public static ArrayList<String> loadCategories(){
+	public ArrayList<String> loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		//Au�erdem braucht man auch die dazugeh�rige Statistik
+		//Außerdem braucht man auch die dazugehörige Statistik
 		
 		//Test
 		ArrayList<String> karteien = new ArrayList<String>();
@@ -148,7 +147,7 @@ private static int[] timeToClasses;
 
 	//Beginn der Statistik
 	
-	public static ArrayList<StatisticsObject> loadStatistics(ArrayList<String> karteien) {
+	public ArrayList<StatisticsObject> loadStatistics(ArrayList<String> karteien) {
 		
 		//Test
 		ArrayList<StatisticsObject> statistik= new ArrayList<StatisticsObject>(); 
@@ -174,19 +173,19 @@ private static int[] timeToClasses;
 
 	//Beginn der Karteikarten
 	
-	public static ArrayList<Challenge> loadChallenges(String category, String user) {
+	public ArrayList<Challenge> loadChallenges(String category, String user) {
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
-		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortm�glichkeiten geeinigt
+		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 		boolean[] korrekteAntworten;
 		Date zeitstempel = new Date();
 		Challenge challenge;
-		//laden der Challenges in Abh�ngigikeit der Kartei (category) und des users aus der xml
+		//laden der Challenges in Abhängigikeit der Kartei (category) und des users aus der xml
 		
 		
 		//Test mit 3 Challenges der verschiedenen Typen	
 		
 			//1. Kartei (typ 1 --> Checkbox)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortm�glichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "10 Jahre";
 			antworten[1] = "30 Jahre";
 			antworten[2] = "50 Jahre";
@@ -205,7 +204,7 @@ private static int[] timeToClasses;
 			alleChallenges.add(challenge);
 
 			//2. Kartei (typ 2 --> text-eingabe)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortm�glichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "33";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);
@@ -214,7 +213,7 @@ private static int[] timeToClasses;
 
 			
 			//3. Kartei (typ 3 --> Selbstkontrolle)
-			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortm�glichkeiten geeinigt
+			antworten = new String[6];//Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
 			antworten[0] = "200";
 			korrekteAntworten = null;
 			zeitstempel.setTime(0);

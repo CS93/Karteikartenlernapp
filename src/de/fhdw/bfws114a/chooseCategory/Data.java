@@ -13,13 +13,15 @@ public class Data {
 	
 	private String mUser;
 	private Activity mActivity;
+	private DataInterface mDataInterface;
 	private ArrayList<String> mKarteien;
 	private ArrayList<StatisticsObject> mStatistik;
-	//Hinweis: Man braucht auch die dazugehörige Statistik
+	//Hinweis: Man braucht auch die dazugehï¿½rige Statistik
 	
 	public Data(Bundle b, Activity activity, String user){	
 		mActivity = activity;
 		mUser = user;
+		mDataInterface = new DataInterface(activity);
 		if (b == null ){
 			//Erstes Aufrufen dieser Activity			
 			ladeKarteien();
@@ -36,13 +38,13 @@ public class Data {
 
 	private void ladeKarteien(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		mKarteien = DataInterface.loadCategories();	
+		mKarteien = mDataInterface.loadCategories();	
 		
 	}
 
 	private void ladeStatistiken(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		mStatistik = DataInterface.loadStatistics(mKarteien);	
+		mStatistik = mDataInterface.loadStatistics(mKarteien);	
 		
 	}
 	
