@@ -2,6 +2,10 @@ package de.fhdw.bfws114a.data;
 
 public class User {
 	
+	@Override
+	public String toString() {
+		return name;
+	}
 	//private variables
 	private int id;
 	private String name;

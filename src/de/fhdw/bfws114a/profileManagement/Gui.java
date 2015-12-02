@@ -55,12 +55,12 @@ public class Gui {
 	}
 	
 	public void setChoiceList(ArrayList<User> userList) {	
-		ArrayList<String> choiseList = new ArrayList<String>();
+		ArrayList<User> choiseList = new ArrayList<User>();
 		 for (User u : userList) {
-	        	choiseList.add(u.getName());
+	        	choiseList.add(u);
 		}
 		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, choiseList);
+		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, android.R.layout.simple_spinner_item, choiseList);
 		mChoiceList.setAdapter(spinnerAdapter);
 		
 	}	
