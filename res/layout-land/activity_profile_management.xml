@@ -27,8 +27,6 @@
         android:inputType="text"
         android:textColor="@color/orange"
         android:textSize="30sp" >
-
-        <requestFocus />
     </EditText>
     
     <Button
