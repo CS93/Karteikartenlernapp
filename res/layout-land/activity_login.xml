@@ -6,8 +6,8 @@
 
     <Spinner
         android:id="@+id/choose_profile"
-        android:layout_width="400dp"
-        android:layout_height="75dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_below="@id/profile_choose_text"
         android:layout_alignLeft="@id/profile_choose_text"
         android:background="@color/white"
@@ -16,8 +16,8 @@
 
     <Button
         android:id="@+id/profile_management_start"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/login"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="50dp"
@@ -26,52 +26,52 @@
         android:paddingRight="10dp"
         android:text="@string/profile_management"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/login"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_alignParentRight="true"
         android:layout_above="@+id/profile_management_start"
-        android:layout_marginRight="70dp"
+        android:layout_marginRight="30dp"
         android:layout_marginBottom="50dp"
         android:background="@drawable/roundedbutton"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="@string/login"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/profile_choose_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="200dp"
+        android:layout_alignLeft="@id/login"
+        android:layout_marginTop="20dp"
         android:text="@string/profile_choose_login"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <TextView
-        android:id="@+id/appname"
+        android:id="@+id/t_appname_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/profile_management_start"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="100dp"
         android:layout_marginLeft="70dp"
         android:text="@string/app_name"
         android:textColor="@color/orange"
         android:textSize="30sp" />
 
     <ImageView
-        android:id="@+id/logo"
+        android:id="@+id/i_logo_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/appname"
-        android:layout_alignLeft="@+id/appname"
+        android:layout_above="@+id/t_appname_login"
+        android:layout_alignLeft="@+id/t_appname_login"
         android:layout_marginLeft="141dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_launcher" />
