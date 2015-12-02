@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+	<file>
+		<fileName>Mathematik</fileName>
+		<fileID>0000</fileID>
+		<card>
+			<cardID>0000</cardID>
+            <cardType>1</cardType>
+			<question>FRAGE1?</question>
+			<answer1>ANTWORT1</answer1>
+            <answer2>ANTWORT2</answer2>
+            <answer3>ANTWORT3</answer3>
+            <answer4>ANTWORT4</answer4>
+            <answer5>ANTWORT5</answer5>
+            <answer6>ANTWORT6</answer6>
+            <solution>1</solution>
+		</card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>FRAGE1?</question>
+            <answer1>ANTWORT1</answer1>
+            <answer2>ANTWORT2</answer2>
+            <answer3>ANTWORT3</answer3>
+            <answer4>ANTWORT4</answer4>
+            <solution>4</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>FRAGE3?</question>
+            <answer1>ANTWORT1</answer1>
+            <solution>3</solution>
+        </card>
+	</file>
+</files>

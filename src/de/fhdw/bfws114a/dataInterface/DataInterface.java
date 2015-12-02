@@ -28,7 +28,12 @@ private int[] timeToClasses;
 		List<User> DBUsers = db.getAllUsers();
         for (User u : DBUsers) {
         	userList.add(u.getName());
+//        	//DEBUG
+//        	for(int i=1;i <= 6;i++){
+//            	Log.d("DEBUG", u.getName() + " - Klasse: " + i + ": " + getTimePeriod(i, u.getName()));
+//        	}
 		}
+        
 		return userList;
 	}
 	
@@ -90,25 +95,25 @@ private int[] timeToClasses;
 		if (timeToClasses == null){
 			loadTimeToClasses(user);
 		}
-		return timeToClasses[classNumber-1];
+//		return timeToClasses[classNumber-1];
 		
-//		User mUser=db.getUser(user);
-//		switch (classNumber) {
-//		case 1:
-//			return mUser.getClass1_duration();
-//		case 2:
-//			return mUser.getClass2_duration();
-//		case 3:
-//			return mUser.getClass3_duration();
-//		case 4:
-//			return mUser.getClass4_duration();
-//		case 5:
-//			return mUser.getClass5_duration();
-//		case 6:
-//			return mUser.getClass6_duration();
-//		default:
-//			return 0;
-//		}
+		User mUser=db.getUser(user);
+		switch (classNumber) {
+		case 1:
+			return mUser.getClass1_duration();
+		case 2:
+			return mUser.getClass2_duration();
+		case 3:
+			return mUser.getClass3_duration();
+		case 4:
+			return mUser.getClass4_duration();
+		case 5:
+			return mUser.getClass5_duration();
+		case 6:
+			return mUser.getClass6_duration();
+		default:
+			return 0;
+		}
 		
 	}
 	

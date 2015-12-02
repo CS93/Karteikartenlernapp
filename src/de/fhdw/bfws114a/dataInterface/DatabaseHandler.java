@@ -213,6 +213,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				Integer.parseInt(cursor.getString(6)), //Class5_Duration
 				Integer.parseInt(cursor.getString(7)), //Class6_Duration
 				cursor.getString(8)); //Last_Seen
+		db.close();
 		return user;
 	}
 	
@@ -244,6 +245,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				Integer.parseInt(cursor.getString(6)), //Class5_Duration
 				Integer.parseInt(cursor.getString(7)), //Class6_Duration
 				cursor.getString(8)); //Last_Seen
+		db.close();
 		return user;
 	}
 	

@@ -16,7 +16,7 @@ public class Data {
 	
 	
 //	//Beim initialisieren mancher Objekte ist der Context notwendig. 
-//	//Um auf diesen in der Methode setChoiceList zugreifen zu können wird er hier als Membervariable definiert	
+//	//Um auf diesen in der Methode setChoiceList zugreifen zu kï¿½nnen wird er hier als Membervariable definiert	
 	private Context mContext;
 	
 	public Data(Activity activity, String user){

@@ -27,13 +27,13 @@ public class ApplicationLogic {
 	
 	public void onSaveClassClicked(){
 //		mData.getDataInterface().delUser(mData.getUser(), mGui.getChoiceList().getSelectedItem().toString());
-//		kommt man an das Ausgewählte Element: mGui.getChoiceList().getSelectedItem().toString()
+//		kommt man an das Ausgewï¿½hlte Element: mGui.getChoiceList().getSelectedItem().toString()
 		applyGuiToData();
 	}
 	
 	private int[] generateTimeconsens(){
 		int[] position = new int[5];
-		for(int i = 0;i<6;i++){
+		for(int i = 0;i<5;i++){
 			if((mData.getTimeOfClasses()[i]%1440)== 0){ //es handelt sich um Stunden
 				mData.setTimeOfClasses(i+1,mData.getTimeOfClasses()[i]/1440);
 				position[i]= 2; //Es handelt sich um Tage
@@ -73,11 +73,11 @@ public class ApplicationLogic {
 			minutes [4] < minutes [5]) {
 		//wenn die Zeiten aufsteigend sind kann gespeichert werden
 		mData.setTimeOfClasses(minutes);
-		//die beiden nächsten Zeilen am falschen Ort, 
-		//besser wäre in applyGuiToData, jedoch darf nicht durchlaufen werden wenn Minuten falsch sind
+		//die beiden nï¿½chsten Zeilen am falschen Ort, 
+		//besser wï¿½re in applyGuiToData, jedoch darf nicht durchlaufen werden wenn Minuten falsch sind
 		//save the times (in minutes) of the classes in connection with the user
 		mData.getDataInterface().saveTimeToClasses(mData.getUser(), mData.getTimeOfClasses());
-		//Aktvity schließen
+		//Aktvity schlieï¿½en
 		mData.getActivity().finish();
 		}
 		else {
