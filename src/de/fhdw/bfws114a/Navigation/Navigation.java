@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.data.User;
 
 public class Navigation {
 	
@@ -34,7 +35,7 @@ public class Navigation {
 		
 	}
 	
-	public static void startActivityUserMenu(Activity callingActivity, String user){
+	public static void startActivityUserMenu(Activity callingActivity, User user){
 		startActivityWithParam(callingActivity, ACTIVITY_USER_MENU_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user);		
 	}	
 
@@ -42,15 +43,15 @@ public class Navigation {
 		startActivity(callingActivity, ACTIVITY_PROFILE_MANAGEMENT_CLASS);		
 	}
 	
-	public static void startActivityChooseCategory(Activity callingActivity, String user){
+	public static void startActivityChooseCategory(Activity callingActivity, User user){
 		startActivityWithParam(callingActivity, ACTIVITY_CHOOSE_CATEGORY_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user);		
 	}	
 
-	public static void startActivityClassManagement(Activity callingActivity, String user){
+	public static void startActivityClassManagement(Activity callingActivity, User user){
 		startActivityWithParam(callingActivity, ACTIVITY_CLASS_MANAGEMENT_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user);		
 	}	
 	
-	public static void startActivityChallenge(Activity callingActivity, String user, String category) {
+	public static void startActivityChallenge(Activity callingActivity, User user, String category) {
 		startActivityWithTwoStringParams(callingActivity, ACTIVITY_CHALLENGE_CLASS, Constants.KEY_PAR_CURRENT_USER_VALUE, user, Constants.KEY_PAR_CURRENT_CATEGORY_VALUE, category);
 	}
 	
@@ -75,20 +76,20 @@ public class Navigation {
 	//Diese Methode dient der Übergabe eines Parameters (z.B. des aktuellen Users) für die aufzurufende Activity
 	private static void startActivityWithParam(Activity callingActivity,
 			Class <?> classOfActivityToStart,
-			String key, String value){
+			String key, User user){
 		Intent intent;		
 		intent = new Intent();
-		intent.putExtra(key, value);	
+		intent.putExtra(key, user);	
 		intent.setClass(callingActivity, classOfActivityToStart);		
 		callingActivity.startActivity(intent);
 	}
 	
 	private static void startActivityWithTwoStringParams(Activity callingActivity, Class<?> classOfActivityToStart,
-			String key1, String value1, String key2, String value2) {
+			String key1, User user, String key2, String category) {
 		Intent intent;		
 		intent = new Intent();
-		intent.putExtra(key1, value1);
-		intent.putExtra(key2, value2);
+		intent.putExtra(key1, user);
+		intent.putExtra(key2, category);
 		intent.setClass(callingActivity, classOfActivityToStart);		
 		callingActivity.startActivity(intent);
 	}

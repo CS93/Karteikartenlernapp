@@ -5,11 +5,12 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import de.fhdw.bfws114a.data.Challenge;
+import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class Data {
 	
-	private String mUser;
+	private User mUser;
 	private String mCategory;
 	private Activity mActivity;
 	private DataInterface mDataInterface;
@@ -18,7 +19,7 @@ public class Data {
 	private int mNumberOfWrongAnswers = 0;
 	private ArrayList<Challenge> mFaelligeChallenges = new ArrayList<Challenge>();
 	
-	public Data(Bundle b, Activity activity, String user, String category){	
+	public Data(Bundle b, Activity activity, User user, String category){	
 		mActivity = activity;
 		mUser = user;
 		mCategory = category;
@@ -53,7 +54,7 @@ public class Data {
 		}		
 	}
 	
-	public String getUser() {
+	public User getUser() {
 		return mUser;
 	}	
 	

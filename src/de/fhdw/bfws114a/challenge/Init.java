@@ -3,8 +3,8 @@ package de.fhdw.bfws114a.challenge;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
+import de.fhdw.bfws114a.data.User;
 
 public class Init extends Activity {
 
@@ -18,7 +18,7 @@ public class Init extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen und an Data weitergegeben
-		initData(savedInstanceState, getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
+		initData(savedInstanceState, (User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
 //		initGui(); //Guis werden von der Applicationlogi initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
 		initApplicationLogic();
 //		initEventToListenerMapping(); //Da die Gui erst während der ApplicationLogic angelegt wird, muss auch das EventToListenerMapping verspätet stattfinden
@@ -45,7 +45,7 @@ public class Init extends Activity {
 	}
 
 
-	private void initData(Bundle savedInstanceState, String user, String category) {
+	private void initData(Bundle savedInstanceState, User user, String category) {
 		mData = new Data(savedInstanceState, this, user, category);
 		
 	}

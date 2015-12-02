@@ -4,21 +4,21 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.Statistics;
+import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class Data {
 	
-	private String mUser;
+	private User mUser;
 	private Activity mActivity;
 	private DataInterface mDataInterface;
 	private ArrayList<String> mKarteien;
 	private ArrayList<Statistics> mStatistik;
 	//Hinweis: Man braucht auch die dazugeh�rige Statistik
 	
-	public Data(Bundle b, Activity activity, String user){	
+	public Data(Bundle b, Activity activity, User user){	
 		mActivity = activity;
 		mUser = user;
 		mDataInterface = new DataInterface(activity);
@@ -48,7 +48,7 @@ public class Data {
 		
 	}
 	
-	public String getUser() {
+	public User getUser() {
 		return mUser;
 	}
 

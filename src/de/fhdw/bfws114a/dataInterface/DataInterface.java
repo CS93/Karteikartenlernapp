@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.dataInterface;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import android.content.Context;
 import android.util.Log;
@@ -23,18 +22,10 @@ private int[] timeToClasses;
 	}
 
 	//load all users
-	public ArrayList<String> loadUsers(){
-		userList = new ArrayList<String>();
-		List<User> DBUsers = db.getAllUsers();
-        for (User u : DBUsers) {
-        	userList.add(u.getName());
-//        	//DEBUG
-//        	for(int i=1;i <= 6;i++){
-//            	Log.d("DEBUG", u.getName() + " - Klasse: " + i + ": " + getTimePeriod(i, u.getName()));
-//        	}
-		}
+	public ArrayList<User> loadUsers(){
+		ArrayList<User> dbUsers = (ArrayList<User>) db.getAllUsers();        
         
-		return userList;
+		return dbUsers;
 	}
 	
 	public ArrayList<User> loadUsers2(){
@@ -54,7 +45,7 @@ private int[] timeToClasses;
 	//Test zu den Klassen
 	
 	//load the Time of Classes dependent on one User
-	public int[] loadTimeToClasses(String user){
+	public int[] loadTimeToClasses(User user){
 		timeToClasses = new int[6];
 		//Zeiten der Klassen zu einem User aus xml in timeToClasses laden
 		//Die Zeiten sind in Minuten angegeben und werden in der Activity in Stunden und Tage umgerechnet
@@ -84,12 +75,12 @@ private int[] timeToClasses;
 	
 	//save Times of Classes in minutes dependent on one User
 	//DONE - NOT TESTED
-	public void saveTimeToClasses(String user, int[] ClassDurations){
+	public void saveTimeToClasses(User user, int[] ClassDurations){
 		//Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in Millisec
-		db.updateUserClasses(user, ClassDurations[0], ClassDurations[1], ClassDurations[2], ClassDurations[3], ClassDurations[4], ClassDurations[5]);
+		db.updateUserClasses(user.getName(), ClassDurations[0], ClassDurations[1], ClassDurations[2], ClassDurations[3], ClassDurations[4], ClassDurations[5]);
 	}
 	
-	public int getTimePeriod(int classNumber, String user){
+	public int getTimePeriod(int classNumber, User user){
 	//Carsten: Hier ben�tige ich die Zeit in Minuten f�r die aktuelle Klasse (um F�lligkeit der entsprechenden Kartei festzustellen) 
 	//DONE - NOT TESTED
 		if (timeToClasses == null){
@@ -97,7 +88,7 @@ private int[] timeToClasses;
 		}
 //		return timeToClasses[classNumber-1];
 		
-		User mUser=db.getUser(user);
+		User mUser=db.getUser(user.getID());
 		switch (classNumber) {
 		case 1:
 			return mUser.getClass1_duration();
@@ -135,7 +126,7 @@ private int[] timeToClasses;
 	}
 	
 
-	public void setCurrentTimestamp(Challenge currentChallenge, String user){
+	public void setCurrentTimestamp(Challenge currentChallenge, User user){
 		//Carsten: Hier muss der Zeitstempel der Challenge auf die aktuelle Zeit gesetzt werden
 		Date timestamp = new Date();
 		Log.d("", "Der Zeitstempel wird von " + currentChallenge.getZeitstempel() + "auf " + timestamp  + "erhöht werden");
@@ -190,7 +181,7 @@ private int[] timeToClasses;
 		
 	}
 	
-	public ArrayList<Challenge> loadChallenges(String category, String user) {
+	public ArrayList<Challenge> loadChallenges(String category, User user) {
 		//Carsten: Hier ben�tige ich alleChallenges in einer ArrayList vom Typ Challenge
 		//Sie sollen in Abh�ngigkeit von Kartei und User geladen werden
 				

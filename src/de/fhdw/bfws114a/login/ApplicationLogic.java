@@ -1,6 +1,7 @@
 package de.fhdw.bfws114a.login;
 
 import de.fhdw.bfws114a.Navigation.Navigation;
+import de.fhdw.bfws114a.data.User;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -23,7 +24,12 @@ public class ApplicationLogic {
 			
 		} else {
 			//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
-			Navigation.startActivityUserMenu(mData.getActivity(), mGui.getChoiceList().getSelectedItem().toString());
+			for(User u : mData.getUser()){
+				if(u.getName().equals(mGui.getChoiceList().getSelectedItem().toString())){
+					Navigation.startActivityUserMenu(mData.getActivity(), u);
+					return;
+				}
+			}
 		}		
 	}
 		
