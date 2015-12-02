@@ -108,7 +108,7 @@ private int[] timeToClasses;
 		
 	}
 	
-	public void increaseClass(Challenge currentChallenge){
+	public void increaseClass(Challenge currentChallenge, User user){
 		//Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese Methode auf und m�chte dass die Klasse in der sich die �bergebene Challenge befindet um 1 erh�ht
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
@@ -116,7 +116,7 @@ private int[] timeToClasses;
 		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse  + "erhöht werden");
 	}
 	
-	public void decreaseClass(Challenge currentChallenge){
+	public void decreaseClass(Challenge currentChallenge, User user){
 		//Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese Methode auf und m�chte dass die Klasse in der sich die �bergebene Challenge befindet um 1 verringert wird
 		
 		//Nur zum testen

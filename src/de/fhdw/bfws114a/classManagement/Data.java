@@ -23,7 +23,6 @@ public class Data {
 	
 	public Data(Activity activity, User user){
 
-		activity.setContentView(R.layout.activity_profile_management);
 		mContext = activity;
 		
 		mActivity = activity;
@@ -35,9 +34,9 @@ public class Data {
 		
 	}
 	
-public DataInterface getDataInterface() {
-	return mDataInterface;
-}
+	public DataInterface getDataInterface() {
+		return mDataInterface;
+	}
 	
 	public Context getContext() {
 		return mContext;
