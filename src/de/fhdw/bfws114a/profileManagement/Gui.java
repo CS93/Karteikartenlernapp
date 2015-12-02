@@ -60,7 +60,7 @@ public class Gui {
 	        	choiseList.add(u);
 		}
 		
-		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, android.R.layout.simple_spinner_item, choiseList);
+		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, R.layout.spinner_item, choiseList);
 		mChoiceList.setAdapter(spinnerAdapter);
 		
 	}	
