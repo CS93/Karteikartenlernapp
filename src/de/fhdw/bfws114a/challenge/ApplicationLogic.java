@@ -95,8 +95,7 @@ public class ApplicationLogic {
 		if(currentQuestionType == 3){
 			//Solution aufrufen mit Kartei
 			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), null);
-		}
-		
+		}		
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {

@@ -25,6 +25,13 @@ public class Init extends Activity {
 		
 	}
 	
+	
+	@Override
+	public void onBackPressed() {
+		mApplicationLogic.OnBackButton();
+	}
+
+
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
 //		mData.saveDataInBundle(outState);
