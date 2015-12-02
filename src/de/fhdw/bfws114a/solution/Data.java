@@ -1,11 +1,8 @@
 package de.fhdw.bfws114a.solution;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.os.Bundle;
 import de.fhdw.bfws114a.data.Challenge;
-import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class Data {
 	

@@ -27,6 +27,12 @@ public class Init extends Activity {
 		super.onSaveInstanceState(outState);
 	}
 	
+	
+	@Override
+	public void onBackPressed() {
+		mApplicationLogic.onContinueClicked("Nein");
+	}
+
 	private void initData(Bundle savedInstanceState, Challenge currentChallenge, boolean[] userAnswerCheckBox, String answerText) {
 		mData = new Data(savedInstanceState, this, currentChallenge, userAnswerCheckBox, answerText);
 		

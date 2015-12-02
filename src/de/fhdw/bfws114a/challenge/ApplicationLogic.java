@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
@@ -133,10 +132,9 @@ public class ApplicationLogic {
 	}
 
 	public void FinishLearnSession() {
-		//Wechseln in statistics und challenge activity beenden
-		
 		//Der Index muss verringert werden, da die aktuelle Challenge gar nicht bearbeitet wurde
 		int indexOfCurrentChallenge = mData.getIndexOfCurrentChallenge()-1;
+		//Wechseln in statistics und challenge activity beenden
 		Navigation.startActivityStatistics(mData.getActivity(), indexOfCurrentChallenge, mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
 		mData.getActivity().finish();
 	}

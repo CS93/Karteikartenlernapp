@@ -7,6 +7,7 @@ import android.widget.Button;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.lernKartei.R;
+import de.fhdw.bfws114a.lernKartei.R.color;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -56,9 +57,9 @@ public class ApplicationLogic {
 			mGui1.getOption(i).setChecked(userAnswer[i]);			
 			if(userAnswer[i] == currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]){
 				//Die CheckBox wurde zu Recht angeklickt bzw. nicht angeklickt
-//				mGui1.getOption(i).setBackgroundColor(R.color.green);
+				mGui1.getOption(i).setTextColor(color.green);
 			} else {
-				mGui1.getOption(i).setBackgroundColor(R.color.red);				
+				mGui1.getOption(i).setTextColor(color.red);				
 			}
 		}		
 	}
@@ -68,6 +69,15 @@ public class ApplicationLogic {
 		mGui2.getQuestion().setText(currentChallenge.getFrage());
 		mGui2.getUserAnswer().setText(userAnswer);
 		mGui2.getCorrectAnswer().setText(currentChallenge.getAntwort(0));
+		
+		if(mGui2.getUserAnswer().getText().toString().toLowerCase().equals(mData.getCurrentChallenge().getAntwort(0).toLowerCase())){
+			mGui2.getUserAnswerDescription().setTextColor(color.green);
+			mGui2.getUserAnswer().setTextColor(color.green);
+		} else {
+			mGui2.getUserAnswerDescription().setTextColor(color.red);
+			mGui2.getUserAnswer().setTextColor(color.red);
+		}
+		
 	}
 		
 	//Wenn es FrageTyp 3 ist diese Methode ausführen
@@ -79,7 +89,7 @@ public class ApplicationLogic {
 	
 	
 	//Überprüfen der Antworten aus der entsprechenden Gui (1, 2 oder 3) und einblenden der Solution.	
-	public void onContinueClicked(View callingObject){
+	public void onContinueClicked(String buttonText){
 		boolean userAnswerCorrect = false;
 		if(currentQuestionType == 1){
 			
@@ -104,7 +114,7 @@ public class ApplicationLogic {
 		}
 		
 		if(currentQuestionType == 3){			
-			if(((Button) callingObject).getText().equals("Ja")){
+			if(buttonText.equals("Ja")){
 				//Frage wurde korrekt beantwortet
 				userAnswerCorrect = true;
 			} else {
@@ -118,6 +128,5 @@ public class ApplicationLogic {
 		mData.getActivity().finish();
 		
 	}
-
 }
 

@@ -14,6 +14,7 @@ public class Gui2 {
 	private TextView mCorrectAnswer;
 	private Activity mActivity;
 	private Button mContinue;
+	private TextView mUserAnswerDescription;
 
 
 	public Gui2(Activity act) {
@@ -21,6 +22,7 @@ public class Gui2 {
 		act.setContentView(R.layout.activity_challenge_text_answer);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_text_answer);
 		mUserAnswer = (TextView) act.findViewById(R.id.t_user_answer_text_answer);
+		mUserAnswerDescription = (TextView) act.findViewById(R.id.t_user_answer_description_text_answer);
 		mCorrectAnswer = (TextView) act.findViewById(R.id.t_correct_answer_text_answer);
 		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text_answer);
 	}
@@ -37,6 +39,10 @@ public class Gui2 {
 		return mUserAnswer;
 	}
 
+	public TextView getUserAnswerDescription(){
+		return mUserAnswerDescription;
+	}
+	
 	public TextView getCorrectAnswer() {
 		return mCorrectAnswer;
 	}

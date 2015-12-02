@@ -2,6 +2,7 @@ package de.fhdw.bfws114a.solution;
 
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class EventToListenerMapping implements OnClickListener {
 
@@ -24,8 +25,9 @@ public class EventToListenerMapping implements OnClickListener {
 	}
 	
 	@Override
-	public void onClick(View v) {		
-		mApplicationLogic.onContinueClicked(v);		
+	public void onClick(View v) {
+		String userAnswerCorrection = ((Button) v).getText().toString(); //Nur relevant für Fragetyp 3 (Selbstüberprüfung)
+		mApplicationLogic.onContinueClicked(userAnswerCorrection);
 	}
 	
 }
