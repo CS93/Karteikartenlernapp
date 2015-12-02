@@ -34,7 +34,7 @@ public class Data {
 
 	protected void ladeUser(){
 		//User aus Datenschnittstelle laden und in String ArrayList hineinspeichern
-		mUserList = mDataInterface.loadUser();	
+		mUserList = mDataInterface.loadUsers();	
 		
 	}
 	

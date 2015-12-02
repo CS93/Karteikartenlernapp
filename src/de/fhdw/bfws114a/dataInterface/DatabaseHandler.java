@@ -1,9 +1,9 @@
 package de.fhdw.bfws114a.dataInterface;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.fhdw.bfws114a.data.User;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -17,6 +17,14 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	// General variables
 	private static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_NAME = "karteikartenDB";
+	
+	private static final int CLASS1_DEFAULTDURATION = 1;	//1 Minute
+	private static final int CLASS2_DEFAULTDURATION = 5;	//5 Minute
+	private static final int CLASS3_DEFAULTDURATION = 10;	//10 Minute
+	private static final int CLASS4_DEFAULTDURATION = 30;	//30 Minute
+	private static final int CLASS5_DEFAULTDURATION = 60;	//1 Stunde
+	private static final int CLASS6_DEFAULTDURATION = 1440;	//1 Tag
+
 
 	// Table name
 	private static final String TABLE_USERS= "users";
@@ -93,12 +101,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String create_users_table = "CREATE TABLE " + TABLE_USERS + "("
 				+ KEY_USERS_USERID + " INTEGER PRIMARY KEY," 
 				+ KEY_USERS_USERNAME + " TEXT,"
-				+ KEY_USERS_CLASS1_DURATION + " TEXT," 
-				+ KEY_USERS_CLASS2_DURATION + " TEXT," 
-				+ KEY_USERS_CLASS3_DURATION + " TEXT," 
-				+ KEY_USERS_CLASS4_DURATION + " TEXT," 
-				+ KEY_USERS_CLASS5_DURATION + " TEXT," 
-				+ KEY_USERS_CLASS6_DURATION + " TEXT,"
+				+ KEY_USERS_CLASS1_DURATION + " INTEGER," 
+				+ KEY_USERS_CLASS2_DURATION + " INTEGER," 
+				+ KEY_USERS_CLASS3_DURATION + " INTEGER," 
+				+ KEY_USERS_CLASS4_DURATION + " INTEGER," 
+				+ KEY_USERS_CLASS5_DURATION + " INTEGER," 
+				+ KEY_USERS_CLASS6_DURATION + " INTEGER,"
 				+ KEY_USERS_LAST_SEEN + " TEXT"
 				+ ")";
 		db.execSQL(create_users_table);
@@ -108,7 +116,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String create_userscores_table = "CREATE TABLE " + TABLE_USERSCORES + "("
 				+ KEY_USERSCORES_USERID + " INTEGER PRIMARY KEY," 
 //				+ KEY_USERSCORES_FILEID + " INTEGER PRIMARY KEY," 
-				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anführungszeichen genommen:  PRIMARY KEY  
+				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anfï¿½hrungszeichen genommen:  PRIMARY KEY  
 				+ KEY_USERSCORES_ASSIGNEDCLASS + " INTEGER,"
 				+ KEY_USERSCORES_TIMESTAMP + " TEXT"
 				+ ")";
@@ -152,9 +160,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		onCreate(db);
 	}
 
-	/**
-	 * All CRUD(Create, Read, Update, Delete) Operations
-	 */
+	/***********************
+	 * All USER Operations *
+	 ***********************
+*/
 
 	// Adding new user
 	void addUser(String username) {
@@ -163,6 +172,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		ContentValues values = new ContentValues();
 		values.put(KEY_USERS_USERNAME, username); // User Name
+		values.put(KEY_USERS_CLASS1_DURATION, CLASS1_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS2_DURATION, CLASS2_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS3_DURATION, CLASS3_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS4_DURATION, CLASS4_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS5_DURATION, CLASS5_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS6_DURATION, CLASS6_DEFAULTDURATION); // Class1 Duration
 
 		// Inserting Row
 		db.insert(TABLE_USERS, null, values);
@@ -177,10 +192,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				KEY_USERS_USERID,
 				KEY_USERS_USERNAME, 
 				KEY_USERS_CLASS1_DURATION, 
-				KEY_USERS_CLASS1_DURATION, 
-				KEY_USERS_CLASS1_DURATION,
-				KEY_USERS_CLASS1_DURATION, 
-				KEY_USERS_CLASS1_DURATION 
+				KEY_USERS_CLASS2_DURATION, 
+				KEY_USERS_CLASS3_DURATION,
+				KEY_USERS_CLASS4_DURATION, 
+				KEY_USERS_CLASS5_DURATION,
+				KEY_USERS_CLASS6_DURATION,
+				KEY_USERS_LAST_SEEN
 				}, 
 				KEY_USERS_USERID + "=?",
 				new String[] { String.valueOf(id) }, null, null, null, null);
@@ -189,14 +206,44 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		User user = new User(Integer.parseInt(cursor.getString(0)),
 				cursor.getString(1), //Name
-				cursor.getString(2), //Class1_Duration
-				cursor.getString(3), //Class2_Duration
-				cursor.getString(4), //Class3_Duration
-				cursor.getString(5), //Class4_Duration
-				cursor.getString(6), //Class5_Duration
-				cursor.getString(7), //Class6_Duration
+				Integer.parseInt(cursor.getString(2)), //Class1_Duration
+				Integer.parseInt(cursor.getString(3)), //Class2_Duration
+				Integer.parseInt(cursor.getString(4)), //Class3_Duration
+				Integer.parseInt(cursor.getString(5)), //Class4_Duration
+				Integer.parseInt(cursor.getString(6)), //Class5_Duration
+				Integer.parseInt(cursor.getString(7)), //Class6_Duration
 				cursor.getString(8)); //Last_Seen
-		// return user
+		return user;
+	}
+	
+	User getUser(String name) {
+		SQLiteDatabase db = this.getReadableDatabase();
+
+		Cursor cursor = db.query(TABLE_USERS, new String[] { 
+				KEY_USERS_USERID,
+				KEY_USERS_USERNAME, 
+				KEY_USERS_CLASS1_DURATION, 
+				KEY_USERS_CLASS2_DURATION, 
+				KEY_USERS_CLASS3_DURATION,
+				KEY_USERS_CLASS4_DURATION, 
+				KEY_USERS_CLASS5_DURATION,
+				KEY_USERS_CLASS6_DURATION,
+				KEY_USERS_LAST_SEEN
+				}, 
+				KEY_USERS_USERNAME + "=?",
+				new String[] { name }, null, null, null, null);
+		if (cursor != null)
+			cursor.moveToFirst();
+
+		User user = new User(Integer.parseInt(cursor.getString(0)),
+				cursor.getString(1), //Name
+				Integer.parseInt(cursor.getString(2)), //Class1_Duration
+				Integer.parseInt(cursor.getString(3)), //Class2_Duration
+				Integer.parseInt(cursor.getString(4)), //Class3_Duration
+				Integer.parseInt(cursor.getString(5)), //Class4_Duration
+				Integer.parseInt(cursor.getString(6)), //Class5_Duration
+				Integer.parseInt(cursor.getString(7)), //Class6_Duration
+				cursor.getString(8)); //Last_Seen
 		return user;
 	}
 	
@@ -214,13 +261,13 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			do {
 				User user = new User(Integer.parseInt(cursor.getString(0)),
 						cursor.getString(1), //Name
-						cursor.getString(2), //Class1_Duration
-						cursor.getString(3), //Class2_Duration
-						cursor.getString(4), //Class3_Duration
-						cursor.getString(5), //Class4_Duration
-						cursor.getString(6), //Class5_Duration
-						cursor.getString(7), //Class6_Duration
-						cursor.getString(8)); //Last_Seen				
+						Integer.parseInt(cursor.getString(2)), //Class1_Duration
+						Integer.parseInt(cursor.getString(3)), //Class2_Duration
+						Integer.parseInt(cursor.getString(4)), //Class3_Duration
+						Integer.parseInt(cursor.getString(5)), //Class4_Duration
+						Integer.parseInt(cursor.getString(6)), //Class5_Duration
+						Integer.parseInt(cursor.getString(7)), //Class6_Duration
+						cursor.getString(8)); //Last_Seen			
 				// Adding user to list
 				userList.add(user);
 			} while (cursor.moveToNext());
@@ -228,6 +275,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 		// return user list
 		return userList;
+	}
+	
+	public void updateUser(){
+		
+	}
+	
+	public void updateUserClasses(String user, int class1, int class2, int class3, int class4, int class5, int class6){
+		SQLiteDatabase db = this.getWritableDatabase();
+		
+		ContentValues values = new ContentValues();
+		values.put(KEY_USERS_CLASS1_DURATION, class1); 
+		values.put(KEY_USERS_CLASS2_DURATION, class2); 
+		values.put(KEY_USERS_CLASS3_DURATION, class3); 
+		values.put(KEY_USERS_CLASS4_DURATION, class4); 
+		values.put(KEY_USERS_CLASS5_DURATION, class5); 
+		values.put(KEY_USERS_CLASS6_DURATION, class6); 
+		String whereClause = KEY_USERS_USERNAME + " = ?"; 
+		String[] whereArgs = new String[] {user};		
+		db.update(TABLE_USERS, values, whereClause, whereArgs);
+		db.close();
+
 	}
 
 	// Deleting single user by ID
@@ -246,7 +314,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				new String[] { name });
 		db.close();
 	}
-
 
 	// Getting user Count
 	public int getUserCount() {

@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import de.fhdw.bfws114a.data.User;
 //import de.fhdw.bfws114asc.counter1.R;
 import de.fhdw.bfws114a.lernKartei.R;
 
@@ -25,7 +26,7 @@ public class Gui {
 	private EditText mAddUser;
 	private Spinner mChoiceList;
 	//Beim initialisieren mancher Objekte ist der Context notwendig. 
-	//Um auf diesen in der Methode setChoiceList zugreifen zu können wird er hier als Membervariable definiert	
+	//Um auf diesen in der Methode setChoiceList zugreifen zu kï¿½nnen wird er hier als Membervariable definiert	
 	private Context mContext;
 
 	public Gui(Activity act) {
@@ -53,8 +54,13 @@ public class Gui {
 		return mChoiceList;
 	}
 	
-	public void setChoiceList(ArrayList<String> choiceList) {		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, choiceList);
+	public void setChoiceList(ArrayList<User> userList) {	
+		ArrayList<String> choiseList = new ArrayList<String>();
+		 for (User u : userList) {
+	        	choiseList.add(u.getName());
+		}
+		
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, choiseList);
 		mChoiceList.setAdapter(spinnerAdapter);
 		
 	}	

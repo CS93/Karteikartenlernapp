@@ -3,17 +3,20 @@ package de.fhdw.bfws114a.profileManagement;
 import java.util.ArrayList;
 import android.app.Activity;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
+import de.fhdw.bfws114a.data.User;
+
 
 public class Data {
 
-	private ArrayList<String> mUserList; //Eventuell eine Liste verwenden
+	private ArrayList<User> mUserList; //Eventuell eine Liste verwenden
 	private Activity mActivity;
 	private DataInterface mDataInterface;
+	
 	
 	public Data(Activity activity){	
 		mActivity = activity;
 		mDataInterface = new DataInterface(activity);
-			ladeUser();
+		ladeUser();
 	}
 	
 	public DataInterface getDataInterface() {
@@ -26,11 +29,11 @@ public class Data {
 
 	private void ladeUser(){
 		//load all User from db and save it in user (String Array)
-		mUserList = mDataInterface.loadUser();	
+		mUserList = mDataInterface.loadUsers2();	
 		
 	}
 	
-	public ArrayList<String> getUser(){
+	public ArrayList<User> getUser(){
 		return mUserList;
 	}
 	

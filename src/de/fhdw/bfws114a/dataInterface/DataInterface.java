@@ -8,6 +8,7 @@ import android.content.Context;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Statistics;
+import de.fhdw.bfws114a.data.User;
 
 public class DataInterface {
 	
@@ -22,7 +23,7 @@ private int[] timeToClasses;
 	}
 
 	//load all users
-	public ArrayList<String> loadUser(){
+	public ArrayList<String> loadUsers(){
 		userList = new ArrayList<String>();
 		List<User> DBUsers = db.getAllUsers();
         for (User u : DBUsers) {
@@ -31,34 +32,18 @@ private int[] timeToClasses;
 		return userList;
 	}
 	
+	public ArrayList<User> loadUsers2(){
+		return (ArrayList<User>) db.getAllUsers();
+	}
+	
 	//delete one User
 	public void delUser(String delUser){
 		db.deleteUser(delUser);
-//		return loadUser();
-//		//Test von http://www.sjmp.de/java/bestimmte-elemente-eines-arrays-loeschen/ angepasst
-//		if (user != null) {
-//			for (int i = 0; i < user.size(); i++) {
-//				if (user.get(i).equals(delUser)) {
-//					user.remove(i);
-//				}
-//			}
-//			userList = user;
-//			return user;
-//		} else {
-//			return user;
-//		}
 	}
 	
 	//add one User 
-	public  void addUser(String newUser){
-//		user.add(newUser);
-		//Log.d("DEBUG",db.getDatabaseName());
+	public void addUser(String newUser){
 		db.addUser(newUser);
-//		return user;
-
-//		user.add(newUser);
-//		userList.add(newUser);
-//		return user;
 	}
 
 	//Test zu den Klassen
@@ -93,26 +78,42 @@ private int[] timeToClasses;
 	}
 	
 	//save Times of Classes in minutes dependent on one User
-	public void saveTimeToClasses(String user, int[] timeToClass){
+	//DONE - NOT TESTED
+	public void saveTimeToClasses(String user, int[] ClassDurations){
 		//Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in Millisec
-		timeToClasses[0] = timeToClass[0];
-		timeToClasses[1] = timeToClass[1];
-		timeToClasses[2] = timeToClass[2];
-		timeToClasses[3] = timeToClass[3];
-		timeToClasses[4] = timeToClass[4];
-		timeToClasses[5] = timeToClass[5]; 
+		db.updateUserClasses(user, ClassDurations[0], ClassDurations[1], ClassDurations[2], ClassDurations[3], ClassDurations[4], ClassDurations[5]);
 	}
 	
 	public int getTimePeriod(int classNumber, String user){
-	//Carsten: Hier benötige ich die Zeit in Minuten für die aktuelle Klasse (um Fälligkeit der entsprechenden Kartei festzustellen) 
+	//Carsten: Hier benï¿½tige ich die Zeit in Minuten fï¿½r die aktuelle Klasse (um Fï¿½lligkeit der entsprechenden Kartei festzustellen) 
+	//DONE - NOT TESTED
 		if (timeToClasses == null){
 			loadTimeToClasses(user);
 		}
 		return timeToClasses[classNumber-1];
+		
+//		User mUser=db.getUser(user);
+//		switch (classNumber) {
+//		case 1:
+//			return mUser.getClass1_duration();
+//		case 2:
+//			return mUser.getClass2_duration();
+//		case 3:
+//			return mUser.getClass3_duration();
+//		case 4:
+//			return mUser.getClass4_duration();
+//		case 5:
+//			return mUser.getClass5_duration();
+//		case 6:
+//			return mUser.getClass6_duration();
+//		default:
+//			return 0;
+//		}
+		
 	}
 	
 	public void increaseClass(Challenge currentChallenge){
-		//Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese Methode auf und möchte dass die Klasse in der sich die übergebene Challenge befindet um 1 erhöht
+		//Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese Methode auf und mï¿½chte dass die Klasse in der sich die ï¿½bergebene Challenge befindet um 1 erhï¿½ht
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse+1;
@@ -120,7 +121,7 @@ private int[] timeToClasses;
 	}
 	
 	public void decreaseClass(Challenge currentChallenge){
-		//Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese Methode auf und möchte dass die Klasse in der sich die übergebene Challenge befindet um 1 verringert wird
+		//Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese Methode auf und mï¿½chte dass die Klasse in der sich die ï¿½bergebene Challenge befindet um 1 verringert wird
 		
 		//Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
@@ -138,8 +139,8 @@ private int[] timeToClasses;
 	
 	
 	public ArrayList<String> loadCategories(){
-		//Carsten: Hier benötige ich die 8 Karteien (Kategorien) in denen sich der User "beweisen" kann. 
-		//WICHTIG: Es müssen genau 8 sein!! Zur Not mit leeren Strings auffüllen
+		//Carsten: Hier benï¿½tige ich die 8 Karteien (Kategorien) in denen sich der User "beweisen" kann. 
+		//WICHTIG: Es mï¿½ssen genau 8 sein!! Zur Not mit leeren Strings auffï¿½llen
 		
 		//Test
 		ArrayList<String> categories = new ArrayList<String>();
@@ -159,8 +160,8 @@ private int[] timeToClasses;
 	
 	public ArrayList<Statistics> loadStatistics(ArrayList<String> categories) {
 		//Carsten: Hier brauche ich die dazugehoerige Statistik zu den einzelnen Karteien/Kategorien nach dem Muster: 
-		//"Karteiname - Fällige_Challenges - Gesamte_Challenges (in dieser Kartei)"  
-		//Könnte etwas schwierig werden (im Notfall müssen wir uns da nochmal kurzschließen)
+		//"Karteiname - Fï¿½llige_Challenges - Gesamte_Challenges (in dieser Kartei)"  
+		//Kï¿½nnte etwas schwierig werden (im Notfall mï¿½ssen wir uns da nochmal kurzschlieï¿½en)
 		
 		//Test
 		ArrayList<Statistics> statistik= new ArrayList<Statistics>(); 
@@ -185,12 +186,12 @@ private int[] timeToClasses;
 	}
 	
 	public ArrayList<Challenge> loadChallenges(String category, String user) {
-		//Carsten: Hier benötige ich alleChallenges in einer ArrayList vom Typ Challenge
-		//Sie sollen in Abhängigkeit von Kartei und User geladen werden
+		//Carsten: Hier benï¿½tige ich alleChallenges in einer ArrayList vom Typ Challenge
+		//Sie sollen in Abhï¿½ngigkeit von Kartei und User geladen werden
 				
 		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
 		String[] antworten; //Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 AntwortmÃ¶glichkeiten geeinigt
-		boolean[] korrekteAntworten; //nur bei Fragetyp 1 nötig
+		boolean[] korrekteAntworten; //nur bei Fragetyp 1 nï¿½tig
 		Date zeitstempel = new Date();
 		Challenge challenge;
 		
