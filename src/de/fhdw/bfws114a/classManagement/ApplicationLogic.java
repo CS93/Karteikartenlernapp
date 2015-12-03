@@ -24,6 +24,7 @@ public class ApplicationLogic {
 	
 	public void onDefaultClassClicked(){
 		mData.loadDefaultTimeToClasses();
+		applyDataToGui();
 	}
 		
 	
