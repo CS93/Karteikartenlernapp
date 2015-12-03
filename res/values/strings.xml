@@ -58,8 +58,8 @@
     <string name="class_number_headline">Klasse</string>
     <string name="class_management_headline">Klassenmanagement</string>
     <string name="class_time_headline">Zeitspanne</string>
-    <string name="class_time_minute">Minute</string>
-    <string name="class_time_hour">Stunde</string>
-    <string name="class_time_day">Tag</string>
+    <string name="class_time_minute">Minute(n)</string>
+    <string name="class_time_hour">Stunde(n)</string>
+    <string name="class_time_day">Tag(e)</string>
     <string name="class_error_message">Bitte geben sie die Zeiten der Klassen aufsteigend an!</string>
 </resources>
