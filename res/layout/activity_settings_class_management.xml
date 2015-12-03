@@ -108,8 +108,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/t_class_one_class_management"
-        android:layout_alignRight="@+id/t_class_headline_class_management"
-        android:layout_marginRight="50dp"
+        android:layout_toLeftOf="@+id/s_class_one_class_management"
+        android:layout_marginRight="20dp"
         android:ems="5"
         android:inputType="number"
         android:gravity="right" />
@@ -168,7 +168,7 @@
 
     <Spinner
         android:id="@+id/s_class_one_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_one_class_management"
         android:layout_alignParentRight="true"
@@ -176,35 +176,35 @@
     
     <Spinner
         android:id="@+id/s_class_two_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_two_class_management"
         android:layout_alignRight="@+id/s_class_one_class_management" />
     
     <Spinner
         android:id="@+id/s_class_three_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_three_class_management"
         android:layout_alignRight="@+id/s_class_two_class_management" />
     
     <Spinner
         android:id="@+id/s_class_four_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_four_class_management"
         android:layout_alignRight="@+id/s_class_three_class_management" />
     
     <Spinner
         android:id="@+id/s_class_five_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_five_class_management"
         android:layout_alignRight="@+id/s_class_four_class_management" />
     
     <Spinner
         android:id="@+id/s_class_six_class_management"
-        android:layout_width="100dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_six_class_management"
         android:layout_alignRight="@+id/s_class_five_class_management" />
