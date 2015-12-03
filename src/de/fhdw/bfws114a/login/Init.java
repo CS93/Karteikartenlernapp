@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 
 public class Init extends Activity {
-
 	private Data mData;
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
@@ -12,6 +11,7 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
 		initData(savedInstanceState);
 		initGui();
 		initApplicationLogic();
@@ -33,8 +33,8 @@ public class Init extends Activity {
 
 	private void initData(Bundle savedInstanceState) {
 		mData = new Data(savedInstanceState, this);
-		
 	}
+
 	
 	private void initGui() {
 		mGui = new Gui(this);

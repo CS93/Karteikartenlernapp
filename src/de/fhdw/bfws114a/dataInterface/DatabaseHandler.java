@@ -75,9 +75,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-		
-		if(isSDCardWriteable()) Log.d("LOG", "SD Karte ist Beschreibbar");
-		
+				
 //		Log.d("DEBUG", Environment.getExternalStorageDirectory().getAbsolutePath());
 //		super(context, "/storage/sdcard0/"+ DATABASE_NAME, null, DATABASE_VERSION);
 
@@ -120,7 +118,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String create_userscores_table = "CREATE TABLE " + TABLE_USERSCORES + "("
 				+ KEY_USERSCORES_USERID + " INTEGER PRIMARY KEY," 
 //				+ KEY_USERSCORES_FILEID + " INTEGER PRIMARY KEY," 
-				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anf�hrungszeichen genommen:  PRIMARY KEY  
+				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anführungszeichen genommen:  PRIMARY KEY  
 				+ KEY_USERSCORES_ASSIGNEDCLASS + " INTEGER,"
 				+ KEY_USERSCORES_TIMESTAMP + " TEXT"
 				+ ")";
@@ -138,7 +136,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ KEY_CARDS_ANSWER3 + " TEXT,"
 				+ KEY_CARDS_ANSWER4 + " TEXT,"
 				+ KEY_CARDS_ANSWER5 + " TEXT,"
-				+ KEY_CARDS_ANSWER6 + " TEXT"
+				+ KEY_CARDS_ANSWER6 + " TEXT,"
 				+ KEY_CARDS_SOLUTION + " TEXT"
 				+ ")";
 		db.execSQL(create_cards_table);
@@ -219,7 +217,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 */
 	// Adding new user
 	void addUser(String username) {
-		Log.d("DEBUGLOG", "addUser wurde aufgerufen!");
 		SQLiteDatabase db = this.getWritableDatabase();
 
 		ContentValues values = new ContentValues();
@@ -385,7 +382,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	//***********************
 	
 	// Adding new File
-		void addFile(File input) {
+		public void addFile(File input) {
 			SQLiteDatabase db = this.getWritableDatabase();
 
 			ContentValues values = new ContentValues();
@@ -396,14 +393,40 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			db.insert(TABLE_FILES, null, values);
 			db.close(); // Closing database connection
 		}
+		
+		public List<File> getAllFiles(){
+			List<File> result= new ArrayList<File>();
+			
+			String selectQuery = "SELECT * FROM " + TABLE_FILES;
+			SQLiteDatabase db = this.getReadableDatabase();
+			Cursor cursor = db.rawQuery(selectQuery, null);
+
+			// looping through all rows and adding to list
+			if (cursor.moveToFirst()) {
+				do {
+					File file = new File();
+					file.setId(Integer.parseInt(cursor.getString(0))); //FileID
+					file.setName(cursor.getString(1));
+									
+					// Adding file to resultlist
+					result.add(file);
+				} while (cursor.moveToNext());
+			}
+
+			db.close();
+
+			
+			// return file list
+			return result;
+			
+		}
 	
 	//***********************
 	//* All CARD Operations *
 	//***********************
 
 		// Adding new Card
-		void addCard(Card input) {
-			Log.d("DEBUGLOG", "addUser wurde aufgerufen!");
+		public void addCard(Card input) {
 			SQLiteDatabase db = this.getWritableDatabase();
 			ContentValues values = new ContentValues();
 			values.put(KEY_CARDS_CARDID, input.getId()); // User Name

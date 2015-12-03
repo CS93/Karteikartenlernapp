@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.login;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
@@ -17,6 +18,9 @@ public class Data {
 	public Data(Bundle b, Activity activity){	
 		mActivity = activity;	
 		mDataInterface = new DataInterface(activity);
+		
+		mDataInterface.importXMLtoDB();
+		
 		if(b == null){
 			//Activity wurde das erste Mal gestartet
 			ladeUser(); 

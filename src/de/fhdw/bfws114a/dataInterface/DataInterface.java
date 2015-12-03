@@ -1,10 +1,14 @@
 package de.fhdw.bfws114a.dataInterface;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Card;
@@ -15,15 +19,18 @@ import de.fhdw.bfws114a.data.User;
 
 public class DataInterface {
 	
-	//Test zu den Usern
+private static final String XMLFileName = "karteien.xml";	
 private ArrayList<String> userList;
 private DatabaseHandler db;
 private XMLPullParserHandler xmlHandler;
 private int[] timeToClasses;
+private Activity activity;
 
 
-	public DataInterface(Context context){
-		db = new DatabaseHandler(context);
+	public DataInterface(Activity activity){
+		db = new DatabaseHandler(activity);
+		xmlHandler = new XMLPullParserHandler();
+		this.activity=activity;
 	}
 
 	//load all users
@@ -47,8 +54,8 @@ private int[] timeToClasses;
 		db.addUser(newUser);
 	}
 
-	//Test zu den Klassen
 	
+	//Test zu den Klassen
 	//load the Time of Classes dependent on one User
 	public int[] loadTimeToClasses(User user){
 		timeToClasses = new int[6];
@@ -243,12 +250,24 @@ private int[] timeToClasses;
 	 *****************************
 */
 	
-	public void importXMLtoDB(InputStream is){
+	public void importXMLtoDB(){
+    	XMLPullParserHandler parser = new XMLPullParserHandler();
+
+		Log.d("DEBUG","Importvorgang angestoßen...");
 		db.clearFileTable();
 		db.clearCard();
 		db.clearUserscoreTable();
-		List<Card> importedCards = xmlHandler.parseCards(is);
-		List<File> importedFiles = xmlHandler.parseFiles(is);
+
+		List<Card> importedCards = null;
+		List<File> importedFiles = null;
+		
+		try {
+			importedCards = xmlHandler.parseCards(activity.getAssets().open("karteien.xml"));
+			importedFiles = xmlHandler.parseFiles(activity.getAssets().open("karteien.xml"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		for(int i=0;i<importedFiles.size();i++){
 			//Kartei (ohne Karten) --> Nur Kategorie in DB schreiben
@@ -258,6 +277,45 @@ private int[] timeToClasses;
 			//Karten in die DB Schreiben
 			db.addCard(importedCards.get(i));
 		}
+		
+		
+		/// Hat es geklappt?
+		
+		List<File> test = db.getAllFiles();
+		for (int i=0;i<test.size();i++){
+			Log.d("DEBUG",test.get(i).toString());
+		}
+	}
+	
+	public String isToString(InputStream is){
+		if(is != null)
+        {
+            BufferedReader br = null;
+            StringBuilder sb = new StringBuilder();
+
+            String line;
+            try {
+
+                br = new BufferedReader(new InputStreamReader(is));
+                while ((line = br.readLine()) != null) {
+                    sb.append(line);
+                }
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            } finally {
+                if (br != null) {
+                    try {
+                        br.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            return sb.toString();
+        }
+		else return "";
 	}
 	
 }

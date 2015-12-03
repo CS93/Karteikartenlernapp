@@ -13,7 +13,6 @@ import android.util.Log;
 
 public class XMLPullParserHandler {
 
-	private static final String TAG_FILES = "files";
 	private static final String TAG_FILE = "file";
 	private static final String TAG_FILE_ID = "fileID";
 	private static final String TAG_FILE_NAME = "fileName";
@@ -40,17 +39,12 @@ public class XMLPullParserHandler {
 	public XMLPullParserHandler() {
 	}
 	
-	public List<File> getFiles() {
-		return files;
-	}
-	
 	public List<File> parseFiles(InputStream is) {
 		
 		XmlPullParserFactory factory = null;
 		XmlPullParser parser = null;
 		files = new ArrayList<File>();
 		tempfile = new File();
-
 
 		try {
 			factory = XmlPullParserFactory.newInstance();
@@ -62,6 +56,7 @@ public class XMLPullParserHandler {
 			int eventType = parser.getEventType();
 			while(eventType != XmlPullParser.END_DOCUMENT) {
 				String tagname = parser.getName();
+				
 				switch (eventType) {
 				case XmlPullParser.START_TAG:
 					break;
