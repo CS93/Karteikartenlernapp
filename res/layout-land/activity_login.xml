@@ -75,5 +75,15 @@
         android:layout_marginLeft="141dp"
         android:contentDescription="@string/logo"
         android:src="@drawable/ic_launcher" />
+    
+    <ImageButton android:id="@+id/ib_information_button_login"
+        android:layout_width="43dp"
+        android:layout_height="38dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="100dip"
+        android:src="@drawable/i" />
 
 </RelativeLayout>
