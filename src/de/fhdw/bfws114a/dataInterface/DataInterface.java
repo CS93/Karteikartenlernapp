@@ -1,11 +1,15 @@
 package de.fhdw.bfws114a.dataInterface;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import android.content.Context;
 import android.util.Log;
+import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.Challenge;
+import de.fhdw.bfws114a.data.File;
 import de.fhdw.bfws114a.data.Statistics;
 import de.fhdw.bfws114a.data.User;
 
@@ -14,6 +18,7 @@ public class DataInterface {
 	//Test zu den Usern
 private ArrayList<String> userList;
 private DatabaseHandler db;
+private XMLPullParserHandler xmlHandler;
 private int[] timeToClasses;
 
 
@@ -232,4 +237,27 @@ private int[] timeToClasses;
 			
 		return alleChallenges;
 	}
+	
+	/*****************************
+	 * All XML Import Operations *
+	 *****************************
+*/
+	
+	public void importXMLtoDB(InputStream is){
+		db.clearFileTable();
+		db.clearCard();
+		db.clearUserscoreTable();
+		List<Card> importedCards = xmlHandler.parseCards(is);
+		List<File> importedFiles = xmlHandler.parseFiles(is);
+		
+		for(int i=0;i<importedFiles.size();i++){
+			//Kartei (ohne Karten) --> Nur Kategorie in DB schreiben
+			db.addFile(importedFiles.get(i));
+		}
+		for(int i=0;i<importedCards.size();i++){
+			//Karten in die DB Schreiben
+			db.addCard(importedCards.get(i));
+		}
+	}
+	
 }

@@ -3,6 +3,8 @@ package de.fhdw.bfws114a.dataInterface;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.fhdw.bfws114a.data.Card;
+import de.fhdw.bfws114a.data.File;
 import de.fhdw.bfws114a.data.User;
 import android.content.ContentValues;
 import android.content.Context;
@@ -66,6 +68,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_CARDS_ANSWER4= "answer4";
 	private static final String KEY_CARDS_ANSWER5= "answer5";
 	private static final String KEY_CARDS_ANSWER6= "answer6";
+	private static final String KEY_CARDS_SOLUTION= "solution";
+	
 	
 
 	
@@ -135,6 +139,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ KEY_CARDS_ANSWER4 + " TEXT,"
 				+ KEY_CARDS_ANSWER5 + " TEXT,"
 				+ KEY_CARDS_ANSWER6 + " TEXT"
+				+ KEY_CARDS_SOLUTION + " TEXT"
 				+ ")";
 		db.execSQL(create_cards_table);
 	}
@@ -146,7 +151,55 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ ")";
 		db.execSQL(create_files_table);
 	}
+	
+	private void dropUserTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
+		db.close();
+	}
+	
+	private void dropFileTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("DROP TABLE IF EXISTS "+TABLE_FILES);
+		db.close();
+	}
+	
+	private void dropCardTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("DROP TABLE IF EXISTS "+TABLE_CARDS);
+		db.close();
+	}
+	
+	private void dropUserscoresTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
+		db.close();
+	}
 
+	public void clearUserTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from "+ TABLE_USERS);
+		db.close();
+	}
+	
+	public void clearFileTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from "+ TABLE_FILES);
+		db.close();
+	}
+	
+	public void clearCard(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from "+ TABLE_CARDS);
+		db.close();
+	}
+	
+	public void clearUserscoreTable(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from "+ TABLE_USERSCORES);
+		db.close();
+	}
+	
 	// Upgrading database
 	@Override
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -164,7 +217,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	 * All USER Operations *
 	 ***********************
 */
-
 	// Adding new user
 	void addUser(String username) {
 		Log.d("DEBUGLOG", "addUser wurde aufgerufen!");
@@ -328,4 +380,52 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		return cursor.getCount();
 	}
 
+	//***********************
+	//* All FILE Operations *
+	//***********************
+	
+	// Adding new File
+		void addFile(File input) {
+			SQLiteDatabase db = this.getWritableDatabase();
+
+			ContentValues values = new ContentValues();
+			values.put(KEY_FILES_FILEID, input.getId()); // FileID
+			values.put(KEY_FILES_FILENAME, input.getName()); // FileName
+
+			// Inserting Row
+			db.insert(TABLE_FILES, null, values);
+			db.close(); // Closing database connection
+		}
+	
+	//***********************
+	//* All CARD Operations *
+	//***********************
+
+		// Adding new Card
+		void addCard(Card input) {
+			Log.d("DEBUGLOG", "addUser wurde aufgerufen!");
+			SQLiteDatabase db = this.getWritableDatabase();
+			ContentValues values = new ContentValues();
+			values.put(KEY_CARDS_CARDID, input.getId()); // User Name
+			values.put(KEY_CARDS_FILEID, input.getFile()); // User Name
+			values.put(KEY_CARDS_TYPE, input.getType()); // User Name
+			values.put(KEY_CARDS_QUESTION, input.getQuestion()); // User Name
+			values.put(KEY_CARDS_ANSWER1, input.getAnswer1()); // User Name
+			values.put(KEY_CARDS_ANSWER2, input.getAnswer2()); // User Name
+			values.put(KEY_CARDS_ANSWER3, input.getAnswer3()); // User Name
+			values.put(KEY_CARDS_ANSWER4, input.getAnswer4()); // User Name
+			values.put(KEY_CARDS_ANSWER5, input.getAnswer5()); // User Name
+			values.put(KEY_CARDS_ANSWER6, input.getAnswer6()); // User Name
+			values.put(KEY_CARDS_SOLUTION, input.getSolution()); // User Name
+
+			// Inserting Row
+			db.insert(TABLE_CARDS, null, values);
+			db.close(); // Closing database connection
+		}
+	
+	
+	/****************************
+	 * All USERSCORE Operations *
+	 ****************************
+*/
 }
