@@ -222,11 +222,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		ContentValues values = new ContentValues();
 		values.put(KEY_USERS_USERNAME, username); // User Name
 		values.put(KEY_USERS_CLASS1_DURATION, CLASS1_DEFAULTDURATION); // Class1 Duration
-		values.put(KEY_USERS_CLASS2_DURATION, CLASS2_DEFAULTDURATION); // Class1 Duration
-		values.put(KEY_USERS_CLASS3_DURATION, CLASS3_DEFAULTDURATION); // Class1 Duration
-		values.put(KEY_USERS_CLASS4_DURATION, CLASS4_DEFAULTDURATION); // Class1 Duration
-		values.put(KEY_USERS_CLASS5_DURATION, CLASS5_DEFAULTDURATION); // Class1 Duration
-		values.put(KEY_USERS_CLASS6_DURATION, CLASS6_DEFAULTDURATION); // Class1 Duration
+		values.put(KEY_USERS_CLASS2_DURATION, CLASS2_DEFAULTDURATION); // Class2 Duration
+		values.put(KEY_USERS_CLASS3_DURATION, CLASS3_DEFAULTDURATION); // Class3 Duration
+		values.put(KEY_USERS_CLASS4_DURATION, CLASS4_DEFAULTDURATION); // Class4 Duration
+		values.put(KEY_USERS_CLASS5_DURATION, CLASS5_DEFAULTDURATION); // Class5 Duration
+		values.put(KEY_USERS_CLASS6_DURATION, CLASS6_DEFAULTDURATION); // Class6 Duration
 
 		// Inserting Row
 		db.insert(TABLE_USERS, null, values);

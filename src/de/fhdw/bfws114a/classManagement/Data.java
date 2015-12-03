@@ -70,7 +70,7 @@ public class Data {
 	
 	private void loadTimeOfClasses(){
 		//load the times to the classes in connection to one User
-		mTimeOfClasses = mDataInterface.loadTimeToClasses(mUser);
+		mTimeOfClasses = mDataInterface.getClassDurations(mUser);
 	}
 	
 	public void loadDefaultTimeToClasses(){
