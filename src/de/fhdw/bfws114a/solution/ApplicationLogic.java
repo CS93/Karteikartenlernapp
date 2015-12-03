@@ -52,7 +52,8 @@ public class ApplicationLogic {
 		for(int i = 0; i < 6; i++){
 			mGui1.getOption(i).setText(currentChallenge.getAntwort(i));
 			mGui1.getOption(i).setChecked(userAnswer[i]);			
-			if(userAnswer[i] == currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]){
+//			if(userAnswer[i] == currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]){
+			if(currentChallenge.getKorrekteAnwortenFuerCheckbox()[i] == true){				
 				//Die CheckBox wurde zu Recht angeklickt bzw. nicht angeklickt
 				mGui1.getOption(i).setTextColor(Color.GREEN);
 			} else {

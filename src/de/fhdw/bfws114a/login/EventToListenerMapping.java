@@ -12,6 +12,7 @@ public class EventToListenerMapping implements OnClickListener {
 		mApplicationLogic = applicationLogic;
 		gui.getLoginButton().setOnClickListener(this);
 		gui.getProfileManagementButton().setOnClickListener(this);
+		gui.getInfoButton().setOnClickListener(this);
 	}
 
 	@Override
@@ -22,6 +23,9 @@ public class EventToListenerMapping implements OnClickListener {
 			break;
 		case R.id.profile_management_start:
 			mApplicationLogic.onProfileManagementButtonClicked();
+			break;
+		case R.id.ib_information_button_login:
+			mApplicationLogic.onInfoButtonClicked();
 			break;
 		}
 		

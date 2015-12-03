@@ -38,6 +38,11 @@ public class ApplicationLogic {
 		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 	
 		Navigation.startActivityProfileManagement(mData.getActivity());
 	}
+	
+	public void onInfoButtonClicked(){
+		//Popup einblenden
+		mGui.showToast(mData.getActivity());
+	}
 
 	public void onRestart() {
 		mData.ladeUser();

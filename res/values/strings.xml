@@ -62,4 +62,5 @@
     <string name="class_time_hour">Stunde(n)</string>
     <string name="class_time_day">Tag(e)</string>
     <string name="class_error_message">Bitte geben sie die Zeiten der Klassen aufsteigend an!</string>
+    <string name="login_Information">Diese App wurde entwickelt von Samira Schorre, Frank Helfmeyer, Ricardo La Valle und Carsten Schlender</string>
 </resources>
