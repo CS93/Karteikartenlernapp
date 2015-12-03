@@ -30,6 +30,7 @@ public class Init extends Activity {
 	
 	@Override
 	public void onBackPressed() {
+		//Auch beim Betätigen des BackButtons soll der Nutzer zu seiner Statistik gelangen
 		mApplicationLogic.onContinueClicked("Nein");
 	}
 

@@ -37,6 +37,11 @@ public class ApplicationLogic {
 	public void onContinueClicked(){
 		//Activity beenden um zur nächsten Challenge zu gelangen  
 		mData.getActivity().finish();
+	}
+
+	public void OnBackButton() {
+		//Activity beenden um zur nächsten Challenge zu gelangen  
+		mData.getActivity().finish();
 	}	
 }
 

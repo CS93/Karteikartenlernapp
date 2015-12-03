@@ -7,6 +7,7 @@ import android.content.Context;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
@@ -37,8 +38,8 @@ public class Gui {
 		return mChoiceList;
 	}
 	
-	public void setChoiceList(ArrayList<String> choiceList) {		
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mContext, android.R.layout.simple_spinner_item, choiceList);
+	public void setChoiceList(ArrayList<User> choiceList) {		
+		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, R.layout.spinner_item, choiceList);
 		mChoiceList.setAdapter(spinnerAdapter);
 		
 	}	

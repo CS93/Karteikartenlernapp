@@ -14,7 +14,7 @@ public class ApplicationLogic {
 
 	private void applyDataToGui() {
 		//Willkommensnachricht auf den aktuellen User anpassen
-		mGui.setWelcomeUserView(mData.getUser());		
+		mGui.setWelcomeUserView(mData.getUser().getName());		
 	}
 
 	public void onChooseCategoryButtonClicked() {

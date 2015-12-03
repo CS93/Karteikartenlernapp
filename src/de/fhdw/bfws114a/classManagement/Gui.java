@@ -18,6 +18,7 @@ public class Gui {
 	private Data mData;
 
 	public Gui(Activity act, Data data) {
+		act.setContentView(R.layout.activity_settings_class_management);
 		mData = data;
 		mDefaultClassButton 	= (Button) act.findViewById(R.id.b_default_class_management);
 		mSaveClassButton 		= (Button) act.findViewById(R.id.b_save_class_management);	

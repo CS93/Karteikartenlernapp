@@ -1,12 +1,9 @@
 package de.fhdw.bfws114a.solution;
 
 import android.app.Activity;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
+import android.graphics.Color;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
-import de.fhdw.bfws114a.lernKartei.R;
 import de.fhdw.bfws114a.lernKartei.R.color;
 
 public class ApplicationLogic {
@@ -57,9 +54,9 @@ public class ApplicationLogic {
 			mGui1.getOption(i).setChecked(userAnswer[i]);			
 			if(userAnswer[i] == currentChallenge.getKorrekteAnwortenFuerCheckbox()[i]){
 				//Die CheckBox wurde zu Recht angeklickt bzw. nicht angeklickt
-				mGui1.getOption(i).setTextColor(color.green);
+				mGui1.getOption(i).setTextColor(Color.GREEN);
 			} else {
-				mGui1.getOption(i).setTextColor(color.red);				
+				mGui1.getOption(i).setTextColor(Color.RED);				
 			}
 		}		
 	}
@@ -71,11 +68,11 @@ public class ApplicationLogic {
 		mGui2.getCorrectAnswer().setText(currentChallenge.getAntwort(0));
 		
 		if(mGui2.getUserAnswer().getText().toString().toLowerCase().equals(mData.getCurrentChallenge().getAntwort(0).toLowerCase())){
-			mGui2.getUserAnswerDescription().setTextColor(color.green);
-			mGui2.getUserAnswer().setTextColor(color.green);
+			mGui2.getUserAnswerDescription().setTextColor(Color.GREEN);
+			mGui2.getUserAnswer().setTextColor(Color.GREEN);
 		} else {
-			mGui2.getUserAnswerDescription().setTextColor(color.red);
-			mGui2.getUserAnswer().setTextColor(color.red);
+			mGui2.getUserAnswerDescription().setTextColor(Color.RED);
+			mGui2.getUserAnswer().setTextColor(Color.RED);
 		}
 		
 	}

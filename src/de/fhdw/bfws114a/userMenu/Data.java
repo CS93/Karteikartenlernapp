@@ -1,13 +1,14 @@
 package de.fhdw.bfws114a.userMenu;
 
 import android.app.Activity;
+import de.fhdw.bfws114a.data.User;
 
 public class Data {
 	
-	private String mUser; //Eventuell eine Liste verwenden
+	private User mUser; //Eventuell eine Liste verwenden
 	private Activity mActivity;
 	
-	public Data(Activity activity, String user){
+	public Data(Activity activity, User user){
 	
 		mActivity = activity;
 		mUser = user;				
@@ -17,7 +18,7 @@ public class Data {
 		return mActivity;
 	}
 	
-	public String getUser() {
+	public User getUser() {
 		return mUser;
 	}	
 

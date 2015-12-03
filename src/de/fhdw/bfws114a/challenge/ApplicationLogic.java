@@ -95,8 +95,7 @@ public class ApplicationLogic {
 		if(currentQuestionType == 3){
 			//Solution aufrufen mit Kartei
 			Navigation.startActivitySolution(mActivity, null, mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), null);
-		}
-		
+		}		
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
@@ -104,13 +103,13 @@ public class ApplicationLogic {
 		if(userAnswerCorrect){
 			mData.increaseNumberOfCorrectAnswers();
 			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 6){
-				mDataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+				mDataInterface.increaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
 			}
 		} else {
 			mData.decreaseNumberOfCorrectAnswers();
 			//Klasse der Challenge verringern wenn Antwort falsch war und die Challenge nicht bereits in Klasse 1 ist
 			if(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()).getAktuelleKlasse() != 1){
-				mDataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()));
+				mDataInterface.decreaseClass(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
 			}
 		}
 			

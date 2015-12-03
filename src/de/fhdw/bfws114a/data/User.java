@@ -1,6 +1,9 @@
 package de.fhdw.bfws114a.data;
 
-public class User {
+import java.io.Serializable;
+
+@SuppressWarnings("serial")
+public class User implements Serializable {
 	
 	@Override
 	public String toString() {
