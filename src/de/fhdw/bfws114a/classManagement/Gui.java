@@ -79,28 +79,29 @@ public class Gui {
 		
 	public void setClassSpinner(ArrayList<String> classSpinner, int[] position) {		
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mData.getContext(), android.R.layout.simple_spinner_item, classSpinner);
+		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		setAdapter(spinnerAdapter);
 		setSelection(position);
 	}	
 	
 	private void setAdapter(ArrayAdapter<String> spinnerAdapter) {
-		Log.d("DEBUG","Gui: setAdapter aufgerufen"); 
 		mOneClassSpinner.setAdapter(spinnerAdapter);
 		mTwoClassSpinner.setAdapter(spinnerAdapter);
 		mThreeClassSpinner.setAdapter(spinnerAdapter);
 		mFourClassSpinner.setAdapter(spinnerAdapter);
 		mFiveClassSpinner.setAdapter(spinnerAdapter);
 		mSixClassSpinner.setAdapter(spinnerAdapter);
-		Log.d("DEBUG","Gui: setAdapter durchlaufen"); 
 	}
 	
 	private void setSelection(int[] position) {
+		Log.d("DEBUG","Gui: setSelection aufgerufen"); 
 		mOneClassSpinner.setSelection(position[0]);
 		mTwoClassSpinner.setSelection(position[1]);
 		mThreeClassSpinner.setSelection(position[2]);
 		mFourClassSpinner.setSelection(position[3]);
 		mFiveClassSpinner.setSelection(position[4]);
-		mSixClassSpinner.setSelection(position[5]);
+//		mSixClassSpinner.setSelection(position[5]);
+		Log.d("DEBUG","Gui: setSelection durchlaufen"); 
 	}
 	
 }
