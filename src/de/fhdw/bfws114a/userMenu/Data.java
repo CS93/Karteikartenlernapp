@@ -20,6 +20,10 @@ public class Data {
 	
 	public User getUser() {
 		return mUser;
+	}
+
+	public void setUser(User updatedUser) {
+		mUser = updatedUser;
 	}	
 
 }

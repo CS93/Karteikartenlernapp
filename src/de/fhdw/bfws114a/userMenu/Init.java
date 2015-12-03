@@ -23,6 +23,16 @@ public class Init extends Activity {
 		
 					
 	}
+	
+	
+
+	@Override
+	protected void onRestart() {
+		//Whether this activity is restarted e.g. after class management closed, the user object has to be updated
+		mApplicationLogic.refreshUser();
+	}
+
+
 
 	private void initData(User user) {
 		mData = new Data(this,  user);

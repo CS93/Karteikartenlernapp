@@ -337,4 +337,9 @@ public class DataInterface {
 			return "";
 	}
 
+	public User updateUser(User user) {
+	//Ich übergebe den Usernamen und brauche dann dessen Objekt aus der Datenbank
+		return user;
+	}
+
 }
