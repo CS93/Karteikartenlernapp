@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.content.Context;
+import android.util.Log;
 import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 import de.fhdw.bfws114a.lernKartei.R;
@@ -23,6 +24,7 @@ public class Data {
 	
 	public Data(Activity activity, User user){
 
+		Log.d("DEBUG","initData aufgerufen"); 
 		mContext = activity;
 		
 		mActivity = activity;
@@ -30,6 +32,7 @@ public class Data {
 		mUser = user;
 		if (mTimeOfClasses == null) {
 		loadTimeOfClasses(); }
+		mTimeList = new ArrayList<String>();
 		loadTimeList();
 		
 	}

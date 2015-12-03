@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.classManagement;
 
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import de.fhdw.bfws114a.classManagement.ApplicationLogic;
@@ -11,6 +12,7 @@ public class EventToListenerMapping  implements OnClickListener {
 	private ApplicationLogic mApplicationLogic;
 
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic){
+		Log.d("DEBUG","initEventToListenerMapping aufgerufen"); 
 		mApplicationLogic = applicationLogic;
 		gui.getDefaultClassButton().setOnClickListener(this);
 		gui.getSaveClassButton().setOnClickListener(this);

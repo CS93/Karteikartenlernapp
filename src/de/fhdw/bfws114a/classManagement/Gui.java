@@ -2,6 +2,7 @@ package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
 import android.app.Activity;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ public class Gui {
 	private Data mData;
 
 	public Gui(Activity act, Data data) {
+		Log.d("DEBUG","initGui aufgerufen"); 
 		act.setContentView(R.layout.activity_settings_class_management);
 		mData = data;
 		mDefaultClassButton 	= (Button) act.findViewById(R.id.b_default_class_management);
@@ -82,12 +84,14 @@ public class Gui {
 	}	
 	
 	private void setAdapter(ArrayAdapter<String> spinnerAdapter) {
+		Log.d("DEBUG","Gui: setAdapter aufgerufen"); 
 		mOneClassSpinner.setAdapter(spinnerAdapter);
 		mTwoClassSpinner.setAdapter(spinnerAdapter);
 		mThreeClassSpinner.setAdapter(spinnerAdapter);
 		mFourClassSpinner.setAdapter(spinnerAdapter);
 		mFiveClassSpinner.setAdapter(spinnerAdapter);
 		mSixClassSpinner.setAdapter(spinnerAdapter);
+		Log.d("DEBUG","Gui: setAdapter durchlaufen"); 
 	}
 	
 	private void setSelection(int[] position) {

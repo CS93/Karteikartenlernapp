@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.classManagement;
 
+import android.util.Log;
 import android.widget.Toast;
 import de.fhdw.bfws114a.classManagement.Data;
 import de.fhdw.bfws114a.classManagement.Gui;
@@ -10,6 +11,7 @@ public class ApplicationLogic {
 	private Gui mGui;
 	
 	ApplicationLogic(Data data, Gui gui){
+		Log.d("DEBUG","initApplicationLogic aufgerufen"); 
 		mData=data;
 		mGui=gui;
 		applyDataToGui();
