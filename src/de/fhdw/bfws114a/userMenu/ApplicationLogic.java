@@ -31,7 +31,7 @@ public class ApplicationLogic {
 
 	public void refreshUser() {
 		dataInterface = new DataInterface(mData.getActivity());
-		mData.setUser(dataInterface.updateUser(mData.getUser()));
+		mData.setUser(dataInterface.getUser(mData.getUser().getName()));
 	}
 }
 

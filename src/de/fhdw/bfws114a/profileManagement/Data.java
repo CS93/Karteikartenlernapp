@@ -29,7 +29,7 @@ public class Data {
 
 	private void ladeUser(){
 		//load all User from db and save it in user (String Array)
-		mUserList = mDataInterface.loadUsers2();	
+		mUserList = mDataInterface.loadUsers();	
 		
 	}
 	
