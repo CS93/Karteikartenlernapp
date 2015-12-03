@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
 import android.app.Activity;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -19,7 +18,6 @@ public class Gui {
 	private Data mData;
 
 	public Gui(Activity act, Data data) {
-		Log.d("DEBUG","initGui aufgerufen"); 
 		act.setContentView(R.layout.activity_settings_class_management);
 		mData = data;
 		mDefaultClassButton 	= (Button) act.findViewById(R.id.b_default_class_management);
@@ -47,7 +45,7 @@ public class Gui {
 	}
 	
 	public int[] getClassEditText() {
-		int[] Classes = new int[5];
+		int[] Classes = new int[6];
 		Classes[0] = Integer.parseInt(mOneClass.getText().toString());
 		Classes[1] = Integer.parseInt(mTwoClass.getText().toString());
 		Classes[2] = Integer.parseInt(mThreeClass.getText().toString());
@@ -58,7 +56,7 @@ public class Gui {
 	}
 	
 	public int[] getClassSpinner() {
-		int[] ClassSpinner = new int[5];
+		int[] ClassSpinner = new int[6];
 		ClassSpinner[0] = mOneClassSpinner.getSelectedItemPosition();
 		ClassSpinner[1] = mTwoClassSpinner.getSelectedItemPosition();
 		ClassSpinner[2] = mThreeClassSpinner.getSelectedItemPosition();
@@ -78,7 +76,6 @@ public class Gui {
 	}
 		
 	public void setClassSpinner(ArrayList<String> classSpinner, int[] position) {	
-		Log.d("DEBUG","Gui: setClassSpinner aufgerufen"); 
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mData.getContext(), android.R.layout.simple_spinner_item, classSpinner);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		setAdapter(spinnerAdapter);
@@ -95,7 +92,6 @@ public class Gui {
 	}
 	
 	private void setSelection(int[] position) {
-		Log.d("DEBUG","Gui: setSelection aufgerufen"); 
 		mOneClassSpinner.setSelection(position[0]);
 		mTwoClassSpinner.setSelection(position[1]);
 		mThreeClassSpinner.setSelection(position[2]);

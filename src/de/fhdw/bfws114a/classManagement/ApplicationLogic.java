@@ -1,6 +1,5 @@
 package de.fhdw.bfws114a.classManagement;
 
-import android.util.Log;
 import android.widget.Toast;
 import de.fhdw.bfws114a.classManagement.Data;
 import de.fhdw.bfws114a.classManagement.Gui;
@@ -11,7 +10,6 @@ public class ApplicationLogic {
 	private Gui mGui;
 	
 	ApplicationLogic(Data data, Gui gui){
-		Log.d("DEBUG","initApplicationLogic aufgerufen"); 
 		mData=data;
 		mGui=gui;
 		applyDataToGui();
@@ -37,7 +35,6 @@ public class ApplicationLogic {
 	private int[] generateTimeconsens(){
 		int[] position = new int[6];
 		for(int i = 0;i<6;i++){
-			Log.d("DEBUG","ApplicatinLogic: Schleife"); 
 			if((mData.getTimeOfClasses()[i]%1440)== 0){ //es handelt sich um Stunden
 				mData.setTimeOfClasses(i+1,mData.getTimeOfClasses()[i]/1440);
 				position[i]= 2; //Es handelt sich um Tage
@@ -48,7 +45,6 @@ public class ApplicationLogic {
 			else {
 				position[i]= 0; //Es handelt sich um Minuten
 			}}
-		Log.d("DEBUG","ApplicatinLogic: ende der Schleife"); 
 			return position;
 }
 	
@@ -57,7 +53,7 @@ public class ApplicationLogic {
 	}
 	
 	private int[] generateMinutes(){
-		int[] minutes = new int[5];
+		int[] minutes = new int[6];
 		for (int i = 0; i<6;i++){
 			if (mGui.getClassSpinner()[i]==2){
 				minutes[i] = mGui.getClassEditText()[i]*1440; //Tage in Minuten umwandeln

@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.classManagement;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
 
@@ -14,8 +13,7 @@ public class Init extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		Log.d("DEBUG","Activity gestartet"); 
+		super.onCreate(savedInstanceState); 
 		//nur zum Testen
 //		setContentView(R.layout.activity_settings_class_management);
 		//Der zweite Parameter den aktuellen User als String
