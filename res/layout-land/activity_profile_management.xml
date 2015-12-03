@@ -26,7 +26,8 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="30sp" >
+        </EditText>
     
     <Button
         android:id="@+id/b_adduser_profile_management"

@@ -112,8 +112,8 @@
         android:layout_marginRight="20dp"
         android:ems="5"
         android:inputType="number"
-        android:gravity="right" />
-
+        android:gravity="right" >
+ 		</EditText>
 
 
     <EditText
@@ -124,7 +124,8 @@
         android:layout_alignLeft="@+id/et_class_one_class_management"
         android:ems="5"
         android:inputType="number"
-        android:gravity="right" />
+        android:gravity="right" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_three_class_management"
@@ -134,7 +135,8 @@
         android:layout_alignLeft="@+id/et_class_two_class_management"
         android:ems="5"
         android:inputType="number"
-        android:gravity="right"  />
+        android:gravity="right"  >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_four_class_management"
@@ -144,7 +146,8 @@
         android:layout_alignLeft="@+id/et_class_three_class_management"
         android:ems="5"
         android:inputType="number"
-        android:gravity="right" />
+        android:gravity="right" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_five_class_management"
@@ -154,7 +157,8 @@
         android:layout_alignLeft="@+id/et_class_four_class_management"
         android:ems="5"
         android:inputType="number"
-        android:gravity="right" />
+        android:gravity="right" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_six_class_management"
@@ -164,7 +168,8 @@
         android:layout_alignLeft="@+id/et_class_five_class_management"
         android:ems="5"
         android:inputType="number" 
-        android:gravity="right"/>
+        android:gravity="right">
+        </EditText>
 
     <Spinner
         android:id="@+id/s_class_one_class_management"
