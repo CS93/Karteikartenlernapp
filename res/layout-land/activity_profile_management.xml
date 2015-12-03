@@ -2,7 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fhdwblue" >
+    android:background="@color/fhdwblue"
+    android:focusable="true"
+ 	android:focusableInTouchMode="true" >
 
     <TextView
         android:id="@+id/t_adduser_profile_management"
@@ -26,7 +28,9 @@
         android:ems="10"
         android:inputType="text"
         android:textColor="@color/orange"
-        android:textSize="30sp" >
+        android:textSize="30sp"
+        android:nextFocusUp="@id/et_adduser_profile_management" 
+    	android:nextFocusLeft="@id/et_adduser_profile_management" >
         </EditText>
     
     <Button
