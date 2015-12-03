@@ -1,6 +1,5 @@
 package de.fhdw.bfws114a.classManagement;
 
-import android.widget.Toast;
 import de.fhdw.bfws114a.classManagement.Data;
 import de.fhdw.bfws114a.classManagement.Gui;
 
@@ -82,7 +81,7 @@ public class ApplicationLogic {
 		mData.getActivity().finish();
 		}
 		else {
-			Toast.makeText(mData.getContext(), "Bitte geben sie die Zeiten der Klassen aufsteigend an", Toast.LENGTH_LONG).show();
+			mGui.showToast();
 		}
 	}
 	
