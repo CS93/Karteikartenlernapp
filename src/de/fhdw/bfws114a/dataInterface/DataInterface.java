@@ -34,13 +34,12 @@ public class DataInterface {
 
 	// load all users
 	public ArrayList<User> loadUsers() {
-		ArrayList<User> dbUsers = (ArrayList<User>) db.getAllUsers();
-
-		return dbUsers;
+		return (ArrayList<User>) db.getAllUsers();
 	}
 
-	public ArrayList<User> loadUsers2() {
-		return (ArrayList<User>) db.getAllUsers();
+	// load one user
+	public User getUser(String name) {
+		return db.getUser(name);
 	}
 
 	// delete one User
@@ -335,11 +334,6 @@ public class DataInterface {
 			return sb.toString();
 		} else
 			return "";
-	}
-
-	public User updateUser(User user) {
-	//Ich übergebe den Usernamen und brauche dann dessen Objekt aus der Datenbank
-		return user;
 	}
 
 }
