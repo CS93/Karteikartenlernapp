@@ -422,30 +422,124 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			
 		}
 	
+		public int getFileID(String name){
+			SQLiteDatabase db = this.getReadableDatabase();
+
+			String selection = KEY_FILES_FILENAME + " = ?"; 
+			String[] selectionArgs = new String[] {name};
+			String[] columns = new String[] {KEY_FILES_FILEID};
+			
+			Cursor cursor = db.query(TABLE_FILES, columns, selection, selectionArgs, null, null, null);
+			if(cursor.moveToFirst()){
+				return Integer.parseInt(cursor.getString(0));
+			}
+			else return -1;		
+		}
+		
 	//***********************
 	//* All CARD Operations *
 	//***********************
 
 		// Adding new Card
-		public void addCard(Card input) {
-			SQLiteDatabase db = this.getWritableDatabase();
-			ContentValues values = new ContentValues();
-			values.put(KEY_CARDS_CARDID, input.getId()); // User Name
-			values.put(KEY_CARDS_FILEID, input.getFile()); // User Name
-			values.put(KEY_CARDS_TYPE, input.getType()); // User Name
-			values.put(KEY_CARDS_QUESTION, input.getQuestion()); // User Name
-			values.put(KEY_CARDS_ANSWER1, input.getAnswer1()); // User Name
-			values.put(KEY_CARDS_ANSWER2, input.getAnswer2()); // User Name
-			values.put(KEY_CARDS_ANSWER3, input.getAnswer3()); // User Name
-			values.put(KEY_CARDS_ANSWER4, input.getAnswer4()); // User Name
-			values.put(KEY_CARDS_ANSWER5, input.getAnswer5()); // User Name
-			values.put(KEY_CARDS_ANSWER6, input.getAnswer6()); // User Name
-			values.put(KEY_CARDS_SOLUTION, input.getSolution()); // User Name
+				public void addCard(Card input) {
+					SQLiteDatabase db = this.getWritableDatabase();
+					ContentValues values = new ContentValues();
+					values.put(KEY_CARDS_CARDID, input.getId()); // User Name
+					values.put(KEY_CARDS_FILEID, input.getFile()); // User Name
+					values.put(KEY_CARDS_TYPE, input.getType()); // User Name
+					values.put(KEY_CARDS_QUESTION, input.getQuestion()); // User Name
+					values.put(KEY_CARDS_ANSWER1, input.getAnswer1()); // User Name
+					values.put(KEY_CARDS_ANSWER2, input.getAnswer2()); // User Name
+					values.put(KEY_CARDS_ANSWER3, input.getAnswer3()); // User Name
+					values.put(KEY_CARDS_ANSWER4, input.getAnswer4()); // User Name
+					values.put(KEY_CARDS_ANSWER5, input.getAnswer5()); // User Name
+					values.put(KEY_CARDS_ANSWER6, input.getAnswer6()); // User Name
+					values.put(KEY_CARDS_SOLUTION, input.getSolution()); // User Name
 
-			// Inserting Row
-			db.insert(TABLE_CARDS, null, values);
-			db.close(); // Closing database connection
-		}
+					// Inserting Row
+					db.insert(TABLE_CARDS, null, values);
+					db.close(); // Closing database connection
+				}
+			
+				public ArrayList<Card> getAllCards(){
+					ArrayList<Card> result= new ArrayList<Card>();
+					
+					String selectQuery = "SELECT * FROM " + TABLE_CARDS;
+					SQLiteDatabase db = this.getReadableDatabase();
+					Cursor cursor = db.rawQuery(selectQuery, null);
+
+					// looping through all rows and adding to list
+					if (cursor.moveToFirst()) {
+						do {
+							Card card = new Card();
+							card.setId(Integer.parseInt(cursor.getString(0))); 		//CardID
+							card.setFile(Integer.parseInt(cursor.getString(1)));	//FileID
+							card.setType(Integer.parseInt(cursor.getString(2)));	//Type					
+							card.setQuestion((cursor.getString(3)));				//Question
+							card.setAnswer1((cursor.getString(4)));					//Answer1
+							card.setAnswer2((cursor.getString(5)));					//Answer2
+							card.setAnswer3((cursor.getString(6)));					//Answer3
+							card.setAnswer4((cursor.getString(7)));					//Answer4
+							card.setAnswer5((cursor.getString(8)));					//Answer5
+							card.setAnswer6((cursor.getString(9)));					//Answer6
+							card.setSolution((cursor.getString(10))); 				//Solution
+											
+							// Adding card to resultlist
+							result.add(card);
+						} while (cursor.moveToNext());
+					}
+					db.close();
+					
+					// return file list
+					return result;
+					
+				}
+				
+				public ArrayList<Card> getCardsByFile(String filename){
+					ArrayList<Card> result = new ArrayList<Card>();
+					String fileID=Integer.toString(getFileID(filename));
+					String[] columns = new String[] {
+							KEY_CARDS_CARDID,
+							KEY_CARDS_FILEID,
+							KEY_CARDS_TYPE,
+							KEY_CARDS_QUESTION,
+							KEY_CARDS_ANSWER1,
+							KEY_CARDS_ANSWER2,
+							KEY_CARDS_ANSWER3,
+							KEY_CARDS_ANSWER4,
+							KEY_CARDS_ANSWER5,
+							KEY_CARDS_ANSWER6,
+							KEY_CARDS_SOLUTION};
+
+					
+					String selection = KEY_CARDS_FILEID + " = ?"; 
+					String[] selectionArgs = new String[] {fileID};		
+
+					SQLiteDatabase db = this.getReadableDatabase();
+					Cursor cursor = db.query(TABLE_CARDS, columns, selection, selectionArgs, null, null, null);			
+					
+					
+					if (cursor.moveToFirst()) {
+						do {
+							Card card = new Card();
+							card.setId(Integer.parseInt(cursor.getString(0))); //CardID
+							card.setFile(Integer.parseInt(cursor.getString(1)));//FileID
+							card.setType(Integer.parseInt(cursor.getString(2)));//Type					
+							card.setQuestion((cursor.getString(3)));//Question
+							card.setAnswer1((cursor.getString(4)));//Answer1
+							card.setAnswer2((cursor.getString(5)));//Answer2
+							card.setAnswer3((cursor.getString(6)));//Answer3
+							card.setAnswer4((cursor.getString(7)));//Answer4
+							card.setAnswer5((cursor.getString(8)));//Answer5
+							card.setAnswer6((cursor.getString(9)));//Answer6
+							card.setSolution((cursor.getString(10))); //Solution
+											
+							// Adding card to resultlist
+							result.add(card);
+						} while (cursor.moveToNext());
+					}		
+					return result;
+				}
 	
 	
 	/****************************
