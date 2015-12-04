@@ -41,6 +41,8 @@
     <string name="class_time_hour">Stunde(n)</string>
     <string name="class_time_day">Tag(e)</string>
     <string name="class_error_message">Bitte geben sie die Zeiten der Klassen aufsteigend an!</string>
+    <string name="user_empty_error_message">Bitte geben sie einen Namen ein!</string>
+    <string name="user_equal_error_message">Der Name existiert schon. Bitte überlegen sie sich einen neuen Namen!</string>
     <string name="login_failed">Der Login war nicht erfolgreich. Lege ggf. ein Profil im Profile Management an.</string>
     <string name="end_of_learn_session">Der Lernmodus ist somit abgeschlossen!!</string>
     <string name="logo">logo</string>
