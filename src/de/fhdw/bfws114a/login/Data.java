@@ -25,7 +25,7 @@ public class Data {
 			//Activity has been started the first time
 			loadUser(); 
 		} else {
-			//Activity has been restarted e.g. change from Protrait to Landscape mode
+			//Activity has been restarted e.g. change from Portrait to Landscape mode
 			restoreDataFromBundle(b);
 		}
 		 

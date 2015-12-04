@@ -19,10 +19,8 @@ public class Gui {
 	
 	private Button mLoginButton, mProfileManagementButton;
 	private ImageButton mInfoButton;
-	private Spinner mChoiceList;
-	//Beim initialisieren mancher Objekte ist der Context notwendig. 
-	//Um auf diesen in der Methode setChoiceList zugreifen zu können wird er hier als Membervariable definiert	
-	private Context mContext;
+	private Spinner mChoiceList;	
+	private Context mContext; //To instantiate the Choicelist (Spinner) the context has to be accessable
 
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_login);
@@ -55,16 +53,14 @@ public class Gui {
 		
 	}
 	
+	//Whether no user has been chosen, the App shows a Toast (Message) to inform the User
 	public void showToast(Activity act){
 		 Toast toast = Toast.makeText(act, act.getString(R.string.login_failed), Toast.LENGTH_LONG);
 		 LinearLayout toastLayout = (LinearLayout) toast.getView();
 		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
 		 toastTV.setTextSize(30);
 		 toastTV.setTextColor(Color.RED);
-//		 toast.setDuration(10000); //10 Sekunden anzeigen lassen
-		 toast.show();
-		 
-//		Toast.makeText(mData.getContext(), mData.getContext().getString(R.string.class_error_message), Toast.LENGTH_LONG).show();
+		 toast.show();	 
 	}
 	
 }

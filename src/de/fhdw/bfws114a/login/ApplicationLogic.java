@@ -26,11 +26,12 @@ public class ApplicationLogic {
 	}
 	
 	public void onLoginButtonClicked(){
+		//Check whether there are Users in Spinner
 		if(mData.getUser().size() == 0){
-			//Keine User im Spinner mit denen man sich einloggen kann
+			//Let the GUI show the referring message (no User)
 			mGui.showToast(mData.getActivity());
 		} else {
-			//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
+			//Check which user has been selected and start UserMenu of the selected User 
 			for(User u : mData.getUser()){
 				if(u.getName().equals(mGui.getChoiceList().getSelectedItem().toString())){
 					Navigation.startActivityUserMenu(mData.getActivity(), u);
@@ -42,12 +43,12 @@ public class ApplicationLogic {
 		
 	
 	public void onProfileManagementButtonClicked(){
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 	
+		//Start ProfileManagement 	
 		Navigation.startActivityProfileManagement(mData.getActivity());
 	}
 	
 	public void onInfoButtonClicked(){
-		//Popup einblenden
+		//Show Info-PopupWindow (this Popup contains Information on the developers and the posibility to reset the app)
 		LayoutInflater layoutInflater= (LayoutInflater) mData.getActivity().getBaseContext().getSystemService(mData.getActivity().LAYOUT_INFLATER_SERVICE);  
 	    View popupView = layoutInflater.inflate(R.layout.popup, null);  
         final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
