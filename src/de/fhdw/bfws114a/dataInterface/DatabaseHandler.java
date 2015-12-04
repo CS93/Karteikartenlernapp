@@ -16,6 +16,7 @@ import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
 
+	//TEST
 	// General variables
 	private static final int DATABASE_VERSION = 1;
 	private static final String DATABASE_NAME = "karteikartenDB";
