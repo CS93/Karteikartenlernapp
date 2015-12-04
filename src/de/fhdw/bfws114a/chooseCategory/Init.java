@@ -19,10 +19,18 @@ public class Init extends Activity {
 		initData(savedInstanceState, (User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));		
 		initGui();
 		initApplicationLogic();
-		initEventToListenerMapping();
-		
-					
+		initEventToListenerMapping();					
 	}
+
+	
+	
+	@Override
+	protected void onSaveInstanceState(Bundle outState) {
+		super.onSaveInstanceState(outState);
+		mData.saveDataInBundle(outState);
+	}
+
+
 
 	private void initData(Bundle savedInstanceState, User user) {
 		mData = new Data(savedInstanceState, this,  user);
@@ -42,8 +50,5 @@ public class Init extends Activity {
 		new EventToListenerMapping(mGui, mApplicationLogic);
 		
 	}
-	
-
-
 
 }

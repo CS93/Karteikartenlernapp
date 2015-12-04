@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.Statistics;
 import de.fhdw.bfws114a.data.User;
@@ -24,8 +25,8 @@ public class Data {
 		mDataInterface = new DataInterface(activity);
 		if (b == null ){
 			//Erstes Aufrufen dieser Activity			
-			ladeKarteien();
-			ladeStatistiken();
+			loadCategories();
+			loadStatistics();
 		}
 		else {
 			restoreDataFromBundle(b);
@@ -36,13 +37,13 @@ public class Data {
 		return mActivity;
 	}
 
-	private void ladeKarteien(){
+	private void loadCategories(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
 		mKarteien = mDataInterface.loadCategories();	
 		
 	}
 
-	private void ladeStatistiken(){
+	private void loadStatistics(){
 		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
 		mStatistik = mDataInterface.loadStatistics(mKarteien);	
 		
@@ -62,12 +63,15 @@ public class Data {
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
-		mKarteien = b.getStringArrayList(Constants.KEY_KARTEIEN_VALUE);
-		
+		//The Serializable is used to put the User-Object in Bundle
+		mKarteien = (ArrayList<String>) b.getStringArrayList(Constants.KEY_KARTEIEN_VALUE);
+		mStatistik = (ArrayList<Statistics>) b.getSerializable(Constants.KEY_STATISTICS_VALUE);
 	}
 	
 	public void saveDataInBundle(Bundle b){
+		//The Serializable is used to put the User-Object in Bundle
 		b.putStringArrayList(Constants.KEY_KARTEIEN_VALUE, mKarteien);
+		b.putSerializable(Constants.KEY_STATISTICS_VALUE, mStatistik);
 	}
 	
 }

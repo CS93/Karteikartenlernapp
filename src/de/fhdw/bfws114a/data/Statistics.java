@@ -1,6 +1,8 @@
 package de.fhdw.bfws114a.data;
 
-public class Statistics {
+import java.io.Serializable;
+
+public class Statistics implements Serializable {
 	private String mKartei;
 	private String mFaelligeChallenges;
 	private String mGesamteChallenges;

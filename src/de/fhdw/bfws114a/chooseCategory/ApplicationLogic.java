@@ -1,5 +1,6 @@
 package de.fhdw.bfws114a.chooseCategory;
 
+import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {
@@ -13,7 +14,7 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		for(int i = 0; i < mGui.getCategories().length; i++){			
+		for(int i = 0; i < mGui.getCategories().length; i++){
 			mGui.getCategory(i).setText(mData.getKarteien().get(i));
 			mGui.getOverallChallengePerCategory(i).setText(mData.getStatistik().get(i).getGesamteChallenges());
 			mGui.getDueChallengePerCategory(i).setText(mData.getStatistik().get(i).getFaelligeChallenges());
