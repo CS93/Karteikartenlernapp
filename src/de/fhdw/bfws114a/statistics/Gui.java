@@ -1,8 +1,11 @@
 package de.fhdw.bfws114a.statistics;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
@@ -12,7 +15,6 @@ public class Gui {
 	private TextView mPercentageOfCorrectAnsweredQuestion;
 	private TextView mNumberOfDueChallenges; 
 	private Button mContinueButton;
-	private TextView mLearnSessionCompleted;
 	
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_statistic);
@@ -21,7 +23,6 @@ public class Gui {
 		mPercentageOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_percent_correct_statistic);
 		mNumberOfDueChallenges = (TextView) act.findViewById(R.id.t_number_amount_due_statistic);
 		mContinueButton = (Button) act.findViewById(R.id.b_continue_statistic);
-		mLearnSessionCompleted = (TextView) act.findViewById(R.id.t_learn_session_completed_statistic);
 	}
 
 	public Button getContinueButton() {
@@ -44,8 +45,12 @@ public class Gui {
 		return mNumberOfDueChallenges;
 	}
 	
-	public TextView getLearnSessionCompleted() {
-		return mLearnSessionCompleted;
+	public void showToast(Activity activity){
+		 Toast toast = Toast.makeText(activity, activity.getString(R.string.end_of_learn_session), Toast.LENGTH_LONG);
+		 LinearLayout toastLayout = (LinearLayout) toast.getView();
+		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
+		 toastTV.setTextSize(30);
+		 toastTV.setTextColor(Color.RED);
+		 toast.show();
 	}
-	
 }

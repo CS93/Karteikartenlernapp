@@ -27,7 +27,8 @@ public class ApplicationLogic {
 		}
 		
 		if((mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)) == 0){
-			mGui.getLearnSessionCompleted().setVisibility(1);
+//			mGui.getLearnSessionCompleted().setVisibility(1);
+			mGui.showToast(mData.getActivity());
 		}
 		
 		//Diese Textview sollte die noch fälligen Challenges dieser Lernsession darstellen --> gesamte Challenges dieser Session - die bisher Bearbeiteten

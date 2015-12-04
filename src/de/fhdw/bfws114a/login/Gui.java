@@ -56,7 +56,7 @@ public class Gui {
 	}
 	
 	public void showToast(Activity act){
-		 Toast toast = Toast.makeText(act, act.getString(R.string.login_Information), Toast.LENGTH_LONG);
+		 Toast toast = Toast.makeText(act, act.getString(R.string.login_failed), Toast.LENGTH_LONG);
 		 LinearLayout toastLayout = (LinearLayout) toast.getView();
 		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
 		 toastTV.setTextSize(30);

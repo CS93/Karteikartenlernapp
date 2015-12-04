@@ -30,7 +30,7 @@ public class ApplicationLogic {
 	public void onLoginButtonClicked(){
 		if(mData.getUser().size() == 0){
 			//Keine User im Spinner mit denen man sich einloggen kann
-			
+			mGui.showToast(mData.getActivity());
 		} else {
 			//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
 			for(User u : mData.getUser()){

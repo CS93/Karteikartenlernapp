@@ -1,9 +1,12 @@
 package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -131,11 +134,24 @@ public class ApplicationLogic {
 	}
 
 	public void FinishLearnSession() {
-		//Der Index muss verringert werden, da die aktuelle Challenge gar nicht bearbeitet wurde
-		int indexOfCurrentChallenge = mData.getIndexOfCurrentChallenge()-1;
-		//Wechseln in statistics und challenge activity beenden
-		Navigation.startActivityStatistics(mData.getActivity(), indexOfCurrentChallenge, mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
-		mData.getActivity().finish();
+		//Show confirm dialog whether user is sure to quit learn session
+		new AlertDialog.Builder(mData.getActivity())
+	    .setIcon(android.R.drawable.ic_dialog_alert)
+	    .setTitle("Lernmodus beenden")
+	    .setMessage("Sind Sie sicher, dass Sie den Lernmodus beenden wollen?")
+	    .setPositiveButton("Yes", new DialogInterface.OnClickListener(){
+	    @Override
+	    public void onClick(DialogInterface dialog, int which) {
+	    	//Der Index muss verringert werden, da die aktuelle Challenge gar nicht bearbeitet wurde
+			int indexOfCurrentChallenge = mData.getIndexOfCurrentChallenge()-1;
+			//Wechseln in statistics und challenge activity beenden
+			Navigation.startActivityStatistics(mData.getActivity(), indexOfCurrentChallenge, mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
+			mData.getActivity().finish();   
+	    }
+
+	    })
+	    .setNegativeButton("No", null)
+	    .show();		
 	}
 }
 
