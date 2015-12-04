@@ -5,18 +5,16 @@ import android.app.Activity;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 import de.fhdw.bfws114a.data.User;
 
-
 public class Data {
 
-	private ArrayList<User> mUserList; //Eventuell eine Liste verwenden
+	private ArrayList<User> mUserList;
 	private Activity mActivity;
 	private DataInterface mDataInterface;
-	
 	
 	public Data(Activity activity){	
 		mActivity = activity;
 		mDataInterface = new DataInterface(activity);
-		ladeUser();
+		loadUser();
 	}
 	
 	public DataInterface getDataInterface() {
@@ -27,8 +25,8 @@ public class Data {
 		return mActivity;
 	}
 
-	private void ladeUser(){
-		//load all User from db and save it in user (String Array)
+	private void loadUser(){
+		//load all User from db and save it
 		mUserList = mDataInterface.loadUsers();	
 		
 	}

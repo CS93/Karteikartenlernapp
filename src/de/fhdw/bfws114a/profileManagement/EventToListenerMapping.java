@@ -5,7 +5,6 @@ import android.view.View.OnClickListener;
 import de.fhdw.bfws114a.profileManagement.ApplicationLogic;
 import de.fhdw.bfws114a.profileManagement.Gui;
 import de.fhdw.bfws114a.lernKartei.R;
-//import de.fhdw.bfws114asc.counter1.R;
 
 public class EventToListenerMapping  implements OnClickListener {
 
