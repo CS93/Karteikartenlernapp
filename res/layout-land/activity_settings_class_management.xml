@@ -1,8 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?><RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fhdwblue" >
+    android:background="@color/fhdwblue"
+    android:focusable="true"
+ 	android:focusableInTouchMode="true" >
 
     <TextView
         android:id="@+id/t_class_headline_class_management"
@@ -21,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/t_class_number_class_management"
         android:layout_below="@+id/t_class_number_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="20dp"
         android:text="1"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/t_class_two_class_management"
@@ -32,10 +33,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/t_class_one_class_management"
         android:layout_below="@+id/t_class_one_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="2"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <TextView
         android:id="@+id/t_class_three_class_management"
@@ -43,21 +44,21 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/t_class_two_class_management"
         android:layout_below="@+id/t_class_two_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="3"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <TextView
         android:id="@+id/t_class_four_class_management"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/t_class_three_class_management"
-        android:layout_below="@+id/t_class_three_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_toRightOf="@id/s_class_one_class_management"
+        android:layout_alignBottom="@id/t_class_one_class_management"
+        android:layout_marginLeft="40dp"
         android:text="4"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <TextView
         android:id="@+id/t_class_five_class_management"
@@ -65,10 +66,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/t_class_four_class_management"
         android:layout_below="@+id/t_class_four_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="5"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
     
     <TextView
         android:id="@+id/t_class_six_class_management"
@@ -76,21 +77,10 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/t_class_five_class_management"
         android:layout_below="@+id/t_class_five_class_management"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:text="6"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
-
-    <TextView
-        android:id="@+id/t_class_time_class_management"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/t_class_one_class_management"
-        android:layout_alignParentRight="true"
-        android:layout_marginRight="70dp"
-        android:text="@string/class_time_headline"
-        android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/t_class_number_class_management"
@@ -98,24 +88,26 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/t_class_headline_class_management"
-        android:layout_marginLeft="70dp"
+        android:layout_marginLeft="50dp"
         android:layout_marginTop="20dp"
         android:text="@string/class_number_headline"
         android:textColor="@color/orange"
         android:textSize="30sp" />
 
-    <EditText
+   <EditText
         android:id="@+id/et_class_one_class_management"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/t_class_one_class_management"
-        android:layout_alignRight="@+id/t_class_headline_class_management"
-        android:layout_marginRight="50dp"
+        android:layout_toRightOf="@id/t_class_one_class_management"
+        android:layout_marginLeft="20dp"
         android:ems="5"
-        android:inputType="number" >
+        android:inputType="number"
+        android:gravity="right"
+        android:nextFocusUp="@id/et_class_one_class_management" 
+    	android:nextFocusLeft="@id/et_class_one_class_management" >
+ 		</EditText>
 
-        <requestFocus />
-    </EditText>
 
     <EditText
         android:id="@+id/et_class_two_class_management"
@@ -124,7 +116,11 @@
         android:layout_alignBottom="@+id/t_class_two_class_management"
         android:layout_alignLeft="@+id/et_class_one_class_management"
         android:ems="5"
-        android:inputType="number" />
+        android:inputType="number"
+        android:gravity="right"
+        android:nextFocusUp="@id/et_class_two_class_management" 
+    	android:nextFocusLeft="@id/et_class_two_class_management" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_three_class_management"
@@ -134,16 +130,24 @@
         android:layout_alignLeft="@+id/et_class_two_class_management"
         android:ems="5"
         android:inputType="number"
-        android:textCursorDrawable="@null"  />
+        android:gravity="right"
+        android:nextFocusUp="@id/et_class_three_class_management" 
+    	android:nextFocusLeft="@id/et_class_three_class_management"  >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_four_class_management"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/t_class_four_class_management"
-        android:layout_alignLeft="@+id/et_class_three_class_management"
+        android:layout_toRightOf="@id/t_class_four_class_management"
+        android:layout_marginLeft="20dp"
         android:ems="5"
-        android:inputType="number" />
+        android:inputType="number"
+        android:gravity="right"
+        android:nextFocusUp="@id/et_class_four_class_management" 
+    	android:nextFocusLeft="@id/et_class_four_class_management" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_five_class_management"
@@ -152,7 +156,11 @@
         android:layout_alignBottom="@+id/t_class_five_class_management"
         android:layout_alignLeft="@+id/et_class_four_class_management"
         android:ems="5"
-        android:inputType="number" />
+        android:inputType="number"
+        android:gravity="right"
+        android:nextFocusUp="@id/et_class_five_class_management" 
+    	android:nextFocusLeft="@id/et_class_five_class_management" >
+        </EditText>
     
     <EditText
         android:id="@+id/et_class_six_class_management"
@@ -162,57 +170,62 @@
         android:layout_alignLeft="@+id/et_class_five_class_management"
         android:ems="5"
         android:inputType="number" 
-        android:text="6"
-        android:gravity="right"/>
+        android:gravity="right" 
+        android:nextFocusUp="@id/et_class_six_class_management" 
+    	android:nextFocusLeft="@id/et_class_six_class_management" >
+        </EditText>
 
     <Spinner
         android:id="@+id/s_class_one_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_one_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_toRightOf="@id/et_class_one_class_management"
+        android:layout_marginLeft="20dp" />
     
     <Spinner
         android:id="@+id/s_class_two_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_two_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_alignRight="@+id/s_class_one_class_management" />
     
     <Spinner
         android:id="@+id/s_class_three_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_three_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_alignRight="@+id/s_class_two_class_management" />
     
     <Spinner
         android:id="@+id/s_class_four_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_four_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_toRightOf="@+id/et_class_four_class_management"
+        android:layout_marginLeft="20dp" />
     
     <Spinner
         android:id="@+id/s_class_five_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_five_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_alignRight="@+id/s_class_four_class_management" />
     
     <Spinner
         android:id="@+id/s_class_six_class_management"
-        android:layout_width="80dp"
+        android:layout_width="250dp"
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/et_class_six_class_management"
-        android:layout_alignRight="@+id/t_class_time_class_management" />
+        android:layout_alignRight="@+id/s_class_five_class_management" />
 
     <Button
         android:id="@+id/b_default_class_management"
-        android:layout_width="200dp"
+        android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_alignLeft="@+id/t_class_six_class_management"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
+        android:layout_marginLeft="37dp"
         android:layout_marginBottom="37dp"
         android:background="@drawable/roundedbutton"
         android:text="Default"
@@ -223,16 +236,50 @@
     
     <Button
         android:id="@+id/b_save_class_management"
-        android:layout_width="200dp"
+        android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_alignRight="@+id/s_class_six_class_management"
+        android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="37dp"
+        android:layout_marginRight="37dp"
         android:background="@drawable/roundedbutton"
         android:text="Speichern"
         android:textColor="@color/orange"
         android:textSize="30sp"
         android:paddingLeft="10dp"
         android:paddingRight="10dp" />
+
+    <TextView
+        android:id="@+id/t_class_time_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/t_class_one_class_management"
+        android:layout_alignLeft="@+id/t_class_headline_class_management"
+        android:text="@string/class_time_headline"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_class_number_2_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_class_time_class_management"
+        android:layout_alignBottom="@+id/t_class_time_class_management"
+        android:layout_alignLeft="@+id/t_class_four_class_management"
+        android:text="@string/class_number_headline"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/t_class_time_2_class_management"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/t_class_number_2_class_management"
+        android:layout_alignBottom="@+id/t_class_number_2_class_management"
+        android:layout_alignRight="@+id/b_save_class_management"
+        android:layout_marginRight="24dp"
+        android:text="@string/class_time_headline"
+        android:textColor="@color/orange"
+        android:textSize="30sp" />
     
     </RelativeLayout>
