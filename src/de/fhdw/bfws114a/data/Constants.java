@@ -14,7 +14,8 @@ public class Constants {
 	public static final String KEY_NUMBER_DUE_CHALLENGES = "de.fhdw.bfws114a.data.K11";
 	public static final String KEY_NUMBER_CORRECT_ANSWERS = "de.fhdw.bfws114a.data.K12";
 	public static final String KEY_NUMBER_WRONG_ANSWERS = "de.fhdw.bfws114a.data.K13";
-	
+	public static final String KEY_USER_LIST = "de.fhdw.bfws114a.data.K14";
+
 	public static final int REQUESTCODE_ACTIVITY_SOLUTIONS = 1;
 	
 }

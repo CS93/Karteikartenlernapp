@@ -1,10 +1,10 @@
 package de.fhdw.bfws114a.login;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
@@ -22,10 +22,10 @@ public class Data {
 		mDataInterface.importXMLtoDB();
 		
 		if(b == null){
-			//Activity wurde das erste Mal gestartet
-			ladeUser(); 
+			//Activity has been started the first time
+			loadUser(); 
 		} else {
-			//Beispielsweise bei einem Wechsel zwischen Portrait- und Landscape-Modus
+			//Activity has been restarted e.g. change from Protrait to Landscape mode
 			restoreDataFromBundle(b);
 		}
 		 
@@ -36,8 +36,8 @@ public class Data {
 		return mActivity;
 	}
 
-	protected void ladeUser(){
-		//User aus Datenschnittstelle laden und in String ArrayList hineinspeichern
+	//Load users from Database through DataInterface and store them in ArrayList mUserList
+	protected void loadUser(){
 		mUserList = mDataInterface.loadUsers();	
 		
 	}
@@ -46,13 +46,14 @@ public class Data {
 		return mUserList;
 	}
 	private void restoreDataFromBundle(Bundle b) {
-		//Man kann keine User-Objekte ins bundle packen
-//		mUserList = b.getStringArrayList(Constants.KEY_USER_VALUE);		
+		//The Serializable is used to put the User-Object in Bundle
+		mUserList = (ArrayList<User>) b.getSerializable(Constants.KEY_USER_LIST);		
+		Log.d("Login", mUserList.get(0).getName());
 	}
 	
 	public void saveDataInBundle(Bundle b){
-		//Man kann keine User-Objekte ins bundle packen
-//		b.putStringArrayList(Constants.KEY_USER_VALUE, mUserList);
+		//The Serializable is used to put the User-Object in Bundle
+		b.putSerializable(Constants.KEY_USER_LIST, mUserList);
 	}
 	
 }

@@ -8,6 +8,7 @@ public class Init extends Activity {
 	private Gui mGui;
 	private ApplicationLogic mApplicationLogic;
 	
+	//this onCreate is called when the app starts. The Data, Gui, Applogic and Listenermapping classes are instantiate
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -18,17 +19,18 @@ public class Init extends Activity {
 		initEventToListenerMapping();
 	}
 	
-	//Sofern wieder auf diese Activity gewechselt wird (bspw. nachdem ProfileManagement geschlossen wurde), sollen User aktualisiert werden
+	//Whether this activity (login) is restarted e.g. after finishing profile management, the method onRestart() in ApplicationLogic is called
 	@Override
 	protected void onRestart() {
 		super.onRestart();
 		mApplicationLogic.onRestart();
 	}
-
+	
+	//Save the Instance State is called when this activity is destroyed or resumed
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
-		mData.saveDataInBundle(outState);
 		super.onSaveInstanceState(outState);
+		mData.saveDataInBundle(outState);
 	}
 
 	private void initData(Bundle savedInstanceState) {

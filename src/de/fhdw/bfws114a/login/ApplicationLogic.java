@@ -73,22 +73,10 @@ public class ApplicationLogic {
 	}
 		
 
-
+	// The acitivty should update the User onRestart (e.g. after finishing ProfileManagement)
 	public void onRestart() {
-		mData.ladeUser();
+		mData.loadUser();
 		applyDataToGui();
 	}
-	
-//	public void processActivityReturnValues(int requestCode, int resultCode, Intent intent) {
-//		if(resultCode==Activity.RESULT_OK) {
-//			if(requestCode==Constants.REQUESTCODE_ACTIVITY_EDIT) {
-//				int value;
-//				value = intent.getIntExtra(Constants.KEY_RETURN_COUNTER_VALUE, mData.getCounterValue());
-//				mData.setCounterValue(value);
-//				mGui.setCounterValue(value);
-//			}
-//		}
-//	}
-
 }
 
