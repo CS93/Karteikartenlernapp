@@ -49,7 +49,12 @@ public class ApplicationLogic {
 }
 	
 	private void applyGuiToData(){
-		checkMinutes(generateMinutes());
+		if (mGui.checkClassEditText()==true){
+			checkMinutes(generateMinutes());
+		}
+		else {
+			mGui.showToast(mData.getContext(), mData.getContext().getString(R.string.missing_input_error_message));
+		}
 	}
 	
 	private int[] generateMinutes(){

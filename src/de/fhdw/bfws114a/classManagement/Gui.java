@@ -1,9 +1,11 @@
 package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,14 +48,28 @@ public class Gui {
 		return mSaveClassButton;
 	}
 	
+	public boolean checkClassEditText(){
+		if (mOneClass.getText().toString().isEmpty() == true ||
+			mTwoClass.getText().toString().isEmpty() == true ||
+			mThreeClass.getText().toString().isEmpty() == true ||
+			mFourClass.getText().toString().isEmpty() == true ||
+			mFiveClass.getText().toString().isEmpty() == true ||
+			mSixClass.getText().toString().isEmpty() == true){
+			return false;
+		}
+		return true;
+	}
+	
 	public int[] getClassEditText() {
 		int[] Classes = new int[6];
+		Log.d("DEBUG","Gui: Anfang getClassEditText");
 		Classes[0] = Integer.parseInt(mOneClass.getText().toString());
 		Classes[1] = Integer.parseInt(mTwoClass.getText().toString());
 		Classes[2] = Integer.parseInt(mThreeClass.getText().toString());
 		Classes[3] = Integer.parseInt(mFourClass.getText().toString());
 		Classes[4] = Integer.parseInt(mFiveClass.getText().toString());
 		Classes[5] = Integer.parseInt(mSixClass.getText().toString());
+		Log.d("DEBUG","Gui: Ende getClassEditText");
 		return Classes;
 	}
 	
