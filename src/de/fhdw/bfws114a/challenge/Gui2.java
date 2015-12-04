@@ -12,7 +12,7 @@ public class Gui2 {
 	private TextView mQuestion;
 	private EditText mUserAnswer;
 	private Activity mActivity;
-	private Button mContinue;
+	private Button mContinueButton;
 
 
 	public Gui2(Activity act) {
@@ -20,7 +20,7 @@ public class Gui2 {
 		act.setContentView(R.layout.activity_challenge_text);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_text);
 		mUserAnswer = (EditText) act.findViewById(R.id.et_answer_challenge_text);
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text);
+		mContinueButton = (Button) act.findViewById(R.id.b_continue_challenge_text);
 	}
 
 	public void showThisGui(){
@@ -40,6 +40,6 @@ public class Gui2 {
 	}
 
 	public Button getContinue() {
-		return mContinue;
+		return mContinueButton;
 	}
 }

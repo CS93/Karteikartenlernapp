@@ -10,14 +10,14 @@ public class Gui3 {
 	
 	private TextView mQuestion;
 	private Activity mActivity;
-	private Button mContinue;
+	private Button mContinueButton;
 
 
 	public Gui3(Activity act) {
 		mActivity = act;
 		act.setContentView(R.layout.activity_challenge_without_option);
 		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_without_option);
-		mContinue = (Button) act.findViewById(R.id.b_continue_statistic);
+		mContinueButton = (Button) act.findViewById(R.id.b_continue_statistic);
 	}
 
 	public void showThisGui(){
@@ -33,6 +33,6 @@ public class Gui3 {
 	}
 
 	public Button getContinue() {
-		return mContinue;
+		return mContinueButton;
 	}
 }

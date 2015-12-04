@@ -26,7 +26,7 @@ public class Data {
 		mCategory = category;
 		mDataInterface = new DataInterface(activity);
 		if (b == null ){
-			//Erstes Aufrufen dieser Activity			
+			//first time activity is displayed on screen		
 			ladeFaelligeChallenges();
 		}
 		else {
@@ -43,12 +43,11 @@ public class Data {
 		java.util.Date now = new java.util.Date();
 		long difference;
 		for(int i = 0; i< alleChallenges.size(); i++){
-			//Berechnen der Differenz zwischen Zeitstempel der aktuellen Challenge und dem Systemdatum
+			//calculat difference between timestamp of current challenge and system date
 			
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
 			
-			//Anstelle von 1000 muss hier die Zeit entsprechend der Klassendefinition stehen:
-			//Klasse der momentan bearbeiteten Challange und User mitgegeben, R�ckgabe in Min, daher *60*100 -> Millisec
+			//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
 			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
 				mDueChallenges.add(alleChallenges.get(i));
 			}

@@ -8,6 +8,7 @@ public class EventToListenerMapping implements OnClickListener {
 
 	private ApplicationLogic mApplicationLogic;
 
+	//Different constructors for the eventToListenerMapping depending on gui (and this depends on question type)
 	public EventToListenerMapping(Gui1 gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
 		gui.getContinue().setOnClickListener(this);		
