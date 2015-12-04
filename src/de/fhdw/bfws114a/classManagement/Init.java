@@ -14,9 +14,6 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); 
-		//nur zum Testen
-//		setContentView(R.layout.activity_settings_class_management);
-		//Der zweite Parameter den aktuellen User als String
 		initData((User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
 		initGui();
 		initApplicationLogic();

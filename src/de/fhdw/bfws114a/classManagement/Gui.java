@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
@@ -94,6 +93,7 @@ public class Gui {
 	}
 		
 	public void setClassSpinner(Context context, ArrayList<String> classSpinner, int[] position) {	
+		//generate Adapter, setAdapter, setSelection
 		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, classSpinner);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		setAdapter(spinnerAdapter);
@@ -119,13 +119,13 @@ public class Gui {
 	}
 	
 	public void showToast(Context context, String messageText){
+		//create Toast, LinearLayout and TextView, set TextSize and TextColor 
+		//of the TextView and Show the Toast
 		 Toast toast = Toast.makeText(context, messageText, Toast.LENGTH_SHORT);
 		 LinearLayout toastLayout = (LinearLayout) toast.getView();
 		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
 		 toastTV.setTextSize(30);
 		 toastTV.setTextColor(Color.RED);
 		 toast.show();
-		 
-//		Toast.makeText(mData.getContext(), mData.getContext().getString(R.string.class_error_message), Toast.LENGTH_LONG).show();
 	}
 }
