@@ -15,20 +15,21 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		//Willkommensnachricht auf den aktuellen User anpassen
+		//Customize the Welcome Message with the Username
 		mGui.setWelcomeUserView(mData.getUser().getName());		
 	}
 
 	public void onChooseCategoryButtonClicked() {
-		//Weiterleitung zur Kategorie bzw Karteiauswahl mit entsprechendem User 
+		//Start choose category with the current user 
 		Navigation.startActivityChooseCategory(mData.getActivity(), mData.getUser());
 	}
 
 	public void onClassManagementButtonClicked() {
-		//Weiterleitung zum UserMenu (Auswahl der Kartei) mit entsprechendem User 
+		//Start class management with the current user 
 		Navigation.startActivityClassManagement(mData.getActivity(), mData.getUser());
 	}
 
+	//The refreshUser is necessary when class management has been finished and therefor the user-object has to be updated
 	public void refreshUser() {
 		dataInterface = new DataInterface(mData.getActivity());
 		mData.setUser(dataInterface.getUser(mData.getUser().getName()));

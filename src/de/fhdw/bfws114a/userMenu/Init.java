@@ -15,7 +15,7 @@ public class Init extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);	
 
-		//Der zweite Parameter den aktuellen User als String
+		//The User gets loaded through the Serializable Interface from the intent
 		initData((User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE));
 		initGui();
 		initApplicationLogic();

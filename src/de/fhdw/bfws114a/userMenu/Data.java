@@ -5,7 +5,7 @@ import de.fhdw.bfws114a.data.User;
 
 public class Data {
 	
-	private User mUser; //Eventuell eine Liste verwenden
+	private User mUser;
 	private Activity mActivity;
 	
 	public Data(Activity activity, User user){
