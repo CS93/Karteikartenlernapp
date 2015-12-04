@@ -121,8 +121,8 @@ public class DataInterface {
 
 	public void increaseClass(Challenge currentChallenge, User user) {
 		// Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese
-		// Methode auf und m�chte dass die Klasse in der sich die �bergebene
-		// Challenge befindet um 1 erh�ht
+		// Methode auf und möchte dass die Klasse in der sich die übergebene
+		// Challenge befindet um 1 erhöht
 		// Nur zum testen
 		int alteKlasse = currentChallenge.getAktuelleKlasse();
 		int neueKlasse = alteKlasse + 1;
@@ -132,7 +132,7 @@ public class DataInterface {
 
 	public void decreaseClass(Challenge currentChallenge, User user) {
 		// Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese
-		// Methode auf und m�chte dass die Klasse in der sich die �bergebene
+		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 verringert wird
 
 		// Nur zum testen
@@ -152,10 +152,8 @@ public class DataInterface {
 	}
 
 	public ArrayList<String> getFileNames() {
-		// Carsten: Hier ben�tige ich die 8 Karteien (Kategorien) in denen sich
-		// der User "beweisen" kann.
-		// WICHTIG: Es m�ssen genau 8 sein!! Zur Not mit leeren Strings
-		// auff�llen
+		// Carsten: Hier benötige ich die 8 Karteien (Kategorien) in denen sich der User "beweisen" kann.
+		// WICHTIG: Es müssen genau 8 sein!! Zur Not mit leeren Strings auffüllen
 
 		ArrayList<File> files = db.getAllFiles();	
 		ArrayList<String> file_names = new ArrayList<String>();
