@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import android.app.Activity;
 import android.os.Bundle;
 import de.fhdw.bfws114a.data.Challenge;
+import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
 
@@ -17,7 +18,7 @@ public class Data {
 	private int mIndexOfCurrentChallenge = 0;
 	private int mNumberOfCorrectAnswers = 0;
 	private int mNumberOfWrongAnswers = 0;
-	private ArrayList<Challenge> mFaelligeChallenges = new ArrayList<Challenge>();
+	private ArrayList<Challenge> mDueChallenges = new ArrayList<Challenge>();
 	
 	public Data(Bundle b, Activity activity, User user, String category){	
 		mActivity = activity;
@@ -49,7 +50,7 @@ public class Data {
 			//Anstelle von 1000 muss hier die Zeit entsprechend der Klassendefinition stehen:
 			//Klasse der momentan bearbeiteten Challange und User mitgegeben, R�ckgabe in Min, daher *60*100 -> Millisec
 			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
-				mFaelligeChallenges.add(alleChallenges.get(i));
+				mDueChallenges.add(alleChallenges.get(i));
 			}
 		}		
 	}
@@ -59,7 +60,7 @@ public class Data {
 	}	
 	
 	public ArrayList<Challenge> getFaelligeChallenges() {
-		return mFaelligeChallenges;
+		return mDueChallenges;
 	}	
 
 	public int getIndexOfCurrentChallenge() {
@@ -75,14 +76,13 @@ public class Data {
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
-		//Problem hinsichtlich des Typs Challenges muss noch gel�st werden
-//		mFaelligeChallenges = b.getStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE);
-		
+		//load the due challenges from Bundle through casting the Serializable value
+		mDueChallenges = (ArrayList<Challenge>) b.getSerializable(Constants.KEY_DUE_CHALLENGES_VALUE);		
 	}
 	
 	public void saveDataInBundle(Bundle b){		
-		//Problem hinsichtlich des Typs Challenges muss noch gel�st werden
-//		b.putStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE, mFaelligeChallenges);		
+		//Use the Serializable Interface to put the due challenges in Bundle
+		b.putSerializable(Constants.KEY_DUE_CHALLENGES_VALUE, mDueChallenges);		
 	}
 
 	public void increaseIndexOfCurrentChallenge() {

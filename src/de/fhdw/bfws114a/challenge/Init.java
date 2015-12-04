@@ -17,11 +17,10 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//Im folgenden Log werden der aktuelle User und die Kategorie aus dem Intent geladen und an Data weitergegeben
+		
+		//Laden des aktuellen Users und der Kategorie aus dem Intent und an Data weitergegeben
 		initData(savedInstanceState, (User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));		
-//		initGui(); //Guis werden von der Applicationlogi initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
 		initApplicationLogic();
-//		initEventToListenerMapping(); //Da die Gui erst während der ApplicationLogic angelegt wird, muss auch das EventToListenerMapping verspätet stattfinden
 		
 	}
 	
