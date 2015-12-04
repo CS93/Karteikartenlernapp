@@ -2,6 +2,7 @@ package de.fhdw.bfws114a.classManagement;
 
 import de.fhdw.bfws114a.classManagement.Data;
 import de.fhdw.bfws114a.classManagement.Gui;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class ApplicationLogic {
 
@@ -15,7 +16,7 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		mGui.setClassSpinner(mData.getTimeList(), generateTimeconsens());
+		mGui.setClassSpinner(mData.getContext(), mData.getTimeList(), generateTimeconsens());
 		mGui.setClass(mData.getTimeOfClasses());
 	}
 	
@@ -81,7 +82,7 @@ public class ApplicationLogic {
 		mData.getActivity().finish();
 		}
 		else {
-			mGui.showToast();
+			mGui.showToast(mData.getContext(), mData.getContext().getString(R.string.class_error_message));
 		}
 	}
 	

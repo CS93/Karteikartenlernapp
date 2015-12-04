@@ -34,7 +34,7 @@ public class Init extends Activity {
 	}
 	
 	private void initGui() {
-		mGui = new Gui(this, mData);
+		mGui = new Gui(this);
 		
 	}
 

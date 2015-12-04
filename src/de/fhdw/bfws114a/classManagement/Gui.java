@@ -2,6 +2,7 @@ package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
 import android.app.Activity;
+import android.content.Context;
 import android.graphics.Color;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,7 +12,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import de.fhdw.bfws114a.lernKartei.R;
-import de.fhdw.bfws114a.classManagement.Data;
 
 public class Gui {
 	
@@ -19,11 +19,9 @@ public class Gui {
 	private EditText mOneClass, mTwoClass, mThreeClass, mFourClass, mFiveClass, mSixClass;
 	private Spinner  mOneClassSpinner, mTwoClassSpinner, mThreeClassSpinner, 
 					 mFourClassSpinner, mFiveClassSpinner, mSixClassSpinner;
-	private Data mData;
 
-	public Gui(Activity act, Data data) {
+	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_settings_class_management);
-		mData = data;
 		mDefaultClassButton 	= (Button) act.findViewById(R.id.b_default_class_management);
 		mSaveClassButton 		= (Button) act.findViewById(R.id.b_save_class_management);	
 		mOneClass 		= (EditText) act.findViewById(R.id.et_class_one_class_management);
@@ -79,8 +77,8 @@ public class Gui {
 		mSixClass.setText(Integer.toString(classes[5]));
 	}
 		
-	public void setClassSpinner(ArrayList<String> classSpinner, int[] position) {	
-		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(mData.getContext(), android.R.layout.simple_spinner_item, classSpinner);
+	public void setClassSpinner(Context context, ArrayList<String> classSpinner, int[] position) {	
+		ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, classSpinner);
 		spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 		setAdapter(spinnerAdapter);
 		setSelection(position);
@@ -104,8 +102,8 @@ public class Gui {
 		mSixClassSpinner.setSelection(position[5]);
 	}
 	
-	public void showToast(){
-		 Toast toast = Toast.makeText(mData.getContext(), mData.getContext().getString(R.string.class_error_message), Toast.LENGTH_SHORT);
+	public void showToast(Context context, String messageText){
+		 Toast toast = Toast.makeText(context, messageText, Toast.LENGTH_SHORT);
 		 LinearLayout toastLayout = (LinearLayout) toast.getView();
 		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
 		 toastTV.setTextSize(30);
