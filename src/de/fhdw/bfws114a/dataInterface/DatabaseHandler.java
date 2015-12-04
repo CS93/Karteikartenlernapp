@@ -49,7 +49,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
 	// Table Userscores
 	private static final String KEY_USERSCORES_USERID = "fk_userid";
-	//private static final String KEY_USERSCORES_FILEID= "fk_fileid";
+	private static final String KEY_USERSCORES_FILEID= "fk_fileid";
 	private static final String KEY_USERSCORES_CARDID= "fk_cardid";
 	private static final String KEY_USERSCORES_ASSIGNEDCLASS= "assignedClass";
 	private static final String KEY_USERSCORES_TIMESTAMP= "timestamp";
@@ -101,7 +101,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	}
 	
 	private void createUsersTable(SQLiteDatabase db){
-		String create_users_table = "CREATE TABLE " + TABLE_USERS + "("
+		String create_users_table = 
+				"CREATE TABLE " + TABLE_USERS + "("
 				+ KEY_USERS_USERID + " INTEGER PRIMARY KEY," 
 				+ KEY_USERS_USERNAME + " TEXT,"
 				+ KEY_USERS_CLASS1_DURATION + " INTEGER," 
@@ -116,19 +117,25 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	}
 	
 	private void createUserScoresTable(SQLiteDatabase db){
-		String create_userscores_table = "CREATE TABLE " + TABLE_USERSCORES + "("
-				+ KEY_USERSCORES_USERID + " INTEGER PRIMARY KEY," 
-//				+ KEY_USERSCORES_FILEID + " INTEGER PRIMARY KEY," 
+		String create_userscores_table = 
+				"CREATE TABLE " + TABLE_USERSCORES + "("
+				+ KEY_USERSCORES_USERID + " INTEGER," 
+				+ KEY_USERSCORES_FILEID + " INTEGER," 
 				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anführungszeichen genommen:  PRIMARY KEY  
 				+ KEY_USERSCORES_ASSIGNEDCLASS + " INTEGER,"
-				+ KEY_USERSCORES_TIMESTAMP + " TEXT"
+				+ KEY_USERSCORES_TIMESTAMP + " TEXT,"
+				+ "PRIMARY KEY ("
+				+ KEY_USERSCORES_USERID + ","
+				+ KEY_USERSCORES_FILEID + ","
+				+ KEY_USERSCORES_CARDID + ")"
 				+ ")";
 		db.execSQL(create_userscores_table);
 	}
 	
 	private void createCardsTable(SQLiteDatabase db){
-		String create_cards_table = "CREATE TABLE " + TABLE_CARDS + "("
-				+ KEY_CARDS_CARDID+ " INTEGER PRIMARY KEY,"
+		String create_cards_table = 
+				"CREATE TABLE " + TABLE_CARDS + "("
+				+ KEY_CARDS_CARDID+ " INTEGER,"
 				+ KEY_CARDS_FILEID+ " INTEGER,"
 				+ KEY_CARDS_TYPE + " INTEGER," 
 				+ KEY_CARDS_QUESTION + " TEXT,"
@@ -138,13 +145,17 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				+ KEY_CARDS_ANSWER4 + " TEXT,"
 				+ KEY_CARDS_ANSWER5 + " TEXT,"
 				+ KEY_CARDS_ANSWER6 + " TEXT,"
-				+ KEY_CARDS_SOLUTION + " TEXT"
+				+ KEY_CARDS_SOLUTION + " TEXT,"
+				+ "PRIMARY KEY ("
+				+ KEY_CARDS_CARDID + ","
+				+ KEY_CARDS_FILEID + ")"
 				+ ")";
 		db.execSQL(create_cards_table);
 	}
 	
 	private void createFilesTable(SQLiteDatabase db){
-		String create_files_table = "CREATE TABLE " + TABLE_FILES + "("
+		String create_files_table = 
+				"CREATE TABLE " + TABLE_FILES + "("
 				+ KEY_FILES_FILEID + " INTEGER PRIMARY KEY," 
 				+ KEY_FILES_FILENAME + " TEXT"
 				+ ")";
