@@ -1,7 +1,6 @@
 package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Context;
 import de.fhdw.bfws114a.data.User;
@@ -10,21 +9,15 @@ import de.fhdw.bfws114a.lernKartei.R;
 
 public class Data {
 
-	private User mUser; //Eventuell eine Liste verwenden
+	private User mUser;
 	private Activity mActivity;
 	private int[] mTimeOfClasses;
 	private ArrayList<String> mTimeList;
 	private DataInterface mDataInterface;
-	
-	
-//	//Beim initialisieren mancher Objekte ist der Context notwendig. 
-//	//Um auf diesen in der Methode setChoiceList zugreifen zu k�nnen wird er hier als Membervariable definiert	
 	private Context mContext;
 	
 	public Data(Activity activity, User user){
- 
 		mContext = activity;
-		
 		mActivity = activity;
 		mDataInterface = new DataInterface(activity);
 		mUser = user;
