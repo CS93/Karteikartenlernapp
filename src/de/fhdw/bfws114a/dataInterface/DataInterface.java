@@ -67,7 +67,7 @@ public class DataInterface {
 	}
 
 	// load the default Time in minutes of Classes
-	public int[] loadDefaultTimeToClasses() {
+	public int[] getDefaultClassDurations() {
 		int[] timeToClasses = new int[6];
 		// Die Zeiten sind in Min angegeben und werden in der Activity in
 		// Stunden und Tage umgerechnet
@@ -91,8 +91,8 @@ public class DataInterface {
 	}
 
 	public int getTimePeriod(int classNumber, User user) {
-		// Carsten: Hier ben�tige ich die Zeit in Minuten f�r die aktuelle
-		// Klasse (um F�lligkeit der entsprechenden Kartei festzustellen)
+		// Carsten: Hier benötige ich die Zeit in Minuten für die aktuelle
+		// Klasse (um Fälligkeit der entsprechenden Kartei festzustellen)
 		// DONE - NOT TESTED
 		if (timeToClasses == null) {
 			getClassDurations(user);
@@ -151,53 +151,48 @@ public class DataInterface {
 						+ "auf " + timestamp + "erhöht werden");
 	}
 
-	public ArrayList<String> loadCategories() {
+	public ArrayList<String> getFileNames() {
 		// Carsten: Hier ben�tige ich die 8 Karteien (Kategorien) in denen sich
 		// der User "beweisen" kann.
 		// WICHTIG: Es m�ssen genau 8 sein!! Zur Not mit leeren Strings
 		// auff�llen
 
-		// Test
-		ArrayList<String> categories = new ArrayList<String>();
-		categories.add("Biologie");
-		categories.add("Chemie");
-		categories.add("Physik");
-		categories.add("Informatik");
-		categories.add("Sport");
-		categories.add("Technik");
-		categories.add("Geschichte");
-		categories.add("Erdkunde");
+		ArrayList<File> files = db.getAllFiles();	
+		ArrayList<String> file_names = new ArrayList<String>();
 
-		return categories;
+		if(files.size()<8){
+			for(int i=0;i<files.size();i++){
+				file_names.add(files.get(i).getName());
+			}
+			for(int i=files.size();i<8;i++){
+				file_names.add("Leere Kategorie");
+			}
+			return file_names;
+		}
+		else{
+
+			for(int i=0;i<8;i++){
+				file_names.add(files.get(i).getName());
+			}
+			return file_names;
+		}
 	}
 
 	// Beginn der Statistik
 
-	public ArrayList<Statistics> loadStatistics(ArrayList<String> categories) {
-		// Carsten: Hier brauche ich die dazugehoerige Statistik zu den
-		// einzelnen Karteien/Kategorien nach dem Muster:
-		// "Karteiname - F�llige_Challenges - Gesamte_Challenges (in dieser Kartei)"
-		// K�nnte etwas schwierig werden (im Notfall m�ssen wir uns da nochmal
-		// kurzschlie�en)
+	public ArrayList<Statistics> getFileNames(ArrayList<String> file_names, User mUser) {
+		// Statistik zu den einzelnen Karteien/Kategorien nach dem Muster:
+		// "Karteiname - Fällige_Challenges (abhängig vom User) - Gesamte_Challenges (in dieser Kartei)"
 
-		// Test
 		ArrayList<Statistics> statistik = new ArrayList<Statistics>();
-		Statistics Objekt1 = new Statistics(categories.get(0), "10", "100");
-		statistik.add(Objekt1);
-		Statistics Objekt2 = new Statistics(categories.get(1), "9", "100");
-		statistik.add(Objekt2);
-		Statistics Objekt3 = new Statistics(categories.get(2), "2", "100");
-		statistik.add(Objekt3);
-		Statistics Objekt4 = new Statistics(categories.get(3), "12", "100");
-		statistik.add(Objekt4);
-		Statistics Objekt5 = new Statistics(categories.get(4), "4", "100");
-		statistik.add(Objekt5);
-		Statistics Objekt6 = new Statistics(categories.get(5), "14", "100");
-		statistik.add(Objekt6);
-		Statistics Objekt7 = new Statistics(categories.get(6), "5", "100");
-		statistik.add(Objekt7);
-		Statistics Objekt8 = new Statistics(categories.get(7), "9", "100");
-		statistik.add(Objekt8);
+		statistik.add(new Statistics(file_names.get(0), 1, db.getCardsByFile(file_names.get(0)).size()));
+		statistik.add(new Statistics(file_names.get(1), 2, db.getCardsByFile(file_names.get(1)).size()));
+		statistik.add(new Statistics(file_names.get(2), 3, db.getCardsByFile(file_names.get(2)).size()));
+		statistik.add(new Statistics(file_names.get(3), 4, db.getCardsByFile(file_names.get(3)).size()));
+		statistik.add(new Statistics(file_names.get(4), 5, db.getCardsByFile(file_names.get(4)).size()));
+		statistik.add(new Statistics(file_names.get(5), 6, db.getCardsByFile(file_names.get(5)).size()));
+		statistik.add(new Statistics(file_names.get(6), 7, db.getCardsByFile(file_names.get(6)).size()));
+		statistik.add(new Statistics(file_names.get(7), 8, db.getCardsByFile(file_names.get(7)).size()));
 		return statistik;
 
 	}

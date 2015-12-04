@@ -38,13 +38,13 @@ public class Data {
 
 	private void loadCategories(){
 		//Categories are loaded from Datainterface (it has to be 8 categories to fit applyToData() in applicationLogic)
-		mCategories = mDataInterface.loadCategories();	
+		mCategories = mDataInterface.getFileNames();	
 		
 	}
 
 	private void loadStatistics(){
 		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
-		mStatistics = mDataInterface.loadStatistics(mCategories);	
+		mStatistics = mDataInterface.getFileNames(mCategories, mUser);	
 		
 	}
 	

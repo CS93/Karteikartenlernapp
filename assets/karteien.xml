@@ -1,8 +1,191 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <files>
+    <file>
+        <fileName>Chemie</fileName>
+        <fileID>1</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+    </file>
+
+    <file>
+        <fileName>Biologie</fileName>
+        <fileID>2</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+        <card>
+            <cardID>0003</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+    </file>
+        <file>
+        <fileName>Physik</fileName>
+        <fileID>3</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+    </file>
+    <file>
+        <fileName>Informatik</fileName>
+        <fileID>4</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+    </file>
+    <file>
+        <fileName>Sport</fileName>
+        <fileID>5</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+    </file>
+    <file>
+        <fileName>Technik</fileName>
+        <fileID>6</fileID>
+        <card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>1</solution>
+        </card>
+    </file>
+
+
 	<file>
-		<fileName>Mathematik</fileName>
-		<fileID>1</fileID>
+		<fileName>Geschichte</fileName>
+		<fileID>7</fileID>
 		<card>
 			<cardID>0000</cardID>
             <cardType>1</cardType>
@@ -35,35 +218,6 @@
             <solution>1</solution>
         </card>
 	</file>
-	<file>
-		<fileName>Biologie</fileName>
-		<fileID>2</fileID>
-		<card>
-			<cardID>0000</cardID>
-            <cardType>1</cardType>
-			<question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-			<answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
-		</card>
-        <card>
-            <cardID>0001</cardID>
-            <cardType>1</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
-            <solution>0</solution>
-        </card>
-        <card>
-            <cardID>0002</cardID>
-            <cardType>1</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
-            <solution>1</solution>
-        </card>
-	</file>
+
 
 </files>

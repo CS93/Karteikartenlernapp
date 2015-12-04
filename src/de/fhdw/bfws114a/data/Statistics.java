@@ -4,10 +4,10 @@ import java.io.Serializable;
 
 public class Statistics implements Serializable {
 	private String mKartei;
-	private String mFaelligeChallenges;
-	private String mGesamteChallenges;
+	private int mFaelligeChallenges;
+	private int mGesamteChallenges;
 	
-	public Statistics(String kartei, String faelligeChallenges, String gesamteChallenges){
+	public Statistics(String kartei, int faelligeChallenges, int gesamteChallenges){
 		this.mKartei = kartei;
 		this.mFaelligeChallenges = faelligeChallenges;
 		this.mGesamteChallenges = gesamteChallenges;
@@ -21,19 +21,19 @@ public class Statistics implements Serializable {
 		this.mKartei = mKartei;
 	}
 
-	public String getFaelligeChallenges() {
+	public int getFaelligeChallenges() {
 		return mFaelligeChallenges;
 	}
 
-	public void setFaelligeChallenges(String mFaelligeChallenges) {
+	public void setFaelligeChallenges(int mFaelligeChallenges) {
 		this.mFaelligeChallenges = mFaelligeChallenges;
 	}
 
-	public String getGesamteChallenges() {
+	public int getGesamteChallenges() {
 		return mGesamteChallenges;
 	}
 
-	public void setGesamteChallenges(String mGesamteChallenges) {
+	public void setGesamteChallenges(int mGesamteChallenges) {
 		this.mGesamteChallenges = mGesamteChallenges;
 	}
 	

@@ -76,7 +76,7 @@ public class Data {
 	public void loadDefaultTimeToClasses(){
 		//load the default times to the classes, is not dependent on a User
 		//is used for the DefaultButton
-		mTimeOfClasses = mDataInterface.loadDefaultTimeToClasses();
+		mTimeOfClasses = mDataInterface.getDefaultClassDurations();
 	}
 	
 	private void loadTimeList(){

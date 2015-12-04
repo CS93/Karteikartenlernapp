@@ -406,8 +406,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			db.close(); // Closing database connection
 		}
 		
-		public List<File> getAllFiles(){
-			List<File> result= new ArrayList<File>();
+		public ArrayList<File> getAllFiles(){
+			ArrayList<File> result= new ArrayList<File>();
 			
 			String selectQuery = "SELECT * FROM " + TABLE_FILES;
 			SQLiteDatabase db = this.getReadableDatabase();
@@ -418,7 +418,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				do {
 					File file = new File();
 					file.setId(Integer.parseInt(cursor.getString(0))); //FileID
-					file.setName(cursor.getString(1));
+					file.setName(cursor.getString(1)); //FileName
 									
 					// Adding file to resultlist
 					result.add(file);
