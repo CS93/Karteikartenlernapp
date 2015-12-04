@@ -15,16 +15,15 @@ public class Data {
 	private User mUser;
 	private Activity mActivity;
 	private DataInterface mDataInterface;
-	private ArrayList<String> mKarteien;
-	private ArrayList<Statistics> mStatistik;
-	//Hinweis: Man braucht auch die dazugeh�rige Statistik
+	private ArrayList<String> mCategories;
+	private ArrayList<Statistics> mStatistics; //Statistics are required to give the user preview-information regarding to the different categories	
 	
 	public Data(Bundle b, Activity activity, User user){	
 		mActivity = activity;
 		mUser = user;
 		mDataInterface = new DataInterface(activity);
 		if (b == null ){
-			//Erstes Aufrufen dieser Activity			
+			//First start of the activity			
 			loadCategories();
 			loadStatistics();
 		}
@@ -38,14 +37,14 @@ public class Data {
 	}
 
 	private void loadCategories(){
-		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		mKarteien = mDataInterface.loadCategories();	
+		//Categories are loaded from Datainterface (it has to be 8 categories to fit applyToData() in applicationLogic)
+		mCategories = mDataInterface.loadCategories();	
 		
 	}
 
 	private void loadStatistics(){
-		//Karteien aus xml in mKarteien laden (es muss sichergestellt werden, dass die Anzahl der Karteien = 8 ist (siehe ApplicationLogic --> applyToData()
-		mStatistik = mDataInterface.loadStatistics(mKarteien);	
+		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
+		mStatistics = mDataInterface.loadStatistics(mCategories);	
 		
 	}
 	
@@ -54,24 +53,24 @@ public class Data {
 	}
 
 	public ArrayList<String> getKarteien() {
-		return mKarteien;
+		return mCategories;
 	}
 
 		
 	public ArrayList<Statistics> getStatistik() {
-		return mStatistik;
+		return mStatistics;
 	}
 
 	private void restoreDataFromBundle(Bundle b) {
 		//The Serializable is used to put the User-Object in Bundle
-		mKarteien = (ArrayList<String>) b.getStringArrayList(Constants.KEY_KARTEIEN_VALUE);
-		mStatistik = (ArrayList<Statistics>) b.getSerializable(Constants.KEY_STATISTICS_VALUE);
+		mCategories = (ArrayList<String>) b.getStringArrayList(Constants.KEY_KARTEIEN_VALUE);
+		mStatistics = (ArrayList<Statistics>) b.getSerializable(Constants.KEY_STATISTICS_VALUE);
 	}
 	
 	public void saveDataInBundle(Bundle b){
 		//The Serializable is used to put the User-Object in Bundle
-		b.putStringArrayList(Constants.KEY_KARTEIEN_VALUE, mKarteien);
-		b.putSerializable(Constants.KEY_STATISTICS_VALUE, mStatistik);
+		b.putStringArrayList(Constants.KEY_KARTEIEN_VALUE, mCategories);
+		b.putSerializable(Constants.KEY_STATISTICS_VALUE, mStatistics);
 	}
 	
 }

@@ -1,6 +1,5 @@
 package de.fhdw.bfws114a.chooseCategory;
 
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 
 public class ApplicationLogic {
@@ -19,14 +18,10 @@ public class ApplicationLogic {
 			mGui.getOverallChallengePerCategory(i).setText(mData.getStatistik().get(i).getGesamteChallenges());
 			mGui.getDueChallengePerCategory(i).setText(mData.getStatistik().get(i).getFaelligeChallenges());
 		}		
-	}
-	
-
-		
+	}		
 	
 	public void onCategoryClicked(String category){
-		//Weiterleitung zur Challenge (in den Lernmodus) mit entsprechender Kartei (category) und User 	
+		//Start activity challenge (learn session) with category and user 	
 		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 	}
 }
-

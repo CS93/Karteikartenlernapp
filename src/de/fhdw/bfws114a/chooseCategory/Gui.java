@@ -7,7 +7,7 @@ import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
 	
-	private Button[] mCategories = new Button[8];
+	private Button[] mCategoriesButtons = new Button[8];
 	private TextView[] mOverallChallengesPerCategory = new TextView[8];
 	private TextView[] mDueChallengesPerCategory = new TextView[8];
 
@@ -15,14 +15,14 @@ public class Gui {
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_category_choose);
 		
-		mCategories[0] = (Button) act.findViewById(R.id.b_cardfile1_category);
-		mCategories[1] = (Button) act.findViewById(R.id.b_cardfile2_category);
-		mCategories[2] = (Button) act.findViewById(R.id.b_cardfile3_category);
-		mCategories[3] = (Button) act.findViewById(R.id.b_cardfile4_category);
-		mCategories[4] = (Button) act.findViewById(R.id.b_cardfile5_category);
-		mCategories[5] = (Button) act.findViewById(R.id.b_cardfile6_category);
-		mCategories[6] = (Button) act.findViewById(R.id.b_cardfile7_category);
-		mCategories[7] = (Button) act.findViewById(R.id.b_cardfile8_category);
+		mCategoriesButtons[0] = (Button) act.findViewById(R.id.b_cardfile1_category);
+		mCategoriesButtons[1] = (Button) act.findViewById(R.id.b_cardfile2_category);
+		mCategoriesButtons[2] = (Button) act.findViewById(R.id.b_cardfile3_category);
+		mCategoriesButtons[3] = (Button) act.findViewById(R.id.b_cardfile4_category);
+		mCategoriesButtons[4] = (Button) act.findViewById(R.id.b_cardfile5_category);
+		mCategoriesButtons[5] = (Button) act.findViewById(R.id.b_cardfile6_category);
+		mCategoriesButtons[6] = (Button) act.findViewById(R.id.b_cardfile7_category);
+		mCategoriesButtons[7] = (Button) act.findViewById(R.id.b_cardfile8_category);
 		
 		mOverallChallengesPerCategory[0] = (TextView) act.findViewById(R.id.t_cardfile1_overall_statistic_category);
 		mOverallChallengesPerCategory[1] = (TextView) act.findViewById(R.id.t_cardfile2_overall_statistic_category);
@@ -44,15 +44,15 @@ public class Gui {
 	}
 
 	public Button[] getCategories() {
-		return mCategories;
+		return mCategoriesButtons;
 	}
 
 	public Button getCategory(int index) {
-		return mCategories[index];
+		return mCategoriesButtons[index];
 	}	
 	
 	public void setCategories(Button[] categories) {
-		this.mCategories = categories;
+		this.mCategoriesButtons = categories;
 	}
 
 	public TextView[] getOverallChallengesPerCategory() {

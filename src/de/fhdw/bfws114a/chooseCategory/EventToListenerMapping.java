@@ -17,7 +17,7 @@ public class EventToListenerMapping implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		//Beim Klick wird v zunächst zum Button gecastet und daraufhin als String an die Methode onCategoryClicked() übergeben
+		//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
 		Button b = (Button) v;
 		mApplicationLogic.onCategoryClicked(b.getText().toString());		
 	}
