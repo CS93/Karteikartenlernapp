@@ -1,16 +1,14 @@
 package de.fhdw.bfws114a.login;
 
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.Button;
 import android.widget.PopupWindow;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.User;
+import de.fhdw.bfws114a.dataInterface.DataInterface;
 import de.fhdw.bfws114a.lernKartei.R;
-import android.app.Activity;
-import android.os.Bundle;
-import android.widget.Button;
 
 public class ApplicationLogic {
 	private Data mData;
@@ -54,12 +52,23 @@ public class ApplicationLogic {
 	    View popupView = layoutInflater.inflate(R.layout.popup, null);  
         final PopupWindow popupWindow = new PopupWindow(popupView, LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);  
 	             
-	             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
-	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
-	         @Override
-	         public void onClick(View v) {
-	         popupWindow.dismiss();
-	         }});
+	       	Button btnDismiss = (Button)popupView.findViewById(R.id.b_dismiss_popup_window);
+	        btnDismiss.setOnClickListener(new Button.OnClickListener(){
+	        	@Override
+	        	public void onClick(View v) {
+	        		popupWindow.dismiss();
+	        	}});
+	        
+	        Button btnReset = (Button)popupView.findViewById(R.id.b_reset_popup_window);
+	        btnReset.setOnClickListener(new Button.OnClickListener(){
+	        	@Override
+	        	public void onClick(View v) {
+	        		DataInterface dataInterface = new DataInterface(mData.getActivity());
+	        		dataInterface.importXMLtoDB();
+	        		popupWindow.dismiss();
+	        	}});
+	    //Avoid that more than one PopupWindow is opened
+	    popupWindow.dismiss();    
 	    popupWindow.showAsDropDown(mGui.getChoiceList(), 50, -30);	    
 	}
 		
