@@ -38,10 +38,16 @@ public class ApplicationLogic {
 	}	
 	
 	public void onDelUserButtonClicked(){
+		//two options: there exists no user or delete the selected user
+		if(mData.getUser().size() == 0){
+			mGui.showToast(R.string.exists_no_user_error_message);
+		}
+		else {
 		//delete one User from db
 		mData.getDataInterface().delUser(mGui.getChoiceList().getSelectedItem().toString());
 		//close activity
 		mData.getActivity().finish();
+		}
 	}
 	
 	private boolean checkUserExistAlready() {
