@@ -76,6 +76,18 @@ public class User implements Serializable {
 	public int getClass6_duration() {
 		return class6_duration;
 	}
+	
+	public int[] getClass_durations(){
+		int[] allDurations = new int[6];
+		allDurations[0] = class1_duration;
+		allDurations[1] = class1_duration;
+		allDurations[2] = class1_duration;
+		allDurations[3] = class1_duration;
+		allDurations[4] = class1_duration;
+		allDurations[5] = class1_duration;
+		return allDurations;
+	}
+	
 	public String getLast_seen() {
 		return last_seen;
 	}

@@ -1,10 +1,12 @@
 package de.fhdw.bfws114a.chooseCategory;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.Statistics;
 import de.fhdw.bfws114a.data.User;
@@ -44,7 +46,25 @@ public class Data {
 
 	private void loadStatistics(){
 		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
-		mStatistics = mDataInterface.getFileNames(mCategories, mUser);	
+		mStatistics = mDataInterface.getFileNames(mCategories, mUser);
+		
+		//Find out the Amount of Due Challenges to put them in statistics object
+		for(Statistics currentCategoryStatistic : mStatistics){
+			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getKartei(), mUser);
+			int amountOfDueChallenges = 0;
+			for(Challenge currentChallengeInCategory : allChallenges){
+				Date now = new Date();
+				long difference = now.getTime() - currentChallengeInCategory.getZeitstempel().getTime();
+
+				Log.d("The Challenge", currentChallengeInCategory.getFrage() + "in Category" + currentCategoryStatistic.getKartei());
+				Log.d("Time", currentChallengeInCategory.getZeitstempel() + " nicht fällig weil kleiner " + mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()] + "Minute");				
+				if(difference > mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()]*60*1000){
+					//currentChallengeIsDue
+					amountOfDueChallenges++;
+				}
+			}
+			currentCategoryStatistic.setFaelligeChallenges(amountOfDueChallenges);
+		}
 		
 	}
 	
