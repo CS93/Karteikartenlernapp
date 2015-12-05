@@ -602,11 +602,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
-			
-//			ContentValues values = new ContentValues();
-//			values.put(KEY_USERSCORES_ASSIGNEDCLASS, newClass); // UserID
-//			values.put(KEY_USERSCORES_TIMESTAMP, System.currentTimeMillis()); // UserID
-			
 			String sql=
 					"UPDATE " + KEY_USERSCORES_ASSIGNEDCLASS
 					+ " SET " + KEY_USERSCORES_ASSIGNEDCLASS + " = " + newClass 

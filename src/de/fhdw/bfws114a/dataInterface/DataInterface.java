@@ -119,11 +119,6 @@ public class DataInterface {
 		// Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 erhöht
-//		// Nur zum testen
-//		int alteKlasse = currentChallenge.getAktuelleKlasse();
-//		int neueKlasse = alteKlasse + 1;
-//		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse
-//				+ "erhöht werden");
 		
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()+1);
 
@@ -246,8 +241,6 @@ public class DataInterface {
 	 */
 
 	public void importXMLtoDB() {
-		XMLPullParserHandler parser = new XMLPullParserHandler();
-
 		db.clearFileTable();
 		db.clearCard();
 		db.clearUserscoreTable();
