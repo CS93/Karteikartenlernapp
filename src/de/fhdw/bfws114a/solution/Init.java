@@ -14,23 +14,16 @@ public class Init extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		//Guis werden von der Applicationlogic initialisiert, da zunächst unbekannt ist, welcher Challenge-Typ anzuzeigen ist
-		//Folglich wird auch das EventToListenerMapping erst in der ApplicationLogic durchgeführt
 		
+		//Load current Challenge, answer from checkeboxes and user text answer from Intent to hand it over to Data
 		initData(savedInstanceState, (Challenge) getIntent().getSerializableExtra(Constants.KEY_CURRENT_CHALLENGE_VALUE), getIntent().getBooleanArrayExtra(Constants.KEY_USER_ANSWERS_CHECKBOXES), getIntent().getStringExtra(Constants.KEY_USER_ANSWER_TEXT));		
+		//Instantiation of GUI and EventToListenerMapping is delegated to applogic, because applogic know which gui-type (depending on question type) should be shown
 		initApplicationLogic();
 	}
 	
 	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-//		mData.saveDataInBundle(outState);
-		super.onSaveInstanceState(outState);
-	}
-	
-	
-	@Override
 	public void onBackPressed() {
-		//Auch beim Betätigen des BackButtons soll der Nutzer zu seiner Statistik gelangen
+		//Whether user presses the back-button: his answer is wrong (whether its self control) and onContinueClicked checks if the answer was right (whether it was question type 1/2) --> so its the same as would he had clicked "Nein" (No)
 		mApplicationLogic.onContinueClicked("Nein");
 	}
 

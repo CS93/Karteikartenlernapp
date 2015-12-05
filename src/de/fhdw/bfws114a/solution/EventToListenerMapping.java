@@ -26,7 +26,7 @@ public class EventToListenerMapping implements OnClickListener {
 	
 	@Override
 	public void onClick(View v) {
-		String userAnswerCorrection = ((Button) v).getText().toString(); //Nur relevant für Fragetyp 3 (Selbstüberprüfung)
+		String userAnswerCorrection = ((Button) v).getText().toString(); //only relevant for question type 3 (self control)
 		mApplicationLogic.onContinueClicked(userAnswerCorrection);
 	}
 	

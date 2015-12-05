@@ -17,7 +17,7 @@ public class Init extends Activity {
 		
 		//Load current User and category from Intent to hand it over to Data
 		initData(savedInstanceState, (User) getIntent().getSerializableExtra(Constants.KEY_PAR_CURRENT_USER_VALUE), getIntent().getStringExtra(Constants.KEY_PAR_CURRENT_CATEGORY_VALUE));
-		//Instantiation of GUI and EventToListenerMapping 
+		//Instantiation of GUI and EventToListenerMapping is delegated to applogic, because applogic know which gui-type (depending on question type) should be shown
 		
 		initApplicationLogic();
 		

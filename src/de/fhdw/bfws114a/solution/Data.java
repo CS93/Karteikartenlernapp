@@ -33,16 +33,5 @@ public class Data {
 	public Challenge getCurrentChallenge() {
 		return mCurrentChallenge;
 	}
-
-	private void restoreDataFromBundle(Bundle b) {
-		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
-//		mFaelligeChallenges = b.getStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE);
-		
-	}
-	
-	public void saveDataInBundle(Bundle b){		
-		//Problem hinsichtlich des Typs Challenges muss noch gelöst werden
-//		b.putStringArrayList(Constants.KEY_DUE_CHALLENGES_VALUE, mFaelligeChallenges);		
-	}
 	
 }
