@@ -31,13 +31,6 @@ public class Init extends Activity {
 		mApplicationLogic.OnBackButton();
 	}
 
-
-	@Override
-	protected void onSaveInstanceState(Bundle outState) {
-//		mData.saveDataInBundle(outState);
-		super.onSaveInstanceState(outState);
-	}
-
 	private void initData(Bundle savedInstanceState, int indexCurrentChallenge, int numberOfDueChallenges,
 			int numberOfCorrectAnswers, int numberOfWrongAnswers) {
 		mData = new Data(savedInstanceState, this, indexCurrentChallenge, numberOfDueChallenges, numberOfCorrectAnswers, numberOfWrongAnswers);

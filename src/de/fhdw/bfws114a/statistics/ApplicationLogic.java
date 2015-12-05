@@ -17,26 +17,24 @@ public class ApplicationLogic {
 		
 		mGui.getNumberOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()));
 		
-		//Der index kann -1 betragen, wenn gar keine Challenge bearbeitet wurde und dann direkt der Back-Button gedrückt wird. Diese Division durch 0 muss abgefangen werden
+		//index could be -1 (this is the case when no challenge has been answered and back button has been clicked. This could cause a division by zero and has to be avoided
 		if(mData.getIndexOfCurrentChallenge()+1 == 0){
 			mGui.getPercentageOfCorrectAnsweredQuestion().setText("0");
 		} else {
-			//Um den Prozentsatz korrekt beantworteter Challenges zu errechnen, wird die Anzahl korrekter Antwort + die Anzahl gegebener Antworten geteilt und
-			//mit hundert multilpliziert (weil Angabe in %)			
+			//to calculate percentage of correct answerded challenges, the app takes the numberOfCorrectAnswers *100 / numberOfAnswerdedQuestion (index+1)			
 			mGui.getPercentageOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
 		}
 		
 		if((mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)) == 0){
-//			mGui.getLearnSessionCompleted().setVisibility(1);
 			mGui.showToast(mData.getActivity());
 		}
 		
-		//Diese Textview sollte die noch fälligen Challenges dieser Lernsession darstellen --> gesamte Challenges dieser Session - die bisher Bearbeiteten
+		//this textview shoul visualize the numberOfdueChallenges of this learn session. This is calculated through allChallenges of thisSession - answeredChallenges
 		mGui.getNumberOfDueChallenges().setText(String.valueOf(mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)));
 	}
 	
 	public void onContinueClicked(){
-		//Activity beenden um zur nächsten Challenge zu gelangen  
+		//Finish activity to restart activity challenge with next challenge
 		mData.getActivity().finish();
 	}
 

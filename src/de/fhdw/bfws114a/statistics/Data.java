@@ -39,14 +39,5 @@ public class Data {
 	public int getNumberOfWrongAnswers() {
 		return mNumberOfWrongAnswers;
 	}
-
-	private void restoreDataFromBundle(Bundle b) {
-//		mUserList = b.getStringArrayList(Constants.KEY_USER_VALUE);
-		
-	}
-	
-	public void saveDataInBundle(Bundle b){
-//		b.putStringArrayList(Constants.KEY_USER_VALUE, mUserList);
-	}
 	
 }
