@@ -79,7 +79,7 @@ public class ApplicationLogic {
 			minutes [4] < minutes [5]) {
 		mData.setTimeOfClasses(minutes);
 		//save the times (in minutes) of the classes in connection with the user
-		mData.getDataInterface().saveTimeToClasses(mData.getUser(), mData.getTimeOfClasses());
+		mData.getDataInterface().updateUserClassDurations(mData.getUser(), mData.getTimeOfClasses());
 		//close activity
 		mData.getActivity().finish();
 		}

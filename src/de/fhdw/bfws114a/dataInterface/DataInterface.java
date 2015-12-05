@@ -19,8 +19,6 @@ import de.fhdw.bfws114a.data.User;
 
 public class DataInterface {
 
-	private static final String XMLFileName = "karteien.xml";
-	private ArrayList<String> userList;
 	private DatabaseHandler db;
 	private XMLPullParserHandler xmlHandler;
 	private int[] timeToClasses;
@@ -55,14 +53,13 @@ public class DataInterface {
 	// load the Time of Classes dependent on one User
 	public int[] getClassDurations(User user) {
 		timeToClasses = new int[6];
-		// Die Zeiten sind in Minuten angegeben und werden in der Activity in
-		// Stunden und Tage umgerechnet
-		timeToClasses[0] = user.getClass1_duration(); // 1 Minute
-		timeToClasses[1] = user.getClass2_duration(); // 5 Minuten
-		timeToClasses[2] = user.getClass3_duration(); // 10 Minuten
-		timeToClasses[3] = user.getClass4_duration(); // 30 Minuten
-		timeToClasses[4] = user.getClass5_duration(); // 1 Stunde
-		timeToClasses[5] = user.getClass6_duration(); // 1 Tag
+		// Die Zeiten sind in Minuten angegeben und werden in der Activity in umgerechnet
+		timeToClasses[0] = user.getClass1_duration();
+		timeToClasses[1] = user.getClass2_duration();
+		timeToClasses[2] = user.getClass3_duration();
+		timeToClasses[3] = user.getClass4_duration();
+		timeToClasses[4] = user.getClass5_duration();
+		timeToClasses[5] = user.getClass6_duration();
 		return timeToClasses;
 	}
 
@@ -82,9 +79,7 @@ public class DataInterface {
 
 	// save Times of Classes in minutes dependent on one User
 	// DONE - TESTED
-	public void saveTimeToClasses(User user, int[] ClassDurations) {
-		// Zeiten der Klassen zu einem User in xml schreiben, Zeiten kommen in
-		// Millisec
+	public void updateUserClassDurations(User user, int[] ClassDurations) {
 		db.updateUserClasses(user.getName(), ClassDurations[0],
 				ClassDurations[1], ClassDurations[2], ClassDurations[3],
 				ClassDurations[4], ClassDurations[5]);
@@ -196,64 +191,92 @@ public class DataInterface {
 	}
 
 	public ArrayList<Challenge> loadChallenges(String category, User user) {
-		// Carsten: Hier ben�tige ich alleChallenges in einer ArrayList vom Typ
+		// Carsten: Hier benötige ich alleChallenges in einer ArrayList vom Typ
 		// Challenge
-		// Sie sollen in Abh�ngigkeit von Kartei und User geladen werden
+		// Sie sollen in Abhängigkeit von Kartei und User geladen werden
+		
+		// @Carsten... ich habe hier lediglich alle Challenges abhängig der Kategorie geladen...
+		// Abhängigkeit vom User ist beim Laden der Challenges ja nicht wirklich möglich wie wir besprochen hatten.
 
-		ArrayList<Challenge> alleChallenges = new ArrayList<Challenge>();
-		String[] antworten; // Hinweise: Es wurde sich mit Herrn Seifert auf
-							// max. 6 Antwortmöglichkeiten geeinigt
-		boolean[] korrekteAntworten; // nur bei Fragetyp 1 n�tig
+		ArrayList<Challenge> allChallenges = new ArrayList<Challenge>();
+		 // nur bei Fragetyp 1 nötig
 		Date zeitstempel = new Date();
-		Challenge challenge;
 
-		// Test mit 3 Challenges der verschiedenen Typen
+		ArrayList<Card> cards = db.getCardsByFile(category);
+		
+		for(int i=0;i<cards.size();i++){
+			Card tempCard = cards.get(i);
+			
+			//StringArray antworten vorbereiten:
+			String[] antworten = new String[6]; // Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+			antworten[0]=cards.get(i).getAnswer1();
+			antworten[1]=cards.get(i).getAnswer2();
+			antworten[2]=cards.get(i).getAnswer3();
+			antworten[3]=cards.get(i).getAnswer4();
+			antworten[4]=cards.get(i).getAnswer5();
+			antworten[5]=cards.get(i).getAnswer6();
 
-		// 1. Kartei (typ 1 --> Checkbox)
-		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
-									// auf max. 6 Antwortmöglichkeiten geeinigt
-		antworten[0] = "10 Jahre";
-		antworten[1] = "30 Jahre";
-		antworten[2] = "50 Jahre";
-		antworten[3] = "70 Jahre";
-		antworten[4] = "90 Jahre";
-		antworten[5] = "110 Jahre";
-		korrekteAntworten = new boolean[6];
-		korrekteAntworten[0] = false;
-		korrekteAntworten[1] = false;
-		korrekteAntworten[2] = false;
-		korrekteAntworten[3] = false;
-		korrekteAntworten[4] = true;
-		korrekteAntworten[5] = false;
-		zeitstempel.setTime(0);
-		challenge = new Challenge(category, 1, zeitstempel,
-				"Wie hoch ist die maximale Lebenserwartung von Blauwalen", 1,
-				antworten, korrekteAntworten);
-		alleChallenges.add(challenge);
+			//BooleanArray korrekteAntworten vorbereiten:
+			boolean[] korrekteAntworten;
 
-		// 2. Kartei (typ 2 --> text-eingabe)
-		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
-									// auf max. 6 Antwortmöglichkeiten geeinigt
-		antworten[0] = "33";
-		korrekteAntworten = null;
-		zeitstempel.setTime(0);
-		challenge = new Challenge(category, 1, zeitstempel,
-				"Wie viele Meter wird ein Blauwal maximal", 2, antworten,
-				korrekteAntworten);
-		alleChallenges.add(challenge);
+			
+			Challenge tempChallenge = new Challenge(
+					category, 
+					aktuelleKlasse,
+					zeitstempel, 
+					tempCard.getQuestion(), 
+					tempCard.getType(), 
+					antworten, 
+					korrekteAnwortenFuerCheckbox);
+			
+			allChallenges.add(tempChallenge);
+		}
+		
+//		//TEST
+//		// 1. Kartei (typ 1 --> Checkbox)
+//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+//		antworten[0] = "10 Jahre";
+//		antworten[1] = "30 Jahre";
+//		antworten[2] = "50 Jahre";
+//		antworten[3] = "70 Jahre";
+//		antworten[4] = "90 Jahre";
+//		antworten[5] = "110 Jahre";
+//		korrekteAntworten = new boolean[6];
+//		korrekteAntworten[0] = false;
+//		korrekteAntworten[1] = false;
+//		korrekteAntworten[2] = false;
+//		korrekteAntworten[3] = false;
+//		korrekteAntworten[4] = true;
+//		korrekteAntworten[5] = false;
+//		zeitstempel.setTime(0);
+//		tempChallenge = new Challenge(category, 1, zeitstempel,
+//				"Wie hoch ist die maximale Lebenserwartung von Blauwalen", 1,
+//				antworten, korrekteAntworten);
+//		allChallenges.add(tempChallenge);
+//
+//		// 2. Kartei (typ 2 --> text-eingabe)
+//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
+//									// auf max. 6 Antwortmöglichkeiten geeinigt
+//		antworten[0] = "33";
+//		korrekteAntworten = null;
+//		zeitstempel.setTime(0);
+//		tempChallenge = new Challenge(category, 1, zeitstempel,
+//				"Wie viele Meter wird ein Blauwal maximal", 2, antworten,
+//				korrekteAntworten);
+//		allChallenges.add(tempChallenge);
+//
+//		// 3. Kartei (typ 3 --> Selbstkontrolle)
+//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
+//									// auf max. 6 Antwortmöglichkeiten geeinigt
+//		antworten[0] = "200";
+//		korrekteAntworten = null;
+//		zeitstempel.setTime(0);
+//		tempChallenge = new Challenge(category, 1, zeitstempel,
+//				"Wie viele Tonnen wiegt ein Blauwal maximal", 3, antworten,
+//				korrekteAntworten);
+//		allChallenges.add(tempChallenge);
 
-		// 3. Kartei (typ 3 --> Selbstkontrolle)
-		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
-									// auf max. 6 Antwortmöglichkeiten geeinigt
-		antworten[0] = "200";
-		korrekteAntworten = null;
-		zeitstempel.setTime(0);
-		challenge = new Challenge(category, 1, zeitstempel,
-				"Wie viele Tonnen wiegt ein Blauwal maximal", 3, antworten,
-				korrekteAntworten);
-		alleChallenges.add(challenge);
-
-		return alleChallenges;
+		return allChallenges;
 	}
 
 	/*****************************
@@ -264,7 +287,6 @@ public class DataInterface {
 	public void importXMLtoDB() {
 		XMLPullParserHandler parser = new XMLPullParserHandler();
 
-		Log.d("DEBUG", "Importvorgang angestoßen...");
 		db.clearFileTable();
 		db.clearCard();
 		db.clearUserscoreTable();
@@ -291,12 +313,12 @@ public class DataInterface {
 			db.addCard(importedCards.get(i));
 		}
 
-		// / Hat es geklappt?
-
-		List<File> test = db.getAllFiles();
-		for (int i = 0; i < test.size(); i++) {
-			Log.d("DEBUG", test.get(i).toString());
-		}
+//		// / Hat es geklappt?
+//
+//		List<File> test = db.getAllFiles();
+//		for (int i = 0; i < test.size(); i++) {
+//			Log.d("DEBUG", test.get(i).toString());
+//		}
 	}
 
 	public String isToString(InputStream is) {
