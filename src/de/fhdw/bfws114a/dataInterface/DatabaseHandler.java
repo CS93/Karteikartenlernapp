@@ -601,7 +601,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			db.close(); // Closing database connection
 		}
 		
-		public void updateUserScore(Card mCard, User mUser, int newClass){
+		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
 			
 //			ContentValues values = new ContentValues();
 //			values.put(KEY_USERSCORES_ASSIGNEDCLASS, newClass); // UserID
@@ -612,8 +612,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					+ " SET " + KEY_USERSCORES_ASSIGNEDCLASS + " = " + newClass 
 					+ ", " + KEY_USERSCORES_TIMESTAMP + " = " + System.currentTimeMillis()
 					+ " WHERE " + KEY_USERSCORES_USERID + " = " + Integer.toString(mUser.getID())
-					+ " AND " + KEY_USERSCORES_FILEID + " = "+ Integer.toString(mCard.getFile())
-					+ " AND " + KEY_USERSCORES_CARDID + " = "+ Integer.toString(mCard.getId());
+					+ " AND " + KEY_USERSCORES_FILEID + " = "+ FileID
+					+ " AND " + KEY_USERSCORES_CARDID + " = "+ CardID;
 
 			SQLiteDatabase db = this.getReadableDatabase();
 			db.execSQL(sql);

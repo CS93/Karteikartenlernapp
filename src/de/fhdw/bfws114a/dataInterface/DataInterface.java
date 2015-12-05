@@ -115,26 +115,27 @@ public class DataInterface {
 	}
 
 	public void increaseClass(Challenge currentChallenge, User user) {
+		// NOT TESTED
 		// Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 erhöht
-		// Nur zum testen
-		int alteKlasse = currentChallenge.getAktuelleKlasse();
-		int neueKlasse = alteKlasse + 1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse
-				+ "erhöht werden");
+//		// Nur zum testen
+//		int alteKlasse = currentChallenge.getAktuelleKlasse();
+//		int neueKlasse = alteKlasse + 1;
+//		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse
+//				+ "erhöht werden");
+		
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()+1);
+
 	}
 
 	public void decreaseClass(Challenge currentChallenge, User user) {
+		// NOT TESTED
 		// Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 verringert wird
-
-		// Nur zum testen
-		int alteKlasse = currentChallenge.getAktuelleKlasse();
-		int neueKlasse = alteKlasse - 1;
-		Log.d("", "Die Challenge muss von " + alteKlasse + "auf " + neueKlasse
-				+ "erhöht werden");
+		
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()-1);
 	}
 
 	public void setCurrentTimestamp(Challenge currentChallenge, User user) {
