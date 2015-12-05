@@ -507,6 +507,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 				
 		public ArrayList<Card> getCardsByFile(String filename){
+			//TESTED
 			ArrayList<Card> result = new ArrayList<Card>();
 			String fileID=Integer.toString(getFileID(filename));
 			String[] columns = new String[] {
@@ -547,6 +548,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 											
 					// Adding card to resultlist
 					result.add(card);
+					Log.d("DEBUG", card.toString());
+
 				} while (cursor.moveToNext());
 			}		
 			return result;
@@ -558,15 +561,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	 ****************************
 */
 		public int getAssignedClass(Card mCard, User mUser){
-			//NOT TESTED
+			//TESTED
 			
-			int result=-1;
+			int result=1;
 			String sql=
 					"SELECT " + KEY_USERSCORES_ASSIGNEDCLASS
 					+ " FROM " + TABLE_USERSCORES
-					+ " WHERE " + KEY_USERSCORES_USERID + "= ?, "
-					+ " AND " + KEY_USERSCORES_FILEID + "= ?, "
-					+ " AND " + KEY_USERSCORES_CARDID + "= ?, ";
+					+ " WHERE " + KEY_USERSCORES_USERID + "=?"
+					+ " AND " + KEY_USERSCORES_FILEID + "=?"
+					+ " AND " + KEY_USERSCORES_CARDID + "=?";
+			
 			String[] selectionArgs = new String[] {
 					Integer.toString(mUser.getID()),
 					Integer.toString(mCard.getFile()),
@@ -575,8 +579,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			
 			SQLiteDatabase db = this.getReadableDatabase();
 			Cursor cursor = db.rawQuery(sql, selectionArgs);
-			if (cursor != null){
-				cursor.moveToFirst();
+			if (cursor.moveToFirst()){
 				result = Integer.parseInt(cursor.getString(0));
 			}
 			db.close();

@@ -6,6 +6,8 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class Challenge implements Serializable {
 	private String mKartei;
+	private int FileID;
+	private int CardID;
 	private int mAktuelleKlasse;
 	private Date mZeitstempel;
 	private String mFrage;
@@ -14,7 +16,7 @@ public class Challenge implements Serializable {
 	private boolean[] mKorrekteAnwortenFuerCheckbox; //Fragetyp 1 = zu den 6 mAntworten jeweils ein Indiz ob diese Antwort richtig (true) ist; sonst = leer
 	
 	
-	public Challenge(String kartei, int aktuelleKlasse, Date zeitstempel, String frage, int frageTyp,
+	public Challenge(String kartei, int cardID, int fileID, int aktuelleKlasse, Date zeitstempel, String frage, int frageTyp,
 			String[] antworten, boolean[] korrekteAnwortenFuerCheckbox) {
 		super();
 		this.mKartei = kartei;
@@ -33,6 +35,26 @@ public class Challenge implements Serializable {
 	public void setKartei(String mKartei) {
 		this.mKartei = mKartei;
 	}
+	public int getFileID() {
+		return FileID;
+	}
+
+
+	public void setFileID(int fileID) {
+		FileID = fileID;
+	}
+
+
+	public int getCardID() {
+		return CardID;
+	}
+
+
+	public void setCardID(int cardID) {
+		CardID = cardID;
+	}
+
+
 	public int getAktuelleKlasse() {
 		return mAktuelleKlasse;
 	}

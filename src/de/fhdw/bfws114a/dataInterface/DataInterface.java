@@ -78,7 +78,7 @@ public class DataInterface {
 	}
 
 	// save Times of Classes in minutes dependent on one User
-	// DONE - TESTED
+	// TESTED
 	public void updateUserClassDurations(User user, int[] ClassDurations) {
 		db.updateUserClasses(user.getName(), ClassDurations[0],
 				ClassDurations[1], ClassDurations[2], ClassDurations[3],
@@ -178,14 +178,14 @@ public class DataInterface {
 		// "Karteiname - Fällige_Challenges (abhängig vom User) - Gesamte_Challenges (in dieser Kartei)"
 
 		ArrayList<Statistics> statistik = new ArrayList<Statistics>();
-		statistik.add(new Statistics(file_names.get(0), 1, db.getCardsByFile(file_names.get(0)).size()));
-		statistik.add(new Statistics(file_names.get(1), 2, db.getCardsByFile(file_names.get(1)).size()));
-		statistik.add(new Statistics(file_names.get(2), 3, db.getCardsByFile(file_names.get(2)).size()));
-		statistik.add(new Statistics(file_names.get(3), 4, db.getCardsByFile(file_names.get(3)).size()));
-		statistik.add(new Statistics(file_names.get(4), 5, db.getCardsByFile(file_names.get(4)).size()));
-		statistik.add(new Statistics(file_names.get(5), 6, db.getCardsByFile(file_names.get(5)).size()));
-		statistik.add(new Statistics(file_names.get(6), 7, db.getCardsByFile(file_names.get(6)).size()));
-		statistik.add(new Statistics(file_names.get(7), 8, db.getCardsByFile(file_names.get(7)).size()));
+		statistik.add(new Statistics(file_names.get(0), -1, db.getCardsByFile(file_names.get(0)).size()));
+		statistik.add(new Statistics(file_names.get(1), -1, db.getCardsByFile(file_names.get(1)).size()));
+		statistik.add(new Statistics(file_names.get(2), -1, db.getCardsByFile(file_names.get(2)).size()));
+		statistik.add(new Statistics(file_names.get(3), -1, db.getCardsByFile(file_names.get(3)).size()));
+		statistik.add(new Statistics(file_names.get(4), -1, db.getCardsByFile(file_names.get(4)).size()));
+		statistik.add(new Statistics(file_names.get(5), -1, db.getCardsByFile(file_names.get(5)).size()));
+		statistik.add(new Statistics(file_names.get(6), -1, db.getCardsByFile(file_names.get(6)).size()));
+		statistik.add(new Statistics(file_names.get(7), -1, db.getCardsByFile(file_names.get(7)).size()));
 		return statistik;
 
 	}
@@ -195,11 +195,7 @@ public class DataInterface {
 		// Challenge
 		// Sie sollen in Abhängigkeit von Kartei und User geladen werden
 		
-		// @Carsten... ich habe hier lediglich alle Challenges abhängig der Kategorie geladen...
-		// Abhängigkeit vom User ist beim Laden der Challenges ja nicht wirklich möglich wie wir besprochen hatten.
-
 		ArrayList<Challenge> allChallenges = new ArrayList<Challenge>();
-		 // nur bei Fragetyp 1 nötig
 		Date zeitstempel = new Date();
 
 		ArrayList<Card> cards = db.getCardsByFile(category);
@@ -217,64 +213,28 @@ public class DataInterface {
 			antworten[5]=cards.get(i).getAnswer6();
 
 			//BooleanArray korrekteAntworten vorbereiten:
-			boolean[] korrekteAntworten;
+			boolean[] korrekteAntworten = new boolean[6];
+			for(int j=0;j<6;j++){
+				if(tempCard.getSolution().indexOf((char) j) > 0 ){
+					korrekteAntworten[j]=true;
+				}
+				else korrekteAntworten[j]=false;
 
-			
+			}
+
 			Challenge tempChallenge = new Challenge(
 					category, 
-					aktuelleKlasse,
+					tempCard.getId(),
+					tempCard.getFile(),
+					db.getAssignedClass(tempCard, user),
 					zeitstempel, 
 					tempCard.getQuestion(), 
 					tempCard.getType(), 
 					antworten, 
-					korrekteAnwortenFuerCheckbox);
+					korrekteAntworten);
 			
 			allChallenges.add(tempChallenge);
 		}
-		
-//		//TEST
-//		// 1. Kartei (typ 1 --> Checkbox)
-//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
-//		antworten[0] = "10 Jahre";
-//		antworten[1] = "30 Jahre";
-//		antworten[2] = "50 Jahre";
-//		antworten[3] = "70 Jahre";
-//		antworten[4] = "90 Jahre";
-//		antworten[5] = "110 Jahre";
-//		korrekteAntworten = new boolean[6];
-//		korrekteAntworten[0] = false;
-//		korrekteAntworten[1] = false;
-//		korrekteAntworten[2] = false;
-//		korrekteAntworten[3] = false;
-//		korrekteAntworten[4] = true;
-//		korrekteAntworten[5] = false;
-//		zeitstempel.setTime(0);
-//		tempChallenge = new Challenge(category, 1, zeitstempel,
-//				"Wie hoch ist die maximale Lebenserwartung von Blauwalen", 1,
-//				antworten, korrekteAntworten);
-//		allChallenges.add(tempChallenge);
-//
-//		// 2. Kartei (typ 2 --> text-eingabe)
-//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
-//									// auf max. 6 Antwortmöglichkeiten geeinigt
-//		antworten[0] = "33";
-//		korrekteAntworten = null;
-//		zeitstempel.setTime(0);
-//		tempChallenge = new Challenge(category, 1, zeitstempel,
-//				"Wie viele Meter wird ein Blauwal maximal", 2, antworten,
-//				korrekteAntworten);
-//		allChallenges.add(tempChallenge);
-//
-//		// 3. Kartei (typ 3 --> Selbstkontrolle)
-//		antworten = new String[6];// Hinweise: Es wurde sich mit Herrn Seifert
-//									// auf max. 6 Antwortmöglichkeiten geeinigt
-//		antworten[0] = "200";
-//		korrekteAntworten = null;
-//		zeitstempel.setTime(0);
-//		tempChallenge = new Challenge(category, 1, zeitstempel,
-//				"Wie viele Tonnen wiegt ein Blauwal maximal", 3, antworten,
-//				korrekteAntworten);
-//		allChallenges.add(tempChallenge);
 
 		return allChallenges;
 	}
