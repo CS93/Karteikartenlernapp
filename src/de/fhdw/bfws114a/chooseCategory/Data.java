@@ -52,27 +52,26 @@ public class Data {
 		for(Statistics currentCategoryStatistic : mStatistics){
 			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getKartei(), mUser);
 			int amountOfDueChallenges = 0;
+			java.util.Date now = new java.util.Date();
+			long difference;
 			
-			for(Challenge currentChallengeInCategory : allChallenges){
-				Date now = new Date();
-				long difference = now.getTime() - currentChallengeInCategory.getZeitstempel().getTime();
-				
+			for(int i = 0; i< allChallenges.size(); i++){
+				//calculat difference between timestamp of current challenge and system date				
+				difference = now.getTime() - allChallenges.get(i).getZeitstempel().getTime();
 				if(testCounter < 3){
-					Log.d("Due Test", "CC Challenges: Question" +currentChallengeInCategory.getFrage() + "Mit Zeitstempel: " + currentChallengeInCategory.getZeitstempel() + "wird geprüft");
+					Log.d("Due Test", "CC Challenges: Question" +allChallenges.get(i).getFrage());
 					Log.d("Due Test", "CC Difference: " + difference);
-					Log.d("Due Test", "CC Current Class: " + currentChallengeInCategory.getAktuelleKlasse());
-					testCounter++;
+					Log.d("Due Test", "CC Current Class: " + allChallenges.get(i).getAktuelleKlasse());
+				testCounter++;
 				}
-				
-				
-				if(difference > mDataInterface.getTimePeriod(currentChallengeInCategory.getAktuelleKlasse(), mUser)*60*1000){
+				//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
+				if(difference > (mDataInterface.getTimePeriod(allChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
 					if(testCounter < 3){
-					Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" +  currentChallengeInCategory.getAktuelleKlasse());
+						Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" +  mDataInterface.getTimePeriod(allChallenges.get(i).getAktuelleKlasse(), mUser));
 					}
-					//currentChallengeIsDue
 					amountOfDueChallenges++;
 				}
-			}
+			}			
 			currentCategoryStatistic.setFaelligeChallenges(amountOfDueChallenges);
 		}
 		
