@@ -134,7 +134,7 @@ public class DataInterface {
 		temp.setFile(currentChallenge.getFileID());
 		
 		Log.d("DEBUG", "Challange Klasse soll erhöht werde von Klasse " + db.getAssignedClass(temp, user) + " auf Klasse " + (db.getAssignedClass(temp, user)+1));
-		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()+1);
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)+1);
 		Log.d("DEBUG", "Challange Klasse wurde erhöht von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 
 	}
@@ -149,7 +149,8 @@ public class DataInterface {
 		temp.setId(currentChallenge.getCardID());
 		temp.setQuestion(currentChallenge.getFrage());
 		temp.setFile(currentChallenge.getFileID());
-		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()-1);
+		Log.d("DEBUG", "Challange Klasse soll verringert werde von Klasse " + db.getAssignedClass(temp, user) + " auf Klasse " + (db.getAssignedClass(temp, user)-1));
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)-1);
 		Log.d("DEBUG", "Challange Klasse wurde verringert von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 	}
 

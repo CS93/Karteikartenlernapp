@@ -645,8 +645,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		
 		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
 			// TESTED
-			
-			
 			String sql=
 					"UPDATE " + TABLE_USERSCORES
 					+ " SET " + KEY_USERSCORES_ASSIGNEDCLASS + " = " + newClass 
