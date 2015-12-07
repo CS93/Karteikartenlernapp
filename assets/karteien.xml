@@ -183,36 +183,36 @@
     </file>
 
 
-	<file>
-		<fileName>Geschichte</fileName>
-		<fileID>7</fileID>
-		<card>
-            <cardID>0000</cardID>
-            <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
-        </card>
-        <card>
-            <cardID>0001</cardID>
-            <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
-            <solution>0</solution>
-        </card>
-        <card>
-            <cardID>0002</cardID>
-            <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
-            <solution>0</solution>
-        </card>
-	</file>
+<!-- 	<file> -->
+<!-- 		<fileName>Geschichte</fileName> -->
+<!-- 		<fileID>7</fileID> -->
+<!-- 		<card> -->
+<!--             <cardID>0000</cardID> -->
+<!--             <cardType>1</cardType> -->
+<!--             <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question> -->
+<!--             <answer1>10 Jahre</answer1> -->
+<!--             <answer2>30 Jahre</answer2> -->
+<!--             <answer3>50 Jahre</answer3> -->
+<!--             <answer4>70 Jahre</answer4> -->
+<!--             <answer5>90 Jahre</answer5> -->
+<!--             <answer6>110 Jahre</answer6> -->
+<!--             <solution>5</solution> -->
+<!--         </card> -->
+<!--         <card> -->
+<!--             <cardID>0001</cardID> -->
+<!--             <cardType>2</cardType> -->
+<!--             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question> -->
+<!--             <answer1>200</answer1> -->
+<!--             <solution>0</solution> -->
+<!--         </card> -->
+<!--         <card> -->
+<!--             <cardID>0002</cardID> -->
+<!--             <cardType>3</cardType> -->
+<!--             <question>Wie viele Meter wird ein Blauwahl maximal?</question> -->
+<!--             <answer1>33</answer1> -->
+<!--             <solution>0</solution> -->
+<!--         </card> -->
+<!-- 	</file> -->
 
 
 </files>
