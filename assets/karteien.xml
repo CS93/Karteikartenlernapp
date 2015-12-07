@@ -34,7 +34,7 @@
     <file>
         <fileName>Biologie</fileName>
         <fileID>2</fileID>
-        <card>
+       <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
             <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
@@ -48,24 +48,17 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
             <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
+            <cardType>3</cardType>
             <question>Wie viele Meter wird ein Blauwahl maximal?</question>
             <answer1>33</answer1>
-            <solution>1</solution>
-        </card>
-        <card>
-            <cardID>0003</cardID>
-            <cardType>1</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
-            <solution>1</solution>
+            <solution>0</solution>
         </card>
     </file>
         <file>
@@ -85,17 +78,17 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
             <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
+            <cardType>3</cardType>
             <question>Wie viele Meter wird ein Blauwahl maximal?</question>
             <answer1>33</answer1>
-            <solution>1</solution>
+            <solution>0</solution>
         </card>
     </file>
     <file>
@@ -115,17 +108,17 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
             <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
+            <cardType>3</cardType>
             <question>Wie viele Meter wird ein Blauwahl maximal?</question>
             <answer1>33</answer1>
-            <solution>1</solution>
+            <solution>0</solution>
         </card>
     </file>
     <file>
@@ -145,23 +138,23 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
             <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
+            <cardType>3</cardType>
             <question>Wie viele Meter wird ein Blauwahl maximal?</question>
             <answer1>33</answer1>
-            <solution>1</solution>
+            <solution>0</solution>
         </card>
     </file>
     <file>
         <fileName>Technik</fileName>
         <fileID>6</fileID>
-        <card>
+       <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
             <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
@@ -175,17 +168,17 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
             <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
+            <cardType>3</cardType>
             <question>Wie viele Meter wird ein Blauwahl maximal?</question>
             <answer1>33</answer1>
-            <solution>1</solution>
+            <solution>0</solution>
         </card>
     </file>
 
@@ -194,35 +187,30 @@
 		<fileName>Geschichte</fileName>
 		<fileID>7</fileID>
 		<card>
-			<cardID>0000</cardID>
+            <cardID>0000</cardID>
             <cardType>1</cardType>
-			<question>Was ist 5+5?</question>
-			<answer1>4</answer1>
-            <answer2>20</answer2>
-            <answer3>125</answer3>
-            <answer4>19</answer4>
-            <answer5>10</answer5>
-            <answer6>888</answer6>
+            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
+            <answer1>10 Jahre</answer1>
+            <answer2>30 Jahre</answer2>
+            <answer3>50 Jahre</answer3>
+            <answer4>70 Jahre</answer4>
+            <answer5>90 Jahre</answer5>
+            <answer6>110 Jahre</answer6>
             <solution>5</solution>
-		</card>
+        </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
-            <question>Was ist eine Primzahl?</question>
-            <answer1>Falsche Antwort</answer1>
-            <answer2>Richtige Antwort</answer2>
-            <answer3>Falsche Antwort</answer3>
-            <answer4>Falsche Antwort</answer4>
-            <answer5>Richtige Antwort</answer5>
-            <answer6>Falsche Antwort</answer6>
-            <solution>25</solution>
+            <cardType>2</cardType>
+            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
+            <answer1>200</answer1>
+            <solution>0</solution>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>1</cardType>
-            <question>Was ist 2 hoch 5?</question>
-            <answer1>32</answer1>
-            <solution>1</solution>
+            <cardType>3</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
+            <solution>0</solution>
         </card>
 	</file>
 
