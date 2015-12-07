@@ -3,6 +3,7 @@ package de.fhdw.bfws114a.chooseCategory;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import de.fhdw.bfws114a.lernKartei.R;
 
 public class EventToListenerMapping implements OnClickListener {
 
@@ -13,10 +14,21 @@ public class EventToListenerMapping implements OnClickListener {
 		for(int i=0; i < gui.getCategories().length; i++){
 			gui.getCategory(i).setOnClickListener(this);
 		}
+//		mRefreshButton.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
+//		switch ( v.getId()){
+//		case R.id.b_refresh:
+//			mApplicationLogic.onRefreshClicked();
+//			break;
+//		case !(R.id.b_refresh):
+//			//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
+//			Button b = (Button) v;
+//			mApplicationLogic.onCategoryClicked(b.getText().toString());
+//			break;
+			
 		//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
 		Button b = (Button) v;
 		mApplicationLogic.onCategoryClicked(b.getText().toString());		

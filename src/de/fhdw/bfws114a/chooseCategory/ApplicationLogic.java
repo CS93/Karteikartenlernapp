@@ -34,12 +34,10 @@ public class ApplicationLogic {
 					Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 				}
 			}
-		}		
-		
-		
+		}			
 	}
 
-	public void onRestart() {
+	public void onRefreshClicked(){
 		//After finishing the learn session the gui has to be updated
 		
 		//update User Information in Data
@@ -49,8 +47,10 @@ public class ApplicationLogic {
 		mData.loadStatistics();
 		
 		//apply data (updated statistics) to Gui
-		applyDataToGui();
-		
-		
+		applyDataToGui();	
+	}
+	
+	public void onRestart() {
+		onRefreshClicked();
 	}
 }

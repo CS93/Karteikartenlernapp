@@ -13,6 +13,7 @@ public class Gui {
 	private Button[] mCategoriesButtons = new Button[8];
 	private TextView[] mOverallChallengesPerCategory = new TextView[8];
 	private TextView[] mDueChallengesPerCategory = new TextView[8];
+//	private Button mRefreshButton;
 
 
 	public Gui(Activity act) {
@@ -44,6 +45,8 @@ public class Gui {
 		mDueChallengesPerCategory[5] = (TextView) act.findViewById(R.id.t_cardfile6_due_statistic_category);
 		mDueChallengesPerCategory[6] = (TextView) act.findViewById(R.id.t_cardfile7_due_statistic_category);
 		mDueChallengesPerCategory[7] = (TextView) act.findViewById(R.id.t_cardfile8_due_statistic_category);
+		
+//		mRefreshButton = (Button) act.findViewById(R.id.b_chooseCategory);
 	}
 
 	public Button[] getCategories() {
@@ -81,6 +84,10 @@ public class Gui {
 	public void setDueChallengesPerCategory(TextView[] mDueChallengesPerCategory) {
 		this.mDueChallengesPerCategory = mDueChallengesPerCategory;
 	}
+	
+//	public void getRefreshButton(){
+//		return mRefreshButton;
+//	}
 	
 	public void showToast(Activity act){
 		 Toast toast = Toast.makeText(act, act.getString(R.string.no_due_challenges), Toast.LENGTH_LONG);
