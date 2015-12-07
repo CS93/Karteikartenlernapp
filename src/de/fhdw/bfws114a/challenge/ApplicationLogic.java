@@ -117,6 +117,10 @@ public class ApplicationLogic {
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
+
+		
+		//update Timestamp
+		mDataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
 		
 		//increase class of challenge whether answer was correct (and not class 6) and decrease it whether answer was wrong (and not class 1)
 		if(userAnswerCorrect){
@@ -134,9 +138,7 @@ public class ApplicationLogic {
 		}
 			
 		Navigation.startActivityStatistics(mData.getActivity(), mData.getIndexOfCurrentChallenge(), mData.getFaelligeChallenges().size(), mData.getNumberOfCorrectAnswers(), mData.getNumberOfWrongAnswers());
-		
-		//update Timestamp
-		mDataInterface.setCurrentTimestamp(mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge()), mData.getUser());
+
 		
 		//increase Index to load next challenge
 		mData.increaseIndexOfCurrentChallenge();
