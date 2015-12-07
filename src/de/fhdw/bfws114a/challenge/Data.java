@@ -45,6 +45,8 @@ public class Data {
 		long difference;
 		for(int i = 0; i< alleChallenges.size(); i++){
 			//calculat difference between timestamp of current challenge and system date
+			Log.d("Debug FileID", ""+alleChallenges.get(i).getFileID());
+			Log.d("Debug card ID", ""+alleChallenges.get(i).getCardID());
 			
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
 			
