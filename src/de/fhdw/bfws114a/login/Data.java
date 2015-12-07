@@ -19,7 +19,7 @@ public class Data {
 		mActivity = activity;	
 		mDataInterface = new DataInterface(activity);
 		
-		mDataInterface.importXMLtoDB();
+//		mDataInterface.importXMLtoDB();
 		
 		if(b == null){
 			//Activity has been started the first time
