@@ -17,9 +17,16 @@
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>1</cardType>
+            <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
+            <solution>0</solution>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>3</cardType>
+            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
+            <answer1>33</answer1>
             <solution>0</solution>
         </card>
     </file>

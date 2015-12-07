@@ -1,7 +1,10 @@
 package de.fhdw.bfws114a.dataInterface;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.File;
@@ -12,6 +15,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Environment;
+import android.text.format.DateFormat;
 import android.util.Log;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
@@ -548,7 +552,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 											
 					// Adding card to resultlist
 					result.add(card);
-					Log.d("DEBUG", card.toString());
+//					Log.d("DEBUG", card.toString());
 
 				} while (cursor.moveToNext());
 			}		
@@ -560,12 +564,48 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	 * All USERSCORE Operations *
 	 ****************************
 */
+		
 		public int getAssignedClass(Card mCard, User mUser){
 			//TESTED
-			
-			int result=1;
+//			Log.d("DEBUG", "-- getAssignedClass wurde aufgerufen: --");
+//			Log.d("DEBUG", "User: " + mUser.getName() + " (Name), " + mUser.getID() + " (ID)");
+//			Log.d("DEBUG", "Card: " + mCard.getId() + " (ID), " + mCard.getQuestion() + " (Question)");
+
+			int result=99;
 			String sql=
 					"SELECT " + KEY_USERSCORES_ASSIGNEDCLASS
+					+ " FROM " + TABLE_USERSCORES
+					+ " WHERE " + KEY_USERSCORES_USERID + "=?"
+					+ " AND " + KEY_USERSCORES_FILEID + "=?"
+					+ " AND " + KEY_USERSCORES_CARDID + "=?";
+			
+			String[] selectionArgs = new String[] {
+					Integer.toString(mUser.getID()),
+					Integer.toString(mCard.getFile()),
+					Integer.toString(mCard.getId())
+					};
+			
+			SQLiteDatabase db = this.getReadableDatabase();
+			Cursor cursor = db.rawQuery(sql, selectionArgs);
+			if (cursor.moveToFirst()){
+				result = Integer.parseInt(cursor.getString(0));
+			}
+			db.close();
+			
+//			if(result==99){
+//				Log.d("DEBUG","Kein Eintrag für die Kombination gefunden");
+//			}else 				Log.d("DEBUG","Assigned Class gefunden: " + result);
+//			Log.d("DEBUG", "-- getAssignedClass Durchlauf beendet --");
+
+			return result;
+		}
+		
+		public int getUserScoreTimestamp(Card mCard, User mUser){
+			//TESTED
+			
+			int result=0;
+			String sql=
+					"SELECT " + KEY_USERSCORES_TIMESTAMP
 					+ " FROM " + TABLE_USERSCORES
 					+ " WHERE " + KEY_USERSCORES_USERID + "=?"
 					+ " AND " + KEY_USERSCORES_FILEID + "=?"
@@ -587,31 +627,38 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		public void addUserScore(Card mCard, User mUser){
+			//TESTED
 			SQLiteDatabase db = this.getWritableDatabase();
+			java.sql.Date epoche = new Date(0);
 			
 			ContentValues values = new ContentValues();
 			values.put(KEY_USERSCORES_USERID, mUser.getID()); // UserID
-			values.put(KEY_USERSCORES_FILEID, mCard.getFile()); // UserID
-			values.put(KEY_USERSCORES_CARDID, mCard.getId()); // UserID
-			values.put(KEY_USERSCORES_ASSIGNEDCLASS, 6); // UserID
-			values.put(KEY_USERSCORES_TIMESTAMP, System.currentTimeMillis()); // UserID
+			values.put(KEY_USERSCORES_FILEID, mCard.getFile()); // FileID
+			values.put(KEY_USERSCORES_CARDID, mCard.getId()); // CardID
+			values.put(KEY_USERSCORES_ASSIGNEDCLASS, 2); // AssignedClass
+			values.put(KEY_USERSCORES_TIMESTAMP, epoche.getTime()); // TimeStamp
 
 			// Inserting Row
 			db.insert(TABLE_USERSCORES, null, values);
-			db.close(); // Closing database connection
+			db.close();
 		}
 		
 		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
+			// NOT TESTED
+			
+//			java.sql.Date now = new Date(System.currentTimeMillis());
+			
 			String sql=
-					"UPDATE " + KEY_USERSCORES_ASSIGNEDCLASS
+					"UPDATE " + TABLE_USERSCORES
 					+ " SET " + KEY_USERSCORES_ASSIGNEDCLASS + " = " + newClass 
 					+ ", " + KEY_USERSCORES_TIMESTAMP + " = " + System.currentTimeMillis()
 					+ " WHERE " + KEY_USERSCORES_USERID + " = " + Integer.toString(mUser.getID())
 					+ " AND " + KEY_USERSCORES_FILEID + " = "+ FileID
 					+ " AND " + KEY_USERSCORES_CARDID + " = "+ CardID;
 
-			SQLiteDatabase db = this.getReadableDatabase();
+			SQLiteDatabase db = this.getWritableDatabase();
 			db.execSQL(sql);
+			db.close();
 		}
 				
 }

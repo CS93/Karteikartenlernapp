@@ -30,7 +30,7 @@ public class ApplicationLogic {
 			new AlertDialog.Builder(mData.getActivity())
 		    .setIcon(android.R.drawable.ic_dialog_alert)
 		    .setTitle("Achtung")
-		    .setMessage("Keine f‰lligen Karteikarten in dieser Kartei vorhanden!")
+		    .setMessage("Keine f√§lligen Karteikarten in dieser Kartei vorhanden!")
 		    .setPositiveButton("OK", new DialogInterface.OnClickListener(){
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {

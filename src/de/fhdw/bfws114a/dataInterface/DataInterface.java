@@ -48,6 +48,7 @@ public class DataInterface {
 	// add one User
 	public void addUser(String newUser) {
 		db.addUser(newUser);
+		initialUserScores(newUser);
 	}
 
 	// load the Time of Classes dependent on one User
@@ -115,22 +116,41 @@ public class DataInterface {
 	}
 
 	public void increaseClass(Challenge currentChallenge, User user) {
-		// NOT TESTED
+		// TESTED
 		// Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 erhöht
+		Log.d("DEBUG", "-- increaseClass wurde aufgerufen: --");
+		Log.d("DEBUG", currentChallenge.getCardID() + " (CardID)");
+		Log.d("DEBUG", currentChallenge.getFileID() + " (FileID)");
+		Log.d("DEBUG", currentChallenge.getFrage() + " (Question)");
+
+
 		
+		int vorher = currentChallenge.getAktuelleKlasse();
+		Card temp = new Card();
+		temp.setId(currentChallenge.getCardID());
+		temp.setQuestion(currentChallenge.getFrage());
+		temp.setFile(currentChallenge.getFileID());
+		
+		Log.d("DEBUG", "Challange Klasse soll erhöht werde von Klasse " + db.getAssignedClass(temp, user) + " auf Klasse " + (db.getAssignedClass(temp, user)+1));
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()+1);
+		Log.d("DEBUG", "Challange Klasse wurde erhöht von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 
 	}
 
 	public void decreaseClass(Challenge currentChallenge, User user) {
-		// NOT TESTED
+		// TESTED
 		// Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 verringert wird
-		
+		int vorher = currentChallenge.getAktuelleKlasse();
+		Card temp = new Card();
+		temp.setId(currentChallenge.getCardID());
+		temp.setQuestion(currentChallenge.getFrage());
+		temp.setFile(currentChallenge.getFileID());
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse()-1);
+		Log.d("DEBUG", "Challange Klasse wurde verringert von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 	}
 
 	public void setCurrentTimestamp(Challenge currentChallenge, User user) {
@@ -192,12 +212,11 @@ public class DataInterface {
 		// Sie sollen in Abhängigkeit von Kartei und User geladen werden
 		
 		ArrayList<Challenge> allChallenges = new ArrayList<Challenge>();
-		Date zeitstempel = new Date();
-
 		ArrayList<Card> cards = db.getCardsByFile(category);
 		
 		for(int i=0;i<cards.size();i++){
 			Card tempCard = cards.get(i);
+			Date timestamp = new Date(db.getUserScoreTimestamp(tempCard, user));
 			
 			//StringArray antworten vorbereiten:
 			String[] antworten = new String[6]; // Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
@@ -210,12 +229,12 @@ public class DataInterface {
 
 			//BooleanArray korrekteAntworten vorbereiten:
 			boolean[] korrekteAntworten = new boolean[6];
-			for(int j=0;j<6;j++){
-				if(tempCard.getSolution().indexOf((char) j) > 0 ){
-					korrekteAntworten[j]=true;
+			for(int j=1;j<=6;j++){
+				CharSequence cs = Integer.toString(j);
+				if(tempCard.getSolution().contains(cs)){
+					korrekteAntworten[j-1]=true;
 				}
-				else korrekteAntworten[j]=false;
-
+				else korrekteAntworten[j-1]=false;
 			}
 
 			Challenge tempChallenge = new Challenge(
@@ -223,7 +242,7 @@ public class DataInterface {
 					tempCard.getId(),
 					tempCard.getFile(),
 					db.getAssignedClass(tempCard, user),
-					zeitstempel, 
+					timestamp, 
 					tempCard.getQuestion(), 
 					tempCard.getType(), 
 					antworten, 
@@ -247,6 +266,7 @@ public class DataInterface {
 
 		List<Card> importedCards = null;
 		List<File> importedFiles = null;
+		List<User> allUsers = db.getAllUsers();
 
 		try {
 			importedCards = xmlHandler.parseCards(activity.getAssets().open(
@@ -266,13 +286,24 @@ public class DataInterface {
 			// Karten in die DB Schreiben
 			db.addCard(importedCards.get(i));
 		}
-
-//		// / Hat es geklappt?
-//
-//		List<File> test = db.getAllFiles();
-//		for (int i = 0; i < test.size(); i++) {
-//			Log.d("DEBUG", test.get(i).toString());
-//		}
+		
+		// Initialisieren der neuen UserScores für bereits vorhandene Benutzer
+		for (int i = 0; i < allUsers.size(); i++){
+			initialUserScores(allUsers.get(i).getName());
+		}
+	}
+	
+	public void initialUserScores(String Username) {
+		ArrayList<File> Files = db.getAllFiles();
+		User user = getUser(Username);
+		for(int i=0;i<Files.size();i++){
+			File tempFile = Files.get(i);
+			ArrayList<Card> tempCards= db.getCardsByFile(tempFile.getName());
+			for(int j=0;j<tempCards.size();j++){
+				Card tempCard = tempCards.get(j);
+				db.addUserScore(tempCard, user);
+			}
+		}
 	}
 
 	public String isToString(InputStream is) {

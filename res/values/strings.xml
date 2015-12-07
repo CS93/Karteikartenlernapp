@@ -40,12 +40,12 @@
     <string name="class_time_minute">Minute(n)</string>
     <string name="class_time_hour">Stunde(n)</string>
     <string name="class_time_day">Tag(e)</string>
-    <string name="class_error_message">Bitte geben sie die Zeiten der Klassen aufsteigend an!</string>
+    <string name="class_error_message">Bitte geben Sie die Zeiten der Klassen aufsteigend an!</string>
     <string name="missing_input_error_message">Bitte füllen sie alle Zeitspannen!</string>
     <string name="user_empty_error_message">Bitte geben sie einen Namen ein!</string>
-    <string name="user_equal_error_message">Der Name existiert schon. Bitte überlegen sie sich einen neuen Namen!</string>
-    <string name="exists_no_user_error_message">Es existieren keine User! Daher kann nicht gelöscht werden.</string>
-    <string name="login_failed">Der Login war nicht erfolgreich. Lege ggf. ein Profil im Profile Management an.</string>
+    <string name="user_equal_error_message">Der Name existiert bereits. Bitte überlegen Sie sich einen neuen Namen!</string>
+    <string name="exists_no_user_error_message">Es existieren bereits keine User!</string>
+    <string name="login_failed">Der Login war nicht erfolgreich. Legen Sie ggf. ein Profil im Profil-Management an.</string>
     <string name="end_of_learn_session">Der Lernmodus ist somit abgeschlossen!!</string>
     <string name="logo">logo</string>
     <string name="action_settings">Settings</string>
