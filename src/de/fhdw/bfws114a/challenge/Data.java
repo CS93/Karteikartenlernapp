@@ -1,6 +1,7 @@
 package de.fhdw.bfws114a.challenge;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -16,7 +17,7 @@ public class Data {
 	private String mCategory;
 	private Activity mActivity;
 	private DataInterface mDataInterface;
-	private int mIndexOfCurrentChallenge = 0;
+	private int mIndexOfCurrentChallenge;
 	private int mNumberOfCorrectAnswers = 0;
 	private int mNumberOfWrongAnswers = 0;
 	private ArrayList<Challenge> mDueChallenges = new ArrayList<Challenge>();
@@ -27,6 +28,7 @@ public class Data {
 		mCategory = category;
 		mDataInterface = new DataInterface(activity);
 		if (b == null ){
+			mIndexOfCurrentChallenge = 0;
 			//first time activity is displayed on screen		
 			ladeFaelligeChallenges();
 		}
@@ -43,15 +45,23 @@ public class Data {
 		ArrayList<Challenge> alleChallenges = mDataInterface.loadChallenges(mCategory, mUser);
 		java.util.Date now = new java.util.Date();
 		long difference;
+		int testCounter = 0;
 		for(int i = 0; i< alleChallenges.size(); i++){
 			//calculat difference between timestamp of current challenge and system date
-			Log.d("Debug FileID", ""+alleChallenges.get(i).getFileID());
-			Log.d("Debug card ID", ""+alleChallenges.get(i).getCardID());
 			
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
-			
+			if(testCounter < 3){
+			Log.d("Due Test", "Challenges: Question" +alleChallenges.get(i).getFrage() + "Mit Zeitstempel: " + alleChallenges.get(i).getZeitstempel() + "wird geprüft");
+			Log.d("Due Test", "Difference: " + difference);
+			Log.d("Due Test", "Current Class: " + alleChallenges.get(i).getAktuelleKlasse());
+			testCounter++;
+			}
 			//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
 			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
+				if(testCounter < 3){
+				Log.d("Due Test", "Challenge ist fällig weil: " + difference + "größer ist als :" + alleChallenges.get(i).getAktuelleKlasse());
+				
+				}
 				mDueChallenges.add(alleChallenges.get(i));
 			}
 		}		
@@ -79,12 +89,14 @@ public class Data {
 
 	private void restoreDataFromBundle(Bundle b) {
 		//load the due challenges from Bundle through casting the Serializable value
-		mDueChallenges = (ArrayList<Challenge>) b.getSerializable(Constants.KEY_DUE_CHALLENGES_VALUE);		
+		mDueChallenges = (ArrayList<Challenge>) b.getSerializable(Constants.KEY_DUE_CHALLENGES_VALUE);	
+		mIndexOfCurrentChallenge = b.getInt(Constants.KEY_RESTORE_INDEX_OF_CURRENT_CHALLENGE);
 	}
 	
 	public void saveDataInBundle(Bundle b){		
 		//Use the Serializable Interface to put the due challenges in Bundle
-		b.putSerializable(Constants.KEY_DUE_CHALLENGES_VALUE, mDueChallenges);		
+		b.putSerializable(Constants.KEY_DUE_CHALLENGES_VALUE, mDueChallenges);	
+		b.putInt(Constants.KEY_RESTORE_INDEX_OF_CURRENT_CHALLENGE, mIndexOfCurrentChallenge);
 	}
 
 	public void increaseIndexOfCurrentChallenge() {

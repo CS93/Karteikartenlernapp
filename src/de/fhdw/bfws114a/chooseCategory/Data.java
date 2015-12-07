@@ -47,16 +47,28 @@ public class Data {
 	protected void loadStatistics(){
 		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
 		mStatistics = mDataInterface.getFileNames(mCategories, mUser);
-		
+		int testCounter = 0;
 		//Find out the Amount of Due Challenges to put them in statistics object
 		for(Statistics currentCategoryStatistic : mStatistics){
 			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getKartei(), mUser);
 			int amountOfDueChallenges = 0;
+			
 			for(Challenge currentChallengeInCategory : allChallenges){
 				Date now = new Date();
 				long difference = now.getTime() - currentChallengeInCategory.getZeitstempel().getTime();
-
+				
+				if(testCounter < 3){
+					Log.d("Due Test", "CC Challenges: Question" +currentChallengeInCategory.getFrage() + "Mit Zeitstempel: " + currentChallengeInCategory.getZeitstempel() + "wird geprüft");
+					Log.d("Due Test", "CC Difference: " + difference);
+					Log.d("Due Test", "CC Current Class: " + currentChallengeInCategory.getAktuelleKlasse());
+					testCounter++;
+				}
+				
+				
 				if(difference > mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()]*60*1000){
+					if(testCounter < 3){
+					Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" + currentChallengeInCategory.getAktuelleKlasse());
+					}
 					//currentChallengeIsDue
 					amountOfDueChallenges++;
 				}

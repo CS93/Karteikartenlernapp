@@ -30,9 +30,9 @@ public class Init extends Activity {
 
 	
 	@Override
-	protected void onResume() {
+	protected void onRestart() {
 		super.onResume();
-		mApplicationLogic.onResume();
+		mApplicationLogic.onRestart();
 	}
 	
 

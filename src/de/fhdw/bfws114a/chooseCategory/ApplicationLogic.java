@@ -28,7 +28,7 @@ public class ApplicationLogic {
 		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
 	}
 
-	public void onResume() {
+	public void onRestart() {
 		//After finishing the learn session the gui has to be updated
 		
 		//update User Information in Data
