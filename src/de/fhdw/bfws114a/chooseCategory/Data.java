@@ -65,9 +65,9 @@ public class Data {
 				}
 				
 				
-				if(difference > mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()]*60*1000){
+				if(difference > mDataInterface.getTimePeriod(currentChallengeInCategory.getAktuelleKlasse(), mUser)*60*1000){
 					if(testCounter < 3){
-					Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" + currentChallengeInCategory.getAktuelleKlasse());
+					Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" +  currentChallengeInCategory.getAktuelleKlasse());
 					}
 					//currentChallengeIsDue
 					amountOfDueChallenges++;

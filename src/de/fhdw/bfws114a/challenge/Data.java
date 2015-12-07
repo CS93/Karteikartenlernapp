@@ -59,7 +59,7 @@ public class Data {
 			//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
 			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
 				if(testCounter < 3){
-				Log.d("Due Test", "Challenge ist fällig weil: " + difference + "größer ist als :" + alleChallenges.get(i).getAktuelleKlasse());
+				Log.d("Due Test", "Challenge ist fällig weil: " + difference + "größer ist als :" + mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser));
 				
 				}
 				mDueChallenges.add(alleChallenges.get(i));
