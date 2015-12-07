@@ -3,9 +3,11 @@ package de.fhdw.bfws114a.dataInterface;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -21,6 +23,9 @@ import de.fhdw.bfws114a.data.Statistics;
 import de.fhdw.bfws114a.data.User;
 
 public class DataInterface {
+	
+	private final static String FILEPATH = "/android/data/de.fhdw.LernKartei/";
+	private final static String FILENAME = "karteien.xml";
 
 	private DatabaseHandler db;
 	private XMLPullParserHandler xmlHandler;
@@ -260,15 +265,16 @@ public class DataInterface {
 	 */
 	
 	public boolean importXMLtoDB() {
+		copyDefaultXMLintoExternalFolder();
 		db.clearFileTable();
 		db.clearCard();
 		db.clearUserscoreTable();
 		List<Card> importedCards = new ArrayList<Card>();
 		List<File> importedFiles = new ArrayList<File>();
 		List<User> allUsers = db.getAllUsers();
-		String uri = Environment.getExternalStorageDirectory().toString() + "/LernKartei/karteien.xml";
+		String uri = Environment.getExternalStorageDirectory().toString() + FILEPATH;
        
-        java.io.File xmlFile = new java.io.File(uri);
+        java.io.File xmlFile = new java.io.File(uri, FILENAME);
         try {
         	FileInputStream fis1 = new FileInputStream(xmlFile);
         	FileInputStream fis2 = new FileInputStream(xmlFile);
@@ -295,6 +301,40 @@ public class DataInterface {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	
+	public void copyDefaultXMLintoExternalFolder(){
+		String uri = Environment.getExternalStorageDirectory().toString() + FILEPATH;
+        java.io.File xmlFile = new java.io.File(uri, FILENAME);
+        
+        if(!xmlFile.getParentFile().exists()){
+        	try {
+        		if(xmlFile.getParentFile().mkdirs()){
+        			Log.d("DEBUG", "Verzeichnis wurde erstellt");
+        		}else	Log.d("DEBUG", "Verzeichnis wurde NICHT erstellt");
+        	} catch (Exception e) {
+        		e.printStackTrace();
+        	}
+        }
+        
+        if(!xmlFile.exists()){
+        	try {
+				if(xmlFile.createNewFile()){
+					InputStream is = activity.getAssets().open("karteien.xml");
+					OutputStream out = new FileOutputStream(xmlFile);
+					byte[] buf = new byte[1024];
+					int len;
+					while((len=is.read(buf))>0){			
+						out.write(buf,0,len);
+					}		
+					out.close();
+					is.close();
+				}
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        }
 	}
 	
 	public void initialUserScores(String Username) {
