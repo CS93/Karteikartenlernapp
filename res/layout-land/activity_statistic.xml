@@ -42,7 +42,8 @@
         android:id="@+id/t_amount_correct_statistic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/t_amount_percent_correct_statistic"
+        android:layout_toLeftOf="@id/t_number_amount_correct_statistic"
+        android:layout_marginRight="50dp"
         android:layout_alignBottom="@id/t_number_amount_correct_statistic"
         android:text="Richtig:"
         android:textColor="@color/green"
@@ -56,7 +57,7 @@
         android:layout_below="@+id/t_headline_statistic"
         android:layout_marginRight="150dp"
         android:layout_marginTop="90dp"
-        android:text="0"
+        android:text="100"
         android:textColor="@color/green"
         android:textSize="30sp" />
     
@@ -64,9 +65,9 @@
         android:id="@+id/t_amount_percent_correct_statistic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@id/t_number_amount_percent_correct_statistic"
-        android:layout_marginRight="50dp"
-        android:layout_alignBottom="@id/t_number_amount_percent_correct_statistic"
+        android:layout_alignLeft="@id/t_amount_correct_statistic"
+        android:layout_below="@id/t_amount_correct_statistic"
+        android:layout_marginTop="90dp"
         android:text="Richtig (%):"
         android:textColor="@color/green"
         android:textSize="30sp" />
@@ -75,11 +76,10 @@
         android:id="@+id/t_number_amount_percent_correct_statistic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@id/t_number_amount_correct_statistic"
-        android:layout_below="@+id/t_number_amount_correct_statistic"
-        android:layout_marginRight="150dp"
-        android:layout_marginTop="90dp"
-        android:text="0"
+        android:layout_toRightOf="@id/t_amount_percent_correct_statistic"
+        android:layout_alignBottom="@id/t_amount_percent_correct_statistic"
+        android:layout_marginLeft="25dp"
+        android:text="100"
         android:textColor="@color/green"
         android:textSize="30sp" />
 
