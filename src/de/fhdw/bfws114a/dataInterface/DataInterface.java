@@ -222,10 +222,11 @@ public class DataInterface {
 			antworten[5]=cards.get(i).getAnswer6();
 
 			//BooleanArray korrekteAntworten vorbereiten:
+			
 			boolean[] korrekteAntworten = new boolean[6];
 			for(int j=1;j<=6;j++){
 				CharSequence cs = Integer.toString(j);
-				if(tempCard.getSolution().contains(cs)){
+				if(tempCard.getSolution() != null && tempCard.getSolution().contains(cs)){
 					korrekteAntworten[j-1]=true;
 				}
 				else korrekteAntworten[j-1]=false;
