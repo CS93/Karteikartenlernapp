@@ -38,13 +38,13 @@ public class Data {
 		return mActivity;
 	}
 
-	private void loadCategories(){
+	protected void loadCategories(){
 		//Categories are loaded from Datainterface (it has to be 8 categories to fit applyToData() in applicationLogic)
 		mCategories = mDataInterface.getFileNames();	
 		
 	}
 
-	private void loadStatistics(){
+	protected void loadStatistics(){
 		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
 		mStatistics = mDataInterface.getFileNames(mCategories, mUser);
 		
@@ -68,6 +68,10 @@ public class Data {
 	
 	public User getUser() {
 		return mUser;
+	}	
+	
+	public void setUser(User mUser) {
+		this.mUser = mUser;
 	}
 
 	public ArrayList<String> getKarteien() {

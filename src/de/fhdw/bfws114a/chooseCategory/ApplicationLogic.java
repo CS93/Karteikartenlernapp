@@ -1,15 +1,18 @@
 package de.fhdw.bfws114a.chooseCategory;
 
 import de.fhdw.bfws114a.Navigation.Navigation;
+import de.fhdw.bfws114a.dataInterface.DataInterface;
 
 public class ApplicationLogic {
 	private Data mData;
 	private Gui mGui;
+	private DataInterface dataInterface;
 	
 	ApplicationLogic(Data data, Gui gui){
 		mData=data;
 		mGui=gui;
 		applyDataToGui();
+		dataInterface = new DataInterface(mData.getActivity());
 	}
 
 	private void applyDataToGui() {
@@ -23,5 +26,20 @@ public class ApplicationLogic {
 	public void onCategoryClicked(String category){
 		//Start activity challenge (learn session) with category and user 	
 		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
+	}
+
+	public void onResume() {
+		//After finishing the learn session the gui has to be updated
+		
+		//update User Information in Data
+		mData.setUser(dataInterface.getUser(mData.getUser().getName()));
+		
+		//update Statistics in data
+		mData.loadStatistics();
+		
+		//apply data (updated statistics) to Gui
+		applyDataToGui();
+		
+		
 	}
 }

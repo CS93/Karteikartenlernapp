@@ -28,6 +28,13 @@ public class Init extends Activity {
 		mData.saveDataInBundle(outState);
 	}
 
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		mApplicationLogic.onResume();
+	}
+	
 
 	private void initData(Bundle savedInstanceState, User user) {
 		mData = new Data(savedInstanceState, this,  user);
