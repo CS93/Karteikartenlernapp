@@ -3,6 +3,7 @@ package de.fhdw.bfws114a.challenge;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
@@ -116,6 +117,7 @@ public class ApplicationLogic {
 	}
 
 	public void answerFromSolution(boolean userAnswerCorrect) {
+		
 		//increase class of challenge whether answer was correct (and not class 6) and decrease it whether answer was wrong (and not class 1)
 		if(userAnswerCorrect){
 			mData.increaseNumberOfCorrectAnswers();

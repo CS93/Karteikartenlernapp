@@ -219,7 +219,7 @@ public class DataInterface {
 			Date timestamp = new Date(db.getUserScoreTimestamp(tempCard, user));
 			
 			//StringArray antworten vorbereiten:
-			String[] antworten = new String[6]; // Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmöglichkeiten geeinigt
+			String[] antworten = new String[6]; // Hinweise: Es wurde sich mit Herrn Seifert auf max. 6 Antwortmoeglichkeiten geeinigt
 			antworten[0]=cards.get(i).getAnswer1();
 			antworten[1]=cards.get(i).getAnswer2();
 			antworten[2]=cards.get(i).getAnswer3();

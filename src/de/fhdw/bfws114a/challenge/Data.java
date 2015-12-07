@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;

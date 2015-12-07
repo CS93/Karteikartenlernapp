@@ -56,8 +56,6 @@ public class Data {
 				Date now = new Date();
 				long difference = now.getTime() - currentChallengeInCategory.getZeitstempel().getTime();
 
-				Log.d("The Challenge", currentChallengeInCategory.getFrage() + "in Category" + currentCategoryStatistic.getKartei());
-				Log.d("Time", currentChallengeInCategory.getZeitstempel() + " nicht fällig weil kleiner " + mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()] + "Minute");				
 				if(difference > mUser.getClass_durations()[currentChallengeInCategory.getAktuelleKlasse()]*60*1000){
 					//currentChallengeIsDue
 					amountOfDueChallenges++;
