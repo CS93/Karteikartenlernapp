@@ -154,12 +154,8 @@ public class DataInterface {
 	}
 
 	public void setCurrentTimestamp(Challenge currentChallenge, User user) {
-		// Carsten: Hier muss der Zeitstempel der Challenge auf die aktuelle
-		// Zeit gesetzt werden
-		Date timestamp = new Date();
-		Log.d("",
-				"Der Zeitstempel wird von " + currentChallenge.getZeitstempel()
-						+ "auf " + timestamp + "erhöht werden");
+		// Carsten: Hier muss der Zeitstempel der Challenge auf die aktuelle Zeit gesetzt werden
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse());
 	}
 
 	public ArrayList<String> getFileNames() {

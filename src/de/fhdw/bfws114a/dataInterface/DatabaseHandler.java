@@ -644,9 +644,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
-			// NOT TESTED
+			// TESTED
 			
-//			java.sql.Date now = new Date(System.currentTimeMillis());
 			
 			String sql=
 					"UPDATE " + TABLE_USERSCORES
