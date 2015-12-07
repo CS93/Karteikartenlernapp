@@ -600,10 +600,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			return result;
 		}
 		
-		public int getUserScoreTimestamp(Card mCard, User mUser){
+		public long getUserScoreTimestamp(Card mCard, User mUser){
 			//TESTED
 			
-			int result=0;
+			long result=0;
 			String sql=
 					"SELECT " + KEY_USERSCORES_TIMESTAMP
 					+ " FROM " + TABLE_USERSCORES
@@ -620,7 +620,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			SQLiteDatabase db = this.getReadableDatabase();
 			Cursor cursor = db.rawQuery(sql, selectionArgs);
 			if (cursor.moveToFirst()){
-				result = Integer.parseInt(cursor.getString(0));
+				result = Long.parseLong(cursor.getString(0));
 			}
 			db.close();
 			return result;
@@ -635,7 +635,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			values.put(KEY_USERSCORES_USERID, mUser.getID()); // UserID
 			values.put(KEY_USERSCORES_FILEID, mCard.getFile()); // FileID
 			values.put(KEY_USERSCORES_CARDID, mCard.getId()); // CardID
-			values.put(KEY_USERSCORES_ASSIGNEDCLASS, 2); // AssignedClass
+			values.put(KEY_USERSCORES_ASSIGNEDCLASS, 1); // AssignedClass
 			values.put(KEY_USERSCORES_TIMESTAMP, epoche.getTime()); // TimeStamp
 
 			// Inserting Row

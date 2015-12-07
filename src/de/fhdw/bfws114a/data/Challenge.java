@@ -20,6 +20,8 @@ public class Challenge implements Serializable {
 			String[] antworten, boolean[] korrekteAnwortenFuerCheckbox) {
 		super();
 		this.mKartei = kartei;
+		this.FileID = fileID;
+		this.CardID = cardID;
 		this.mAktuelleKlasse = aktuelleKlasse;
 		this.mZeitstempel = zeitstempel;
 		this.mFrage = frage;
