@@ -24,8 +24,19 @@ public class ApplicationLogic {
 	}		
 	
 	public void onCategoryClicked(String category){
-		//Start activity challenge (learn session) with category and user 	
-		Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
+		//Test whether the chosen category has any due challenges (yes->start challenge | no -> show error message)
+		for(int i = 0 ; i < mData.getStatistik().size(); i++){
+			if(mData.getStatistik().get(i).getKartei().equals(category)){
+				if(mData.getStatistik().get(i).getFaelligeChallenges() == 0){
+					mGui.showToast(mData.getActivity());
+				} else {
+					//Start activity challenge (learn session) with category and user 	
+					Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
+				}
+			}
+		}		
+		
+		
 	}
 
 	public void onRestart() {

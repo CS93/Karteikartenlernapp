@@ -1,8 +1,11 @@
 package de.fhdw.bfws114a.chooseCategory;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
@@ -77,5 +80,14 @@ public class Gui {
 	
 	public void setDueChallengesPerCategory(TextView[] mDueChallengesPerCategory) {
 		this.mDueChallengesPerCategory = mDueChallengesPerCategory;
+	}
+	
+	public void showToast(Activity act){
+		 Toast toast = Toast.makeText(act, act.getString(R.string.no_due_challenges), Toast.LENGTH_LONG);
+		 LinearLayout toastLayout = (LinearLayout) toast.getView();
+		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
+		 toastTV.setTextSize(30);
+		 toastTV.setTextColor(Color.RED);
+		 toast.show();	 
 	}
 }
