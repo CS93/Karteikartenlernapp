@@ -1,6 +1,8 @@
 package de.fhdw.bfws114a.dataInterface;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Environment;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.Challenge;
@@ -255,38 +258,42 @@ public class DataInterface {
 	 * All XML Import Operations *
 	 *****************************
 	 */
-
-	public void importXMLtoDB() {
+	
+	public boolean importXMLtoDB() {
 		db.clearFileTable();
 		db.clearCard();
 		db.clearUserscoreTable();
-
-		List<Card> importedCards = null;
-		List<File> importedFiles = null;
+		List<Card> importedCards = new ArrayList<Card>();
+		List<File> importedFiles = new ArrayList<File>();
 		List<User> allUsers = db.getAllUsers();
+		String uri = Environment.getExternalStorageDirectory().toString() + "/LernKartei/karteien.xml";
+       
+        java.io.File xmlFile = new java.io.File(uri);
+        try {
+        	FileInputStream fis1 = new FileInputStream(xmlFile);
+        	FileInputStream fis2 = new FileInputStream(xmlFile);
 
-		try {
-			importedCards = xmlHandler.parseCards(activity.getAssets().open(
-					"karteien.xml"));
-			importedFiles = xmlHandler.parseFiles(activity.getAssets().open(
-					"karteien.xml"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+        	importedFiles = xmlHandler.parseFiles(fis1);
+			importedCards = xmlHandler.parseCards(fis2);
+			
+			for (int i = 0; i < importedFiles.size(); i++) {
+				// Kartei (ohne Karten) --> Nur Kategorie in DB schreiben
+				db.addFile(importedFiles.get(i));
+			}
+			for (int i = 0; i < importedCards.size(); i++) {
+				// Karten in die DB Schreiben
+				db.addCard(importedCards.get(i));
+			}
+			
+			// Initialisieren der neuen UserScores für bereits vorhandene Benutzer
+			for (int i = 0; i < allUsers.size(); i++){
+				initialUserScores(allUsers.get(i).getName());
+			}
+			return true;
+			
+		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}
-
-		for (int i = 0; i < importedFiles.size(); i++) {
-			// Kartei (ohne Karten) --> Nur Kategorie in DB schreiben
-			db.addFile(importedFiles.get(i));
-		}
-		for (int i = 0; i < importedCards.size(); i++) {
-			// Karten in die DB Schreiben
-			db.addCard(importedCards.get(i));
-		}
-		
-		// Initialisieren der neuen UserScores für bereits vorhandene Benutzer
-		for (int i = 0; i < allUsers.size(); i++){
-			initialUserScores(allUsers.get(i).getName());
+			return false;
 		}
 	}
 	
