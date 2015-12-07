@@ -13,7 +13,6 @@ import java.util.Date;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
 import de.fhdw.bfws114a.data.Card;
@@ -128,22 +127,13 @@ public class DataInterface {
 		// Carsten: Wenn eine richtige Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 erhöht
-		Log.d("DEBUG", "-- increaseClass wurde aufgerufen: --");
-		Log.d("DEBUG", currentChallenge.getCardID() + " (CardID)");
-		Log.d("DEBUG", currentChallenge.getFileID() + " (FileID)");
-		Log.d("DEBUG", currentChallenge.getFrage() + " (Question)");
-
-
 		
-		int vorher = currentChallenge.getAktuelleKlasse();
 		Card temp = new Card();
 		temp.setId(currentChallenge.getCardID());
 		temp.setQuestion(currentChallenge.getFrage());
 		temp.setFile(currentChallenge.getFileID());
 		
-		Log.d("DEBUG", "Challange Klasse soll erhöht werde von Klasse " + db.getAssignedClass(temp, user) + " auf Klasse " + (db.getAssignedClass(temp, user)+1));
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)+1);
-		Log.d("DEBUG", "Challange Klasse wurde erhöht von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 
 	}
 
@@ -152,14 +142,13 @@ public class DataInterface {
 		// Carsten: Wenn eine falsche Antwort gegeben wurde rufe ich diese
 		// Methode auf und möchte dass die Klasse in der sich die übergebene
 		// Challenge befindet um 1 verringert wird
-		int vorher = currentChallenge.getAktuelleKlasse();
+		
 		Card temp = new Card();
 		temp.setId(currentChallenge.getCardID());
 		temp.setQuestion(currentChallenge.getFrage());
 		temp.setFile(currentChallenge.getFileID());
-		Log.d("DEBUG", "Challange Klasse soll verringert werde von Klasse " + db.getAssignedClass(temp, user) + " auf Klasse " + (db.getAssignedClass(temp, user)-1));
+		
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)-1);
-		Log.d("DEBUG", "Challange Klasse wurde verringert von Klasse " + vorher + " auf Klasse " + db.getAssignedClass(temp, user));
 	}
 
 	public void setCurrentTimestamp(Challenge currentChallenge, User user) {
@@ -309,9 +298,7 @@ public class DataInterface {
         
         if(!xmlFile.getParentFile().exists()){
         	try {
-        		if(xmlFile.getParentFile().mkdirs()){
-        			Log.d("DEBUG", "Verzeichnis wurde erstellt");
-        		}else	Log.d("DEBUG", "Verzeichnis wurde NICHT erstellt");
+        		xmlFile.getParentFile().mkdirs();
         	} catch (Exception e) {
         		e.printStackTrace();
         	}
@@ -349,35 +336,4 @@ public class DataInterface {
 			}
 		}
 	}
-
-	public String isToString(InputStream is) {
-		if (is != null) {
-			BufferedReader br = null;
-			StringBuilder sb = new StringBuilder();
-
-			String line;
-			try {
-
-				br = new BufferedReader(new InputStreamReader(is));
-				while ((line = br.readLine()) != null) {
-					sb.append(line);
-				}
-
-			} catch (IOException e) {
-				e.printStackTrace();
-			} finally {
-				if (br != null) {
-					try {
-						br.close();
-					} catch (IOException e) {
-						e.printStackTrace();
-					}
-				}
-			}
-
-			return sb.toString();
-		} else
-			return "";
-	}
-
 }
