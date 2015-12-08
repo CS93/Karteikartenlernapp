@@ -40,6 +40,8 @@
     <string name="class_time_minute">Minute(n)</string>
     <string name="class_time_hour">Stunde(n)</string>
     <string name="class_time_day">Tag(e)</string>
+    <string name="class_time_not_asc_error_message">Bitte geben sie die Zeiten der Klassen aufsteigend an!</string>
+    <string name="class_time_to_high_error_message">Bitte geben sie kleinere Zeiten ein! Momentan sind die Zahlen zu groß zum speichern.</string>
     <string name="class_error_message">Bitte geben Sie die Zeiten der Klassen aufsteigend an!</string>
     <string name="missing_input_error_message">Bitte füllen sie alle Zeitspannen!</string>
     <string name="user_empty_error_message">Bitte geben sie einen Namen ein!</string>

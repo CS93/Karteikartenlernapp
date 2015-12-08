@@ -57,13 +57,25 @@ public class ApplicationLogic {
 	
 	private int[] generateMinutes(){
 		//out of days, hours and minutes make just minutes
+		//first check: is string out of EditText short enough for int
+		//going through the Classes:
+		//second check: is the generated Time short enough for int
+		//no check failed: generate minutes and return them
+		//   check failed: return null --> catch in checkMinutes()
 		int[] minutes = new int[6];
+		if (mGui.getClassEditText() == null){
+			return null;
+		}
 		for (int i = 0; i<6;i++){
-			if (mGui.getClassSpinner()[i]==2){
-				minutes[i] = mGui.getClassEditText()[i]*1440; //Tage in Minuten umwandeln
+			if (mGui.getClassSpinner()[i]==2 && mGui.getClassEditText()[i]>1491308 || //days
+				mGui.getClassSpinner()[i]==1 && mGui.getClassEditText()[i]>35791394	){ //hours
+				return null;
+			}
+			else if (mGui.getClassSpinner()[i]==2){
+					minutes[i] = mGui.getClassEditText()[i]*1440; //change days in minutes
 			}
 			else if(mGui.getClassSpinner()[i]==1){
-				minutes[i] = mGui.getClassEditText()[i]*60; //Stunden in Minuten umwandeln
+					minutes[i] = mGui.getClassEditText()[i]*60; //change hours in minutes
 			}
 			else {
 				minutes[i] = mGui.getClassEditText()[i];
@@ -73,19 +85,25 @@ public class ApplicationLogic {
 	}
 	
 	private void checkMinutes(int[] minutes){
-		//just save and leave the activity whether the minutes are ascending
-		if (minutes [0] < minutes [1] &&  minutes [1] < minutes [2] && 
+		//just save and leave the activity whether 
+		//the minutes are ascending and 
+		//are short enough for int
+		if(minutes == null){
+			mGui.showToast(mData.getContext(), mData.getContext().getString(R.string.class_time_to_high_error_message));
+		}	
+		else if(minutes [0] < minutes [1] &&  minutes [1] < minutes [2] && 
 			minutes [2] < minutes [3] &&  minutes [3] < minutes [4] &&
 			minutes [4] < minutes [5]) {
-		mData.setTimeOfClasses(minutes);
-		//save the times (in minutes) of the classes in connection with the user
-		mData.getDataInterface().updateUserClassDurations(mData.getUser(), mData.getTimeOfClasses());
-		//close activity
-		mData.getActivity().finish();
-		}
+			mData.setTimeOfClasses(minutes);
+			//save the times (in minutes) of the classes in connection with the user
+			mData.getDataInterface().updateUserClassDurations(mData.getUser(), mData.getTimeOfClasses());
+			//close activity
+			mData.getActivity().finish();
+			}
 		else {
-			mGui.showToast(mData.getContext(), mData.getContext().getString(R.string.class_error_message));
+			mGui.showToast(mData.getContext(), mData.getContext().getString(R.string.class_time_not_asc_error_message));
 		}
 	}
 	
 }
+
