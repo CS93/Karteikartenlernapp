@@ -49,7 +49,9 @@ public class DataInterface {
 
 	// delete one User
 	public void delUser(String delUser) {
+		User tempUser = db.getUser(delUser);
 		db.deleteUser(delUser);
+		db.deleteUserScores(tempUser);
 	}
 
 	// add one User

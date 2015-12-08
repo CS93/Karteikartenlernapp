@@ -657,5 +657,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			db.execSQL(sql);
 			db.close();
 		}
+
+		public void deleteUserScores(User user) {
+			SQLiteDatabase db = this.getWritableDatabase();
+			db.delete(TABLE_USERSCORES, KEY_USERSCORES_USERID + " = ?",
+					new String[] { String.valueOf(user.getID()) });
+			db.close();
+		}
 				
 }
