@@ -503,5 +503,19 @@
         android:paddingLeft="10dp" 
         android:text="@string/category2"
         android:textSize="30sp" />
+      
+      <Button
+        android:id="@+id/b_refresh_category"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/orange"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/roundedbutton"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp" 
+        android:text="Refresh"
+        android:textSize="30sp" />
      
     </RelativeLayout>

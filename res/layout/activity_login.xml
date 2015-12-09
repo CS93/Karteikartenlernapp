@@ -9,8 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/ic_launcher"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/karteikarte"
         android:contentDescription="@string/logo" />
 
     <TextView
@@ -37,8 +37,8 @@
 
     <Button
         android:id="@+id/profile_management_start"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/login"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="90dp"
@@ -47,12 +47,12 @@
         android:paddingRight="10dp"
         android:text="@string/profile_management"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <Button
         android:id="@+id/login"
-        android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_width="450dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/profile_management_start"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp"
@@ -61,7 +61,7 @@
         android:paddingRight="10dp"
         android:text="@string/login"
         android:textColor="@color/orange"
-        android:textSize="30sp" />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/profile_choose_text"

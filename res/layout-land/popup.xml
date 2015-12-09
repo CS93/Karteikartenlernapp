@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@android:color/background_light">
+ <LinearLayout 
+     android:layout_width="400dp"
+     android:layout_height="300dp"
+     android:orientation="vertical" 
+     android:layout_margin="1dp"
+     android:background="@android:color/darker_gray">
+     >
+     <RelativeLayout 
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="vertical" 
+      android:layout_margin="20dp">
+
+      <TextView
+          android:id="@+id/t_names_popup_window"
+          android:layout_width="300dp"
+          android:layout_height="wrap_content"
+          android:layout_centerHorizontal="true"
+          android:gravity="center"
+          android:text="Entwickler:        					  	 Frank Helfmeyer			 Carsten Schlender 				Ricardo La Valle				 Samira Schorre"
+          android:textColor="@color/black"
+          android:textSize="25sp" />
+
+      <TextView
+          android:id="@+id/t_version_popup_window"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_below="@id/t_names_popup_window"
+          android:layout_marginLeft="100dp"
+          android:layout_marginTop="10dp"
+          android:gravity="center"
+          android:text="Version:"
+          android:textColor="@color/black"
+          android:textSize="25sp" />     
+     <TextView
+          android:id="@+id/t_version_number_popup_window"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignBottom="@id/t_version_popup_window"
+          android:layout_toRightOf="@id/t_version_popup_window"
+          android:paddingLeft="30dp"
+          android:gravity="center"
+          android:text="1.0"
+          android:textColor="@color/black"
+          android:textSize="25sp" />
+      <Button
+          android:id="@+id/b_dismiss_popup_window"
+          android:layout_width="150dp"
+          android:layout_height="50dp"
+          android:layout_alignParentRight="true"
+          android:layout_alignParentBottom="true"       
+          android:text="Schließen"
+          android:background="@drawable/roundedbutton"
+          android:textColor="@color/orange"
+          android:textSize="30sp" />
+
+      <Button
+          android:id="@+id/b_reset_popup_window"
+          android:layout_width="150dp"
+          android:layout_height="50dp"
+          android:layout_alignParentBottom="true"
+          android:layout_alignParentLeft="true"
+          android:background="@drawable/roundedbutton"
+          android:text="Import"
+          android:textColor="@color/orange"
+          android:textSize="30sp" />
+
+      </RelativeLayout>
+ </LinearLayout>
+</LinearLayout>

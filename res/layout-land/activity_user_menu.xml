@@ -10,9 +10,8 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/t_appname_user_menu"
         android:layout_alignLeft="@+id/t_appname_user_menu"
-        android:layout_marginLeft="141dp"
         android:contentDescription="@string/logo"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/karteikarte" />
 
     <TextView
         android:id="@+id/t_appname_user_menu"
