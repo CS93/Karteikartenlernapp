@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
-        android:text="Bitte die richtige Antwort eingeben:"
+        android:text="Bitte eine Antwort überlegen:"
         android:textColor="@color/orange"
         android:textSize="30sp" />
     
