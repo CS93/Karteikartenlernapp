@@ -14,24 +14,20 @@ public class EventToListenerMapping implements OnClickListener {
 		for(int i=0; i < gui.getCategories().length; i++){
 			gui.getCategory(i).setOnClickListener(this);
 		}
-//		mRefreshButton.setOnClickListener(this);
+		gui.getRefreshButton().setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
-//		switch ( v.getId()){
-//		case R.id.b_refresh:
-//			mApplicationLogic.onRefreshClicked();
-//			break;
-//		case !(R.id.b_refresh):
-//			//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
-//			Button b = (Button) v;
-//			mApplicationLogic.onCategoryClicked(b.getText().toString());
-//			break;
-			
-		//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
-		Button b = (Button) v;
-		mApplicationLogic.onCategoryClicked(b.getText().toString());		
+		switch ( v.getId()){
+		case R.id.b_refresh_category:
+			mApplicationLogic.onRefreshClicked();
+			break;
+		default:
+			//View v gets casted to button, to hand the ButtonText to mApplicationLogic.onCategoryClicked. This is necessary because the chosen category is required for the next activity
+			Button b = (Button) v;
+			mApplicationLogic.onCategoryClicked(b.getText().toString());
+			break;	
+		}
 	}
-	
 }

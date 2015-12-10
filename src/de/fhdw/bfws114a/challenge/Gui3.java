@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.challenge;
 
 import android.app.Activity;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.TextView;
 import de.fhdw.bfws114a.lernKartei.R;
 

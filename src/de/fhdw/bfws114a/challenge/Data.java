@@ -1,11 +1,9 @@
 package de.fhdw.bfws114a.challenge;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
@@ -45,23 +43,12 @@ public class Data {
 		ArrayList<Challenge> alleChallenges = mDataInterface.loadChallenges(mCategory, mUser);
 		java.util.Date now = new java.util.Date();
 		long difference;
-		int testCounter = 0;
 		for(int i = 0; i< alleChallenges.size(); i++){
 			//calculat difference between timestamp of current challenge and system date
 			
 			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
-			if(testCounter < 3){
-			Log.d("Due Test", "Challenges: Question" +alleChallenges.get(i).getFrage() + "Mit Zeitstempel: " + alleChallenges.get(i).getZeitstempel() + "wird geprüft");
-			Log.d("Due Test", "Difference: " + difference);
-			Log.d("Due Test", "Current Class: " + alleChallenges.get(i).getAktuelleKlasse());
-			testCounter++;
-			}
 			//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
 			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
-				if(testCounter < 3){
-				Log.d("Due Test", "Challenge ist fällig weil: " + difference + "größer ist als :" + mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser));
-				
-				}
 				mDueChallenges.add(alleChallenges.get(i));
 			}
 		}		

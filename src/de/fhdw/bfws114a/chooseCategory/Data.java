@@ -1,11 +1,9 @@
 package de.fhdw.bfws114a.chooseCategory;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.Statistics;
@@ -47,7 +45,6 @@ public class Data {
 	protected void loadStatistics(){
 		//Create Statistics-objects with mCategories and getChallenges(mCategories, user) and due challenges (find out whether they are due through challenge.getTimeStamp, user.getClass[challenge.getClass]
 		mStatistics = mDataInterface.getFileNames(mCategories, mUser);
-		int testCounter = 0;
 		//Find out the Amount of Due Challenges to put them in statistics object
 		for(Statistics currentCategoryStatistic : mStatistics){
 			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getKartei(), mUser);
@@ -57,18 +54,9 @@ public class Data {
 			
 			for(int i = 0; i< allChallenges.size(); i++){
 				//calculat difference between timestamp of current challenge and system date				
-				difference = now.getTime() - allChallenges.get(i).getZeitstempel().getTime();
-				if(testCounter < 3){
-					Log.d("Due Test", "CC Challenges: Question" +allChallenges.get(i).getFrage());
-					Log.d("Due Test", "CC Difference: " + difference);
-					Log.d("Due Test", "CC Current Class: " + allChallenges.get(i).getAktuelleKlasse());
-				testCounter++;
-				}
+				difference = now.getTime() - allChallenges.get(i).getZeitstempel().getTime();				
 				//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
 				if(difference > (mDataInterface.getTimePeriod(allChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
-					if(testCounter < 3){
-						Log.d("Due Test", "CC Challenge ist fällig weil: " + difference + "größer ist als :" +  mDataInterface.getTimePeriod(allChallenges.get(i).getAktuelleKlasse(), mUser));
-					}
 					amountOfDueChallenges++;
 				}
 			}			

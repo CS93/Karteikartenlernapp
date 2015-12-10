@@ -3,7 +3,6 @@ package de.fhdw.bfws114a.challenge;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.util.Log;
 import de.fhdw.bfws114a.Navigation.Navigation;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
@@ -24,23 +23,7 @@ public class ApplicationLogic {
 		applyDataToGui();
 	}
 
-	private void applyDataToGui(){		
-//		//Test whether there are no due challenge or there was an issue with loading them
-//		if((mData.getFaelligeChallenges().size() == 0) || mData.getFaelligeChallenges() == null){
-//			//Show an allert to inform the user, that there are no due challenges
-//			new AlertDialog.Builder(mData.getActivity())
-//		    .setIcon(android.R.drawable.ic_dialog_alert)
-//		    .setTitle("Achtung")
-//		    .setMessage("Keine fälligen Karteikarten in dieser Kartei vorhanden!")
-//		    .setPositiveButton("OK", new DialogInterface.OnClickListener(){
-//		    @Override
-//		    public void onClick(DialogInterface dialog, int which) {
-//		    	mData.getActivity().finish();   
-//		    }
-//
-//		    })
-//		    .show();			
-//		} else {
+	private void applyDataToGui(){
 			//The usual case: Challenges has been loaded
 			Challenge currentChallenge = mData.getFaelligeChallenges().get(mData.getIndexOfCurrentChallenge());
 			currentQuestionType = currentChallenge.getFrageTyp();
