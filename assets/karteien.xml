@@ -6,26 +6,62 @@
         <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
+            <question>Wie färbt sich der Universalindikator, wenn man ein paar Tropfen Essig dazu gibt?</question>
+            <answer1>Farblos</answer1>
+            <answer2>Blau</answer2>
+            <answer3>Rot</answer3>
+            <answer4>Pink</answer4>
+            <answer5>Grün</answer5>
+            <answer6>Orange</answer6>
+            <solution>3</solution>
         </card>
         <card>
             <cardID>0001</cardID>
             <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
+            <question>Wie bezeichnet man in der Chemie den Vorgang "Abgießen" noch?</question>
+            <answer1>Dekantieren</answer1>
         </card>
         <card>
             <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wer erkannte, dass man Atome durch Kreise darstellen kann?</question>
+            <answer1>Rutherford</answer1>
+            <answer2>Dalton</answer2>
+            <answer3>Demokrit</answer3>
+            <answer4>Hercules</answer4>
+            <answer5>Ajax</answer5>
+            <answer6>Galilei</answer6>
+            <solution>2</solution>
+        </card>
+        <card>
+            <cardID>0003</cardID>
             <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
+            <question>Wie nennt man einen chemischen Vorgang, bei dem man Stoffe zerlegt?</question>
+            <answer1>Analyse</answer1>
+        </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>1</cardType>
+            <question>Welche relative Masse besitzt ein Proton?</question>
+            <answer1>0,5</answer1>
+            <answer2>2</answer2>
+            <answer3>0</answer3>
+            <answer4>1</answer4>
+            <answer5>3</answer5>
+            <answer6>5</answer6>
+            <solution>4</solution>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>3</cardType>
+            <question>Warum reagieren Stoffe miteinander?</question>
+            <answer1>Um einen stabilen Zustand zu erhalten.</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>2</cardType>
+            <question>Wie lautet die chemische Formel für Ammoniak?</question>
+            <answer1>NH3</answer1>
         </card>
     </file>
 
@@ -63,12 +99,12 @@
         <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
+            <question>Welche Zahlensysteme existieren?</question>
+            <answer1>Zehnersystem</answer1>
+            <answer2>Dualsystem</answer2>
+            <answer3>Hexasystem</answer3>
+            <answer4>Octalsystem</answer4>
+            <answer5>Octal</answer5>
             <answer6>110 Jahre</answer6>
             <solution>5</solution>
         </card>
@@ -91,20 +127,20 @@
         <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
+            <question>Welche Zahlensysteme existieren?</question>
+            <answer1>Zehnersystem</answer1>
+            <answer2>Dualsystem</answer2>
+            <answer3>Hexasystem</answer3>
+            <answer4>Octalsystem</answer4>
+            <answer5>Siebenersystem</answer5>
+            <answer6>Fünfzehnersystem</answer6>
+            <solution>1;2;3;4</solution>
         </card>
         <card>
             <cardID>0001</cardID>
             <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
+            <question>Welches ist das neueste Betriebssystem von Microsoft?</question>
+            <answer1>Windows 10</answer1>
             
         </card>
         <card>
