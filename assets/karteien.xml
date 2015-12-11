@@ -89,8 +89,32 @@
         <card>
             <cardID>0002</cardID>
             <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
+            <question>Wie groß wird ein Blauwal maximal?</question>
+            <answer1>33 Meter</answer1>
+        </card>
+        <card>
+            <cardID>0003</cardID>
+            <cardType>1</cardType>
+            <question>Wie viele X-Chromosome haben Menschen?</question>
+            <answer1>0</answer1>
+            <answer2>1</answer2>
+            <answer3>2</answer3>
+            <answer4>3</answer4>
+            <answer5>4</answer5>
+            <answer6>unendlich viele</answer6>
+            <solution>3</solution>
+        </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>1</cardType>
+            <question>Was gehört zur Biologie?</question>
+            <answer1>Mikrobiologie</answer1>
+            <answer2>Botanik</answer2>
+            <answer3>Zoologie</answer3>
+            <answer4>Physiologie</answer4>
+            <answer5>Genetik</answer5>
+            <answer6>Sport</answer6>
+            <solution>1;2;3;4;5</solution>
         </card>
     </file>
         <file>
@@ -98,27 +122,27 @@
         <fileID>3</fileID>
         <card>
             <cardID>0000</cardID>
-            <cardType>1</cardType>
-            <question>Welche Zahlensysteme existieren?</question>
-            <answer1>Zehnersystem</answer1>
-            <answer2>Dualsystem</answer2>
-            <answer3>Hexasystem</answer3>
-            <answer4>Octalsystem</answer4>
-            <answer5>Octal</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
+            <cardType>2</cardType>
+            <question>Welches Phänomen wird häufig am Beispiel eines Martinshorns dargestellt?</question>
+            <answer1>Dopplereffekt</answer1>
         </card>
         <card>
             <cardID>0001</cardID>
-            <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
+            <cardType>3</cardType>
+            <question>Wie viele Kilometer ist der Mond durchschnittlich von der Erde entfernt?</question>
+            <answer1>363.300</answer1>
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
+            <cardType>1</cardType>
+            <question>Welche/r Himmelskörper ist kein Planet?</question>
+            <answer1>Alpha Centauri</answer1>
+            <answer2>Neptun</answer2>
+            <answer3>Pluto</answer3>
+            <answer4>Uranus</answer4>
+            <answer5>Kepler-22b</answer5>
+            <answer6>KOI-351</answer6>
+            <solution>1;3;6</solution>
         </card>
     </file>
     <file>
@@ -157,27 +181,27 @@
         <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
+            <question>Wer war noch nie deutscher Fußballmeister?</question>
+            <answer1>1. FC Köln</answer1>
+            <answer2>Bayer Leverkusen</answer2>
+            <answer3>Borussia Mönchen Gladbach</answer3>
+            <answer4>Eintracht Braunchschweig</answer4>
+            <answer5>Fortuna Düsseldorf</answer5>
+            <answer6>1860 München</answer6>
+            <solution>2;5</solution>
         </card>
         <card>
             <cardID>0001</cardID>
             <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
+            <question>In welchem Jahr begann Timo Horn als Torhüter für den 1.FC Köln</question>
+            <answer1>2002</answer1>
             
         </card>
         <card>
             <cardID>0002</cardID>
             <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
+            <question>Wer ist Rekordspieler der deutschen Nationalmannschaft?</question>
+            <answer1>Lothar Mathäus</answer1>
             
         </card>
     </file>
