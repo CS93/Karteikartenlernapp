@@ -12,6 +12,7 @@ import de.fhdw.bfws114a.data.File;
 
 public class XMLPullParserHandler {
 
+	// Tags used in the XML-File.
 	private static final String TAG_FILE = "file";
 	private static final String TAG_FILE_ID = "fileID";
 	private static final String TAG_FILE_NAME = "fileName";
@@ -26,8 +27,6 @@ public class XMLPullParserHandler {
 	private static final String TAG_FILE_CARD_ANSWER5 = "answer5";
 	private static final String TAG_FILE_CARD_ANSWER6 = "answer6";
 	private static final String TAG_FILE_CARD_SOLUTION = "solution";
-	
-	
 
 	private List<File> files;
 	private List<Card> cards;
@@ -39,7 +38,8 @@ public class XMLPullParserHandler {
 	}
 	
 	public List<File> parseFiles(InputStream is) {
-		
+		// Returns a list of Files, the Parser read from the InputStream / from the XML-File.
+
 		XmlPullParserFactory factory = null;
 		XmlPullParser parser = null;
 		files = new ArrayList<File>();
@@ -87,7 +87,7 @@ public class XMLPullParserHandler {
 	}
 	
 	public List<Card> parseCards(InputStream is) {
-		
+		// Returns a list of cards, the Parser read from the InputStream / from the XML-File.
 		cards = new ArrayList<Card>();
 		tempcard = new Card();
 		int tempFileID=99;

@@ -12,7 +12,7 @@ public class Challenge implements Serializable {
 	private Date mTimeStamp;
 	private String mFrage;
 	private int mQuestionType; //1 = Checkbox; 2 = Text; 3 = Self Review
-	private String[] mAnswers; //QuestionType 1 -> 6 Anworten; 2 -> only correct answer; 3 -> also the correct answer
+	private String[] mAnswers; //QuestionType 1 -> 6 Answers; 2 -> only correct answer; 3 -> also the correct answer
 	private boolean[] mCorrectAnswersForCheckbox; //QuestionType 1 -> indexes with right answers from the 6 mAnswers; QuestionType 2,3 = empty
 	
 	
