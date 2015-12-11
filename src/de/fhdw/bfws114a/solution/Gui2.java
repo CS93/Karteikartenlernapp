@@ -2,56 +2,50 @@ package de.fhdw.bfws114a.solution;
 
 import android.app.Activity;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
 import android.widget.TextView;
 import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui2 {
 	
-	private TextView mQuestion;
-	private TextView mUserAnswer;
-	private TextView mCorrectAnswer;
+	private TextView mQuestionView;
+	private TextView mUserAnswerView;
+	private TextView mCorrectAnswerView;
 	private Activity mActivity;
-	private Button mContinue;
-	private TextView mUserAnswerDescription;
+	private Button mContinueButton;
+	private TextView mUserAnswerDescriptionView;
 
 
 	public Gui2(Activity act) {
 		mActivity = act;
 		act.setContentView(R.layout.activity_challenge_text_answer);
-		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_text_answer);
-		mUserAnswer = (TextView) act.findViewById(R.id.t_user_answer_text_answer);
-		mUserAnswerDescription = (TextView) act.findViewById(R.id.t_user_answer_description_text_answer);
-		mCorrectAnswer = (TextView) act.findViewById(R.id.t_correct_answer_text_answer);
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_text_answer);
+		mQuestionView = (TextView) act.findViewById(R.id.t_question_challenge_text_answer);
+		mUserAnswerView = (TextView) act.findViewById(R.id.t_user_answer_text_answer);
+		mUserAnswerDescriptionView = (TextView) act.findViewById(R.id.t_user_answer_description_text_answer);
+		mCorrectAnswerView = (TextView) act.findViewById(R.id.t_correct_answer_text_answer);
+		mContinueButton = (Button) act.findViewById(R.id.b_continue_challenge_text_answer);
 	}
 
-	public void showThisGui(){
-		 mActivity.setContentView(R.layout.activity_challenge_text_answer);
-	}
-
-	public TextView getQuestion() {
-		return mQuestion;
+	public TextView getQuestionView() {
+		return mQuestionView;
 	}		
 
-	public TextView getUserAnswer() {
-		return mUserAnswer;
+	public TextView getUserAnswerView() {
+		return mUserAnswerView;
 	}
 
-	public TextView getUserAnswerDescription(){
-		return mUserAnswerDescription;
+	public TextView getUserAnswerDescriptionView(){
+		return mUserAnswerDescriptionView;
 	}
 	
-	public TextView getCorrectAnswer() {
-		return mCorrectAnswer;
+	public TextView getCorrectAnswerView() {
+		return mCorrectAnswerView;
 	}
 
 	public Activity getActivity() {
 		return mActivity;
 	}
 
-	public Button getContinue() {
-		return mContinue;
+	public Button getContinueButton() {
+		return mContinueButton;
 	}
 }

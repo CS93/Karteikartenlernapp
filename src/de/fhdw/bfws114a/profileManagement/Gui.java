@@ -17,17 +17,17 @@ import de.fhdw.bfws114a.lernKartei.R;
 public class Gui {
 	
 	private Button mAddUserButton, mDelUserButton;
-	private EditText mAddUser;
-	private Spinner mChoiceList;
+	private EditText mAddUserEditText;
+	private Spinner mChoiceListSpinner;
 	private Context mContext;
 
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_profile_management);
 		mContext = act;
 		mAddUserButton 	= (Button) 		act.findViewById(R.id.b_adduser_profile_management);
-		mAddUser 		= (EditText)	act.findViewById(R.id.et_adduser_profile_management);	
+		mAddUserEditText 		= (EditText)	act.findViewById(R.id.et_adduser_profile_management);	
 		mDelUserButton 	= (Button) 		act.findViewById(R.id.b_deluser_profile_management);		
-		mChoiceList 	= (Spinner) 	act.findViewById(R.id.s_deluser_profile_management);
+		mChoiceListSpinner 	= (Spinner) 	act.findViewById(R.id.s_deluser_profile_management);
 	}
 
 	public Button getAddUserButton() {
@@ -38,17 +38,17 @@ public class Gui {
 		return mDelUserButton;
 	}
 
-	public EditText getAddUser() {
-		return mAddUser;
+	public EditText getAddUserEditText() {
+		return mAddUserEditText;
 	}
 	
-	public Spinner getChoiceList() {
-		return mChoiceList;
+	public Spinner getChoiceListSpinner() {
+		return mChoiceListSpinner;
 	}
 	
-	public void setChoiceList(ArrayList<User> userList) {
+	public void setChoiceListSpinner(ArrayList<User> userList) {
 		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, R.layout.spinner_item, userList);
-		mChoiceList.setAdapter(spinnerAdapter);
+		mChoiceListSpinner.setAdapter(spinnerAdapter);
 	}	
 	
 	public void showToast(int message){

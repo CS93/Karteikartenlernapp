@@ -41,7 +41,7 @@ public class ApplicationLogic {
 		//(in connection to the time consensus) Spinners
 		int[] position = new int[6];
 		for(int i = 0;i<6;i++){
-			if((mData.getTimeOfClasses()[i]%1440)== 0){ //es handelt sich um Stunden
+			if((mData.getTimeOfClasses()[i]%1440)== 0){ //it deals with hours
 				mData.setTimeOfClasses(i+1,mData.getTimeOfClasses()[i]/1440);
 				position[i]= 2; //deals with days
 			}

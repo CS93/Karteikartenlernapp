@@ -1,20 +1,13 @@
 package de.fhdw.bfws114a.Navigation;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.content.Intent;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
 
 public class Navigation {
 	
-	/*
-	private static final Class<?> ACTIVITY_MAIN_CLASS = 
-			de.fhdw.bfws114a.he.activities.main.Init.class;
-			*/
 	private static final Class<?> ACTIVITY_LOGIN_CLASS = de.fhdw.bfws114a.login.Init.class, 
 									ACTIVITY_USER_MENU_CLASS = de.fhdw.bfws114a.userMenu.Init.class,
 									ACTIVITY_PROFILE_MANAGEMENT_CLASS = de.fhdw.bfws114a.profileManagement.Init.class,
@@ -23,12 +16,6 @@ public class Navigation {
 									ACTIVITY_CHALLENGE_CLASS = de.fhdw.bfws114a.challenge.Init.class,
 									ACTIVITY_SOLUTION_CLASS = de.fhdw.bfws114a.solution.Init.class,
 									ACTIVITY_STATISTICS_CLASS = de.fhdw.bfws114a.statistics.Init.class;	
-	/*
-	public static void startActivityLogin(Activity callingActivity, int counterValue) {
-		startActivity(callingActivity, ACTIVITY_Class_CLASS,
-				Constants.KEY_PAR_COUNTER_VALUE, counterValue);
-	}
-	*/
 	
 	public static void startActivityLogin(Activity callingActivity){
 		startActivity(callingActivity, ACTIVITY_LOGIN_CLASS);
@@ -73,7 +60,7 @@ public class Navigation {
 		callingActivity.startActivity(intent);
 	} 
 
-	//Diese Methode dient der Übergabe eines Parameters (z.B. des aktuellen Users) für die aufzurufende Activity
+	//This mehtod is called when a new activity is called and a user should be given to the new activity through intent
 	private static void startActivityWithParam(Activity callingActivity,
 			Class <?> classOfActivityToStart,
 			String key, User user){
@@ -115,7 +102,7 @@ public class Navigation {
 		intent = new Intent();
 		intent.setClass(callingActivity, classOfActivityToStart);
 		intent.putExtra(keyCheckBoxex, userCheckboxAnswers);	
-		//in einen Intent kann man keine Challenge "putten", daher musste ich currentChallenge das Interface Serializable hinzufügen
+		//if you want to put an object of a new class in intent, the class (in this case the class challenge) needs to implement Serializable
 		intent.putExtra(keyChallenge, currentChallenge);
 		intent.putExtra(Constants.KEY_USER_ANSWER_TEXT, userTextAnswer);
 		callingActivity.startActivityForResult(intent, Constants.REQUESTCODE_ACTIVITY_SOLUTIONS);

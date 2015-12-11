@@ -19,7 +19,7 @@ public class Gui {
 	
 	private Button mLoginButton, mProfileManagementButton;
 	private ImageButton mInfoButton;
-	private Spinner mChoiceList;	
+	private Spinner mChoiceListSpinner;	
 	private Context mContext; //To instantiate the Choicelist (Spinner) the context has to be accessable
 
 	public Gui(Activity act) {
@@ -27,7 +27,7 @@ public class Gui {
 		mContext = act;
 		mLoginButton = (Button) act.findViewById(R.id.login);
 		mProfileManagementButton = (Button) act.findViewById(R.id.profile_management_start);		
-		mChoiceList = (Spinner) act.findViewById(R.id.choose_profile);
+		mChoiceListSpinner = (Spinner) act.findViewById(R.id.choose_profile);
 		mInfoButton = (ImageButton) act.findViewById(R.id.ib_information_button_login);
 	}
 
@@ -39,17 +39,17 @@ public class Gui {
 		return mProfileManagementButton;
 	}
 
-	public Spinner getChoiceList() {
-		return mChoiceList;
+	public Spinner getChoiceListSpinner() {
+		return mChoiceListSpinner;
 	}
 	
 	public ImageButton getInfoButton(){
 		return mInfoButton;
 	}
 	
-	public void setChoiceList(ArrayList<User> choiceList) {		
+	public void setChoiceListSpinner(ArrayList<User> choiceList) {		
 		ArrayAdapter<User> spinnerAdapter = new ArrayAdapter<User>(mContext, R.layout.spinner_item, choiceList);
-		mChoiceList.setAdapter(spinnerAdapter);
+		mChoiceListSpinner.setAdapter(spinnerAdapter);
 		
 	}
 	

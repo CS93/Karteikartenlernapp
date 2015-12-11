@@ -9,7 +9,6 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.File;
-import android.util.Log;
 
 public class XMLPullParserHandler {
 

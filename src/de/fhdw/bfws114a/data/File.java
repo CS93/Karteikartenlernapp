@@ -2,24 +2,24 @@ package de.fhdw.bfws114a.data;
 
 public class File {
 	
-	private int id;
-	private String name;
+	private int mId;
+	private String mName;
 
 	@Override
 	public String toString() {
-		return "Karteikarte [ID=" + id + ", Bezeichnung=" + name + "]";
+		return "Karteikarte [ID=" + mId + ", Bezeichnung=" + mName + "]";
 	}
 
 	public int getId() {
-		return id;
+		return mId;
 	}
 	public void setId(int id) {
-		this.id = id;
+		this.mId = id;
 	}
 	public String getName() {
-		return name;
+		return mName;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.mName = name;
 	}
 }

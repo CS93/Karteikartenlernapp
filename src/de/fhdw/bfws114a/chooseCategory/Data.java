@@ -47,20 +47,20 @@ public class Data {
 		mStatistics = mDataInterface.getFileNames(mCategories, mUser);
 		//Find out the Amount of Due Challenges to put them in statistics object
 		for(Statistics currentCategoryStatistic : mStatistics){
-			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getKartei(), mUser);
+			ArrayList<Challenge> allChallenges = mDataInterface.loadChallenges(currentCategoryStatistic.getCategory(), mUser);
 			int amountOfDueChallenges = 0;
 			java.util.Date now = new java.util.Date();
 			long difference;
 			
 			for(int i = 0; i< allChallenges.size(); i++){
 				//calculat difference between timestamp of current challenge and system date				
-				difference = now.getTime() - allChallenges.get(i).getZeitstempel().getTime();				
+				difference = now.getTime() - allChallenges.get(i).getTimestamp().getTime();				
 				//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
-				if(difference > (mDataInterface.getTimePeriod(allChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
+				if(difference > (mDataInterface.getTimePeriod(allChallenges.get(i).getCurrentClass(), mUser)*60*1000)){
 					amountOfDueChallenges++;
 				}
 			}			
-			currentCategoryStatistic.setFaelligeChallenges(amountOfDueChallenges);
+			currentCategoryStatistic.setDueChallenges(amountOfDueChallenges);
 		}
 		
 	}
@@ -73,12 +73,12 @@ public class Data {
 		this.mUser = mUser;
 	}
 
-	public ArrayList<String> getKarteien() {
+	public ArrayList<String> getCategories() {
 		return mCategories;
 	}
 
 		
-	public ArrayList<Statistics> getStatistik() {
+	public ArrayList<Statistics> getStatistics() {
 		return mStatistics;
 	}
 

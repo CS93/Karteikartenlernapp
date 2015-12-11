@@ -1,64 +1,58 @@
 package de.fhdw.bfws114a.solution;
 
 import android.app.Activity;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import de.fhdw.bfws114a.lernKartei.R;
-import de.fhdw.bfws114a.lernKartei.R.layout;
 
 public class Gui1 {
 	
-	private TextView mQuestion;
-	private CheckBox[] mOptions = new CheckBox[6];
+	private TextView mQuestionView;
+	private CheckBox[] mOptionCheckBoxes = new CheckBox[6];
 	private Activity mActivity;
-	private Button mContinue;
+	private Button mContinueButton;
 
 
 	public Gui1(Activity act) {
 		mActivity = act;
 		act.setContentView(R.layout.activity_challenge_checkbox_answer);
-		mQuestion = (TextView) act.findViewById(R.id.t_question_challenge_checkbox);
-		mOptions[0] = (CheckBox) act.findViewById(R.id.c_question_one_challenge_checkbox);
-		mOptions[1] = (CheckBox) act.findViewById(R.id.c_question_two_challenge_checkbox);
-		mOptions[2] = (CheckBox) act.findViewById(R.id.c_question_three_challenge_checkbox);
-		mOptions[3] = (CheckBox) act.findViewById(R.id.c_question_four_challenge_checkbox);
-		mOptions[4] = (CheckBox) act.findViewById(R.id.c_question_five_challenge_checkbox);
-		mOptions[5] = (CheckBox) act.findViewById(R.id.c_question_six_challenge_checkbox);
+		mQuestionView = (TextView) act.findViewById(R.id.t_question_challenge_checkbox);
+		mOptionCheckBoxes[0] = (CheckBox) act.findViewById(R.id.c_question_one_challenge_checkbox);
+		mOptionCheckBoxes[1] = (CheckBox) act.findViewById(R.id.c_question_two_challenge_checkbox);
+		mOptionCheckBoxes[2] = (CheckBox) act.findViewById(R.id.c_question_three_challenge_checkbox);
+		mOptionCheckBoxes[3] = (CheckBox) act.findViewById(R.id.c_question_four_challenge_checkbox);
+		mOptionCheckBoxes[4] = (CheckBox) act.findViewById(R.id.c_question_five_challenge_checkbox);
+		mOptionCheckBoxes[5] = (CheckBox) act.findViewById(R.id.c_question_six_challenge_checkbox);
 		checkBoxesNotChangeable();
-		mContinue = (Button) act.findViewById(R.id.b_continue_challenge_checkbox);
+		mContinueButton = (Button) act.findViewById(R.id.b_continue_challenge_checkbox);
 		
 
 	}
 
-	public void showThisGui(){
-		 mActivity.setContentView(R.layout.activity_challenge_checkbox_answer);
-	}
-
 	private void checkBoxesNotChangeable() {
 		for(int i = 0; i < 6 ; i++){
-			mOptions[i].setClickable(false);
+			mOptionCheckBoxes[i].setClickable(false);
 		}
 	}
 	
-	public TextView getQuestion() {
-		return mQuestion;
+	public TextView getQuestionView() {
+		return mQuestionView;
 	}
 
-	public CheckBox getOption(int index){
-		return mOptions[index];
+	public CheckBox getOptionCheckBox(int index){
+		return mOptionCheckBoxes[index];
 	}
 	
-	public CheckBox[] getOptions() {
-		return mOptions;
+	public CheckBox[] getOptionCheckBoxes() {
+		return mOptionCheckBoxes;
 	}
 
 	public Activity getActivity() {
 		return mActivity;
 	}
 
-	public Button getContinue() {
-		return mContinue;
+	public Button getContinueButton() {
+		return mContinueButton;
 	}
 }

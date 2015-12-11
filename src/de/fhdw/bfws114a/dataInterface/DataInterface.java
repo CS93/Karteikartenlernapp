@@ -1,12 +1,10 @@
 package de.fhdw.bfws114a.dataInterface;
 
-import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Date;
@@ -14,7 +12,6 @@ import java.util.List;
 
 import android.app.Activity;
 import android.os.Environment;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.File;
@@ -132,7 +129,7 @@ public class DataInterface {
 		
 		Card temp = new Card();
 		temp.setId(currentChallenge.getCardID());
-		temp.setQuestion(currentChallenge.getFrage());
+		temp.setQuestion(currentChallenge.getQuestion());
 		temp.setFile(currentChallenge.getFileID());
 		
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)+1);
@@ -147,7 +144,7 @@ public class DataInterface {
 		
 		Card temp = new Card();
 		temp.setId(currentChallenge.getCardID());
-		temp.setQuestion(currentChallenge.getFrage());
+		temp.setQuestion(currentChallenge.getQuestion());
 		temp.setFile(currentChallenge.getFileID());
 		
 		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, db.getAssignedClass(temp, user)-1);
@@ -155,7 +152,7 @@ public class DataInterface {
 
 	public void setCurrentTimestamp(Challenge currentChallenge, User user) {
 		// Carsten: Hier muss der Zeitstempel der Challenge auf die aktuelle Zeit gesetzt werden
-		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getAktuelleKlasse());
+		db.updateUserScore(currentChallenge.getFileID(), currentChallenge.getCardID(), user, currentChallenge.getCurrentClass());
 	}
 
 	public ArrayList<String> getFileNames() {

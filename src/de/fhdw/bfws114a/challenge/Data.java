@@ -46,9 +46,9 @@ public class Data {
 		for(int i = 0; i< alleChallenges.size(); i++){
 			//calculat difference between timestamp of current challenge and system date
 			
-			difference = now.getTime() - alleChallenges.get(i).getZeitstempel().getTime();
+			difference = now.getTime() - alleChallenges.get(i).getTimestamp().getTime();
 			//test whether difference is larger than class time period (-> due). The Time period is returned in minutes and has to be multiplied with 60 and 1000 to compare it
-			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getAktuelleKlasse(), mUser)*60*1000)){
+			if(difference > (mDataInterface.getTimePeriod(alleChallenges.get(i).getCurrentClass(), mUser)*60*1000)){
 				mDueChallenges.add(alleChallenges.get(i));
 			}
 		}		
@@ -58,7 +58,7 @@ public class Data {
 		return mUser;
 	}	
 	
-	public ArrayList<Challenge> getFaelligeChallenges() {
+	public ArrayList<Challenge> getDueChallenges() {
 		return mDueChallenges;
 	}	
 

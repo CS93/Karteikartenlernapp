@@ -10,18 +10,18 @@ import de.fhdw.bfws114a.lernKartei.R;
 
 public class Gui {
 	
-	private TextView mNumberOfAnsweredQuestion;
-	private TextView mNumberOfCorrectAnsweredQuestion;
-	private TextView mPercentageOfCorrectAnsweredQuestion;
-	private TextView mNumberOfDueChallenges; 
+	private TextView mNumberOfAnsweredQuestionView;
+	private TextView mNumberOfCorrectAnsweredQuestionView;
+	private TextView mPercentageOfCorrectAnsweredQuestionView;
+	private TextView mNumberOfDueChallengesView; 
 	private Button mContinueButton;
 	
 	public Gui(Activity act) {
 		act.setContentView(R.layout.activity_statistic);
-		mNumberOfAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_answered_statistic);
-		mNumberOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_correct_statistic);
-		mPercentageOfCorrectAnsweredQuestion = (TextView) act.findViewById(R.id.t_number_amount_percent_correct_statistic);
-		mNumberOfDueChallenges = (TextView) act.findViewById(R.id.t_number_amount_due_statistic);
+		mNumberOfAnsweredQuestionView = (TextView) act.findViewById(R.id.t_number_amount_answered_statistic);
+		mNumberOfCorrectAnsweredQuestionView = (TextView) act.findViewById(R.id.t_number_amount_correct_statistic);
+		mPercentageOfCorrectAnsweredQuestionView = (TextView) act.findViewById(R.id.t_number_amount_percent_correct_statistic);
+		mNumberOfDueChallengesView = (TextView) act.findViewById(R.id.t_number_amount_due_statistic);
 		mContinueButton = (Button) act.findViewById(R.id.b_continue_statistic);
 	}
 
@@ -29,20 +29,20 @@ public class Gui {
 		return mContinueButton;
 	}
 
-	public TextView getNumberOfAnsweredQuestion() {
-		return mNumberOfAnsweredQuestion;
+	public TextView getNumberOfAnsweredQuestionView() {
+		return mNumberOfAnsweredQuestionView;
 	}
 
-	public TextView getNumberOfCorrectAnsweredQuestion() {
-		return mNumberOfCorrectAnsweredQuestion;
+	public TextView getNumberOfCorrectAnsweredQuestionView() {
+		return mNumberOfCorrectAnsweredQuestionView;
 	}
 
-	public TextView getPercentageOfCorrectAnsweredQuestion() {
-		return mPercentageOfCorrectAnsweredQuestion;
+	public TextView getPercentageOfCorrectAnsweredQuestionView() {
+		return mPercentageOfCorrectAnsweredQuestionView;
 	}
 
-	public TextView getNumberOfDueChallenges() {
-		return mNumberOfDueChallenges;
+	public TextView getNumberOfDueChallengesView() {
+		return mNumberOfDueChallengesView;
 	}
 	
 	public void showToast(Activity activity){

@@ -2,39 +2,40 @@ package de.fhdw.bfws114a.data;
 
 import java.io.Serializable;
 
+@SuppressWarnings("serial")
 public class Statistics implements Serializable {
-	private String mKartei;
-	private int mFaelligeChallenges;
-	private int mGesamteChallenges;
+	private String mCategory;
+	private int mDueChallenges;
+	private int mOverallChallenges;
 	
-	public Statistics(String kartei, int faelligeChallenges, int gesamteChallenges){
-		this.mKartei = kartei;
-		this.mFaelligeChallenges = faelligeChallenges;
-		this.mGesamteChallenges = gesamteChallenges;
+	public Statistics(String category, int dueChallenges, int overallChallenges){
+		this.mCategory = category;
+		this.mDueChallenges = dueChallenges;
+		this.mOverallChallenges = overallChallenges;
 	}
 
-	public String getKartei() {
-		return mKartei;
+	public String getCategory() {
+		return mCategory;
 	}
 
-	public void setKartei(String mKartei) {
-		this.mKartei = mKartei;
+	public void setCategory(String mKartei) {
+		this.mCategory = mKartei;
 	}
 
-	public int getFaelligeChallenges() {
-		return mFaelligeChallenges;
+	public int getDueChallenges() {
+		return mDueChallenges;
 	}
 
-	public void setFaelligeChallenges(int mFaelligeChallenges) {
-		this.mFaelligeChallenges = mFaelligeChallenges;
+	public void setDueChallenges(int dueChallenges) {
+		this.mDueChallenges = dueChallenges;
 	}
 
-	public int getGesamteChallenges() {
-		return mGesamteChallenges;
+	public int getOverAllChallengers() {
+		return mOverallChallenges;
 	}
 
-	public void setGesamteChallenges(int mGesamteChallenges) {
-		this.mGesamteChallenges = mGesamteChallenges;
+	public void setOverallChallenges(int overallChallenges) {
+		this.mOverallChallenges = overallChallenges;
 	}
 	
 }

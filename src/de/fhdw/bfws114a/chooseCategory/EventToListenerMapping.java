@@ -11,8 +11,8 @@ public class EventToListenerMapping implements OnClickListener {
 
 	public EventToListenerMapping(Gui gui, ApplicationLogic applicationLogic){
 		mApplicationLogic = applicationLogic;
-		for(int i=0; i < gui.getCategories().length; i++){
-			gui.getCategory(i).setOnClickListener(this);
+		for(int i=0; i < gui.getCategoryButtons().length; i++){
+			gui.getCategoryButton(i).setOnClickListener(this);
 		}
 		gui.getRefreshButton().setOnClickListener(this);
 	}

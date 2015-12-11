@@ -21,7 +21,7 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		mGui.setChoiceList(mData.getUser());		
+		mGui.setChoiceListSpinner(mData.getUser());		
 		
 	}
 	
@@ -33,7 +33,7 @@ public class ApplicationLogic {
 		} else {
 			//Check which user has been selected and start UserMenu of the selected User 
 			for(User u : mData.getUser()){
-				if(u.getName().equals(mGui.getChoiceList().getSelectedItem().toString())){
+				if(u.getName().equals(mGui.getChoiceListSpinner().getSelectedItem().toString())){
 					Navigation.startActivityUserMenu(mData.getActivity(), u);
 					return;
 				}
@@ -70,7 +70,7 @@ public class ApplicationLogic {
 	        	}});
 	    //Avoid that more than one PopupWindow is opened
 	    popupWindow.dismiss();    
-	    popupWindow.showAsDropDown(mGui.getChoiceList(), 50, -30);	    
+	    popupWindow.showAsDropDown(mGui.getChoiceListSpinner(), 50, -30);	    
 	}
 		
 

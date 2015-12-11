@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
 import de.fhdw.bfws114a.dataInterface.DataInterface;
@@ -19,8 +18,6 @@ public class Data {
 		mActivity = activity;	
 		mDataInterface = new DataInterface(activity);
 		
-//		mDataInterface.importXMLtoDB();
-		
 		if(b == null){
 			//Activity has been started the first time
 			loadUser(); 
@@ -28,8 +25,6 @@ public class Data {
 			//Activity has been restarted e.g. change from Portrait to Landscape mode
 			restoreDataFromBundle(b);
 		}
-		 
-		
 	}
 	
 	public Activity getActivity() {
@@ -48,7 +43,6 @@ public class Data {
 	private void restoreDataFromBundle(Bundle b) {
 		//The Serializable is used to put the User-Object in Bundle
 		mUserList = (ArrayList<User>) b.getSerializable(Constants.KEY_USER_LIST);		
-		Log.d("Login", mUserList.get(0).getName());
 	}
 	
 	public void saveDataInBundle(Bundle b){

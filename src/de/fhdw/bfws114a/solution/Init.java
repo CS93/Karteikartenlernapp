@@ -2,7 +2,6 @@ package de.fhdw.bfws114a.solution;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 

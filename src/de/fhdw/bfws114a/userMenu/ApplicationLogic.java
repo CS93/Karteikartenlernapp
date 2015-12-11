@@ -6,7 +6,7 @@ import de.fhdw.bfws114a.dataInterface.DataInterface;
 public class ApplicationLogic {
 	private Data mData;
 	private Gui mGui;
-	private DataInterface dataInterface;
+	private DataInterface mDataInterface;
 	
 	ApplicationLogic(Data data, Gui gui){
 		mData=data;
@@ -31,8 +31,8 @@ public class ApplicationLogic {
 
 	//The refreshUser is necessary when class management has been finished and therefor the user-object has to be updated
 	public void refreshUser() {
-		dataInterface = new DataInterface(mData.getActivity());
-		mData.setUser(dataInterface.getUser(mData.getUser().getName()));
+		mDataInterface = new DataInterface(mData.getActivity());
+		mData.setUser(mDataInterface.getUser(mData.getUser().getName()));
 	}
 }
 

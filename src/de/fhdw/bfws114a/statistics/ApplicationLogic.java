@@ -1,7 +1,5 @@
 package de.fhdw.bfws114a.statistics;
 
-import de.fhdw.bfws114a.lernKartei.R.color;
-
 public class ApplicationLogic {
 	private Data mData;
 	private Gui mGui;
@@ -13,16 +11,16 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		mGui.getNumberOfAnsweredQuestion().setText(String.valueOf(mData.getIndexOfCurrentChallenge()+1));
+		mGui.getNumberOfAnsweredQuestionView().setText(String.valueOf(mData.getIndexOfCurrentChallenge()+1));
 		
-		mGui.getNumberOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()));
+		mGui.getNumberOfCorrectAnsweredQuestionView().setText(String.valueOf(mData.getNumberOfCorrectAnswers()));
 		
 		//index could be -1 (this is the case when no challenge has been answered and back button has been clicked. This could cause a division by zero and has to be avoided
 		if(mData.getIndexOfCurrentChallenge()+1 == 0){
-			mGui.getPercentageOfCorrectAnsweredQuestion().setText("0");
+			mGui.getPercentageOfCorrectAnsweredQuestionView().setText("0");
 		} else {
 			//to calculate percentage of correct answerded challenges, the app takes the numberOfCorrectAnswers *100 / numberOfAnswerdedQuestion (index+1)			
-			mGui.getPercentageOfCorrectAnsweredQuestion().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
+			mGui.getPercentageOfCorrectAnsweredQuestionView().setText(String.valueOf(mData.getNumberOfCorrectAnswers()*100/(mData.getIndexOfCurrentChallenge()+1)));
 		}
 		
 		if((mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)) == 0){
@@ -30,7 +28,7 @@ public class ApplicationLogic {
 		}
 		
 		//this textview shoul visualize the numberOfdueChallenges of this learn session. This is calculated through allChallenges of thisSession - answeredChallenges
-		mGui.getNumberOfDueChallenges().setText(String.valueOf(mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)));
+		mGui.getNumberOfDueChallengesView().setText(String.valueOf(mData.getNumberOfDueChallenges()-(mData.getIndexOfCurrentChallenge()+1)));
 	}
 	
 	public void onContinueClicked(){

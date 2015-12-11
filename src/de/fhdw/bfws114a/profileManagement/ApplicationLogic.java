@@ -17,12 +17,12 @@ public class ApplicationLogic {
 	}
 
 	private void applyDataToGui() {
-		mGui.setChoiceList(mData.getUser());		
+		mGui.setChoiceListSpinner(mData.getUser());		
 	}
 	
 	public void onAddUserClicked(){
 		//three options: the field is empty, the user already exists or the user can be saved
-		if (mGui.getAddUser().getText().toString().length() == 0){
+		if (mGui.getAddUserEditText().getText().toString().length() == 0){
 			mGui.showToast(R.string.user_empty_error_message);
 		}
 		else if ( checkUserExistAlready() == true){
@@ -30,7 +30,7 @@ public class ApplicationLogic {
 		}
 		else {
 			//add one User to db
-			mData.getDataInterface().addUser(mGui.getAddUser().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
+			mData.getDataInterface().addUser(mGui.getAddUserEditText().getText().toString()); //Am Besten diesen Teil in den Activityaufruf
 			//close activity
 			mData.getActivity().finish();	
 		}
@@ -44,7 +44,7 @@ public class ApplicationLogic {
 		}
 		else {
 		//delete one User from db
-		mData.getDataInterface().delUser(mGui.getChoiceList().getSelectedItem().toString());
+		mData.getDataInterface().delUser(mGui.getChoiceListSpinner().getSelectedItem().toString());
 		//close activity
 		mData.getActivity().finish();
 		}
@@ -52,7 +52,7 @@ public class ApplicationLogic {
 	
 	private boolean checkUserExistAlready() {
 		 for (User u : mData.getUser()) {
-	        	if (u.getName().equals(mGui.getAddUser().getText().toString()) == true){
+	        	if (u.getName().equals(mGui.getAddUserEditText().getText().toString()) == true){
 	        		return true;
 	        	}
 		}

@@ -5,96 +5,96 @@ import java.util.Date;
 
 @SuppressWarnings("serial")
 public class Challenge implements Serializable {
-	private String mKartei;
-	private int FileID;
-	private int CardID;
-	private int mAktuelleKlasse;
-	private Date mZeitstempel;
+	private String mCategory;
+	private int mFileID;
+	private int mCardID;
+	private int mCurrentClass;
+	private Date mTimeStamp;
 	private String mFrage;
-	private int mFrageTyp; //1 = Checkbox; 2 = Text; 3 = Eigenkontrolle
-	private String[] mAntworten; //Fragetyp 1 = 6 Anworten; 2 = nur die korrekte Antwort; 3 = nur die Korrekte Antwort
-	private boolean[] mKorrekteAnwortenFuerCheckbox; //Fragetyp 1 = zu den 6 mAntworten jeweils ein Indiz ob diese Antwort richtig (true) ist; sonst = leer
+	private int mQuestionType; //1 = Checkbox; 2 = Text; 3 = Self Review
+	private String[] mAnswers; //QuestionType 1 -> 6 Anworten; 2 -> only correct answer; 3 -> also the correct answer
+	private boolean[] mCorrectAnswersForCheckbox; //QuestionType 1 -> indexes with right answers from the 6 mAnswers; QuestionType 2,3 = empty
 	
 	
-	public Challenge(String kartei, int cardID, int fileID, int aktuelleKlasse, Date zeitstempel, String frage, int frageTyp,
-			String[] antworten, boolean[] korrekteAnwortenFuerCheckbox) {
+	public Challenge(String category, int cardID, int fileID, int currentClass, Date timestamp, String question, int questionType,
+			String[] answers, boolean[] correctAnswersForCheckbox) {
 		super();
-		this.mKartei = kartei;
-		this.FileID = fileID;
-		this.CardID = cardID;
-		this.mAktuelleKlasse = aktuelleKlasse;
-		this.mZeitstempel = zeitstempel;
-		this.mFrage = frage;
-		this.mFrageTyp = frageTyp;
-		this.mAntworten = antworten;
-		this.mKorrekteAnwortenFuerCheckbox = korrekteAnwortenFuerCheckbox;
+		this.mCategory = category;
+		this.mFileID = fileID;
+		this.mCardID = cardID;
+		this.mCurrentClass = currentClass;
+		this.mTimeStamp = timestamp;
+		this.mFrage = question;
+		this.mQuestionType = questionType;
+		this.mAnswers = answers;
+		this.mCorrectAnswersForCheckbox = correctAnswersForCheckbox;
 	}
 	
 	
-	public String getKartei() {
-		return mKartei;
+	public String getCategory() {
+		return mCategory;
 	}
-	public void setKartei(String mKartei) {
-		this.mKartei = mKartei;
+	public void setCategory(String category) {
+		this.mCategory = category;
 	}
 	public int getFileID() {
-		return FileID;
+		return mFileID;
 	}
 
 
 	public void setFileID(int fileID) {
-		FileID = fileID;
+		mFileID = fileID;
 	}
 
 
 	public int getCardID() {
-		return CardID;
+		return mCardID;
 	}
 
 
 	public void setCardID(int cardID) {
-		CardID = cardID;
+		mCardID = cardID;
 	}
 
 
-	public int getAktuelleKlasse() {
-		return mAktuelleKlasse;
+	public int getCurrentClass() {
+		return mCurrentClass;
 	}
-	public void setAktuelleKlasse(int mAktuelleKlasse) {
-		this.mAktuelleKlasse = mAktuelleKlasse;
+	public void setCurrentClass(int currentClass) {
+		this.mCurrentClass = currentClass;
 	}
-	public Date getZeitstempel() {
-		return mZeitstempel;
+	public Date getTimestamp() {
+		return mTimeStamp;
 	}
-	public void setZeitstempel(Date mZeitstempel) {
-		this.mZeitstempel = mZeitstempel;
+	public void setTimestamp(Date timestamp) {
+		this.mTimeStamp = timestamp;
 	}
-	public String getFrage() {
+	public String getQuestion() {
 		return mFrage;
 	}
-	public void setFrage(String mFrage) {
-		this.mFrage = mFrage;
+	public void setQuestion(String question) {
+		this.mFrage = question;
 	}
-	public int getFrageTyp() {
-		return mFrageTyp;
+	public int getQuestionType() {
+		return mQuestionType;
 	}
-	public void setFrageTyp(int mFrageTyp) {
-		this.mFrageTyp = mFrageTyp;
+	public void setQuestionType(int questionType) {
+		this.mQuestionType = questionType;
 	}
-	public String[] getAntworten() {
-		return mAntworten;
+	public String[] getAnswers() {
+		return mAnswers;
 	}
-	public String getAntwort(int index) {
-		return mAntworten[index];
+	public String getAnswer(int index) {
+		return mAnswers[index];
 	}
-	public void setAntworten(String[] mAntworten) {
-		this.mAntworten = mAntworten;
+	public void setAnswers(String[] answers) {
+		this.mAnswers = answers;
 	}
-	public boolean[] getKorrekteAnwortenFuerCheckbox() {
-		return mKorrekteAnwortenFuerCheckbox;
+	public boolean[] getCorrectAnswersForCheckbox() {
+		return mCorrectAnswersForCheckbox;
 	}
-	public void setKorrekteAnwortenFuerCheckbox(boolean[] mKorrekteAnwortenFuerCheckbox) {
-		this.mKorrekteAnwortenFuerCheckbox = mKorrekteAnwortenFuerCheckbox;
+	public void setCorrectAnswersForCheckbox(boolean[] correctAnswersForCheckbox) {
+		this.mCorrectAnswersForCheckbox = correctAnswersForCheckbox;
 	}
 	
 	

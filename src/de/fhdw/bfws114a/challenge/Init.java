@@ -33,8 +33,8 @@ public class Init extends Activity {
 	
 	@Override
 	public void onBackPressed() {
-		//Sie muss hier überschrieben werden um nicht zur Karteiauswahl zurückzukehren sondern die Statistics.Init zu öffnen
-		mApplicationLogic.FinishLearnSession();
+//		the former onBackPressed method has to be overrided, because we want to show the statistics whether learnSession is finished/quit
+		mApplicationLogic.finishLearnSession();
 	}
 
 	@Override
