@@ -1,3 +1,7 @@
+/**
+ * @author Carsten Schlender
+ */
+ 
 package de.fhdw.bfws114a.login;
 
 import java.util.ArrayList;

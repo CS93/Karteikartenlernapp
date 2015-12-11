@@ -1,3 +1,7 @@
+/**
+ * @author Carsten Schlender
+ */
+ 
 package de.fhdw.bfws114a.statistics;
 
 import android.app.Activity;

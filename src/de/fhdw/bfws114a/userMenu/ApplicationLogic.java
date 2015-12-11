@@ -1,3 +1,7 @@
+/**
+ * @author Carsten Schlender
+ */
+ 
 package de.fhdw.bfws114a.userMenu;
 
 import de.fhdw.bfws114a.Navigation.Navigation;

@@ -1,3 +1,6 @@
+/**
+ * @author Samira Schorre
+ */
 package de.fhdw.bfws114a.classManagement;
 
 import java.util.ArrayList;

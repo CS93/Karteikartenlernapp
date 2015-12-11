@@ -1,3 +1,6 @@
+/**
+ * @author Ricardo La Valle
+ */
 package de.fhdw.bfws114a.data;
 
 public class File {
