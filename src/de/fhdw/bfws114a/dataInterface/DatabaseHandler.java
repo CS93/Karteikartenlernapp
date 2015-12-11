@@ -9,7 +9,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Environment;
 import de.fhdw.bfws114a.data.Card;
 import de.fhdw.bfws114a.data.File;
 import de.fhdw.bfws114a.data.User;
@@ -47,7 +46,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_USERS_CLASS6_DURATION = "class6_duration";
 	private static final String KEY_USERS_LAST_SEEN = "last_seen";
 
-	// Table Userscores
+	// Table UserScores
 	private static final String KEY_USERSCORES_USERID = "fk_userid";
 	private static final String KEY_USERSCORES_FILEID= "fk_fileid";
 	private static final String KEY_USERSCORES_CARDID= "fk_cardid";
@@ -72,14 +71,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 	private static final String KEY_CARDS_SOLUTION= "solution";
 	
 	
-
-	
 	public DatabaseHandler(Context context) {
 		super(context, DATABASE_NAME, null, DATABASE_VERSION);
-				
-//		Log.d("DEBUG", Environment.getExternalStorageDirectory().getAbsolutePath());
-//		super(context, "/storage/sdcard0/"+ DATABASE_NAME, null, DATABASE_VERSION);
-
 	}
 
 	// Creating Tables
@@ -89,15 +82,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		createCardsTable(db);
 		createUserScoresTable(db);
 		createFilesTable(db);
-	}
-	
-	private boolean isSDCardWriteable() {
-		boolean rc = false;
-		String state = Environment.getExternalStorageState();
-		if (Environment.MEDIA_MOUNTED.equals(state)) {
-			rc = true;
-		}
-	    return rc;
 	}
 	
 	private void createUsersTable(SQLiteDatabase db){
@@ -121,7 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				"CREATE TABLE " + TABLE_USERSCORES + "("
 				+ KEY_USERSCORES_USERID + " INTEGER," 
 				+ KEY_USERSCORES_FILEID + " INTEGER," 
-				+ KEY_USERSCORES_CARDID + " INTEGER," // --> das habe ich aus den Anführungszeichen genommen:  PRIMARY KEY  
+				+ KEY_USERSCORES_CARDID + " INTEGER,"  
 				+ KEY_USERSCORES_ASSIGNEDCLASS + " INTEGER,"
 				+ KEY_USERSCORES_TIMESTAMP + " TEXT,"
 				+ "PRIMARY KEY ("
@@ -162,6 +146,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.execSQL(create_files_table);
 	}
 	
+	
 	private void dropUserTable(){
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("DROP TABLE IF EXISTS "+TABLE_USERS);
@@ -198,7 +183,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	public void clearCard(){
+	public void clearCardTable(){
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("delete from "+ TABLE_CARDS);
 		db.close();
@@ -335,13 +320,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				userList.add(user);
 			} while (cursor.moveToNext());
 		}
-
-		// return user list
 		return userList;
-	}
-	
-	public void updateUser(){
-		
 	}
 	
 	public void updateUserClasses(String user, int class1, int class2, int class3, int class4, int class5, int class6){
@@ -358,7 +337,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		String[] whereArgs = new String[] {user};		
 		db.update(TABLE_USERS, values, whereClause, whereArgs);
 		db.close();
-
 	}
 
 	// Deleting single user by ID
@@ -369,17 +347,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		db.close();
 	}
 	
-	// Deleting user by name - ATTENTION: ALL USERS WITH THIS NAME WILL BE DELETED
-
 	public void deleteUser(String name) {
+		//Deletes a user by his name - ATTENTION: ALL USERS WITH THIS NAME WILL BE DELETED
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.delete(TABLE_USERS, KEY_USERS_USERNAME + " = ?",
 				new String[] { name });
 		db.close();
 	}
 
-	// Getting user Count
 	public int getUserCount() {
+		// Returns the number of users in the DB.
 		String countQuery = "SELECT * FROM " + TABLE_USERS;
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery(countQuery, null);
@@ -424,11 +401,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 					result.add(file);
 				} while (cursor.moveToNext());
 			}
-
 			db.close();
 
-			
-			// return file list
 			return result;
 			
 		}
@@ -501,13 +475,11 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 			}
 			db.close();
 			
-			// return file list
 			return result;
 			
 		}
 				
 		public ArrayList<Card> getCardsByFile(String filename){
-			//TESTED
 			ArrayList<Card> result = new ArrayList<Card>();
 			String fileID=Integer.toString(getFileID(filename));
 			String[] columns = new String[] {
@@ -548,7 +520,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 											
 					// Adding card to resultlist
 					result.add(card);
-//					Log.d("DEBUG", card.toString());
 
 				} while (cursor.moveToNext());
 			}		
@@ -562,11 +533,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 */
 		
 		public int getAssignedClass(Card mCard, User mUser){
-			//TESTED
-//			Log.d("DEBUG", "-- getAssignedClass wurde aufgerufen: --");
-//			Log.d("DEBUG", "User: " + mUser.getName() + " (Name), " + mUser.getID() + " (ID)");
-//			Log.d("DEBUG", "Card: " + mCard.getId() + " (ID), " + mCard.getQuestion() + " (Question)");
-
+			// Returns the class a card/challenge is assigned to.
 			int result=99;
 			String sql=
 					"SELECT " + KEY_USERSCORES_ASSIGNEDCLASS
@@ -587,18 +554,12 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 				result = Integer.parseInt(cursor.getString(0));
 			}
 			db.close();
-			
-//			if(result==99){
-//				Log.d("DEBUG","Kein Eintrag für die Kombination gefunden");
-//			}else 				Log.d("DEBUG","Assigned Class gefunden: " + result);
-//			Log.d("DEBUG", "-- getAssignedClass Durchlauf beendet --");
-
 			return result;
 		}
 		
 		public long getUserScoreTimestamp(Card mCard, User mUser){
-			//TESTED
-			
+			// Returns the timestamp from a specific UserScore.
+			// Format long --> Unix epoche time
 			long result=0;
 			String sql=
 					"SELECT " + KEY_USERSCORES_TIMESTAMP
@@ -623,7 +584,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		public void addUserScore(Card mCard, User mUser){
-			//TESTED
+			// Adds a new UserScore
 			SQLiteDatabase db = this.getWritableDatabase();
 			java.sql.Date epoche = new Date(0);
 			
@@ -640,7 +601,6 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 		
 		public void updateUserScore(int FileID, int CardID, User mUser, int newClass){
-			// TESTED
 			String sql=
 					"UPDATE " + TABLE_USERSCORES
 					+ " SET " + KEY_USERSCORES_ASSIGNEDCLASS + " = " + newClass 
@@ -655,10 +615,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 		}
 
 		public void deleteUserScores(User user) {
+			// Deletes the UserScores for one specific User.
 			SQLiteDatabase db = this.getWritableDatabase();
 			db.delete(TABLE_USERSCORES, KEY_USERSCORES_USERID + " = ?",
 					new String[] { String.valueOf(user.getID()) });
 			db.close();
 		}
-				
 }

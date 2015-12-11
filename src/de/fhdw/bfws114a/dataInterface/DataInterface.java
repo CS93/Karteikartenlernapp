@@ -245,7 +245,7 @@ public class DataInterface {
 		// All existing Data stored in the DB, excepting the users, will be deleted before.
 		copyDefaultXMLintoExternalFolder();
 		db.clearFileTable();
-		db.clearCard();
+		db.clearCardTable();
 		db.clearUserscoreTable();
 		List<Card> importedCards = new ArrayList<Card>();
 		List<File> importedFiles = new ArrayList<File>();
