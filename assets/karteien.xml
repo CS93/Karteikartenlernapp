@@ -229,7 +229,7 @@
     <file>
         <fileName>Technik</fileName>
         <fileID>6</fileID>
-       <card>
+        <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
             <question>Welche Farben hat die Schutzleitung in normalen Haushalten?</question>
@@ -237,15 +237,17 @@
             <answer2>Blau</answer2>
             <answer3>Schwarz</answer3>
             <answer4>Blau Grün</answer4>
+            <answer5>Orange</answer5>
+            <answer6>Lila</answer6>
             <solution>1</solution>
         </card>
-       <card>
+        <card>
             <cardID>0001</cardID>
             <cardType>2</cardType>
             <question>Wie viele Space Shuttels wurden von der NASA gebaut?</question>
             <answer1>5</answer1>
         </card>
-       <card>
+        <card>
             <cardID>0002</cardID>
             <cardType>1</cardType>
             <question>Was heißt LED?</question>
@@ -257,17 +259,40 @@
             <answer6>Lamp Engender Diode</answer6>
             <solution>4</solution>
         </card>
-       <card>
+        <card>
             <cardID>0003</cardID>
             <cardType>3</cardType>
             <question>Wofür steht das "E" in "E-Mail"?</question>
-            <answer1>Electronlic</answer1>
+            <answer1>Electronic</answer1>
         </card>
         <card>
             <cardID>0004</cardID>
             <cardType>2</cardType>
             <question>In welchem Jahr kamen die ersten Laptops auf den Markt?</question>
             <answer1>1982</answer1>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>2</cardType>
+            <question>Was ist die Abkürzung für Wechselspannung?</question>
+            <answer1>AC</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>1</cardType>
+            <question>Welche Spannung liegt an einer Steckdose in Deutschland üblicherweise an?</question>
+            <answer1>110V</answer1>
+            <answer2>1000W</answer2>
+            <answer3>24kOhm</answer3>
+            <answer4>220V</answer4>
+            <answer5>230V</answer5>
+            <answer6>16A</answer6>
+        </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>3</cardType>
+            <question>Wer hat die Glühbirne erfunden?</question>
+            <answer1>Thomas Alva Edison</answer1>
         </card>
     </file>
 
