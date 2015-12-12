@@ -82,18 +82,24 @@
         </card>
         <card>
             <cardID>0001</cardID>
+            <cardType>3</cardType>
+            <question>Die DNA ist ein Doppelstrang. Wie nennt man den Einzelstrang?</question>
+            <answer1>ribonucleic acid (RNA, auf Deutsch: Ribonukleinsäure)</answer1>
+        </card>
+        <card>
+            <cardID>0002</cardID>
             <cardType>2</cardType>
             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
             <answer1>200</answer1>
         </card>
         <card>
-            <cardID>0002</cardID>
+            <cardID>0003</cardID>
             <cardType>3</cardType>
             <question>Wie groß wird ein Blauwal maximal?</question>
             <answer1>33 Meter</answer1>
         </card>
         <card>
-            <cardID>0003</cardID>
+            <cardID>0004</cardID>
             <cardType>1</cardType>
             <question>Wie viele X-Chromosome haben Menschen?</question>
             <answer1>0</answer1>
@@ -105,7 +111,7 @@
             <solution>3</solution>
         </card>
         <card>
-            <cardID>0004</cardID>
+            <cardID>0005</cardID>
             <cardType>1</cardType>
             <question>Was gehört zur Biologie?</question>
             <answer1>Mikrobiologie</answer1>
@@ -115,6 +121,12 @@
             <answer5>Genetik</answer5>
             <answer6>Sport</answer6>
             <solution>1;2;3;4;5</solution>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>2</cardType>
+            <question>Welche Abkürzung hat der Begriff "deoxyribonucleic acid" in der Biologie (auf Deutsch: Desoxyribonukleinsäure)?</question>
+            <answer1>DNA</answer1>
         </card>
     </file>
         <file>
@@ -134,6 +146,12 @@
         </card>
         <card>
             <cardID>0002</cardID>
+            <cardType>3</cardType>
+            <question>Welches hoch radioaktive Material wird in Atomkraftwerken genutzt um Wärme zu erzeugen?</question>
+            <answer1>Uran</answer1>
+        </card>
+        <card>
+            <cardID>0003</cardID>
             <cardType>1</cardType>
             <question>Welche/r Himmelskörper ist kein Planet?</question>
             <answer1>Alpha Centauri</answer1>
@@ -169,10 +187,13 @@
         </card>
         <card>
             <cardID>0002</cardID>
-            <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
-            
+            <cardType>1</cardType>
+            <question>Nach was wird bei Android die Updates benannt?</question>
+            <answer1>Weihnachtsspezialitäten</answer1>
+            <answer2>Amerikanischen Süßigkeiten</answer2>
+            <answer3>Zusammengesetzte Wörter des Providers</answer3>
+            <answer4>Abgeänderte Updates von Apple</answer4>
+            <solution>2</solution>
         </card>
     </file>
     <file>
@@ -211,28 +232,42 @@
        <card>
             <cardID>0000</cardID>
             <cardType>1</cardType>
-            <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question>
-            <answer1>10 Jahre</answer1>
-            <answer2>30 Jahre</answer2>
-            <answer3>50 Jahre</answer3>
-            <answer4>70 Jahre</answer4>
-            <answer5>90 Jahre</answer5>
-            <answer6>110 Jahre</answer6>
-            <solution>5</solution>
+            <question>Welche Farben hat die Schutzleitung in normalen Haushalten?</question>
+            <answer1>Grün Gelb</answer1>
+            <answer2>Blau</answer2>
+            <answer3>Schwarz</answer3>
+            <answer4>Blau Grün</answer4>
+            <solution>1</solution>
         </card>
-        <card>
+       <card>
             <cardID>0001</cardID>
             <cardType>2</cardType>
-            <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question>
-            <answer1>200</answer1>
-            
+            <question>Wie viele Space Shuttels wurden von der NASA gebaut?</question>
+            <answer1>5</answer1>
+        </card>
+       <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Was heißt LED?</question>
+            <answer1>Lithium Erediom Diode</answer1>
+            <answer2>Licht Erzeugungs Diode</answer2>
+            <answer3>Lithium Enorm Diode</answer3>
+            <answer4>Light Emitting Diode</answer4>
+            <answer5>Light Emence Diode</answer5>
+            <answer6>Lamp Engender Diode</answer6>
+            <solution>4</solution>
+        </card>
+       <card>
+            <cardID>0003</cardID>
+            <cardType>3</cardType>
+            <question>Wofür steht das "E" in "E-Mail"?</question>
+            <answer1>Electronlic</answer1>
         </card>
         <card>
-            <cardID>0002</cardID>
-            <cardType>3</cardType>
-            <question>Wie viele Meter wird ein Blauwahl maximal?</question>
-            <answer1>33</answer1>
-            
+            <cardID>0004</cardID>
+            <cardType>2</cardType>
+            <question>In welchem Jahr kamen die ersten Laptops auf den Markt?</question>
+            <answer1>1982</answer1>
         </card>
     </file>
 
