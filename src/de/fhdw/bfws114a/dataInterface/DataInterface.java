@@ -35,6 +35,7 @@ public class DataInterface {
 		db = new DatabaseHandler(activity);
 		xmlHandler = new XMLPullParserHandler();
 		this.activity = activity;
+		copyDefaultXMLintoExternalFolder();
 	}
 
 	public ArrayList<User> loadUsers() {

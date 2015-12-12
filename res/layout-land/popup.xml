@@ -23,7 +23,7 @@
           android:layout_height="wrap_content"
           android:layout_centerHorizontal="true"
           android:gravity="center"
-          android:text="Entwickler:        					  	 Frank Helfmeyer			 Carsten Schlender 				Ricardo La Valle				 Samira Schorre"
+          android:text="@string/impressum"
           android:textColor="@color/black"
           android:textSize="25sp" />
 

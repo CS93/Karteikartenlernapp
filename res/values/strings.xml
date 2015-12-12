@@ -54,4 +54,5 @@
     <string name="no_due_challenges">Aktuell sind keine Challenges dieser Kartei fällig. Bitte refresh drücken oder ggf. warten</string>
     <string name="quit_learn_session">Lernmodus beenden</string>
     <string name="sure_to_quit_learn_session">Sind Sie sicher, dass Sie den Lernmodus beenden möchten?</string>
+    <string name="impressum">Entwickler: \nFrank Helfmeyer \nCarsten Schlender \nRicardo La Valle \nSamira Schorre</string>
 </resources>
