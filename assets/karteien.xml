@@ -63,8 +63,19 @@
             <question>Wie lautet die chemische Formel für Ammoniak?</question>
             <answer1>NH3</answer1>
         </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>1</cardType>
+            <question>Wer bekam 1954 den Chemienobelpreis?</question>
+            <answer1>Linus Pauling</answer1>
+            <answer2>Otto Hahn</answer2>
+            <answer3>Pearl S. Buck</answer3>
+            <answer4>Peter Mancher</answer4>
+            <answer5>Albert Schweizer</answer5>
+            <answer6>Franz Kaiser</answer6>
+            <solution>1</solution>
+        </card>
     </file>
-
     <file>
         <fileName>Biologie</fileName>
         <fileID>2</fileID>
@@ -128,6 +139,18 @@
             <question>Welche Abkürzung hat der Begriff "deoxyribonucleic acid" in der Biologie (auf Deutsch: Desoxyribonukleinsäure)?</question>
             <answer1>DNA</answer1>
         </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>1</cardType>
+            <question>Welcher Vogel ist der "Muttergottesvogel"</question>
+            <answer1>Elster</answer1>
+            <answer2>Schwalbe</answer2>
+			<answer3>Grünfink</answer3>
+			<answer4>Rotkehl</answer4>
+			<answer5>Gans</answer5>
+			<answer6>Maise</answer6>
+			<solution>2</solution>
+        </card>
     </file>
         <file>
         <fileName>Physik</fileName>
@@ -162,6 +185,42 @@
             <answer6>KOI-351</answer6>
             <solution>1;3;6</solution>
         </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>1</cardType>
+            <question>Was ist m/s für eine Einheit?</question>
+            <answer1>Mess-Einheit</answer1>
+            <answer2>Druckeinheit</answer2>
+            <answer3>Deutsche-Einheit</answer3>
+            <answer4>Geschwindikeitseinheit</answer4>
+            <answer5>Physikalische-Einheit</answer5>
+            <answer6>Temperatureinheit</answer6>
+            <solution>1;4;5</solution>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>3</cardType>
+            <question>Wielange braucht das Licht der Sonne bis es die Erde erreicht?</question>
+			<answer1>ca. 8,5 Minuten</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>2</cardType>
+            <question>Wie heißen die elektrisch geladenen Teilchen, die um einen Atomkern kreisen?</question>
+			<answer1>Elektronen</answer1>
+        </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>1</cardType>
+            <question>Wie schnell bewegt sich Schall durch die Luft?</question>
+			<answer1>10m pro Sekunde</answer1>
+			<answer2>80m pro Sekunde</answer2>
+			<answer3>330m pro Sekunde</answer3>
+			<answer4>500m pro Sekunde</answer4>
+			<answer5>720m pro Sekunde</answer5>
+			<answer6>1,25km pro Sekunde</answer6>
+			<solution>3</solution>
+        </card>
     </file>
     <file>
         <fileName>Informatik</fileName>
@@ -183,7 +242,6 @@
             <cardType>2</cardType>
             <question>Welches ist das neueste Betriebssystem von Microsoft?</question>
             <answer1>Windows 10</answer1>
-            
         </card>
         <card>
             <cardID>0002</cardID>
@@ -193,7 +251,51 @@
             <answer2>Amerikanischen Süßigkeiten</answer2>
             <answer3>Zusammengesetzte Wörter des Providers</answer3>
             <answer4>Abgeänderte Updates von Apple</answer4>
+            <answer5>Modewort des aktuellen Monats</answer5>
+            <answer6>Namen von Propheten aus der Bibel</answer6>
             <solution>2</solution>
+        </card>
+        <card>
+            <cardID>0003</cardID>
+            <cardType>1</cardType>
+            <question>Aus wievielen Bits besteht ein Byte?</question>
+            <answer1>2</answer1>
+            <answer2>4</answer2>
+            <answer3>8</answer3>
+            <answer4>10</answer4>
+            <answer5>128</answer5>
+            <answer6>1024</answer6>
+            <solution>3</solution>
+        </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>2</cardType>
+            <question>Wieviel MByte/s sind maximal über USB3.0 möglich?</question>
+            <answer1>500</answer1>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>3</cardType>
+            <question>Wofür steht die Abkürzung LAN?</question>
+            <answer1>Local Area Network</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>1</cardType>
+            <question>Was sind gängige Funktechnologien im Computerbereich</question>
+            <answer1>IrDA</answer1>
+            <answer2>PCI-E</answer2>
+            <answer3>WLAN</answer3>
+            <answer4>SCSI</answer4>
+            <answer5>Bluetooth</answer5>
+            <answer6>SDHC</answer6>
+            <solution>1;3;5</solution>
+        </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>3</cardType>
+            <question>Wofür steht die Abkürzung VOIP?</question>
+            <answer1>Voice-Over-IP</answer1>
         </card>
     </file>
     <file>
@@ -223,7 +325,54 @@
             <cardType>3</cardType>
             <question>Wer ist Rekordspieler der deutschen Nationalmannschaft?</question>
             <answer1>Lothar Mathäus</answer1>
-            
+        </card>
+        <card>
+            <cardID>0003</cardID>
+            <cardType>1</cardType>
+            <question>Wieviel Spieler gibt es bei einem Handballspiel?</question>
+            <answer1>10</answer1>
+            <answer2>11</answer2>
+            <answer3>12</answer3>
+            <answer4>13</answer4>
+            <answer5>14</answer5>
+            <answer6>16</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>1</cardType>
+            <question>In welchen Jahren wurde Deutschland Fußballweltmeister?</question>
+            <answer1>1950</answer1>
+            <answer2>1954</answer2>
+            <answer3>1968</answer3>
+            <answer4>1974</answer4>
+            <answer5>1990</answer5>
+            <answer6>2014</answer6>
+            <solution>2;4;5;6</solution>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>2</cardType>
+            <question>In welchen Jahr war die erste Fußballweltmeisterschaft (nach dem 2. Weltkrieg)?</question>
+            <answer1>1950</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>3</cardType>
+            <question>Wie oft darf der Trainer in einem Handball Spiel die Spieler wechseln?</question>
+            <answer1>So oft er will.</answer1>
+        </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>1</cardType>
+            <question>Was gab es 1896 bei den ersten Olymischen Spiele der Neuzeit?</question>
+            <answer1>Trinkwasser</answer1>
+            <answer2>Goldmedalien</answer2>
+            <answer3>Zuschauer</answer3>
+            <answer4>Deutsche Teilnehmer</answer4>
+            <answer5>Sportler</answer5>
+            <answer6>Italienische Teilnehmer</answer6>
+            <solution>2</solution>
         </card>
     </file>
     <file>
@@ -287,6 +436,7 @@
             <answer4>220V</answer4>
             <answer5>230V</answer5>
             <answer6>16A</answer6>
+            <solution>5</solution>
         </card>
         <card>
             <cardID>0007</cardID>
@@ -295,38 +445,74 @@
             <answer1>Thomas Alva Edison</answer1>
         </card>
     </file>
-
-
-<!-- 	<file> -->
-<!-- 		<fileName>Geschichte</fileName> -->
-<!-- 		<fileID>7</fileID> -->
-<!-- 		<card> -->
-<!--             <cardID>0000</cardID> -->
-<!--             <cardType>1</cardType> -->
-<!--             <question>Wie hoch ist die maximale Lebenserwartung von Blauwalen?</question> -->
-<!--             <answer1>10 Jahre</answer1> -->
-<!--             <answer2>30 Jahre</answer2> -->
-<!--             <answer3>50 Jahre</answer3> -->
-<!--             <answer4>70 Jahre</answer4> -->
-<!--             <answer5>90 Jahre</answer5> -->
-<!--             <answer6>110 Jahre</answer6> -->
-<!--             <solution>5</solution> -->
-<!--         </card> -->
-<!--         <card> -->
-<!--             <cardID>0001</cardID> -->
-<!--             <cardType>2</cardType> -->
-<!--             <question>Wie viele Tonnen wiegt ein Blauwahl maximal?</question> -->
-<!--             <answer1>200</answer1> -->
-<!--              -->
-<!--         </card> -->
-<!--         <card> -->
-<!--             <cardID>0002</cardID> -->
-<!--             <cardType>3</cardType> -->
-<!--             <question>Wie viele Meter wird ein Blauwahl maximal?</question> -->
-<!--             <answer1>33</answer1> -->
-<!--              -->
-<!--         </card> -->
-<!-- 	</file> -->
-
-
+	<file>
+		<fileName>Geschichte</fileName>
+		<fileID>7</fileID>
+		<card>
+            <cardID>0000</cardID>
+            <cardType>1</cardType>
+            <question>Wie hieß Deutschlands erster Bundekanzler?</question>
+            <answer1>Alexander der Große</answer1>
+            <answer2>Kaiser Wilhelm</answer2>
+            <answer3>Konrad Adenauer</answer3>
+            <answer4>Ludwig Erhard</answer4>
+            <answer5>Stefan Raab</answer5>
+            <answer6>Willy Brandt</answer6>
+            <solution>3</solution>
+        </card>
+        <card>
+            <cardID>0001</cardID>
+            <cardType>3</cardType>
+            <question>Wie lang war der 30 Jährige Krieg?</question>
+            <answer1>30 Jahre und 5 Monate</answer1>
+        </card>
+        <card>
+            <cardID>0002</cardID>
+            <cardType>1</cardType>
+            <question>Wer kam durch ein Attentat ums Leben?</question>
+            <answer1>Nelson Mandela</answer1>
+            <answer2>John F. Kennedy</answer2>
+            <answer3>Konrad Adenauer</answer3>
+            <answer4>Abraham Lincoln</answer4>
+            <answer5>Henriette Reker</answer5>
+            <answer6>Willy Brandt</answer6>
+            <solution>2;4</solution>
+        </card>
+        <card>
+            <cardID>0003</cardID>
+            <cardType>2</cardType>
+            <question>In welchem Jahr endete der 2. Weltkrieg?</question>
+            <answer1>1945</answer1>
+        </card>
+        <card>
+            <cardID>0004</cardID>
+            <cardType>3</cardType>
+            <question>Wo entstanden 1960 17 neue Staaten?</question>
+            <answer1>Afrika</answer1>
+        </card>
+        <card>
+            <cardID>0005</cardID>
+            <cardType>2</cardType>
+            <question>Wie hieß die NASA Mission der ersten Mondlandung?</question>
+            <answer1>Apollo 11</answer1>
+        </card>
+        <card>
+            <cardID>0006</cardID>
+            <cardType>1</cardType>
+            <question>Wann landete Apollo 11 auf dem Mond?</question>
+            <answer1>20. Juni 1969</answer1>
+            <answer2>16. Juli 1969</answer2>
+            <answer3>16. Januar 1971</answer3>
+            <answer4>10. Juni 1968</answer4>
+            <answer5>20. Juli 1969</answer5>
+            <answer6>29. Februar 1968</answer6>
+            <solution>5</solution>
+        </card>
+        <card>
+            <cardID>0007</cardID>
+            <cardType>2</cardType>
+            <question>Wie alt wurde Nelson Mandela?</question>
+            <answer1>95</answer1>
+        </card>
+	</file>
 </files>
