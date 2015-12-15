@@ -31,74 +31,73 @@
 
     <CheckBox
         android:id="@+id/c_question_one_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/t_description_challenge_checkbox"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="100dp"
-        android:paddingLeft="60dp"
+        android:paddingLeft="20dp"
         android:textSize="30sp"
         android:text="Antwort 1"
         android:textColor="@color/orange" />
 
     <CheckBox
         android:id="@+id/c_question_two_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/c_question_one_challenge_checkbox"
         android:layout_below="@+id/c_question_one_challenge_checkbox"
         android:layout_marginTop="40dp"
-        android:paddingLeft="60dp"
+        android:paddingLeft="20dp"
         android:textSize="30sp"
-        android:text="Antwort 2"
+        android:text="Amerikanische Süßigkeiten"
         android:textColor="@color/orange" />
     
     <CheckBox
         android:id="@+id/c_question_three_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/c_question_two_challenge_checkbox"
         android:layout_below="@+id/c_question_two_challenge_checkbox"
         android:layout_marginTop="40dp"
-        android:paddingLeft="60dp"
+        android:paddingLeft="20dp"
         android:textSize="30sp"
-        android:text="Antwort 3"
+        android:text="awdadadadadadadadadad"
         android:textColor="@color/orange" />
     
     <CheckBox
         android:id="@+id/c_question_four_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/t_description_challenge_checkbox"
-        android:layout_marginRight="100dp"
-        android:layout_marginTop="100dp"
-        android:paddingLeft="60dp"
+		android:layout_alignBottom="@id/c_question_one_challenge_checkbox"
+        android:layout_toRightOf="@id/c_question_one_challenge_checkbox"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:textSize="30sp"
         android:text="Antwort 4"
         android:textColor="@color/orange"/>
     
     <CheckBox
         android:id="@+id/c_question_five_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/c_question_four_challenge_checkbox"
-        android:layout_below="@+id/c_question_four_challenge_checkbox"
-        android:layout_marginTop="40dp" 
-        android:paddingLeft="60dp"
+		android:layout_alignBottom="@id/c_question_two_challenge_checkbox"
+        android:layout_toRightOf="@id/c_question_two_challenge_checkbox"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:textSize="30sp"
-        android:text="Antwort 5"
+        android:text="Amerikanische Süßigkeiten"
         android:textColor="@color/orange" />
     
     <CheckBox
         android:id="@+id/c_question_six_challenge_checkbox"
-        android:layout_width="wrap_content"
+        android:layout_width="425dp"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/c_question_five_challenge_checkbox"
-        android:layout_below="@+id/c_question_five_challenge_checkbox"
-        android:layout_marginTop="40dp"
-        android:paddingLeft="60dp"
+		android:layout_alignBottom="@id/c_question_three_challenge_checkbox"
+        android:layout_toRightOf="@id/c_question_three_challenge_checkbox"
+        android:paddingLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:textSize="30sp"
         android:text="Antwort 6"
         android:textColor="@color/orange" />
