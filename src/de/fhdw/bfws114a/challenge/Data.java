@@ -8,6 +8,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import de.fhdw.bfws114a.data.Challenge;
 import de.fhdw.bfws114a.data.Constants;
 import de.fhdw.bfws114a.data.User;
@@ -20,8 +21,8 @@ public class Data {
 	private Activity mActivity;
 	private DataInterface mDataInterface;
 	private int mIndexOfCurrentChallenge;
-	private int mNumberOfCorrectAnswers = 0;
-	private int mNumberOfWrongAnswers = 0;
+	private int mNumberOfCorrectAnswers;
+	private int mNumberOfWrongAnswers;
 	private ArrayList<Challenge> mDueChallenges = new ArrayList<Challenge>();
 	
 	public Data(Bundle b, Activity activity, User user, String category){	
@@ -31,6 +32,8 @@ public class Data {
 		mDataInterface = new DataInterface(activity);
 		if (b == null ){
 			mIndexOfCurrentChallenge = 0;
+			mNumberOfCorrectAnswers = 0;
+			mNumberOfWrongAnswers = 0;
 			//first time activity is displayed on screen		
 			ladeFaelligeChallenges();
 		}
@@ -82,12 +85,17 @@ public class Data {
 		//load the due challenges from Bundle through casting the Serializable value
 		mDueChallenges = (ArrayList<Challenge>) b.getSerializable(Constants.KEY_DUE_CHALLENGES_VALUE);	
 		mIndexOfCurrentChallenge = b.getInt(Constants.KEY_RESTORE_INDEX_OF_CURRENT_CHALLENGE);
+		mNumberOfCorrectAnswers = b.getInt(Constants.KEY_RESTORE_CORRECT_ANSWERS);
+		mNumberOfWrongAnswers = b.getInt(Constants.KEY_RESTORE_WRONG_ANSWERS);
+		
 	}
 	
 	public void saveDataInBundle(Bundle b){		
 		//Use the Serializable Interface to put the due challenges in Bundle
 		b.putSerializable(Constants.KEY_DUE_CHALLENGES_VALUE, mDueChallenges);	
 		b.putInt(Constants.KEY_RESTORE_INDEX_OF_CURRENT_CHALLENGE, mIndexOfCurrentChallenge);
+		b.putInt(Constants.KEY_RESTORE_CORRECT_ANSWERS, mNumberOfCorrectAnswers);
+		b.putInt(Constants.KEY_RESTORE_WRONG_ANSWERS, mNumberOfWrongAnswers);
 	}
 
 	public void increaseIndexOfCurrentChallenge() {

@@ -21,7 +21,10 @@ public class Constants {
 	public static final String KEY_USER_LIST = "de.fhdw.bfws114a.data.K14";
 	public static final String KEY_STATISTICS_VALUE = "de.fhdw.bfws114a.data.K15";
 	public static final String KEY_RESTORE_INDEX_OF_CURRENT_CHALLENGE = "de.fhdw.bfws114a.data.K16";
+	public static final String KEY_RESTORE_CORRECT_ANSWERS = "de.fhdw.bfws114a.data.K17";
+	public static final String KEY_RESTORE_WRONG_ANSWERS = "de.fhdw.bfws114a.data.K18";
 	
 	public static final int REQUESTCODE_ACTIVITY_SOLUTIONS = 1;
+	
 	
 }
