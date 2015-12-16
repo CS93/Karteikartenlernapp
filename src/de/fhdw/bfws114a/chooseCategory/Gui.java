@@ -93,8 +93,16 @@ public class Gui {
 		return mRefreshButton;
 	}
 	
-	public void showToast(Activity act){
+	public void showToastNoDueChallenges(Activity act){
 		 Toast toast = Toast.makeText(act, act.getString(R.string.no_due_challenges), Toast.LENGTH_LONG);
+		 LinearLayout toastLayout = (LinearLayout) toast.getView();
+		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
+		 toastTV.setTextSize(30);
+		 toastTV.setTextColor(Color.RED);
+		 toast.show();	 
+	}
+	public void showToastRefresh(Activity act){
+		 Toast toast = Toast.makeText(act, act.getString(R.string.refresh), Toast.LENGTH_SHORT);
 		 LinearLayout toastLayout = (LinearLayout) toast.getView();
 		 TextView toastTV = (TextView) toastLayout.getChildAt(0);
 		 toastTV.setTextSize(30);

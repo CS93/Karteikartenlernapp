@@ -32,7 +32,7 @@ public class ApplicationLogic {
 		for(int i = 0 ; i < mData.getStatistics().size(); i++){
 			if(mData.getStatistics().get(i).getCategory().equals(category)){
 				if(mData.getStatistics().get(i).getDueChallenges() == 0){
-					mGui.showToast(mData.getActivity());
+					mGui.showToastNoDueChallenges(mData.getActivity());
 				} else {
 					//Start activity challenge (learn session) with category and user 	
 					Navigation.startActivityChallenge(mData.getActivity(), mData.getUser(), category);
@@ -42,7 +42,10 @@ public class ApplicationLogic {
 	}
 
 	public void onRefreshClicked(){
-		//After finishing the learn session the gui has to be updated
+		//E.g. After finishing the learn session the gui has to be updated
+		
+		//show a feedback (toast) to user
+		mGui.showToastRefresh(mData.getActivity());
 		
 		//update User Information in Data
 		mData.setUser(mDataInterface.getUser(mData.getUser().getName()));
